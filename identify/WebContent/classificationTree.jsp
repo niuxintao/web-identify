@@ -12,7 +12,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Hi</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// 直接把onclick事件写在了JS中
+		$("#startButton").click(function() {
+			// 序列化表单的值
+			var param_name1 = $("#coveringArray").val();
+			var param_value1 = $("#outCome").val();
 
+			var params = {
+				coveringArray : param_name1,
+				outCome : param_value1,
+			};
+			$.ajax({
+				// 后台处理程序
+				url : "start.action",
+				// 数据发送方式
+				type : "post",
+				// 接受数据格式
+				dataType : "json",
+				// 要传递的数据
+				data : params,
+				// 回传函数
+				success : update,
+				error : function(result) {
+					alert(result.responseText);
+				}
+			});
+		});
+
+	});
+	function update(result) {
+		var json = eval("(" + result + ")");
+		$("#analysis").empty();
+		$("#analysis").html("total:" + json.result);
+
+
+
+	}
+</script>
 </head>
 
 <body>
