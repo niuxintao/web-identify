@@ -1,6 +1,11 @@
 package com.fc.action;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
 
 import com.fc.model.CTA;
 import com.fc.testObject.TestCaseImplement;
@@ -21,44 +26,70 @@ public class ClassifcationAnalysis extends ActionSupport {
 	private String outCome;
 
 	public String execute() {
-		CTA cta = new CTA();
-		int[] param = { 3, 3, 3 };
-		String[] classes = { "pass", "err1", "err2", "err3" };
 
-		int[][] suites = { { 0, 0, 0 }, { 0, 0, 1 }, { 0, 0, 2 }, { 0, 1, 0 },
-				{ 0, 1, 1 }, { 0, 1, 2 }, { 0, 2, 0 }, { 0, 2, 1 },
-				{ 0, 2, 2 }, { 1, 0, 0 }, { 1, 0, 1 }, { 1, 0, 2 },
-				{ 1, 1, 0 }, { 1, 1, 1 }, { 1, 1, 2 }, { 1, 2, 0 },
-				{ 1, 2, 1 }, { 1, 2, 2 }, { 2, 0, 0 }, { 2, 0, 1 },
-				{ 2, 0, 2 }, { 2, 1, 0 }, { 2, 1, 1 }, { 2, 1, 2 },
-				{ 2, 2, 0 }, { 2, 2, 1 }, { 2, 2, 2 } };
+		result = "";
+		List<Tuple> bugs = this.deal();
+		for (Tuple bug : bugs)
+			result += bug.toString();
+		Map<String, Object> s = new HashMap<String, Object>();
+		s.put("result", result);
+		JSONObject jo = JSONObject.fromObject(s);
+		System.out.println(jo.toString());
+		result = jo.toString();
+		return SUCCESS;
+	}
+
+	public List<Tuple> deal() {
+		// String[] p_names = param_name.split(" ");
+		String[] arrays = coveringArray.split("\n");
+		// System.out.println(coveringArray);
 		TestSuite suite = new TestSuiteImplement();
-
-		for (int[] test : suites) {
-			TestCaseImplement testCase = new TestCaseImplement(test.length);
+		for (String str : arrays) {
+			String[] numbs = str.split(" ");
+			int[] test = new int[numbs.length];
+			for (int i = 0; i < numbs.length; i++) {
+				test[i] = Integer.parseInt(numbs[i]);
+			}
+			TestCaseImplement testCase = new TestCaseImplement(numbs.length);
 			testCase.setTestCase(test);
 			suite.addTest(testCase);
 		}
 
-		String[] state = { "pass", "pass", "err3", "pass", "pass", "pass",
-				"pass", "pass", "pass", "err1", "err1", "err1", "err3", "err1",
-				"err1", "err1", "err1", "err1", "err2", "err2", "err2", "err2",
-				"err2", "err2", "err3", "err2", "err2" };
+		// System.out.println(outCome);
+		String[] outComes = outCome.split("\n");
+		for(int i = 0; i < outComes.length; i++)
+			if(outComes[i].equals("0")){
+				outComes[i] = "pass";
+			}else
+				outComes[i] = "fail";
 
+		HashSet<String> set = new HashSet<String>();
+		for (String str : outComes)
+			set.add(str);
+
+		String[] classes = new String[set.size()];
+		classes = set.toArray(classes);
+
+		int[] param = new int[suite.getAt(0).getLength()];
+
+		for (int i = 0; i < param.length; i++) {
+			HashSet<Integer> nums = new HashSet<Integer>();
+			for (int j = 0; j < suite.getTestCaseNum(); j++) {
+				nums.add(suite.getAt(j).getAt(i));
+			}
+			param[i] = nums.size();
+		}
+
+		CTA cta = new CTA();
 		try {
-			cta.process(param, classes, suite, state);
+			cta.process(param, classes, suite, outComes);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		result = "";
-		List<Tuple> bugs = cta.getBugs();
-		for (Tuple bug : bugs)
-			result += bug.toString() + "\n";
-
-		return SUCCESS;
+		return cta.getBugs();
 	}
 
 	public String getResult() {
