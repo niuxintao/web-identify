@@ -1,0 +1,255 @@
+table {
+	display: block; /* important */
+	height: 100px;
+	width: 200px;
+	border: 1px solid rgb(195, 195, 195);
+	padding: 3px;
+	vertical-align: top;
+	font-size: 100%;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	vertical-align: top;
+}
+
+#wrapper legend {
+	text-align: left;
+	background-color: #f0f0f0;
+	color: #666;
+	font-size: 24px;
+	text-shadow: 1px 1px 1px #fff;
+	font-weight: bold;
+	float: left;
+	width: 590px;
+	padding: 5px 0px 5px 10px;
+	margin: 10px 0px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #d9d9d9;
+}
+
+#flsteps {
+	width: 600px;
+	/*height:320px;*/
+	overflow: hidden;
+}
+
+.flstep {
+	float: left;
+	width: 600px;
+	/*height:320px;*/
+}
+
+#flnavigation {
+	height: 45px;
+	background-color: #e9e9e9;
+	border-top: 1px solid #fff;
+	-moz-border-radius: 0px 0px 10px 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#flnavigation ul {
+	list-style: none;
+	float: left;
+	margin-left: 22px;
+}
+
+#flnavigation ul li {
+	float: left;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	position: relative;
+	margin: 0px 2px;
+}
+
+#flnavigation ul li a {
+	display: block;
+	height: 45px;
+	background-color: #444;
+	color: #777;
+	outline: none;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 45px;
+	padding: 0px 20px;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+	background: #f0f0f0;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0.09, rgb(240
+		, 240, 240) ), color-stop(0.55, rgb(227, 227, 227) ),
+		color-stop(0.78, rgb(240, 240, 240) ) );
+	background: -moz-linear-gradient(center bottom, rgb(240, 240, 240) 9%,
+		rgb(227, 227, 227) 55%, rgb(240, 240, 240) 78% )
+}
+
+#flnavigation ul li a:hover,#flnavigation ul li.selected a {
+	background: #d8d8d8;
+	color: #666;
+	text-shadow: 1px 1px 1px #fff;
+}
+
+#flsteps fieldset {
+	border: none;
+	padding-bottom: 20px;
+}
+
+#testUnderRun  legend {
+	text-align: left;
+	background-color: #f0f0f0;
+	color: #666;
+	font-size: 24px;
+	text-shadow: 1px 1px 1px #fff;
+	font-weight: bold;
+	float: left;
+	width: 590px;
+	padding: 5px 0px 5px 10px;
+	margin: 10px 0px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #d9d9d9;
+}
+
+#testUnderRun  fieldset {
+	border: none;
+	padding-bottom: 20px;
+}
+
+.plike {
+	float: left;
+	clear: both;
+	margin: 5px 0px;
+	background-color: #f4f4f4;
+	border: 1px solid #fff;
+	width: 400px;
+	padding: 10px;
+	margin-left: 100px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 3px #aaa;
+	-webkit-box-shadow: 0px 0px 3px #aaa;
+	box-shadow: 0px 0px 3px #aaa;
+}
+
+.plike label {
+	width: 160px;
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	line-height: 26px;
+	color: #666;
+	text-shadow: 1px 1px 1px #fff;
+	font-weight: bold;
+}
+
+#flsteps  input:not  ([type=radio]  ),#flsteps  textarea,#flsteps  select
+	{
+	background: #ffffff;
+	border: 1px solid #ddd;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	outline: none;
+	padding: 5px;
+	width: 200px;
+	float: left;
+}
+
+#flsteps  input:focus {
+	-moz-box-shadow: 0px 0px 3px #aaa;
+	-webkit-box-shadow: 0px 0px 3px #aaa;
+	box-shadow: 0px 0px 3px #aaa;
+	background-color: #FFFEEF;
+}
+
+#bnex {
+	float: left;
+	clear: both;
+	margin: 5px 0px;
+	background-color: #f4f4f4;
+	border: 1px solid #fff;
+	width: 400px;
+	padding: 10px;
+	margin-left: 100px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 3px #aaa;
+	-webkit-box-shadow: 0px 0px 3px #aaa;
+	box-shadow: 0px 0px 3px #aaa;
+	background: none;
+	border: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#run  button {
+	border: none;
+	outline: none;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	color: #ffffff;
+	display: block;
+	cursor: pointer;
+	margin: 0px auto;
+	clear: both;
+	padding: 7px 25px;
+	text-shadow: 0 1px 1px #777;
+	font-weight: bold;
+	font-family: "Century Gothic", Helvetica, sans-serif;
+	font-size: 22px;
+	-moz-box-shadow: 0px 0px 3px #aaa;
+	-webkit-box-shadow: 0px 0px 3px #aaa;
+	box-shadow: 0px 0px 3px #aaa;
+	background: #4797ED;
+}
+
+#run  button:hover {
+	background: #d8d8d8;
+	color: #666;
+	text-shadow: 1px 1px 1px #fff;
+}
+
+.testConfiguration {
+	float: left;
+	clear: both;
+	background-color: #f4f4f4;
+	border: 1px solid #fff;
+	width: 400px;
+	margin-left: 100px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 3px #aaa;
+	-webkit-box-shadow: 0px 0px 3px #aaa;
+	box-shadow: 0px 0px 3px #aaa;
+	font-family: "Century Gothic", Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 2px;
+}
+
+#show {
+	width: 200px;
+	overflow-x: auto;
+}
+
+.pass {
+	background-color: #99CC33;
+	color: #FFFFFF;
+}
+
+.fail {
+	background-color: #CC3333;
+	color: #FFFFFF;
+}
+
+.showlist {
+	height: 80px;
+	width: 200px;
+	overflow-x: auto;
+	overflow-x: auto;
+	font-family: "Century Gothic", Helvetica, sans-serif;
+	font-size: 16px;
+}
