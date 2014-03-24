@@ -223,6 +223,7 @@ h1 {
 }
 </style>
 <body>
+<li><a href="classificationTree.jsp">CTA</a></li>
 	<div id="content">
 		<h1>Identify failure-inducing combinations</h1>
 		<div id="wrapper">
