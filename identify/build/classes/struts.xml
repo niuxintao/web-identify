@@ -31,5 +31,13 @@
 		</action>
 	</package>
 
-
+	<package name="analysis" namespace="/" extends="json-default">
+		<action name="analysis" class="com.fc.action.ClassifcationAnalysis">
+			<result name="success" type="json">
+				<param name="root">
+					result
+				</param>
+			</result>
+		</action>
+	</package>
 </struts>

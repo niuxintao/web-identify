@@ -29,7 +29,7 @@
 		<textarea class="jq_watermark" id="result" name="result" rows="10"
 			cols="20"></textarea>
 		<p class="submit">
-			<button id="startButton">analysis</button>
+			<button id="analysis">analysis</button>
 		</p>
 	</form>
 </body>
