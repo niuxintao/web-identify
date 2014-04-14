@@ -11,12 +11,10 @@
 	<constant name="struts.devMode" value="true" />
 
 
-	<package name="default" namespace="/" extends="json-default">
+	<package name="default" namespace="/" extends="struts-default">
 		<action name="start" class="com.fc.action.GetConfiguration">
-			<result name="success" type="json">
-				<param name="root">
-					result
-				</param>
+			<result name="success">
+			/executing.jsp
 			</result>
 		</action>
 	</package>

@@ -282,7 +282,7 @@ h1 {
 
 			<div id="run">
 				<div id="testUnderRun">
-					<fieldset style="width: 600px;">
+					<fieldset class="step2">
 						<legend>Test Configuration Under Test</legend>
 						<div>
 							<div class="testConfiguration">
@@ -326,57 +326,6 @@ h1 {
 						</ul>
 					</div>
 				</div>
-				<%--		<div id="testUnderRun">
-					<!--  <form id="formRun" name="formRun" action="run"  namespace="/" method="post">-->
-					<fieldset style="width: 600px;">
-						<legend>Test Configuration Under Test</legend>
-						<div>
-							<div class="testConfiguration">
-								<div id="simple" class="group" style="float: right;">
-									<div class="row">
-										<input type="checkbox" id="checkRun" name="run"
-											class="{labelOn: 'PASS', labelOff: 'FAIL'}" />
-									</div>
-								</div>
-								<div id="show"></div>
-							</div>
-
-						</div>
-						<div id="bnex">
-							<button id="next">Next</button>
-						</div>
-					</fieldset>
-					<!-- </form> -->
-				</div>
-				<div id="report">
-					<div id="flsteps">
-						<fieldset class="flstep">
-							<legend>failure-inducing Combinations</legend>
-							<div class="plike">
-								<label for="candidate-inducing" id="candi">candidate-inducing</label>
-								<div class="showlist" id="tuples"></div>
-							</div>
-							<!-- 				  when result is already	
-                     	<p>
-							<label for="failure-inducing">failure-inducing</label> [- 2 - 3]
-						</p> -->
-						</fieldset>
-						<fieldset class="flstep">
-							<legend>Generated Test Configurations</legend>
-							<div class="plike">
-								<label for="all" id="total"></label>
-								<div class="showlist" id="cases"></div>
-							</div>
-						</fieldset>
-					</div>
-					<div id="flnavigation" style="display: none;">
-						<ul>
-							<li class="selected"><a href="#">failure-inducing
-									Combinations</a></li>
-							<li><a href="#">Generated Test Configurations</a></li>
-						</ul>
-					</div>
-				</div> --%>
 			</div>
 
 		</div>

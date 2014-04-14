@@ -124,6 +124,7 @@ public class GetConfiguration extends ActionSupport {
 		// result = jo.toString();
 		// System.out.println(jo.toString());
 		result = execute.getResult();
+		nextTestCase = execute.getNextTestCase();
 		return SUCCESS;
 	}
 

@@ -11,7 +11,7 @@ body{
 #content{
     margin:0 auto;
     text-align:center;
-    width:700px;
+    width:1000px;
     position:relative;
     height:100%;
 }
@@ -29,13 +29,17 @@ body{
     margin: 0 auto;
 }
 #steps{
-    width:600px;
+    width:900px;
 	/*height:320px;*/
      overflow:hidden;
 }
 .step{
     float:left;
-    width:600px;
+    width:900px;
+	/*height:320px;*/
+}
+.step2{
+    width:900px;
 	/*height:320px;*/
 }
 #navigation{
