@@ -3,6 +3,7 @@ package driver;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
+import com.fc.caseRunner.CaseRunnerBoolean;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
 import com.fc.model.ChainAug;
 import com.fc.model.TuplePool;
@@ -107,14 +108,19 @@ public class ChainAugProcess {
 	}
 
 	public static void main(String[] args) {
-		int[] wrong = new int[30];
-		int[] pass = new int[30];
-		int[] param = new int[30];
-		for (int i = 0; i < 30; i++) {
-			wrong[i] = 1;
-			pass[i] = 0;
-			param[i] = 2;
-		}
+		int[] wrong = new int[] { 2, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 3, 1, 0, 0,
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0 };
+		int[] pass = new int[32];
+		int[] param = new int[32];
+		param = new int[] { 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 6, 2, 2, 2, 3, 3,
+				3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2 };
+
+		boolean[] passFail = new boolean[] { false, false, true, false, false,
+				false, false, true, true, true, true, false, false, false,
+				false, false, false, true, true, true, true, true, true, false,
+				false, false, false, true, false, true, true, false, true,
+				false, false, false, true, true, false, false, false, true,
+				true, true, true, false, false, false, true, true, true };
 
 		TestCase rightCase = new TestCaseImplement();
 		((TestCaseImplement) rightCase).setTestCase(pass);
@@ -124,17 +130,20 @@ public class ChainAugProcess {
 		TestSuite rightSuite = new TestSuiteImplement();
 		rightSuite.addTest(rightCase);
 
-		Tuple bugModel = new Tuple(2, wrongCase);
+		Tuple bugModel = new Tuple(3, wrongCase);
 		bugModel.set(0, 19);
 		bugModel.set(1, 29);
+		bugModel.set(2, 30);
 
 		Tuple bugModel2 = new Tuple(2, wrongCase);
 		bugModel2.set(0, 20);
 		bugModel2.set(1, 27);
 
-		CaseRunner caseRunner = new CaseRunnerWithBugInject();
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel);
-	//	((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
+		Tuple bugModel3 = new Tuple(2, wrongCase);
+		bugModel3.set(0, 19);
+		bugModel3.set(1, 27);
+
+		CaseRunner caseRunner = new CaseRunnerBoolean(passFail);
 		ChainAugProcess test = new ChainAugProcess(wrongCase, caseRunner,
 				param, rightSuite);
 		test.testWorkFlow();
