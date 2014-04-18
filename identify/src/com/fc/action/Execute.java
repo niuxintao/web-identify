@@ -60,8 +60,8 @@ public class Execute {
 			CorpTupleWithTestCase generate = new CorpTupleWithTestCase(
 					wrongCase, param);
 			Chain workMachine = new Chain(tree, generate);
-			TestCase testcase = workMachine.genNextTest();
-			session.put("LASTTESTCASE", testcase);
+//			TestCase testcase = workMachine.genNextTest();
+//			session.put("LASTTESTCASE", testcase);
 			session.put("WORKMACHINE", workMachine);
 		}
 
@@ -250,8 +250,8 @@ public class Execute {
 			CorpTupleWithTestCase generate = new CorpTupleWithTestCase(
 					wrongCase, param);
 			ChainAug workMachine = new ChainAug(tree, generate);
-			TestCase testcase = workMachine.genNextTest();
-			session.put("LASTTESTCASE", testcase);
+//			TestCase testcase = workMachine.genNextTest();
+//			session.put("LASTTESTCASE", testcase);
 			session.put("AUGWORKMACHINE", workMachine);
 		}
 
