@@ -307,8 +307,8 @@ public class FIC {
 			return this.tested.get(testCase);
 		else {
 			testCase.setTestState(caseRunner.runTestCase(testCase));
-			this.tested.put(testCase,
-					testCase.testDescription() == TestCase.PASSED);
+//			this.tested.put(testCase,
+//					testCase.testDescription() == TestCase.PASSED);
 			return testCase.testDescription() == TestCase.PASSED;
 		}
 	}
