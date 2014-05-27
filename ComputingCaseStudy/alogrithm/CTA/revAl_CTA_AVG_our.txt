@@ -1,6 +1,0 @@
-CTA
-father :0.0
-child :0.0
-miss :2.0
-reduntant :2.0
-
