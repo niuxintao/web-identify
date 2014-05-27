@@ -45,6 +45,10 @@ public class GetConfiguration extends ActionSupport {
 	public String execute() {
 		String[] p_names = param_name.split(" ");
 		String[] p_values = param_value.split("\n");
+		for (int i = 0; i < p_values.length; i++) {
+			p_values[i] = p_values[i].split("\r")[0];
+		}
+
 		for (String str : approach) {
 			System.out.println(str);
 		}
