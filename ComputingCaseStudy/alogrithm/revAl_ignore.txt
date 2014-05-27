@@ -1,0 +1,21 @@
+fic
+accuarte :2
+father :1
+child :0
+miss :0
+reduntant :0
+
+ofot
+accuarte :2
+father :1
+child :0
+miss :0
+reduntant :0
+
+cta
+accuarte :2
+father :1
+child :0
+miss :0
+reduntant :2
+
