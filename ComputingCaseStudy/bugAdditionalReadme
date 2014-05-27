@@ -1,0 +1,9 @@
+BUG1:
+preparestatement, placeHolder, and  Long string. 
+
+BUG2:
+prepareStatement,  TestBaseScrollAndLong.First ,  for TYPE_SCROLL_INSENSITIVE | TYPE_SCROLL_SENSITIVE 
+
+BUG3:
+
+prepareStatement,  TestBaseScrollAndLong.LAST ,  for TYPE_SCROLL_INSENSITIVE | TYPE_SCROLL_SENSITIVE 
