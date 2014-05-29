@@ -42,7 +42,7 @@ public class FIC_MASK_NEWLY {
 		bugs = new ArrayList<Tuple>();
 		this.caseRunner = caseRunner;
 		extraCases = new TestSuiteImplement();
-		testTuple = new TestTupleSuspicious(caseRunner, param, testCase);
+		testTuple = new TestTupleSuspicious(caseRunner, param, testCase, level);
 		this.otherFaults = otherFaults;
 	}
 

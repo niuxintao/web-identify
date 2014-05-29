@@ -19,7 +19,7 @@ public class ComputingSuspicious {
 			int index = i;
 			int value = testCase.getAt(i);
 			double strengO = (float) this.MO(index, value, faultLevel)
-					/ (float) (this.ALLO(index, value) + 1);
+					/ (float) (this.ALLO(index, value));
 			strength += strengO;
 		}
 
@@ -31,22 +31,22 @@ public class ComputingSuspicious {
 		double max = -1;
 		for (int level : levels) {
 			double strength = this.computingStrength(testCase, level);
-//			System.out.print("  " + level + ": " + strength);
+			System.out.print("  " + level + ": " + strength);
 			if (strength > max)
 				max = strength;
 		}
-//		System.out.println();
+		System.out.println();
 		return max;
 	}
 
 	public int getTestCases(List<TestCase> testCases, int[] levels) {
-//		System.out.println("Suspicious");
+		System.out.println("Suspicious");
 		int result = -1;
 		double min = 0;
 
 		for (int i = 0; i < testCases.size(); i++) {
 			TestCase testCase = testCases.get(i);
-//			System.out.println(testCase.getStringOfTest());
+			System.out.println(testCase.getStringOfTest());
 			double curmin = this.maxStrength(testCase, levels);
 			if (result == -1 || curmin < min) {
 				min = curmin;
@@ -66,10 +66,12 @@ public class ComputingSuspicious {
 					result++;
 			}
 		}
+//		System.out.println("all + " + result);
 		return result;
 	}
 
 	public int MO(int index, int value, int level) {
+//		System.out.print(index + " : " + value + " = ");
 		int result = 0;
 		List<TestCase> testCases = executed.get(level);
 		if (testCases != null)
@@ -78,6 +80,7 @@ public class ComputingSuspicious {
 					result++;
 				}
 			}
+//		System.out.println(result);
 		return result;
 	}
 }

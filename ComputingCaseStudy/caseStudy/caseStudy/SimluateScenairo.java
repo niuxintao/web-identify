@@ -38,25 +38,25 @@ public class SimluateScenairo {
 		bug1.set(1, 1);
 
 		Tuple bug2 = new Tuple(1, wrongCase2);
-		bug2.set(0, 3);
+		bug2.set(0, 1);
 
-		Tuple bug4 = new Tuple(2, wrongCase2);
-		bug4.set(0, 6);
-		bug4.set(1, 7);
+//		Tuple bug4 = new Tuple(2, wrongCase2);
+//		bug4.set(0, 6);
+//		bug4.set(1, 7);
 
 		Tuple bug3 = new Tuple(1, wrongCase3);
-		bug3.set(0, 3);
+		bug3.set(0, 6);
 
-		Tuple bug5 = new Tuple(2, wrongCase3);
-		bug5.set(0, 5);
-		bug5.set(1, 6);
+//		Tuple bug5 = new Tuple(2, wrongCase3);
+//		bug5.set(0, 5);
+//		bug5.set(1, 6);
 
 		BasicRunnerInMask runner = new BasicRunnerInMask();
 		runner.inject(bug1, 1);
 		runner.inject(bug2, 2);
 		runner.inject(bug3, 3);
-		runner.inject(bug4, 3);
-		runner.inject(bug5, 2);
+//		runner.inject(bug4, 3);
+//		runner.inject(bug5, 2);
 
 		MaskRunner maskRunner = new MaskRunner(runner, 1);
 
@@ -82,6 +82,8 @@ public class SimluateScenairo {
 		System.out.println(" Mask runner");
 		for (Tuple tuple : ficmasknew.getBugs())
 			System.out.println(tuple.toString());
+		
+ 		System.out.println("all" + ficmasknew.getExecuted().size());
 
 		// List<TestCase> executed = ficmask.getExecuted();
 		// for(TestCase testCase : executed)
