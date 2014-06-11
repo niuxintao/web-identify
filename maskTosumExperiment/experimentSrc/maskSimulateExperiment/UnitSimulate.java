@@ -14,12 +14,12 @@ import com.fc.tuple.Tuple;
 
 public class UnitSimulate {
 
-	public CaseRunner getCaseRunner() {
-
-		CaseRunner caseRuner = null;
-
-		return null;
-	}
+//	public CaseRunner getCaseRunner() {
+//
+//		CaseRunner caseRuner = null;
+//
+//		return null;
+//	}
 
 	public void testTraditional(int[] param, TestCase wrongCase,
 			CaseRunner runner) throws Exception {

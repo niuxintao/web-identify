@@ -1,5 +1,6 @@
 package maskSimulateExperiment;
 
+import java.util.HashSet;
 import java.util.List;
 
 import com.fc.tuple.Tuple;
@@ -19,6 +20,10 @@ public class ResultData {
 
 	public ResultData() {
 
+	}
+
+	public ResultData(List<Tuple> realMFS, List<Tuple> practiceBugs) {
+		this.setData(realMFS, practiceBugs);
 	}
 
 	public double getInteratgedMetirc() {
@@ -78,6 +83,33 @@ public class ResultData {
 	}
 
 	public void setData(List<Tuple> wrongBugs, List<Tuple> praticeBugs) {
-
+		HashSet<Tuple> reveseTuple = new HashSet<Tuple>();
+		for (Tuple tuple : praticeBugs) {
+			boolean flag = true;
+			for (Tuple mfs : wrongBugs) {
+				if (tuple.equals(mfs)) {
+					this.accurate++;
+					flag = false;
+					reveseTuple.add(mfs);
+					break;
+				} else if (tuple.contains(mfs)) {
+					this.parent++;
+					this.parentRelated += this.computeRelated(tuple, mfs);
+					reveseTuple.add(mfs);
+					flag = false;
+					break;
+				} else if (mfs.contains(tuple)) {
+					this.sub++;
+					this.subRelated += this.computeRelated(tuple, mfs);
+					flag = false;
+					reveseTuple.add(mfs);
+					break;
+				}
+			}
+			if (flag)
+				this.irrelevant++;
+		}
+		this.ignore = wrongBugs.size() - reveseTuple.size();
+		computeIntegratedMetric();
 	}
 }
