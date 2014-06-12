@@ -19,9 +19,9 @@ public class BasicRunner implements CaseRunner {
 		this.bugs = bugs;
 	}
 
-	public BasicRunner() {
-
-	}
+//	public BasicRunner() {
+//
+//	}
 
 	@Override
 	public int runTestCase(TestCase testCase) {
