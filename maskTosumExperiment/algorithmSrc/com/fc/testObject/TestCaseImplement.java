@@ -17,6 +17,11 @@ public class TestCaseImplement implements TestCase {
 		testCase = new int[degree];
 	}
 
+	public TestCaseImplement(int[] testCase) {
+		this.testInfo = TestCase.UNTESTED;
+		this.testCase = testCase;
+	}
+
 	public TestCaseImplement() {
 		this.testInfo = TestCase.UNTESTED;
 	}
@@ -45,7 +50,7 @@ public class TestCaseImplement implements TestCase {
 		// TODO Auto-generated method stub
 		testCase[index] = value;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		String string = "";

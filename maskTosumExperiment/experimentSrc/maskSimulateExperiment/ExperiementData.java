@@ -5,32 +5,37 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import maskTool.GenMaskTestCase;
+
 import com.fc.testObject.TestCase;
+import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
 public class ExperiementData {
 
 	private int[] parameter;
-	private List<TestCase> allCases;
-	private List<Integer> result;
+	// private List<TestCase> allCases;
 
-	private HashMap<Integer, List<Integer>> lowerPriority;
+	private HashMap<Integer, List<Integer>> higherPriority;
 
-	private List<TestCase> rightCases;
+	// private List<TestCase> rightCases;
 
 	private HashMap<Integer, List<TestCase>> wrongCases;
 
 	private HashMap<Integer, List<Tuple>> bugsTable;
+
+//	private CaseRunner ignoreRuner;
+//	private CaseRunner distinguishRunenr;
+//	private CaseRunner maskRunenr;
 
 	public ExperiementData() {
 		this.init();
 	}
 
 	public void init() {
-		this.allCases = new ArrayList<TestCase>();
-		this.result = new ArrayList<Integer>();
-		this.lowerPriority = new HashMap<Integer, List<Integer>>();
-		this.rightCases = new ArrayList<TestCase>();
+		// this.allCases = new ArrayList<TestCase>();
+		this.higherPriority = new HashMap<Integer, List<Integer>>();
+		// this.rightCases = new ArrayList<TestCase>();
 		this.wrongCases = new HashMap<Integer, List<TestCase>>();
 		this.bugsTable = new HashMap<Integer, List<Tuple>>();
 	}
@@ -39,19 +44,19 @@ public class ExperiementData {
 		this.parameter = param;
 	}
 
-	public void setLowerPriority(HashMap<Integer, List<Integer>> lowerPriority) {
-		this.lowerPriority = lowerPriority;
+	public void setHigherPriority(HashMap<Integer, List<Integer>> higherPriority) {
+		this.higherPriority = higherPriority;
 	}
 
-	public void addCodeAndPriority(Integer code, List<Integer> lower) {
-		this.lowerPriority.put(code, lower);
+	public void addCodeAndPriority(Integer code, List<Integer> higher) {
+		this.higherPriority.put(code, higher);
 	}
 
 	public void setBugs(HashMap<Integer, List<Tuple>> bugsTable) {
 		this.bugsTable = bugsTable;
 		for (Integer code : bugsTable.keySet()) {
 			List<Tuple> mfs = bugsTable.get(code);
-			List<Integer> higher = this.lowerPriority.get(code);
+			List<Integer> higher = this.higherPriority.get(code);
 			List<Tuple> higherBugs = new ArrayList<Tuple>();
 			for (Integer high : higher) {
 				higherBugs.addAll(this.bugsTable.get(high));
@@ -61,9 +66,53 @@ public class ExperiementData {
 		}
 	}
 
-	public void setWrongCases(Integer code, List<Tuple> mfs,
+	public void setWrongCases(Integer code, List<Tuple> mfss,
 			List<Tuple> higherBugs) {
+		List<TestCase> wrongCases = new ArrayList<TestCase>();
+		for (int i = 0; i < mfss.size(); i++) {
+			Tuple contained = mfss.get(i);
+			List<Tuple> notContained = new ArrayList<Tuple>();
+			notContained.addAll(higherBugs);
+			for (int j = 0; j < i; j++)
+				notContained.add(mfss.get(j));
+			wrongCases.addAll(this.casesContainAndNotContain(contained,
+					notContained));
+		}
 
+		this.wrongCases.put(code, wrongCases);
+
+	}
+
+	public List<TestCase> casesContainAndNotContain(Tuple contain,
+			List<Tuple> notContain) {
+		List<TestCase> result = new ArrayList<TestCase>();
+		int[] init = new int[this.parameter.length];
+		for (int i = 0; i < contain.getDegree(); i++) {
+			init[contain.getParamIndex()[i]] = contain.getParamValue()[i];
+		}
+		TestCase firstTestCase = new TestCaseImplement(init);
+		if (!containTuple(firstTestCase, notContain))
+			result.add(firstTestCase);
+		GenMaskTestCase gen = new GenMaskTestCase(firstTestCase,
+				this.parameter, contain);
+		while (!gen.isStop()) {
+			TestCase next = gen.generateTestCaseContainTuple(contain);
+			if (!containTuple(next, notContain))
+				result.add(next);
+		}
+
+		return result;
+	}
+
+	boolean containTuple(TestCase testCase, List<Tuple> tuples) {
+		boolean result = false;
+		for (Tuple tuple : tuples) {
+			if (testCase.containsOf(tuple)) {
+				result = true;
+				break;
+			}
+		}
+		return result;
 	}
 
 	// public void addBug(Integer code, List<Tuple> bugs) {
@@ -84,25 +133,21 @@ public class ExperiementData {
 		return parameter;
 	}
 
-	public List<TestCase> getAllCases() {
-		return allCases;
-	}
-
-	public List<Integer> getResult() {
-		return result;
-	}
+	// public List<TestCase> getAllCases() {
+	// return allCases;
+	// }
 
 	// public List<Integer> getBugCode() {
 	// return BugCode;
 	// }
 
-	public HashMap<Integer, List<Integer>> getLowerPriority() {
-		return lowerPriority;
+	public HashMap<Integer, List<Integer>> getHigherPriority() {
+		return higherPriority;
 	}
 
-	public List<TestCase> getRightCases() {
-		return rightCases;
-	}
+	// public List<TestCase> getRightCases() {
+	// return rightCases;
+	// }
 
 	public HashMap<Integer, List<TestCase>> getWrongCases() {
 		return wrongCases;
