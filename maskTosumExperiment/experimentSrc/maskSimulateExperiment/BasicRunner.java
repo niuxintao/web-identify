@@ -19,9 +19,9 @@ public class BasicRunner implements CaseRunner {
 		this.bugs = bugs;
 	}
 
-//	public BasicRunner() {
-//
-//	}
+	// public BasicRunner() {
+	//
+	// }
 
 	@Override
 	public int runTestCase(TestCase testCase) {
@@ -36,6 +36,9 @@ public class BasicRunner implements CaseRunner {
 				}
 			}
 		}
+
+		if (candidate.size() == 0)
+			return 0;
 
 		for (Integer code : candidate) {
 			List<Integer> hihger = this.higherPriority.get(code);
