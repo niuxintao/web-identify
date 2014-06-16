@@ -19,7 +19,6 @@ public class OFOT_MASK_NEWLY {
 
 	public static int TRYNUMBER = 3;
 
-	private List<TestCase> executed;
 
 	protected TestTupleSuspicious testTuple;
 
@@ -32,7 +31,7 @@ public class OFOT_MASK_NEWLY {
 	protected TestCase testCase;
 
 	public List<TestCase> getExecuted() {
-		return executed;
+		return this.testTuple.getExecuted();
 	}
 
 	private List<Tuple> bugs;
@@ -47,10 +46,10 @@ public class OFOT_MASK_NEWLY {
 
 	public OFOT_MASK_NEWLY(TestCase testCase, int[] param,
 			BasicRunner caseRunner, int level) {
-		executed = new ArrayList<TestCase>();
 		bugs = new ArrayList<Tuple>();
 		this.testCase = testCase;
 		this.level = level;
+		testCase.setTestState(level);
 		this.param = param;
 		bugs = new ArrayList<Tuple>();
 		// this.caseRunner = caseRunner;
@@ -146,9 +145,8 @@ public class OFOT_MASK_NEWLY {
 		List<Tuple> bugs1 = new ArrayList<Tuple>();
 		bugs1.add(bug1);
 
-		Tuple bug2 = new Tuple(2, wrongCase2);
+		Tuple bug2 = new Tuple(1, wrongCase2);
 		bug2.set(0, 3);
-		bug2.set(1, 4);
 
 		List<Tuple> bugs2 = new ArrayList<Tuple>();
 		bugs2.add(bug2);
@@ -170,7 +168,7 @@ public class OFOT_MASK_NEWLY {
 
 		// ExperiementData exData = new ExperiementData();
 
-		OFOT_MASK_NEWLY ofot = new OFOT_MASK_NEWLY(wrongCase2, param,
+		OFOT_MASK_NEWLY ofot = new OFOT_MASK_NEWLY(wrongCase, param,
 				basicRunner, 1);
 		ofot.process();
 

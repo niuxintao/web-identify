@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import newMaskAlgorithms.FIC_MASK_NEWLY;
+import newMaskAlgorithms.OFOT_MASK_NEWLY;
 import maskAlogrithms.CTA;
 import maskAlogrithms.FIC;
 import maskAlogrithms.SOFOT;
@@ -73,6 +74,36 @@ public class UnitSimulate {
 		System.out.println("Mask fic");
 		for (Tuple tuple : ficmasknew.getBugs())
 			System.out.println(tuple.toString());
+
+		OFOT_MASK_NEWLY ofot = new OFOT_MASK_NEWLY(wrongCase, param, runner,
+				code);
+		ofot.process();
+
+		System.out.println("Mask ofot:");
+		for (Tuple tuple : ofot.getBugs()) {
+			System.out.println(tuple.toString());
+		}
+
+		TestSuite suite = new TestSuiteImplement();
+		for (TestCase testCase : ofot.getExecuted()) {
+			if (testCase.testDescription() == 0
+					|| testCase.testDescription() == code)
+				suite.addTest(testCase);
+		}
+		String[] classes = new String[] { "0", "1" };
+		CTA cta = new CTA();
+		String[] state = new String[suite.getTestCaseNum()];
+		for (int i = 0; i < state.length; i++) {
+
+			state[i] = "" + (suite.getAt(i).testDescription() == 0 ? 0 : 1);
+			// System.out.println(runresult);
+		}
+		cta.process(param, classes, suite, state);
+
+		System.out.println("Mask cta:");
+		if (cta.getBugs(1) != null)
+			for (Tuple tuple : cta.getBugs(1))
+				System.out.println(tuple.toString());
 
 		// FIC_MASK ficmask = new FIC_MASK(wrongCase, param, runner, 1);
 		// ficmask.FicNOP();
