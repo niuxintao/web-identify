@@ -58,13 +58,13 @@ public class GenMaskTestCaseNewly {
 		array = new ArrayList<Integer>(allStep);
 
 		for (int i = 0; i < allStep; i++)
-			getArray().add(i);
+			array.add(i);
 	}
 
 	public int[] takeKaccrodingtoStep(int step) {
 		int[] result = new int[addedParam.length];
 		int num = 1;
-		while (num < addedParam.length) {
+		while (num <= addedParam.length) {
 			int divedfactor = 1;
 			for (int i = num; i < addedParam.length; i++) {
 				divedfactor *= addedParam[i];
@@ -77,13 +77,13 @@ public class GenMaskTestCaseNewly {
 			num++;
 		}
 
-		result[num - 1] = step;
+	//	result[num - 1] = step;
 
 		return result;
 	}
 
 	public boolean isStop() {
-		return this.getArray().isEmpty();
+		return this.array.isEmpty();
 	}
 
 	// public void step() {
@@ -129,7 +129,7 @@ public class GenMaskTestCaseNewly {
 	public TestCase generateTestCaseContainTuple(int givenNum, Tuple tuple) {
 		/* generate a part test case just contain the tuple */
 
-		int step = this.getArray().get(givenNum);
+		int step = this.array.get(givenNum);
 
 		// System.out.println(step);
 
@@ -140,14 +140,14 @@ public class GenMaskTestCaseNewly {
 	}
 
 	public void deleteGenerated(int givenNum) {
-		this.getArray().remove(givenNum);
+		this.array.remove(givenNum);
 	}
 
 	public TestCase generateTestCaseContainTuple(Tuple tuple) {
 		/* generate a part test case just contain the tuple */
-		int givenNum = new Random().nextInt(getArray().size());
+		int givenNum = new Random().nextInt(array.size());
 
-		int step = this.getArray().get(givenNum);
+		int step = this.array.get(givenNum);
 
 		// System.out.println(step);
 
@@ -178,8 +178,8 @@ public class GenMaskTestCaseNewly {
 		Random random = new Random();
 		int[] givenNums = new int[tryNum];
 		for (int i = 0; i < tryNum; i++) {
-			givenNums[i] = random.nextInt(getArray().size());
-			if (i < getArray().size())
+			givenNums[i] = random.nextInt(array.size());
+			if (i < array.size())
 				for (int j = 0; j < i; j++) {
 					if (givenNums[i] == givenNums[j]) {
 						i--;

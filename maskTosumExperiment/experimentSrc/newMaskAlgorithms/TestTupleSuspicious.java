@@ -116,7 +116,7 @@ public class TestTupleSuspicious {
 
 			// System.out.print(testCase.getStringOfTest() + " : ");
 
-			generate.deleteGenerated(indexSuspicous);
+			generate.deleteGenerated(givenNums[indexSuspicous]);
 
 			executed.add(testCase);
 			//

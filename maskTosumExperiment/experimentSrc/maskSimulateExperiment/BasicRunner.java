@@ -37,8 +37,10 @@ public class BasicRunner implements CaseRunner {
 			}
 		}
 
-		if (candidate.size() == 0)
+		if (candidate.size() == 0) {
+			testCase.setTestState(0);
 			return 0;
+		}
 
 		for (Integer code : candidate) {
 			List<Integer> hihger = this.higherPriority.get(code);
@@ -49,9 +51,10 @@ public class BasicRunner implements CaseRunner {
 					break;
 				}
 			}
-			if (flag)
+			if (flag) {
+				testCase.setTestState(code);
 				return code;
-
+			}
 		}
 
 		return -1;
