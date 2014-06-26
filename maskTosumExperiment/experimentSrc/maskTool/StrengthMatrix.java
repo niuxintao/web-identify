@@ -1,6 +1,8 @@
 package maskTool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -11,8 +13,26 @@ public class StrengthMatrix {
 	private HashMap<Integer, List<TestCase>> executed;
 	private int[] param;
 	private int[] Vindex;
-	
-//	private HashMap<Integer, List<TestCase>> temp;
+
+	private HashMap<Integer, List<TestCase>> temp;
+
+	public HashMap<Integer, List<TestCase>> getExecuted() {
+		return executed;
+	}
+
+	public void merge() {
+		for (Integer key : executed.keySet()) {
+			HashSet<TestCase> testCases = new HashSet<TestCase>();
+			testCases.addAll(executed.get(key));
+			testCases.addAll(temp.get(key));
+			List<TestCase> newLy = new ArrayList<TestCase>(testCases);
+			executed.put(key, newLy);
+		}
+	}
+
+	public void addTestCase(Integer fault, TestCase testCase) {
+		this.temp.get(fault).add(testCase);
+	}
 
 	public StrengthMatrix(HashMap<Integer, List<TestCase>> executed,
 			int[] param, int[] Vindex) {
@@ -21,6 +41,11 @@ public class StrengthMatrix {
 		this.Vindex = Vindex;
 		matrix = new double[executed.keySet().size()][Vindex[this.param.length - 1]
 				+ this.param[this.param.length - 1]];
+		temp = new HashMap<Integer, List<TestCase>>();
+		for (Integer key : executed.keySet()) {
+			List<TestCase> testCase = new ArrayList<TestCase>();
+			temp.put(key, testCase);
+		}
 		this.updateMaxtrix();
 	}
 
@@ -95,6 +120,14 @@ public class StrengthMatrix {
 					result++;
 			}
 		}
+
+		for (Entry<Integer, List<TestCase>> list : temp.entrySet()) {
+			List<TestCase> testCases = list.getValue();
+			for (TestCase testCase : testCases) {
+				if (testCase.getAt(index) == value)
+					result++;
+			}
+		}
 		// System.out.println("all + " + result);
 		return result;
 	}
@@ -105,6 +138,14 @@ public class StrengthMatrix {
 		List<TestCase> testCases = executed.get(level);
 		if (testCases != null)
 			for (TestCase testCase : testCases) {
+				if (testCase.getAt(index) == value) {
+					result++;
+				}
+			}
+
+		List<TestCase> testCases2 = temp.get(level);
+		if (testCases2 != null)
+			for (TestCase testCase : testCases2) {
 				if (testCase.getAt(index) == value) {
 					result++;
 				}

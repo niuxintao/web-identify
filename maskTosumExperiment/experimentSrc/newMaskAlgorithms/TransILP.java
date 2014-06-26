@@ -2,6 +2,9 @@ package newMaskAlgorithms;
 
 //import com.fc.tuple.Tuple;
 
+import com.fc.testObject.TestCase;
+import com.fc.testObject.TestCaseImplement;
+
 import net.sf.javailp.Linear;
 import net.sf.javailp.OptType;
 import net.sf.javailp.Problem;
@@ -43,13 +46,13 @@ public class TransILP {
 		factory.setParameter(Solver.TIMEOUT, 100); // set timeout to 100 seconds
 	}
 
-	public void run() {
+	public TestCase run() {
 		int faultNum = allMaxtrix.length;
 		Result last = null;
 		int faultM = -1;
 		for (int i = 0; i < faultNum; i++) {
 			if (i != fault) {
-				this.setup(param, Vindex, allMaxtrix, i, fixed, allNum);
+				this.setup(param, Vindex, allMaxtrix, i, fault, fixed, allNum);
 				Result result = this.solve(Vindex, allNum);
 				if (result != null)
 					if (last == null
@@ -60,8 +63,23 @@ public class TransILP {
 					}
 			}
 		}
+
+		System.out.println("result");
 		System.out.println(last);
 		System.out.println(faultM);
+
+		if (last == null)
+			return null;
+		int[] test = this.extractTest(Vindex, allNum, last);
+
+		return this.getTestCase(test);
+	}
+
+	public TestCase getTestCase(int[] n) {
+		TestCaseImplement gen = new TestCaseImplement();
+		gen.setTestCase(n);
+
+		return gen;
 	}
 
 	// public void setup() {
@@ -89,8 +107,10 @@ public class TransILP {
 	 * @param fixed
 	 *            : the fixed part that should not change
 	 */
+
+	// need to fix the fault that should not to compare
 	public void setup(int[] param, int[] Vindex, double[][] allMaxtrix,
-			int fault, int[] fixed, int allNum) {
+			int fault, int faultIgnore, int[] fixed, int allNum) {
 		problem = new Problem();
 		// if (allMaxtrix.length <= 0)
 		// throw new Exception("Matrix is not permitted to be null");
@@ -128,7 +148,7 @@ public class TransILP {
 
 		// the final matrix should be the max
 		for (int i = 0; i < allMaxtrix.length; i++) {
-			if (i == fault)
+			if (i == fault || i == faultIgnore)
 				continue;
 			double[] other = allMaxtrix[i];
 			double[] mMaxt = allMaxtrix[fault];
@@ -157,26 +177,7 @@ public class TransILP {
 		Result result = solver.solve(problem);
 		System.out.println(result);
 		if (result != null) {
-			int[] num = new int[allNum];
-			for (int i = 0; i < allNum; i++) {
-				System.out.print("x" + i + ":" + result.get("x" + i) + "  ");
-				num[i] = (Integer) result.get("x" + i);
-			}
-			System.out.println();
-
-			int[] test = new int[Vindex.length];
-			int cur = 0;
-			for (int i = 0; i < num.length; i++) {
-				if (num[i] == 1) {
-					test[cur] = i - Vindex[cur];
-					cur++;
-				}
-			}
-
-			System.out.println("test");
-			for (int i : test) {
-				System.out.print(i + " ");
-			}
+			extractTest(Vindex, allNum, result);
 
 			System.out.println();
 
@@ -184,6 +185,31 @@ public class TransILP {
 		}
 		return result;
 
+	}
+
+	private int[] extractTest(int[] Vindex, int allNum, Result result) {
+		int[] num = new int[allNum];
+		for (int i = 0; i < allNum; i++) {
+			System.out.print("x" + i + ":" + result.get("x" + i) + "  ");
+			num[i] = (Integer) result.get("x" + i);
+		}
+		System.out.println();
+
+		int[] test = new int[Vindex.length];
+		int cur = 0;
+		for (int i = 0; i < num.length; i++) {
+			if (num[i] == 1) {
+				test[cur] = i - Vindex[cur];
+				cur++;
+			}
+		}
+
+		System.out.println("test");
+		for (int i : test) {
+			System.out.print(i + " ");
+		}
+
+		return test;
 	}
 
 	public static void test() {
@@ -250,7 +276,11 @@ public class TransILP {
 	}
 
 	public static void main(String[] args) {
-		TransILP.test();
+		// TransILP.test();
+		TransILP.simpleExample(0);
+		TransILP.simpleExample(1);
+		TransILP.simpleExample(2);
+		TransILP.simpleExample(3);
 
 		int[] param = new int[] { 2, 2, 2, 2 };
 		int[] Vindex = new int[param.length];
@@ -266,14 +296,18 @@ public class TransILP {
 				{ 0.8, 0.3, 0.3, 0.5, 0.9, 0.1, 0.4, 0.8 },
 				{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } };
 
+		// int fault = 1;
+
+		int[] fixed = new int[] { 1, 4 };
+
 		int fault = 3;
 
-		TransILP ilp = new TransILP(param, Vindex, matrix, fault, Vindex);
+		TransILP ilp = new TransILP(param, Vindex, matrix, fault, fixed);
 
 		ilp.run();
 	}
 
-	public static void simpleExample() {
+	public static void simpleExample(int fault) {
 		TransILP ilp = new TransILP();
 		int[] param = new int[] { 2, 2, 2, 2 };
 		int[] Vindex = new int[param.length];
@@ -289,11 +323,11 @@ public class TransILP {
 				{ 0.8, 0.3, 0.3, 0.5, 0.9, 0.1, 0.4, 0.8 },
 				{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } };
 
-		int fault = 1;
+		// int fault = 1;
 
 		int[] fixed = new int[] { 1, 4 };
 
-		ilp.setup(param, Vindex, matrix, fault, fixed, matrix[0].length);
+		ilp.setup(param, Vindex, matrix, fault, -1, fixed, matrix[0].length);
 
 		ilp.solve(Vindex, matrix[0].length);
 	}

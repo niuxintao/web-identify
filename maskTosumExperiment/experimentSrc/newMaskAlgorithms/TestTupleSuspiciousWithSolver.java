@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import maskSimulateExperiment.BasicRunner;
+import maskTool.StrengthMatrix;
 
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
@@ -35,35 +36,51 @@ public class TestTupleSuspiciousWithSolver {
 
 	private int[] param;
 
-	private List<TestCase> executed;
+	private int[] Vindex;
+
+	// private List<TestCase> executed;
 
 	private HashMap<Integer, List<TestCase>> executedHash;
 
 	public TestTupleSuspiciousWithSolver(BasicRunner runner, int[] param,
-			TestCase wrongCase, int fault) {
+			TestCase wrongCase, int fault, int[] faults) {
 		this.runner = runner;
 
 		this.param = param;
 
-		executed = new ArrayList<TestCase>();
+		Vindex = new int[param.length];
+		int curr = 0;
+		for (int i = 0; i < Vindex.length; i++) {
+			Vindex[i] = curr;
+			curr += param[i];
+		}
+
+		// executed = new ArrayList<TestCase>();
 		executedHash = new HashMap<Integer, List<TestCase>>();
+		for (Integer key : faults) {
+			List<TestCase> testCase = new ArrayList<TestCase>();
+			executedHash.put(key, testCase);
+		}
 		List<TestCase> existed = new ArrayList<TestCase>();
 		existed.add(wrongCase);
-		executedHash.put(fault, existed);
-		executed.add(wrongCase);
-	}
-
-	public List<TestCase> getExecuted() {
-		return this.executed;
+		executedHash.get(fault).addAll(existed);
+		// executed.add(wrongCase);
 	}
 
 	public boolean testTuple(Tuple tuple, int fault, TestCase wrongCase) {
+		StrengthMatrix stengthMatrix = new StrengthMatrix(executedHash, Vindex,
+				Vindex);
 
+		int[] fixed = getFixedPart(tuple);
+
+		TransILP ilp = new TransILP(param, Vindex, stengthMatrix.getMaxtrix(),
+				fault, fixed);
+		// ilp.run();
 		// System.out.println(tuple.toString());
 		// int time = 0;
 		boolean result = true;
-		GenMaskTestCaseNewly generate = new GenMaskTestCaseNewly(wrongCase,
-				param, tuple);
+		// GenMaskTestCaseNewly generate = new GenMaskTestCaseNewly(wrongCase,
+		// param, tuple);
 
 		while (true) {
 			// time++;
@@ -71,54 +88,21 @@ public class TestTupleSuspiciousWithSolver {
 			// result = true;
 			// break;
 			// }
-			if (generate.isStop()) {
+			// if (generate.isStop()) {
+			// result = true;
+			// break;
+			// }
+			TestCase testCase = ilp.run();
+			if (testCase == null) {
 				result = true;
 				break;
 			}
 
 			// System.out.println("start");
 
-			int[] givenNums = generate.tryTestCaseContainTuple(tuple,
-					CANDIDATENUM);
-
-			// System.out.println("end");
-
-			List<TestCase> testCases = new ArrayList<TestCase>();
-			for (int i = 0; i < CANDIDATENUM; i++) {
-				// int givenNum = new Random().nextInt(array.size());
-				int step = generate.getArray().get(givenNums[i]);
-
-				int[] index = generate.takeKaccrodingtoStep(step);
-				TestCase candidate = generate.genenteTestCase(index, tuple,
-						wrongCase);
-
-				testCases.add(candidate);
-			}
-
-			ComputingSuspicious cs = new ComputingSuspicious(executedHash);
-
-			int[] otherFaults = new int[executedHash.keySet().size() - 1];
-			int index = 0;
-			for (Integer key : executedHash.keySet()) {
-				if (key != fault) {
-					otherFaults[index] = key;
-					index++;
-				}
-			}
-
-			int indexSuspicous = cs.getTestCases(testCases, otherFaults);
-
-			// cs.computingStrength(testCase, faultLevel);
-			// cs
-
-			// generate.
-			TestCase testCase = testCases.get(indexSuspicous);
-
 			// System.out.print(testCase.getStringOfTest() + " : ");
 
-			generate.deleteGenerated(givenNums[indexSuspicous]);
-
-			executed.add(testCase);
+			// executed.add(testCase);
 			//
 			// if (testCase == null) {// generate all the test cases that it
 			// could
@@ -129,15 +113,15 @@ public class TestTupleSuspiciousWithSolver {
 			// System.out.println("executed");
 			// System.out.print(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
-
+			stengthMatrix.addTestCase(runresult, testCase);
 			// System.out.println(runresult);
 
-			if (!this.executedHash.containsKey(runresult)) {
-				List<TestCase> values = new ArrayList<TestCase>();
-				this.executedHash.put(runresult, values);
-			}
+			// if (!this.executedHash.containsKey(runresult)) {
+			// List<TestCase> values = new ArrayList<TestCase>();
+			// this.executedHash.put(runresult, values);
+			// }
 
-			this.executedHash.get(runresult).add(testCase);
+			// this.executedHash.get(runresult).add(testCase);
 
 			if (runresult == 0) {
 				result = true;
@@ -151,7 +135,28 @@ public class TestTupleSuspiciousWithSolver {
 			}
 		}
 
+		stengthMatrix.merge();
+		this.executedHash = stengthMatrix.getExecuted();
 		return result;
+	}
+
+	private int[] getFixedPart(Tuple tuple) {
+		int[] fixed = new int[tuple.getDegree()];
+		for (int i = 0; i < fixed.length; i++) {
+			int index = tuple.getParamIndex()[i];
+			int value = tuple.getParamValue()[i];
+			int matrxiIndex = Vindex[index] + value;
+			fixed[i] = matrxiIndex;
+		}
+		return fixed;
+	}
+
+	public List<TestCase> getExecuted() {
+		List<TestCase> executed = new ArrayList<TestCase>();
+		for (Integer key : this.executedHash.keySet())
+			executed.addAll(this.executedHash.get(key));
+
+		return executed;
 	}
 
 	public static void main(String[] args) {
