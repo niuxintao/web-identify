@@ -2,6 +2,8 @@ package newMaskAlgorithms;
 
 //import com.fc.tuple.Tuple;
 
+import java.util.HashMap;
+
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 
@@ -23,12 +25,12 @@ public class TransILP {
 	private int fault;
 	private int[] param;
 	private int[] fixed;
-	private double[][] allMaxtrix;
+	private HashMap<Integer, double[]> allMaxtrix;
 
 	// private int[] param;
 
-	public TransILP(int[] param, int[] Vindex, double[][] allMaxtrix,
-			int fault, int[] fixed) {
+	public TransILP(int[] param, int[] Vindex,
+			HashMap<Integer, double[]> allMaxtrix, int fault, int[] fixed) {
 		factory = new SolverFactoryLpSolve(); // use lp_solve
 		factory.setParameter(Solver.VERBOSE, 0);
 		factory.setParameter(Solver.TIMEOUT, 100); // set timeout to 100 seconds
@@ -37,7 +39,7 @@ public class TransILP {
 		this.allMaxtrix = allMaxtrix;
 		this.fault = fault;
 		this.fixed = fixed;
-		this.allNum = allMaxtrix[0].length;
+		this.allNum = Vindex[Vindex.length - 1] + param[param.length - 1];
 	}
 
 	public TransILP() {
@@ -47,10 +49,10 @@ public class TransILP {
 	}
 
 	public TestCase run() {
-		int faultNum = allMaxtrix.length;
+		// int faultNum = allMaxtrix.keySet().size();
 		Result last = null;
 		int faultM = -1;
-		for (int i = 0; i < faultNum; i++) {
+		for (int i : allMaxtrix.keySet()) {
 			if (i != fault) {
 				this.setup(param, Vindex, allMaxtrix, i, fault, fixed, allNum);
 				Result result = this.solve(Vindex, allNum);
@@ -109,8 +111,9 @@ public class TransILP {
 	 */
 
 	// need to fix the fault that should not to compare
-	public void setup(int[] param, int[] Vindex, double[][] allMaxtrix,
-			int fault, int faultIgnore, int[] fixed, int allNum) {
+	public void setup(int[] param, int[] Vindex,
+			HashMap<Integer, double[]> allMaxtrix, int fault, int faultIgnore,
+			int[] fixed, int allNum) {
 		problem = new Problem();
 		// if (allMaxtrix.length <= 0)
 		// throw new Exception("Matrix is not permitted to be null");
@@ -122,7 +125,7 @@ public class TransILP {
 		// set the object
 		Linear linear = new Linear();
 		for (int i = 0; i < allNum; i++) {
-			linear.add(allMaxtrix[fault][i], "x" + i);
+			linear.add(allMaxtrix.get(fault)[i], "x" + i);
 		}
 		problem.setObjective(linear, OptType.MIN);
 
@@ -147,11 +150,11 @@ public class TransILP {
 		}
 
 		// the final matrix should be the max
-		for (int i = 0; i < allMaxtrix.length; i++) {
+		for (int i : allMaxtrix.keySet()) {
 			if (i == fault || i == faultIgnore)
 				continue;
-			double[] other = allMaxtrix[i];
-			double[] mMaxt = allMaxtrix[fault];
+			double[] other = allMaxtrix.get(i);
+			double[] mMaxt = allMaxtrix.get(fault);
 			double[] minusMaxtrix = new double[allNum];
 			for (int j = 0; j < allNum; j++) {
 				minusMaxtrix[j] = mMaxt[j] - other[j];
@@ -277,7 +280,7 @@ public class TransILP {
 
 	public static void main(String[] args) {
 		// TransILP.test();
-		TransILP.simpleExample(0);
+		// TransILP.simpleExample(0);
 		TransILP.simpleExample(1);
 		TransILP.simpleExample(2);
 		TransILP.simpleExample(3);
@@ -296,13 +299,18 @@ public class TransILP {
 				{ 0.8, 0.3, 0.3, 0.5, 0.9, 0.1, 0.4, 0.8 },
 				{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } };
 
+		HashMap<Integer, double[]> mm = new HashMap<Integer, double[]>();
+		for (int i = 1; i <= matrix.length; i++) {
+			mm.put(i, matrix[i - 1]);
+		}
+
 		// int fault = 1;
 
 		int[] fixed = new int[] { 1, 4 };
 
 		int fault = 3;
 
-		TransILP ilp = new TransILP(param, Vindex, matrix, fault, fixed);
+		TransILP ilp = new TransILP(param, Vindex, mm, fault, fixed);
 
 		ilp.run();
 	}
@@ -322,12 +330,15 @@ public class TransILP {
 				{ 0.5, 0.7, 0.4, 0.3, 0.9, 0.5, 0.2, 0.3 },
 				{ 0.8, 0.3, 0.3, 0.5, 0.9, 0.1, 0.4, 0.8 },
 				{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } };
-
+		HashMap<Integer, double[]> mm = new HashMap<Integer, double[]>();
+		for (int i = 1; i <= matrix.length; i++) {
+			mm.put(i, matrix[i - 1]);
+		}
 		// int fault = 1;
 
 		int[] fixed = new int[] { 1, 4 };
 
-		ilp.setup(param, Vindex, matrix, fault, -1, fixed, matrix[0].length);
+		ilp.setup(param, Vindex, mm, fault, -1, fixed, matrix[0].length);
 
 		ilp.solve(Vindex, matrix[0].length);
 	}

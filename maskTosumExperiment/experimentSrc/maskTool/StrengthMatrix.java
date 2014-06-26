@@ -9,10 +9,11 @@ import java.util.Map.Entry;
 import com.fc.testObject.TestCase;
 
 public class StrengthMatrix {
-	private double[][] matrix;
+	private HashMap<Integer, double[]> matrix;
 	private HashMap<Integer, List<TestCase>> executed;
 	private int[] param;
 	private int[] Vindex;
+	private int allNum;
 
 	private HashMap<Integer, List<TestCase>> temp;
 
@@ -31,6 +32,14 @@ public class StrengthMatrix {
 	}
 
 	public void addTestCase(Integer fault, TestCase testCase) {
+		if (!this.executed.containsKey(fault)) {
+			List<TestCase> values = new ArrayList<TestCase>();
+			this.executed.put(fault, values);
+			List<TestCase> values2 = new ArrayList<TestCase>();
+			this.temp.put(fault, values2);
+
+			matrix.put(fault, new double[allNum]);
+		}
 		this.temp.get(fault).add(testCase);
 	}
 
@@ -39,8 +48,19 @@ public class StrengthMatrix {
 		this.executed = executed;
 		this.param = param;
 		this.Vindex = Vindex;
-		matrix = new double[executed.keySet().size()][Vindex[this.param.length - 1]
-				+ this.param[this.param.length - 1]];
+		this.allNum = Vindex[this.param.length - 1]
+				+ this.param[this.param.length - 1];
+
+		matrix = new HashMap<Integer, double[]>();
+		for (Integer key : executed.keySet()) {
+			if (!matrix.containsKey(key)) {
+				matrix.put(key, new double[allNum]);
+			}
+		}
+
+		// matrix = new
+		// double[executed.keySet().size()][Vindex[this.param.length - 1]
+		// + this.param[this.param.length - 1]];
 		temp = new HashMap<Integer, List<TestCase>>();
 		for (Integer key : executed.keySet()) {
 			List<TestCase> testCase = new ArrayList<TestCase>();
@@ -49,12 +69,12 @@ public class StrengthMatrix {
 		this.updateMaxtrix();
 	}
 
-	public double[][] getMaxtrix() {
+	public HashMap<Integer, double[]> getMaxtrix() {
 		return matrix;
 	}
 
 	public void updateMaxtrix() {
-		for (int i = 0; i < matrix[0].length; i++)
+		for (int i = 0; i < allNum; i++)
 			this.updateMaxtrixS(i);
 	}
 
@@ -76,12 +96,12 @@ public class StrengthMatrix {
 		double result = (float) this.MO(index, value, fault)
 				/ (float) (this.ALLO(index, value));
 
-		matrix[fault][maxtrixIndex] = result;
+		matrix.get(fault)[maxtrixIndex] = result;
 	}
 
 	public int getIndex(int maxtrixIndex) {
 		int head = 0;
-		int tail = Vindex.length;
+		int tail = Vindex.length - 1;
 		int middle = (int) (0.5 * head + 0.5 * tail);
 
 		while (tail - head > 1) {
@@ -107,7 +127,7 @@ public class StrengthMatrix {
 		double result = (float) this.MO(index, value, fault)
 				/ (float) (this.ALLO(index, value));
 
-		matrix[fault][maxtrixIndex] = result;
+		matrix.get(fault)[maxtrixIndex] = result;
 
 	}
 

@@ -43,7 +43,7 @@ public class TestTupleSuspiciousWithSolver {
 	private HashMap<Integer, List<TestCase>> executedHash;
 
 	public TestTupleSuspiciousWithSolver(BasicRunner runner, int[] param,
-			TestCase wrongCase, int fault, int[] faults) {
+			TestCase wrongCase, int fault) {
 		this.runner = runner;
 
 		this.param = param;
@@ -57,13 +57,14 @@ public class TestTupleSuspiciousWithSolver {
 
 		// executed = new ArrayList<TestCase>();
 		executedHash = new HashMap<Integer, List<TestCase>>();
-		for (Integer key : faults) {
-			List<TestCase> testCase = new ArrayList<TestCase>();
-			executedHash.put(key, testCase);
-		}
+//		for (Integer key : faults) {
+//			List<TestCase> testCase = new ArrayList<TestCase>();
+//			executedHash.put(key, testCase);
+//		}
 		List<TestCase> existed = new ArrayList<TestCase>();
 		existed.add(wrongCase);
-		executedHash.get(fault).addAll(existed);
+		executedHash.put(fault, existed);
+//		executedHash.get(fault).addAll(existed);
 		// executed.add(wrongCase);
 	}
 
@@ -114,6 +115,11 @@ public class TestTupleSuspiciousWithSolver {
 			// System.out.print(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
 			stengthMatrix.addTestCase(runresult, testCase);
+			for (int i = 0; i < testCase.getLength(); i++) {
+				int value = testCase.getAt(i);
+				stengthMatrix.updateMaxtrixS(i, value);
+			}
+
 			// System.out.println(runresult);
 
 			// if (!this.executedHash.containsKey(runresult)) {
