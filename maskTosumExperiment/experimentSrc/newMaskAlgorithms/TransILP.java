@@ -266,14 +266,14 @@ public class TransILP {
 				{ 0.8, 0.3, 0.3, 0.5, 0.9, 0.1, 0.4, 0.8 },
 				{ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 } };
 
-		int fault = 1;
+		int fault = 3;
 
 		TransILP ilp = new TransILP(param, Vindex, matrix, fault, Vindex);
 
 		ilp.run();
 	}
 
-	private static void simpleExample() {
+	public static void simpleExample() {
 		TransILP ilp = new TransILP();
 		int[] param = new int[] { 2, 2, 2, 2 };
 		int[] Vindex = new int[param.length];
