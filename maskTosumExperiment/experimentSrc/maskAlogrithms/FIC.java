@@ -8,8 +8,6 @@ import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
-import com.fc.testObject.TestSuite;
-import com.fc.testObject.TestSuiteImplement;
 import com.fc.tuple.Tuple;
 
 public class FIC {
@@ -17,7 +15,7 @@ public class FIC {
 	protected TestCase testCase;
 	protected int[] param;
 	protected List<Tuple> bugs;
-	protected TestSuite extraCases;
+	protected List<TestCase> executed;
 	private HashMap<TestCase, Boolean> tested;
 
 	class Pa {
@@ -38,7 +36,8 @@ public class FIC {
 		this.param = param;
 		bugs = new ArrayList<Tuple>();
 		this.caseRunner = caseRunner;
-		extraCases = new TestSuiteImplement();
+		executed = new ArrayList<TestCase>();
+		executed.add(testCase);
 	}
 
 	public Pa LocateFixedParam(List<Integer> CFree, Tuple partBug) {
@@ -121,7 +120,7 @@ public class FIC {
 			testCase.setTestState(caseRunner.runTestCase(testCase));
 			this.tested.put(testCase,
 					testCase.testDescription() == TestCase.PASSED);
-			extraCases.addTest(testCase);
+			executed.add(testCase);
 			return testCase.testDescription() == TestCase.PASSED;
 		}
 	}
@@ -235,8 +234,8 @@ public class FIC {
 	/**
 	 * @return the extraCases
 	 */
-	public TestSuite getExtraCases() {
-		return extraCases;
+	public List<TestCase> getExecuted() {
+		return executed;
 	}
 
 	public static void main(String[] args) {
@@ -272,8 +271,8 @@ public class FIC {
 		FIC fic = new FIC(wrongCase, param, caseRunner);
 		fic.FicNOP();
 
-		for (int i = 0; i < fic.getExtraCases().getTestCaseNum(); i++) {
-			System.out.println(fic.getExtraCases().getAt(i).getStringOfTest());
+		for (int i = 0; i < fic.getExecuted().size(); i++) {
+			System.out.println(fic.getExecuted().get(i).getStringOfTest());
 		}
 		for (Tuple bug : fic.getBugs()) {
 			// if (bug.equals(bugModel1) || bug.equals(bugModel2)) {

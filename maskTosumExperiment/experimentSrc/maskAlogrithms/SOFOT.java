@@ -30,6 +30,7 @@ public class SOFOT {
 	}
 
 	public void process(TestCase wrongCase, int[] parameters, CaseRunner runner) {
+		executed.add(wrongCase);
 		for (int i = 0; i < wrongCase.getLength(); i++) {
 			TestCase lastCase = wrongCase;
 			TestCase testCase = generateTestCase(wrongCase, parameters, i,

@@ -26,22 +26,63 @@ public class UnitSimulate {
 	// return null;
 	// }
 
+	public final static int IGNORE_FIC = 0;
+	public final static int IGNORE_OFOT = 1;
+	public final static int IGNORE_CTA = 2;
+
+	public final static int DISTIN_FIC = 3;
+	public final static int DISTIN_OFOT = 4;
+	public final static int DISTIN_CTA = 5;
+
+	public final static int MASK_FIC = 6;
+	public final static int MASK_OFOT = 7;
+	public final static int MASK_CTA = 8;
+
+	public final static int NUM = 9;
+
+	private HashMap<Integer, List<Tuple>> tuples;
+	private HashMap<Integer, List<TestCase>> additionalTestCases;
+
+	public UnitSimulate() {
+		tuples = new HashMap<Integer, List<Tuple>>();
+		additionalTestCases = new HashMap<Integer, List<TestCase>>();
+
+		for (int i = 0; i < NUM; i++) {
+			List<Tuple> tuple = new ArrayList<Tuple>();
+			List<TestCase> testCase = new ArrayList<TestCase>();
+			tuples.put(i, tuple);
+			additionalTestCases.put(i, testCase);
+		}
+	}
+
 	public void testTraditional(int[] param, TestCase wrongCase,
 			CaseRunner runner) throws Exception {
+		int added = runner instanceof DistinguishRunner ? 3 : 0;
+
 		FIC fic = new FIC(wrongCase, param, runner);
 		fic.FicNOP();
-		System.out.println("non Mask runner");
-		for (Tuple tuple : fic.getBugs())
-			System.out.println(tuple.toString());
+		
+		this.additionalTestCases.get(IGNORE_FIC + added).addAll(
+				fic.getExecuted());
+//		for (int i = 0; i < fic.getExtraCases().getTestCaseNum(); i++)
+//			this.additionalTestCases.get(IGNORE_FIC + added).add(
+//					fic.getExtraCases().getAt(i));
+		this.tuples.get(IGNORE_FIC + added).addAll(fic.getBugs());
+
+		// System.out.println("non Mask runner");
+		// for (Tuple tuple : fic.getBugs())
+		// System.out.println(tuple.toString());
 
 		SOFOT ofot = new SOFOT();
 		ofot.process(wrongCase, param, runner);
-		System.out.println("no Mask ofot");
-		for (Tuple tuple : ofot.getBugs())
-			System.out.println(tuple.toString());
 
-		// SOFOT ofot = new SOFOT();
-		// ofot.process(wrongCase, param, runner);
+		this.additionalTestCases.get(IGNORE_OFOT + added).addAll(
+				ofot.getExecuted());
+		this.tuples.get(IGNORE_OFOT + added).addAll(ofot.getBugs());
+
+		// System.out.println("no Mask ofot");
+		// for (Tuple tuple : ofot.getBugs())
+		// System.out.println(tuple.toString());
 
 		TestSuite suite = new TestSuiteImplement();
 		for (TestCase testCase : ofot.getExecuted())
@@ -58,10 +99,11 @@ public class UnitSimulate {
 			state[i] = "" + runresult;
 		}
 		cta.process(param, classes, suite, state);
-		System.out.println("no Mask cta");
+		// System.out.println("no Mask cta");
 		if (cta.getBugs(1) != null)
-			for (Tuple tuple : cta.getBugs(1))
-				System.out.println(tuple.toString());
+			this.tuples.get(IGNORE_CTA + added).addAll(cta.getBugs(1));
+		// for (Tuple tuple : cta.getBugs(1))
+		// System.out.println(tuple.toString());
 		// return cta.getBugs(1);
 	}
 
@@ -71,18 +113,25 @@ public class UnitSimulate {
 		FIC_MASK_NEWLY ficmasknew = new FIC_MASK_NEWLY(wrongCase, param,
 				runner, code);
 		ficmasknew.FicNOP();
-		System.out.println("Mask fic");
-		for (Tuple tuple : ficmasknew.getBugs())
-			System.out.println(tuple.toString());
+		
+		this.additionalTestCases.get(MASK_FIC).addAll(ficmasknew.getExecuted());
+		this.tuples.get(MASK_FIC).addAll(ficmasknew.getBugs());
+
+//		System.out.println("Mask fic");
+//		for (Tuple tuple : ficmasknew.getBugs())
+//			System.out.println(tuple.toString());
 
 		OFOT_MASK_NEWLY ofot = new OFOT_MASK_NEWLY(wrongCase, param, runner,
 				code);
 		ofot.process();
 
-		System.out.println("Mask ofot:");
-		for (Tuple tuple : ofot.getBugs()) {
-			System.out.println(tuple.toString());
-		}
+		this.additionalTestCases.get(MASK_OFOT).addAll(ofot.getExecuted());
+		this.tuples.get(MASK_OFOT).addAll(ofot.getBugs());
+
+//		System.out.println("Mask ofot:");
+//		for (Tuple tuple : ofot.getBugs()) {
+//			System.out.println(tuple.toString());
+//		}
 
 		TestSuite suite = new TestSuiteImplement();
 		for (TestCase testCase : ofot.getExecuted()) {
@@ -100,40 +149,11 @@ public class UnitSimulate {
 		}
 		cta.process(param, classes, suite, state);
 
-		System.out.println("Mask cta:");
+//		System.out.println("Mask cta:");
 		if (cta.getBugs(1) != null)
-			for (Tuple tuple : cta.getBugs(1))
-				System.out.println(tuple.toString());
-
-		// FIC_MASK ficmask = new FIC_MASK(wrongCase, param, runner, 1);
-		// ficmask.FicNOP();
-		// System.out.println(" Mask runner");
-		// for (Tuple tuple : ficmask.getBugs())
-		// System.out.println(tuple.toString());
-		//
-		// OFOT_MASK ofotM = new OFOT_MASK();
-		// ofotM.process(wrongCase, param, runner);
-		// System.out.println("Mask ofot");
-		// for (Tuple tuple : ofotM.getBugs())
-		// System.out.println(tuple.toString());
-		//
-		// TestSuite suite = new TestSuiteImplement();
-		// for (TestCase testCase : ofotM.getExecuted())
-		// suite.addTest(testCase);
-		// String[] classes = new String[] { "0", "1" };
-		// CTA cta = new CTA();
-		// String[] state = new String[suite.getTestCaseNum()];
-		// for (int i = 0; i < state.length; i++) {
-		// int runresult = runner.runTestCase(suite.getAt(i)) == TestCase.FAILED
-		// ? 1
-		// : 0;
-		// state[i] = "" + runresult;
-		// // System.out.println(runresult);
-		// }
-		// cta.process(param, classes, suite, state);
-		//
-		// for (Tuple tuple : cta.getBugs(1))
-		// System.out.println(tuple.toString());
+//			for (Tuple tuple : cta.getBugs(1))
+				this.tuples.get(MASK_CTA ).addAll(cta.getBugs(1));
+//				System.out.println(tuple.toString());
 	}
 
 	public void testScenoria() throws Exception {
@@ -190,24 +210,28 @@ public class UnitSimulate {
 			List<TestCase> wrongCases = exData.getWrongCases().get(code);
 			for (TestCase testCase : wrongCases) {
 				System.out.println("testCase: " + testCase.getStringOfTest());
-				System.out.println("distinguish");
+//				System.out.println("distinguish");
 				this.testTraditional(param, testCase, new DistinguishRunner(
 						basicRunner, code));
-				System.out.println("ignore");
+//				System.out.println("ignore");
 				this.testTraditional(param, testCase, new IgnoreRunner(
 						basicRunner));
 
-				System.out.println("mask");
+//				System.out.println("mask");
 				this.testAugment(param, testCase, basicRunner, code);
+				break;
 			}
+//			break;
 
 		}
-
-		// List<TestCase> wrongCases1 = exData.getWrongCases().get(1);
-		//
-		// this.testTraditional(param, wrongCases1.get(0), new
-		// DistinguishRunner(
-		// basicRunner, 1));
+		
+		
+		for(int i = 0; i < NUM; i ++){
+			System.out.println(i);
+			for(TestCase testCase : this.additionalTestCases.get(i))
+				System.out.println(testCase.getStringOfTest());
+			
+		}
 
 	}
 
