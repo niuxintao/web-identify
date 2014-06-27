@@ -246,7 +246,7 @@ public class FIC_MASK_SOVLER {
 		TestCase wrongCase2 = new TestCaseImplement();
 		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
 
-		int[] param = new int[] { 10, 10, 10, 10, 10, 10, 10, 10 };
+		int[] param = new int[] { 4, 4, 4, 4, 4, 4, 4, 4 };
 
 		Tuple bug1 = new Tuple(2, wrongCase);
 		bug1.set(0, 0);
@@ -267,7 +267,7 @@ public class FIC_MASK_SOVLER {
 
 		HashMap<Integer, List<Tuple>> bugs = new HashMap<Integer, List<Tuple>>();
 		bugs.put(1, bugs1);
-		bugs.put(2, bugs2);
+//		bugs.put(2, bugs2);
 
 		HashMap<Integer, List<Integer>> priority = new HashMap<Integer, List<Integer>>();
 
@@ -302,6 +302,24 @@ public class FIC_MASK_SOVLER {
 			System.out.println(fic.getExtraCases().getAt(i).getStringOfTest());
 		}
 		for (Tuple bug : fic.getBugs()) {
+			// if (bug.equals(bugModel1) || bug.equals(bugModel2)) {
+			// System.out.println("true");
+			// }
+			System.out.println(bug.toString());
+		}
+		
+		
+		int level = 1;
+
+		FIC_MASK_NEWLY fic_ot = new FIC_MASK_NEWLY(wrongCase, param, basicRunner,
+				level);
+		fic_ot.FicNOP();
+
+		for (int i = 0; i < fic_ot.getExecuted().size(); i++) {
+			System.out.println(fic_ot.getExecuted().get(i).getStringOfTest());
+		}
+		
+		for (Tuple bug : fic_ot.getBugs()) {
 			// if (bug.equals(bugModel1) || bug.equals(bugModel2)) {
 			// System.out.println("true");
 			// }

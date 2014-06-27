@@ -72,10 +72,11 @@ public class TestTupleSuspiciousWithSolver {
 		StrengthMatrix stengthMatrix = new StrengthMatrix(executedHash, Vindex,
 				Vindex);
 
+//		System.out.println(tuple.toString());
 		int[] fixed = getFixedPart(tuple);
 
 		TransILP ilp = new TransILP(param, Vindex, stengthMatrix.getMaxtrix(),
-				fault, fixed);
+				fault, wrongCase, fixed , new ArrayList<TestCase> ());
 		// ilp.run();
 		// System.out.println(tuple.toString());
 		// int time = 0;
@@ -111,8 +112,8 @@ public class TestTupleSuspiciousWithSolver {
 			// result = true;
 			// break;
 			// }
-			// System.out.println("executed");
-			// System.out.print(testCase.getStringOfTest() + " : ");
+//			 System.out.println("executed");
+			 System.out.print(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
 			stengthMatrix.addTestCase(runresult, testCase);
 			for (int i = 0; i < testCase.getLength(); i++) {
@@ -120,7 +121,7 @@ public class TestTupleSuspiciousWithSolver {
 				stengthMatrix.updateMaxtrixS(i, value);
 			}
 
-			// System.out.println(runresult);
+		    System.out.println(runresult);
 
 			// if (!this.executedHash.containsKey(runresult)) {
 			// List<TestCase> values = new ArrayList<TestCase>();
