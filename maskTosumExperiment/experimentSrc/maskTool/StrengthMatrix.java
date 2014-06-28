@@ -14,6 +14,8 @@ public class StrengthMatrix {
 	private int[] param;
 	private int[] Vindex;
 	private int allNum;
+	
+	private HashMap<Integer, double[]> matrix_fault;
 
 	private HashMap<Integer, List<TestCase>> temp;
 
@@ -50,8 +52,12 @@ public class StrengthMatrix {
 		this.Vindex = Vindex;
 		this.allNum = Vindex[this.param.length - 1]
 				+ this.param[this.param.length - 1];
+		
+//		System.out.println("allNum" + allNum + "Vindex" +Vindex[this.param.length - 1] + "param" + param[this.param.length - 1]);
 
 		matrix = new HashMap<Integer, double[]>();
+		matrix_fault = new HashMap<Integer, double[]>();
+
 		for (Integer key : executed.keySet()) {
 			if (!matrix.containsKey(key)) {
 				matrix.put(key, new double[allNum]);
@@ -67,10 +73,31 @@ public class StrengthMatrix {
 			temp.put(key, testCase);
 		}
 		this.updateMaxtrix();
+		updateMatrix_fault();
 	}
 
 	public HashMap<Integer, double[]> getMaxtrix() {
 		return matrix;
+	}
+	
+	public void updateMatrix_fault(){
+//	/	if
+//		 matrix_fault = new HashMap<Integer, double[]>();
+		for (Integer key : this.matrix.keySet()) {
+			if (key != 0) {
+				matrix_fault.put(key, matrix.get(key));
+			}
+		}
+	}
+
+	public HashMap<Integer, double[]> getMatrix_fault() {
+//		HashMap<Integer, double[]> matrix_fault = new HashMap<Integer, double[]>();
+//		for (Integer key : this.matrix.keySet()) {
+//			if (key != 0) {
+//				matrix_fault.put(key, matrix.get(key));
+//			}
+//		}
+		return matrix_fault;
 	}
 
 	public void updateMaxtrix() {

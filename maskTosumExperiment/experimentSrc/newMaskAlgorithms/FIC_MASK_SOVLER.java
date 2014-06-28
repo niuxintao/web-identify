@@ -242,7 +242,7 @@ public class FIC_MASK_SOVLER {
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
 
-		int[] wrong2 = new int[] { 2, 2, 2, 2, 2, 2, 2, 2 };
+		int[] wrong2 = new int[] { 2, 2, 2, 3, 2, 2, 2, 2 };
 		TestCase wrongCase2 = new TestCaseImplement();
 		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
 

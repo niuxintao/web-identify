@@ -69,10 +69,22 @@ public class TransILP {
 		// System.out.println("maxtrix");
 		// for (Integer key : allMaxtrix.keySet()) {
 		// System.out.println("key: " + key);
-		// for (double o : allMaxtrix.get(key)) {
-		// System.out.print(o + "  ");
+		// int cur = 0;
+		// for (int i = 0; i < allMaxtrix.get(key).length; i++) {
+		// double o = allMaxtrix.get(key)[i];
+		// String chara = "";
+		// if (cur < Vindex.length && i == Vindex[cur]) {
+		// chara = " | ";
+		// cur++;
+		// }
+		// System.out.print(chara + o + "  ");
+		//
 		// }
 		// System.out.println();
+		// // for (double o : allMaxtrix.get(key)) {
+		// // System.out.print(o + "  ");
+		// // }
+		// // System.out.println();
 		// }
 	}
 
@@ -85,6 +97,27 @@ public class TransILP {
 	public TestCase run() {
 		// int faultNum = allMaxtrix.keySet().size();
 		Result last = null;
+		
+		System.out.println("maxtrix");
+		for (Integer key : allMaxtrix.keySet()) {
+			System.out.println("key: " + key);
+			int cur = 0;
+			for (int i = 0; i < allMaxtrix.get(key).length; i++) {
+				double o = allMaxtrix.get(key)[i];
+				String chara = "";
+				if (cur < Vindex.length && i == Vindex[cur]) {
+					chara = " | ";
+					cur++;
+				}
+				System.out.print(chara + o + "  ");
+
+			}
+			System.out.println();
+//			for (double o : allMaxtrix.get(key)) {
+//				System.out.print(o + "  ");
+//			}
+//			System.out.println();
+		}
 		// int faultM = -1;
 		if (allMaxtrix.keySet().size() <= 1) {
 			this.setup(param, Vindex, allMaxtrix, fixed, allNum);
@@ -466,7 +499,7 @@ public class TransILP {
 		int fault = 3;
 
 		TransILP ilp = new TransILP(param, Vindex, mm, fault, testCase, fixed,
-				new ArrayList<TestCase> ());
+				new ArrayList<TestCase>());
 
 		ilp.run();
 	}

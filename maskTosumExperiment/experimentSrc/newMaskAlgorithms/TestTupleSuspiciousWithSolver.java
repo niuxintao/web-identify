@@ -57,26 +57,27 @@ public class TestTupleSuspiciousWithSolver {
 
 		// executed = new ArrayList<TestCase>();
 		executedHash = new HashMap<Integer, List<TestCase>>();
-//		for (Integer key : faults) {
-//			List<TestCase> testCase = new ArrayList<TestCase>();
-//			executedHash.put(key, testCase);
-//		}
+		// for (Integer key : faults) {
+		// List<TestCase> testCase = new ArrayList<TestCase>();
+		// executedHash.put(key, testCase);
+		// }
 		List<TestCase> existed = new ArrayList<TestCase>();
 		existed.add(wrongCase);
 		executedHash.put(fault, existed);
-//		executedHash.get(fault).addAll(existed);
+		// executedHash.get(fault).addAll(existed);
 		// executed.add(wrongCase);
 	}
 
 	public boolean testTuple(Tuple tuple, int fault, TestCase wrongCase) {
-		StrengthMatrix stengthMatrix = new StrengthMatrix(executedHash, Vindex,
+		StrengthMatrix stengthMatrix = new StrengthMatrix(executedHash, param,
 				Vindex);
 
-//		System.out.println(tuple.toString());
+		// System.out.println(tuple.toString());
 		int[] fixed = getFixedPart(tuple);
 
-		TransILP ilp = new TransILP(param, Vindex, stengthMatrix.getMaxtrix(),
-				fault, wrongCase, fixed , new ArrayList<TestCase> ());
+		TransILP ilp = new TransILP(param, Vindex,
+				stengthMatrix.getMatrix_fault(), fault, wrongCase, fixed,
+				new ArrayList<TestCase>());
 		// ilp.run();
 		// System.out.println(tuple.toString());
 		// int time = 0;
@@ -112,16 +113,17 @@ public class TestTupleSuspiciousWithSolver {
 			// result = true;
 			// break;
 			// }
-//			 System.out.println("executed");
-			 System.out.print(testCase.getStringOfTest() + " : ");
+			// System.out.println("executed");
+			System.out.print(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
 			stengthMatrix.addTestCase(runresult, testCase);
 			for (int i = 0; i < testCase.getLength(); i++) {
 				int value = testCase.getAt(i);
 				stengthMatrix.updateMaxtrixS(i, value);
 			}
+			stengthMatrix.updateMatrix_fault();
 
-		    System.out.println(runresult);
+			System.out.println(runresult);
 
 			// if (!this.executedHash.containsKey(runresult)) {
 			// List<TestCase> values = new ArrayList<TestCase>();
