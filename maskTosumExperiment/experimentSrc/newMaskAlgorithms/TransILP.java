@@ -217,11 +217,12 @@ public class TransILP {
 
 		// we should not generate the test cases in the executed
 		for (TestCase exi : this.executed) {
+			linear = new Linear();
 			int[] test = getUnfixed(exi, Vindex, new int[] {});
 			for (int j = 0; j < test.length; j++) {
 				linear.add(1, "x" + test[j]);
 			}
-			problem.add(linear, "<", 1);
+			problem.add(linear, "<=", test.length - 1);
 		}
 
 		// each factor should be 0 - 1
@@ -308,11 +309,12 @@ public class TransILP {
 
 		// we should not generate the test cases in the executed
 		for (TestCase exi : this.executed) {
+			linear = new Linear();
 			int[] test = getUnfixed(exi, Vindex, new int[] {});
 			for (int j = 0; j < test.length; j++) {
 				linear.add(1, "x" + test[j]);
 			}
-			problem.add(linear, "<", 1);
+			problem.add(linear, "<=", test.length - 1);
 		}
 
 		// each factor should be 0 - 1

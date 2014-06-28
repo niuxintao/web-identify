@@ -267,7 +267,7 @@ public class FIC_MASK_SOVLER {
 
 		HashMap<Integer, List<Tuple>> bugs = new HashMap<Integer, List<Tuple>>();
 		bugs.put(1, bugs1);
-//		bugs.put(2, bugs2);
+		bugs.put(2, bugs2);
 
 		HashMap<Integer, List<Integer>> priority = new HashMap<Integer, List<Integer>>();
 
