@@ -114,7 +114,7 @@ public class TestTupleSuspiciousWithSolver {
 			// break;
 			// }
 			// System.out.println("executed");
-			System.out.print(testCase.getStringOfTest() + " : ");
+//			System.out.print(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
 			stengthMatrix.addTestCase(runresult, testCase);
 			for (int i = 0; i < testCase.getLength(); i++) {
@@ -123,7 +123,7 @@ public class TestTupleSuspiciousWithSolver {
 			}
 			stengthMatrix.updateMatrix_fault();
 
-			System.out.println(runresult);
+//			System.out.println(runresult);
 
 			// if (!this.executedHash.containsKey(runresult)) {
 			// List<TestCase> values = new ArrayList<TestCase>();

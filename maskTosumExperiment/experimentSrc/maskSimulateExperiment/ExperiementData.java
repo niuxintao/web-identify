@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
-import maskTool.GenMaskTestCase;
+import maskTool.GenMaskTestCaseWithOri;
 
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
@@ -78,6 +78,10 @@ public class ExperiementData {
 			wrongCases.addAll(this.casesContainAndNotContain(contained,
 					notContained));
 		}
+		
+//		for (TestCase t : wrongCases) {
+//			System.out.println(t.getStringOfTest());
+//		}
 
 		this.wrongCases.put(code, wrongCases);
 
@@ -85,33 +89,45 @@ public class ExperiementData {
 
 	public List<TestCase> casesContainAndNotContain(Tuple contain,
 			List<Tuple> notContain) {
+//		for(Tuple t : notContain){
+//			System.out.println(t.toString());
+//		}
 		List<TestCase> result = new ArrayList<TestCase>();
 		int[] init = new int[this.parameter.length];
 		for (int i = 0; i < contain.getDegree(); i++) {
 			init[contain.getParamIndex()[i]] = contain.getParamValue()[i];
 		}
 		TestCase firstTestCase = new TestCaseImplement(init);
-		if (!containTuple(firstTestCase, notContain))
-			result.add(firstTestCase);
-		GenMaskTestCase gen = new GenMaskTestCase(firstTestCase,
+//		System.out.println(firstTestCase.getStringOfTest());
+//		if (!containTuple(firstTestCase, notContain))
+//			result.add(firstTestCase);
+		GenMaskTestCaseWithOri gen = new GenMaskTestCaseWithOri(firstTestCase,
 				this.parameter, contain);
 		while (!gen.isStop()) {
 			TestCase next = gen.generateTestCaseContainTuple(contain);
+//			System.out.println(next.getStringOfTest());
 			if (!containTuple(next, notContain))
 				result.add(next);
 		}
+		
+//		for(TestCase t : result){
+//			System.out.println(t.getStringOfTest());
+//		}
 
 		return result;
 	}
 
 	boolean containTuple(TestCase testCase, List<Tuple> tuples) {
+//		System.out.println(testCase.getStringOfTest());
 		boolean result = false;
 		for (Tuple tuple : tuples) {
+//			System.out.println(tuple.toString());
 			if (testCase.containsOf(tuple)) {
 				result = true;
 				break;
 			}
 		}
+//		System.out.println(result);
 		return result;
 	}
 
