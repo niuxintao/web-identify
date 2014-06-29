@@ -97,7 +97,7 @@ public class TransILP {
 	public TestCase run() {
 		// int faultNum = allMaxtrix.keySet().size();
 		Result last = null;
-		
+
 		System.out.println("maxtrix");
 		for (Integer key : allMaxtrix.keySet()) {
 			System.out.println("key: " + key);
@@ -113,12 +113,12 @@ public class TransILP {
 
 			}
 			System.out.println();
-//			for (double o : allMaxtrix.get(key)) {
-//				System.out.print(o + "  ");
-//			}
-//			System.out.println();
+			// for (double o : allMaxtrix.get(key)) {
+			// System.out.print(o + "  ");
+			// }
+			// System.out.println();
 		}
-		// int faultM = -1;
+		int faultM = -1;
 		if (allMaxtrix.keySet().size() <= 1) {
 			this.setup(param, Vindex, allMaxtrix, fixed, allNum);
 			last = this.solve(Vindex, allNum);
@@ -133,7 +133,7 @@ public class TransILP {
 								|| result.getObjective().doubleValue() < last
 										.getObjective().doubleValue()) {
 							last = result;
-							// faultM = i;
+							 faultM = i;
 						}
 				}
 			}
@@ -145,6 +145,8 @@ public class TransILP {
 
 		if (last == null)
 			return null;
+		 System.out.print("minimal maximal: "+faultM + " ");
+		System.out.println(last);
 		int[] test = this.extractTest(Vindex, allNum, last);
 		TestCase testCase = this.getTestCase(test);
 		this.executed.add(testCase);

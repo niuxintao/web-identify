@@ -10,6 +10,7 @@ import com.fc.tuple.Tuple;
 
 public class BasicRunner implements CaseRunner {
 
+	// integer : current run fault code,  List<Integer> : the higher fault code which can mask the current integer
 	private HashMap<Integer, List<Integer>> higherPriority;
 	private HashMap<Integer, List<Tuple>> bugs;
 
