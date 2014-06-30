@@ -30,13 +30,15 @@ public class SOFOT {
 	}
 
 	public void process(TestCase wrongCase, int[] parameters, CaseRunner runner) {
-		executed.add(wrongCase);
+//		executed.add(wrongCase);
+//		 List<TestCase> analysisT = new ArrayList<TestCase>();
 		for (int i = 0; i < wrongCase.getLength(); i++) {
 			TestCase lastCase = wrongCase;
 			TestCase testCase = generateTestCase(wrongCase, parameters, i,
 					lastCase);
 			testCase.setTestState(runner.runTestCase(testCase));
 			executed.add(testCase);
+//			analysisT.add(testCase);
 		}
 		analysis(executed, wrongCase, parameters, runner);
 	}
@@ -58,17 +60,20 @@ public class SOFOT {
 	public void analysis(List<TestCase> array, TestCase wrongCase,
 			int[] parameters, CaseRunner runner) {
 		Tuple tuple = new Tuple(0, wrongCase);
+//		System.out.println(array.size());
 		for (int i = 0; i < array.size(); i++) {
 			TestCase testCase = array.get(i);
 			if (testCase.testDescription() == TestCase.PASSED) {
 				Tuple tem = new Tuple(1, wrongCase);
 				tem.set(0, i);
 				tuple = tuple.cat(tuple, tem);
+//				System.out.println(tuple.toString());
 				// failure-inducing + 1
 			} else if (testCase.testDescription() == TestCase.FAILED) {
 
 			}
 		}
+	
 		this.bugs.add(tuple);
 	}
 

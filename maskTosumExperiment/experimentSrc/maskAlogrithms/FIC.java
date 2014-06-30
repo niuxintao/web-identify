@@ -37,7 +37,7 @@ public class FIC {
 		bugs = new ArrayList<Tuple>();
 		this.caseRunner = caseRunner;
 		executed = new ArrayList<TestCase>();
-		executed.add(testCase);
+//		executed.add(testCase);
 	}
 
 	public Pa LocateFixedParam(List<Integer> CFree, Tuple partBug) {
