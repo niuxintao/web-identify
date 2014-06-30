@@ -20,10 +20,15 @@ public class ExpriSetUp {
 		records = new ArrayList<DataRecord>();
 
 		DataRecord record = new DataRecord();
-		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4 };
-		int[][] wrongs = new int[][] { {}, {} };
-		int[][] bugs = new int[][] { {}, {} , {} , {} , {} };
-		int[] faults = new int[] { 1, 2, 3 };
+		int[] param = new int[] { 3, 2, 2, 2, 2, 2, 2, 2, 4, 3, 2, 2 };
+		int[][] wrongs = new int[][] { { 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1 },
+				{ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1 },
+				{ 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1 },
+				{ 1, 1, 1, 1, 1, 1, 1, 1, 3, 2, 1, 1, },
+				{ 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1 } };
+		int[][] bugs = new int[][] { { 5, 6, 7 }, { 5, 8, 9 }, { 5, 8, 9 },
+				{ 5, 8, 9 }, { 5, 8, 9 } };
+		int[] faults = new int[] { 1, 2, 2, 3, 3 };
 		int[][] priority = new int[][] { {}, { 1 }, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
@@ -147,7 +152,7 @@ public class ExpriSetUp {
 	}
 
 	public void set1() {
-		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4 };
+		// int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4 };
 
 		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1 };
 
@@ -187,16 +192,6 @@ public class ExpriSetUp {
 
 		priority.put(1, priority1);
 		priority.put(2, priority2);
-
-	}
-
-	public void set2() {
-		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3 };
-
-	}
-
-	public void set3() {
-		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4 };
 
 	}
 
