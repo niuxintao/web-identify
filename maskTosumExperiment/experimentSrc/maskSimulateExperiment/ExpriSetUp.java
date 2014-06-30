@@ -22,9 +22,9 @@ public class ExpriSetUp {
 		DataRecord record = new DataRecord();
 		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4 };
 		int[][] wrongs = new int[][] { {}, {} };
-		int[][] bugs = new int[][] { {}, {} };
-		int[] faults = new int[] {};
-		int[][] priority = new int[][] { {}, {} };
+		int[][] bugs = new int[][] { {}, {} , {} , {} , {} };
+		int[] faults = new int[] { 1, 2, 3 };
+		int[][] priority = new int[][] { {}, { 1 }, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
