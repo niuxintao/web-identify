@@ -198,6 +198,7 @@ public class ExpriSetUp {
 		priority = new int[][] { {}, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
+		
 	}
 
 	public HashMap<Integer, List<Tuple>> getBugsList() {
