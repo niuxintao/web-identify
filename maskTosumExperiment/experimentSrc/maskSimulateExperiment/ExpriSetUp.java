@@ -213,6 +213,10 @@ public class ExpriSetUp {
 		return param;
 	}
 
+	public List<DataRecord> getRecords() {
+		return records;
+	}
+
 	public void set(int[] param, int[][] wrongs, int[][] bugs, int[] faults,
 			int[][] higherPriority) {
 		this.param = param;
@@ -301,11 +305,11 @@ public class ExpriSetUp {
 }
 
 class DataRecord {
-	int[] param;
-	int[][] wrongs;
-	int[][] bugs;
-	int[] faults;
-	int[][] priority;
+	public int[] param;
+	public int[][] wrongs;
+	public int[][] bugs;
+	public int[] faults;
+	public int[][] priority;
 
 	public void set(int[] param, int[][] wrongs, int[][] bugs, int[] faults,
 			int[][] priority) {
