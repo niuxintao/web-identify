@@ -115,10 +115,12 @@ public class EvaluateTuples {
 	public void evaluate(List<Tuple> bench, List<Tuple> challenger) {
 		init();
 		for (Tuple ben : bench) {
+			System.out.println("ben" + ben.toString());
 			Iterator<Tuple> iter = challenger.iterator();
 			boolean hasRelated = false;
 			while (iter.hasNext()) {
 				Tuple cha = iter.next();
+				System.out.println("cha"+cha.toString());
 				if (ben.contains(cha)) {
 					if (cha.contains(ben)) {
 						this.accurateTuples.add(cha);

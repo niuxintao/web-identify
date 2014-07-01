@@ -85,10 +85,10 @@ public class Experiment {
 
 	public static void main(String[] args) {
 		Experiment ex = new Experiment();
-		ex.test(0);
-		ex.test(1);
-		ex.test(2);
+//		ex.test(0);
+//		ex.test(1);
+//		ex.test(2);
 		ex.test(3);
-		ex.test(4);
+//		ex.test(4);
 	}
 }
