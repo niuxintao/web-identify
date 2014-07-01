@@ -1,6 +1,7 @@
 package maskSimulateExperiment;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import maskTool.EvaluateTuples;
@@ -70,7 +71,9 @@ public class Experiment {
 
 		for (int i : new int[] { 0, 3, 6 }) {
 			System.out.println(i);
-			List<Tuple> tuples = unit.getTuples().get(i);
+			HashSet<Tuple> tupl = unit.getTuples().get(i);
+			List<Tuple> tuples = new ArrayList<Tuple>();
+			tuples.addAll(tupl);
 			EvaluateTuples eva = new EvaluateTuples();
 
 			// for(Tuple tuple : tuples){
@@ -85,10 +88,10 @@ public class Experiment {
 
 	public static void main(String[] args) {
 		Experiment ex = new Experiment();
-//		ex.test(0);
-//		ex.test(1);
-//		ex.test(2);
-		ex.test(3);
+		ex.test(0);
+		ex.test(1);
+		ex.test(2);
+//		ex.test(3);
 //		ex.test(4);
 	}
 }

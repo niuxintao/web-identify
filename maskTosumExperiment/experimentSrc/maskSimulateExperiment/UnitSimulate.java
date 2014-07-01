@@ -2,6 +2,7 @@ package maskSimulateExperiment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import newMaskAlgorithms.FIC_MASK_NEWLY;
@@ -33,7 +34,7 @@ public class UnitSimulate {
 	public final static int IGNORE_OFOT = 1;
 	public final static int IGNORE_CTA = 2;
 
-	public HashMap<Integer, List<Tuple>> getTuples() {
+	public HashMap<Integer, HashSet<Tuple>> getTuples() {
 		return tuples;
 	}
 
@@ -55,19 +56,51 @@ public class UnitSimulate {
 	public final static int MASK_OFOT_OLD = 10;
 	public final static int MASK_CTA_OLD = 11;
 
-	private HashMap<Integer, List<Tuple>> tuples;
+	private HashMap<Integer, HashSet<Tuple>> tuples;
 	private HashMap<Integer, List<TestCase>> additionalTestCases;
 
-	public UnitSimulate() {
-		tuples = new HashMap<Integer, List<Tuple>>();
+	private HashMap<Integer, List<EvaluateTuples>> evaluates;
+
+	public HashMap<Integer, List<EvaluateTuples>> getEvaluates() {
+		return evaluates;
+	}
+
+	private List<Tuple> bugs;
+
+	public UnitSimulate(List<Tuple> bugs) {
+		tuples = new HashMap<Integer, HashSet<Tuple>>();
 		additionalTestCases = new HashMap<Integer, List<TestCase>>();
+		evaluates = new HashMap<Integer, List<EvaluateTuples>>();
+		this.bugs = bugs;
 
 		for (int i = 0; i < NUM; i++) {
-			List<Tuple> tuple = new ArrayList<Tuple>();
+			HashSet<Tuple> tuple = new HashSet<Tuple>();
 			List<TestCase> testCase = new ArrayList<TestCase>();
+			List<EvaluateTuples> evas = new ArrayList<EvaluateTuples>();
 			tuples.put(i, tuple);
 			additionalTestCases.put(i, testCase);
+			evaluates.put(i, evas);
 		}
+	}
+
+	public UnitSimulate() {
+		tuples = new HashMap<Integer, HashSet<Tuple>>();
+		additionalTestCases = new HashMap<Integer, List<TestCase>>();
+		evaluates = new HashMap<Integer, List<EvaluateTuples>>();
+		// this.bugs = bugs;
+
+		for (int i = 0; i < NUM; i++) {
+			HashSet<Tuple> tuple = new HashSet<Tuple>();
+			List<TestCase> testCase = new ArrayList<TestCase>();
+			List<EvaluateTuples> evas = new ArrayList<EvaluateTuples>();
+			tuples.put(i, tuple);
+			additionalTestCases.put(i, testCase);
+			evaluates.put(i, evas);
+		}
+	}
+
+	public void setBugs(List<Tuple> bugs) {
+		this.bugs = bugs;
 	}
 
 	public void testTraditional(int[] param, TestCase wrongCase,
@@ -83,6 +116,10 @@ public class UnitSimulate {
 		// this.additionalTestCases.get(IGNORE_FIC + added).add(
 		// fic.getExtraCases().getAt(i));
 		this.tuples.get(IGNORE_FIC + added).addAll(fic.getBugs());
+
+		EvaluateTuples eva = new EvaluateTuples();
+		eva.evaluate(bugs, fic.getBugs());
+		this.evaluates.get(IGNORE_FIC + added).add(eva);
 
 		// System.out.println("non Mask runner");
 		// for (Tuple tuple : fic.getBugs())
@@ -133,6 +170,9 @@ public class UnitSimulate {
 
 		this.additionalTestCases.get(MASK_FIC).addAll(ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC).addAll(ficmasknew.getBugs());
+		EvaluateTuples eva = new EvaluateTuples();
+		eva.evaluate(bugs, ficmasknew.getBugs());
+		this.evaluates.get(MASK_FIC).add(eva);
 
 		// System.out.println("Mask fic");
 		// for (Tuple tuple : ficmasknew.getBugs())
@@ -185,6 +225,10 @@ public class UnitSimulate {
 		this.additionalTestCases.get(MASK_FIC_OLD).addAll(
 				ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC_OLD).addAll(ficmasknew.getBugs());
+
+		EvaluateTuples eva = new EvaluateTuples();
+		eva.evaluate(bugs, ficmasknew.getBugs());
+		this.evaluates.get(MASK_FIC_OLD).add(eva);
 
 		// System.out.println("Mask fic");
 		// for (Tuple tuple : ficmasknew.getBugs())
@@ -276,6 +320,12 @@ public class UnitSimulate {
 		exData.setHigherPriority(priority);
 		exData.setBugs(bugs);
 
+		List<Tuple> bench = new ArrayList<Tuple>();
+		for (Integer key : bugs.keySet())
+			bench.addAll(bugs.get(key));
+
+		this.setBugs(bench);
+
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
 			List<TestCase> wrongCases = exData.getWrongCases().get(code);
@@ -307,16 +357,26 @@ public class UnitSimulate {
 
 		}
 
-		List<Tuple> bench = new ArrayList<Tuple>();
-		for (Integer key : bugs.keySet())
-			bench.addAll(bugs.get(key));
+		for (int i : new int[] { 0, 3, 6 }) {
+			System.out.println(i);
+			// for (TestCase testCase : this.additionalTestCases.get(i))
+			double metric = 0;
+			for (EvaluateTuples eva : this.evaluates.get(i)) {
+				metric += eva.getMetric();
+			}
+			if (allNum > 0)
+				System.out.println(metric / (double) allNum);
+
+		}
 
 		// for(Tuple tuple : bench)
 		// System.out.println(tuple.toString());
 
 		for (int i : new int[] { 0, 3, 6 }) {
 			System.out.println(i);
-			List<Tuple> tuples = this.tuples.get(i);
+			HashSet<Tuple> tupl = this.tuples.get(i);
+			List<Tuple> tuples = new ArrayList<Tuple>();
+			tuples.addAll(tupl);
 			EvaluateTuples eva = new EvaluateTuples();
 
 			// for(Tuple tuple : tuples){
