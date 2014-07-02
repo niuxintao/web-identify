@@ -53,6 +53,7 @@ public class Experiment {
 
 		}
 
+		System.out.println("test Cases");
 		for (int i : new int[] { 0, 3, 6 }) {
 			System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
@@ -63,17 +64,23 @@ public class Experiment {
 		}
 
 		List<Tuple> bench = new ArrayList<Tuple>();
-		for (Integer key : unit.getTuples().keySet())
-			bench.addAll(unit.getTuples().get(key));
+		for (Integer key : setup.getBugsList().keySet())
+			bench.addAll(setup.getBugsList().get(key));
 
-		// for(Tuple tuple : bench)
-		// System.out.println(tuple.toString());
+		for (Tuple tuple : bench)
+			System.out.print(tuple.toString() + " ");
+		System.out.println();
 
+		System.out.println("evas");
 		for (int i : new int[] { 0, 3, 6 }) {
 			System.out.println(i);
 			HashSet<Tuple> tupl = unit.getTuples().get(i);
 			List<Tuple> tuples = new ArrayList<Tuple>();
 			tuples.addAll(tupl);
+			
+			for (Tuple tuple : tuples)
+				System.out.print(tuple.toString() + " ");
+			System.out.println();
 			EvaluateTuples eva = new EvaluateTuples();
 
 			// for(Tuple tuple : tuples){
@@ -83,15 +90,21 @@ public class Experiment {
 
 			eva.evaluate(bench, tuples);
 			System.out.println(eva.getMetric());
+			System.out.println("accuate " + eva.getAccurateTuples().size());
+			System.out.println("child " + eva.getChildTuples().size());
+			System.out.println("parent " + eva.getFatherTuples().size());
+			System.out.println("reduantant " + eva.getRedundantTuples().size());
+			System.out.println("ignore " + eva.getMissTuples().size());
+
 		}
 	}
 
 	public static void main(String[] args) {
 		Experiment ex = new Experiment();
 		ex.test(0);
-		ex.test(1);
-		ex.test(2);
-//		ex.test(3);
-//		ex.test(4);
+//		ex.test(1);
+//		ex.test(2);
+//		// ex.test(3);
+		// ex.test(4);
 	}
 }

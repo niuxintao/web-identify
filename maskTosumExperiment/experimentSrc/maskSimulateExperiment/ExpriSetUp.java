@@ -198,7 +198,7 @@ public class ExpriSetUp {
 		priority = new int[][] { {}, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
-		
+
 	}
 
 	public HashMap<Integer, List<Tuple>> getBugsList() {
@@ -300,6 +300,32 @@ public class ExpriSetUp {
 		priority.put(1, priority1);
 		priority.put(2, priority2);
 
+	}
+
+	public static void main(String[] args) {
+		ExpriSetUp ex = new ExpriSetUp();
+		DataRecord record = ex.getRecords().get(0);
+		ex.set(record.param, record.wrongs, record.bugs, record.faults,
+				record.priority);
+		for (int i : ex.getParam())
+			System.out.print(i + " ");
+		System.out.println();
+
+		for (Integer key : ex.bugsList.keySet()) {
+			System.out.println(key);
+			List<Tuple> tuples = ex.getBugsList().get(key);
+			for (Tuple tuple : tuples)
+				System.out.print(tuple.toString() + " ");
+			System.out.println();
+		}
+		
+		for (Integer key : ex.priorityList.keySet()) {
+			System.out.println(key);
+			List<Integer> higher = ex.priorityList.get(key);
+			for (Integer high : higher)
+				System.out.print(high + " ");
+			System.out.println();
+		}
 	}
 
 }
