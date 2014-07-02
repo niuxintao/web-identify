@@ -50,6 +50,8 @@ child 0
 parent 4
 irrelevant 0
 ignore 0
+
+
 the 1th
 test Cases
 0
@@ -102,6 +104,8 @@ child 0
 parent 1
 irrelevant 0
 ignore 0
+
+
 the 2th
 test Cases
 0
@@ -154,6 +158,8 @@ child 1
 parent 1
 irrelevant 0
 ignore 0
+
+
 the 3th
 test Cases
 0
@@ -205,4 +211,596 @@ accuate 2
 child 0
 parent 0
 irrelevant 0
+ignore 0
+
+the 4th
+test Cases
+0
+20.5
+3
+9.0
+6
+11.666666666666666
+evaluates -- avg
+0
+metric: 0.4786324786325802
+accuarte: 1.0
+child: 0.3333333333333333
+parent: 0.0
+irrelevant: 3.5
+ignore: 0.6666666666666666
+3
+metric: 0.4583333333333333
+accuarte: 0.8333333333333334
+child: 0.0
+parent: 0.16666666666666666
+irrelevant: 0.0
+ignore: 1.0
+6
+metric: 0.4583333333333333
+accuarte: 0.8333333333333334
+child: 0.0
+parent: 0.16666666666666666
+irrelevant: 0.0
+ignore: 1.0
+evaluates -- all
+0
+0.08928571428571429
+accuate 2
+child 1
+parent 0
+irrelevant 25
+ignore 0
+3
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+irrelevant 0
+ignore 0
+6
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+irrelevant 0
+ignore 0
+
+
+the 5th
+test Cases
+0
+16.5
+3
+18.0
+6
+41.75
+evaluates -- avg
+0
+metric: 0.4062499999999918
+accuarte: 1.0
+child: 0.5
+parent: 0.0
+irrelevant: 2.0
+ignore: 1.0
+3
+metric: 0.20370370370370539
+accuarte: 0.5
+child: 0.0
+parent: 0.5
+irrelevant: 3.0
+ignore: 2.0
+6
+metric: 0.20370370370370539
+accuarte: 0.5
+child: 0.0
+parent: 0.5
+irrelevant: 3.0
+ignore: 2.0
+evaluates -- all
+0
+0.19047619047619047
+accuate 2
+child 2
+parent 0
+irrelevant 15
+ignore 0
+3
+0.11666666666666665
+accuate 1
+child 0
+parent 2
+irrelevant 17
+ignore 0
+6
+0.11666666666666665
+accuate 1
+child 0
+parent 2
+irrelevant 17
+ignore 0
+
+
+the 6th
+test Cases
+0
+11.193832599118943
+3
+14.118942731277533
+6
+16.964757709251103
+evaluates -- avg
+0
+metric: 0.2868330885952043
+accuarte: 0.5682819383259912
+child: 0.44933920704845814
+parent: 0.0
+irrelevant: 0.004405286343612335
+ignore: 1.9691629955947136
+3
+metric: 0.3133627019089568
+accuarte: 0.7709251101321586
+child: 0.0
+parent: 0.2290748898678414
+irrelevant: 0.0
+ignore: 2.0
+6
+metric: 0.31490455212922114
+accuarte: 0.7841409691629956
+child: 0.0
+parent: 0.21585903083700442
+irrelevant: 0.0
+ignore: 2.0
+evaluates -- all
+0
+0.5444444444444445
+accuate 3
+child 10
+parent 0
+irrelevant 1
+ignore 0
+3
+0.7615384615384614
+accuate 3
+child 0
+parent 10
+irrelevant 0
+ignore 0
+6
+0.7999999999999999
+accuate 3
+child 0
+parent 6
+irrelevant 0
+ignore 0
+
+
+the 7th
+test Cases
+0
+12.733333333333333
+3
+9.458333333333334
+6
+14.183333333333334
+evaluates -- avg
+0
+metric: 0.33227362914862923
+accuarte: 1.2916666666666667
+child: 0.7666666666666667
+parent: 0.0
+irrelevant: 1.5916666666666666
+ignore: 2.0833333333333335
+3
+metric: 0.23858134920634935
+accuarte: 0.825
+child: 0.1
+parent: 0.25
+irrelevant: 0.5
+ignore: 2.841666666666667
+6
+metric: 0.23858134920634935
+accuarte: 0.825
+child: 0.1
+parent: 0.25
+irrelevant: 0.5
+ignore: 2.841666666666667
+evaluates -- all
+0
+0.2857142857142857
+accuate 4
+child 4
+parent 0
+irrelevant 13
+ignore 0
+3
+0.3368421052631579
+accuate 3
+child 2
+parent 5
+irrelevant 9
+ignore 0
+6
+0.3368421052631579
+accuate 3
+child 2
+parent 5
+irrelevant 9
+ignore 0
+
+
+the 8th
+test Cases
+0
+9.906976744186046
+3
+13.023255813953488
+6
+18.546511627906977
+evaluates -- avg
+0
+metric: 0.22218992248061548
+accuarte: 0.5581395348837209
+child: 0.5348837209302325
+parent: 0.0
+irrelevant: 0.3023255813953488
+ignore: 2.604651162790698
+3
+metric: 0.21839700996677605
+accuarte: 0.5581395348837209
+child: 0.16279069767441862
+parent: 0.32558139534883723
+irrelevant: 0.23255813953488372
+ignore: 2.86046511627907
+6
+metric: 0.2236295681063114
+accuarte: 0.627906976744186
+child: 0.09302325581395349
+parent: 0.32558139534883723
+irrelevant: 0.23255813953488372
+ignore: 2.9302325581395348
+evaluates -- all
+0
+0.35256410256410253
+accuate 3
+child 10
+parent 0
+irrelevant 9
+ignore 0
+3
+0.39565217391304347
+accuate 3
+child 3
+parent 6
+irrelevant 9
+ignore 0
+6
+0.38750000000000007
+accuate 3
+child 2
+parent 5
+irrelevant 9
+ignore 0
+
+
+the 9th
+test Cases
+0
+13.037735849056604
+3
+13.69811320754717
+6
+14.773584905660377
+evaluates -- avg
+0
+metric: 0.4767295597484281
+accuarte: 0.9056603773584906
+child: 0.07547169811320754
+parent: 0.0
+irrelevant: 0.018867924528301886
+ignore: 1.0188679245283019
+3
+metric: 0.49528301886792453
+accuarte: 0.9622641509433962
+child: 0.0
+parent: 0.03773584905660377
+irrelevant: 0.0
+ignore: 1.0
+6
+metric: 0.49764150943396224
+accuarte: 0.9811320754716981
+child: 0.0
+parent: 0.018867924528301886
+irrelevant: 0.0
+ignore: 1.0
+evaluates -- all
+0
+0.6476190476190476
+accuate 2
+child 4
+parent 0
+irrelevant 1
+ignore 0
+3
+0.875
+accuate 2
+child 0
+parent 2
+irrelevant 0
+ignore 0
+6
+0.9166666666666666
+accuate 2
+child 0
+parent 1
+irrelevant 0
+ignore 0
+
+
+the 10th
+test Cases
+0
+14.913978494623656
+3
+11.75268817204301
+6
+15.365591397849462
+evaluates -- avg
+0
+metric: 0.29263881777322087
+accuarte: 0.7204301075268817
+child: 1.5483870967741935
+parent: 0.0
+irrelevant: 1.043010752688172
+ignore: 1.989247311827957
+3
+metric: 0.18613671274961854
+accuarte: 0.7096774193548387
+child: 0.27956989247311825
+parent: 0.22580645161290322
+irrelevant: 0.4946236559139785
+ignore: 3.7204301075268815
+6
+metric: 0.18613671274961854
+accuarte: 0.7096774193548387
+child: 0.27956989247311825
+parent: 0.22580645161290322
+irrelevant: 0.4946236559139785
+ignore: 3.7204301075268815
+evaluates -- all
+0
+0.38095238095238093
+accuate 2
+child 15
+parent 0
+irrelevant 8
+ignore 0
+3
+0.3592592592592592
+accuate 3
+child 4
+parent 8
+irrelevant 10
+ignore 0
+6
+0.3592592592592592
+accuate 3
+child 4
+parent 8
+irrelevant 10
+ignore 0
+
+
+the 11th
+test Cases
+0
+12.772870662460567
+3
+14.593059936908517
+6
+16.444794952681388
+evaluates -- avg
+0
+metric: 0.2728706624605704
+accuarte: 0.6561514195583596
+child: 0.2996845425867508
+parent: 0.0
+irrelevant: 0.10410094637223975
+ignore: 2.0410094637223977
+3
+metric: 0.3194006309148273
+accuarte: 0.804416403785489
+child: 0.0
+parent: 0.19558359621451105
+irrelevant: 0.0
+ignore: 2.0
+6
+metric: 0.3194006309148273
+accuarte: 0.804416403785489
+child: 0.0
+parent: 0.19558359621451105
+irrelevant: 0.0
+ignore: 2.0
+evaluates -- all
+0
+0.39473684210526316
+accuate 3
+child 10
+parent 0
+irrelevant 5
+ignore 0
+3
+0.8277777777777777
+accuate 3
+child 0
+parent 6
+irrelevant 0
+ignore 0
+6
+0.8277777777777777
+accuate 3
+child 0
+parent 6
+irrelevant 0
+ignore 0
+
+
+the 12th
+test Cases
+0
+24.454545454545453
+3
+25.254545454545454
+6
+26.272727272727273
+evaluates -- avg
+0
+metric: 0.4636363636363638
+accuarte: 0.8727272727272727
+child: 0.07272727272727272
+parent: 0.0
+irrelevant: 0.05454545454545454
+ignore: 1.0545454545454545
+3
+metric: 0.4948051948051939
+accuarte: 0.9272727272727272
+child: 0.0
+parent: 0.07272727272727272
+irrelevant: 0.0
+ignore: 1.0
+6
+metric: 0.49610389610389544
+accuarte: 0.9454545454545454
+child: 0.0
+parent: 0.05454545454545454
+irrelevant: 0.0
+ignore: 1.0
+evaluates -- all
+0
+0.5555555555555556
+accuate 2
+child 4
+parent 0
+irrelevant 3
+ignore 0
+3
+0.9047619047619047
+accuate 2
+child 0
+parent 4
+irrelevant 0
+ignore 0
+6
+0.9142857142857143
+accuate 2
+child 0
+parent 3
+irrelevant 0
+ignore 0
+
+
+the 13th
+test Cases
+0
+6.8
+3
+8.0
+6
+9.0
+evaluates -- avg
+0
+metric: 0.5
+accuarte: 0.8
+child: 0.2
+parent: 0.0
+irrelevant: 0.0
+ignore: 0.8
+3
+metric: 0.46666666666666573
+accuarte: 0.8
+child: 0.0
+parent: 0.2
+irrelevant: 0.0
+ignore: 1.0
+6
+metric: 0.46666666666666573
+accuarte: 0.8
+child: 0.0
+parent: 0.2
+irrelevant: 0.0
+ignore: 1.0
+evaluates -- all
+0
+0.75
+accuate 2
+child 1
+parent 0
+irrelevant 0
+ignore 0
+3
+0.8333333333333333
+accuate 1
+child 0
+parent 1
+irrelevant 0
+ignore 0
+6
+0.8333333333333333
+accuate 1
+child 0
+parent 1
+irrelevant 0
+ignore 0
+
+the 14th
+test Cases
+0
+9.076923076923077
+3
+11.0
+6
+15.384615384615385
+evaluates -- avg
+0
+metric: 0.418803418803393
+accuarte: 0.0
+child: 1.0
+parent: 0.0
+irrelevant: 0.0
+ignore: 1.0
+3
+metric: 0.3589743589743461
+accuarte: 0.15384615384615385
+child: 0.6923076923076923
+parent: 0.0
+irrelevant: 0.15384615384615385
+ignore: 1.4615384615384615
+6
+metric: 0.3931623931623725
+accuarte: 0.15384615384615385
+child: 0.7692307692307693
+parent: 0.0
+irrelevant: 0.07692307692307693
+ignore: 1.3076923076923077
+evaluates -- all
+0
+0.5
+accuate 0
+child 3
+parent 0
+irrelevant 0
+ignore 0
+3
+0.4666666666666666
+accuate 1
+child 1
+parent 0
+irrelevant 2
+ignore 0
+6
+0.5833333333333333
+accuate 1
+child 1
+parent 0
+irrelevant 1
 ignore 0
