@@ -1,0 +1,435 @@
+test Cases
+0
+8.125
+3
+11.916666666666666
+6
+17.0
+evaluates
+0
+0.5757575757575758
+accuate 2
+child 3
+parent 0
+reduantant 0
+ignore 0
+3
+0.6515151515151515
+accuate 3
+child 2
+parent 2
+reduantant 2
+ignore 0
+6
+0.8888888888888888
+accuate 5
+child 0
+parent 4
+reduantant 0
+ignore 0
+test Cases
+0
+8.666666666666666
+3
+7.666666666666667
+6
+10.166666666666666
+evaluates
+0
+0.25
+accuate 2
+child 1
+parent 0
+reduantant 7
+ignore 0
+3
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+reduantant 0
+ignore 0
+6
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+reduantant 0
+ignore 0
+test Cases
+0
+9.166666666666666
+3
+8.61111111111111
+6
+11.722222222222221
+evaluates
+0
+0.40476190476190477
+accuate 2
+child 3
+parent 0
+reduantant 4
+ignore 0
+3
+0.7416666666666667
+accuate 3
+child 1
+parent 4
+reduantant 0
+ignore 0
+6
+0.7999999999999999
+accuate 2
+child 1
+parent 1
+reduantant 0
+ignore 0
+test Cases
+0
+23.5
+3
+6.5
+6
+8.0
+evaluates
+0
+0.07407407407407407
+accuate 2
+child 0
+parent 0
+reduantant 25
+ignore 0
+3
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+reduantant 0
+ignore 0
+6
+1.0
+accuate 2
+child 0
+parent 0
+reduantant 0
+ignore 0
+test Cases
+0
+20.5
+3
+9.0
+6
+11.666666666666666
+evaluates
+0
+0.08928571428571429
+accuate 2
+child 1
+parent 0
+reduantant 25
+ignore 0
+3
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+reduantant 0
+ignore 0
+6
+0.8333333333333334
+accuate 2
+child 0
+parent 1
+reduantant 0
+ignore 0
+test Cases
+0
+16.5
+3
+18.0
+6
+41.75
+evaluates
+0
+0.19047619047619047
+accuate 2
+child 2
+parent 0
+reduantant 15
+ignore 0
+3
+0.11666666666666665
+accuate 1
+child 0
+parent 2
+reduantant 17
+ignore 0
+6
+0.11666666666666665
+accuate 1
+child 0
+parent 2
+reduantant 17
+ignore 0
+test Cases
+0
+11.193832599118943
+3
+14.118942731277533
+6
+16.964757709251103
+evaluates
+0
+0.5444444444444445
+accuate 3
+child 10
+parent 0
+reduantant 1
+ignore 0
+3
+0.7615384615384614
+accuate 3
+child 0
+parent 10
+reduantant 0
+ignore 0
+6
+0.7999999999999999
+accuate 3
+child 0
+parent 6
+reduantant 0
+ignore 0
+test Cases
+0
+12.733333333333333
+3
+9.458333333333334
+6
+14.183333333333334
+evaluates
+0
+0.2857142857142857
+accuate 4
+child 4
+parent 0
+reduantant 13
+ignore 0
+3
+0.3368421052631579
+accuate 3
+child 2
+parent 5
+reduantant 9
+ignore 0
+6
+0.3368421052631579
+accuate 3
+child 2
+parent 5
+reduantant 9
+ignore 0
+test Cases
+0
+9.906976744186046
+3
+13.023255813953488
+6
+18.546511627906977
+evaluates
+0
+0.35256410256410253
+accuate 3
+child 10
+parent 0
+reduantant 9
+ignore 0
+3
+0.39565217391304347
+accuate 3
+child 3
+parent 6
+reduantant 9
+ignore 0
+6
+0.38750000000000007
+accuate 3
+child 2
+parent 5
+reduantant 9
+ignore 0
+test Cases
+0
+13.037735849056604
+3
+13.69811320754717
+6
+14.773584905660377
+evaluates
+0
+0.6476190476190476
+accuate 2
+child 4
+parent 0
+reduantant 1
+ignore 0
+3
+0.875
+accuate 2
+child 0
+parent 2
+reduantant 0
+ignore 0
+6
+0.9166666666666666
+accuate 2
+child 0
+parent 1
+reduantant 0
+ignore 0
+test Cases
+0
+14.913978494623656
+3
+11.75268817204301
+6
+15.365591397849462
+evaluates
+0
+0.38095238095238093
+accuate 2
+child 15
+parent 0
+reduantant 8
+ignore 0
+3
+0.3592592592592592
+accuate 3
+child 4
+parent 8
+reduantant 10
+ignore 0
+6
+0.3592592592592592
+accuate 3
+child 4
+parent 8
+reduantant 10
+ignore 0
+test Cases
+0
+12.772870662460567
+3
+14.593059936908517
+6
+16.444794952681388
+evaluates
+0
+0.39473684210526316
+accuate 3
+child 10
+parent 0
+reduantant 5
+ignore 0
+3
+0.8277777777777777
+accuate 3
+child 0
+parent 6
+reduantant 0
+ignore 0
+6
+0.8277777777777777
+accuate 3
+child 0
+parent 6
+reduantant 0
+ignore 0
+test Cases
+0
+24.454545454545453
+3
+25.254545454545454
+6
+26.272727272727273
+evaluates
+0
+0.5555555555555556
+accuate 2
+child 4
+parent 0
+reduantant 3
+ignore 0
+3
+0.9047619047619047
+accuate 2
+child 0
+parent 4
+reduantant 0
+ignore 0
+6
+0.9142857142857143
+accuate 2
+child 0
+parent 3
+reduantant 0
+ignore 0
+test Cases
+0
+6.8
+3
+8.0
+6
+9.0
+evaluates
+0
+0.75
+accuate 2
+child 1
+parent 0
+reduantant 0
+ignore 0
+3
+0.8333333333333333
+accuate 1
+child 0
+parent 1
+reduantant 0
+ignore 0
+6
+0.8333333333333333
+accuate 1
+child 0
+parent 1
+reduantant 0
+ignore 0
+test Cases
+0
+9.076923076923077
+3
+11.0
+6
+15.384615384615385
+evaluates
+0
+0.5
+accuate 0
+child 3
+parent 0
+reduantant 0
+ignore 0
+3
+0.4666666666666666
+accuate 1
+child 1
+parent 0
+reduantant 2
+ignore 0
+6
+0.5833333333333333
+accuate 1
+child 1
+parent 0
+reduantant 1
+ignore 0

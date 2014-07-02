@@ -65,23 +65,23 @@ public class UnitSimulate {
 		return evaluates;
 	}
 
-//	private List<Tuple> bugs;
+	private List<Tuple> bugs;
 
-//	public UnitSimulate(List<Tuple> bugs) {
-//		tuples = new HashMap<Integer, HashSet<Tuple>>();
-//		additionalTestCases = new HashMap<Integer, List<TestCase>>();
-//		evaluates = new HashMap<Integer, List<EvaluateTuples>>();
-//		this.bugs = bugs;
-//
-//		for (int i = 0; i < NUM; i++) {
-//			HashSet<Tuple> tuple = new HashSet<Tuple>();
-//			List<TestCase> testCase = new ArrayList<TestCase>();
-//			List<EvaluateTuples> evas = new ArrayList<EvaluateTuples>();
-//			tuples.put(i, tuple);
-//			additionalTestCases.put(i, testCase);
-//			evaluates.put(i, evas);
-//		}
-//	}
+	// public UnitSimulate(List<Tuple> bugs) {
+	// tuples = new HashMap<Integer, HashSet<Tuple>>();
+	// additionalTestCases = new HashMap<Integer, List<TestCase>>();
+	// evaluates = new HashMap<Integer, List<EvaluateTuples>>();
+	// this.bugs = bugs;
+	//
+	// for (int i = 0; i < NUM; i++) {
+	// HashSet<Tuple> tuple = new HashSet<Tuple>();
+	// List<TestCase> testCase = new ArrayList<TestCase>();
+	// List<EvaluateTuples> evas = new ArrayList<EvaluateTuples>();
+	// tuples.put(i, tuple);
+	// additionalTestCases.put(i, testCase);
+	// evaluates.put(i, evas);
+	// }
+	// }
 
 	public UnitSimulate() {
 		tuples = new HashMap<Integer, HashSet<Tuple>>();
@@ -99,9 +99,9 @@ public class UnitSimulate {
 		}
 	}
 
-//	public void setBugs(List<Tuple> bugs) {
-//		this.bugs = bugs;
-//	}
+	public void setBugs(List<Tuple> bugs) {
+		this.bugs = bugs;
+	}
 
 	public void testTraditional(int[] param, TestCase wrongCase,
 			CaseRunner runner) {
@@ -117,9 +117,9 @@ public class UnitSimulate {
 		// fic.getExtraCases().getAt(i));
 		this.tuples.get(IGNORE_FIC + added).addAll(fic.getBugs());
 
-//		EvaluateTuples eva = new EvaluateTuples();
-//		eva.evaluate(bugs, fic.getBugs());
-//		this.evaluates.get(IGNORE_FIC + added).add(eva);
+		EvaluateTuples eva = new EvaluateTuples();
+		eva.evaluate(bugs, fic.getBugs());
+		this.evaluates.get(IGNORE_FIC + added).add(eva);
 
 		// System.out.println("non Mask runner");
 		// for (Tuple tuple : fic.getBugs())
@@ -170,9 +170,9 @@ public class UnitSimulate {
 
 		this.additionalTestCases.get(MASK_FIC).addAll(ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC).addAll(ficmasknew.getBugs());
-//		EvaluateTuples eva = new EvaluateTuples();
-//		eva.evaluate(bugs, ficmasknew.getBugs());
-//		this.evaluates.get(MASK_FIC).add(eva);
+		EvaluateTuples eva = new EvaluateTuples();
+		eva.evaluate(bugs, ficmasknew.getBugs());
+		this.evaluates.get(MASK_FIC).add(eva);
 
 		// System.out.println("Mask fic");
 		// for (Tuple tuple : ficmasknew.getBugs())
@@ -226,9 +226,9 @@ public class UnitSimulate {
 				ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC_OLD).addAll(ficmasknew.getBugs());
 
-//		EvaluateTuples eva = new EvaluateTuples();
-//		eva.evaluate(bugs, ficmasknew.getBugs());
-//		this.evaluates.get(MASK_FIC_OLD).add(eva);
+		EvaluateTuples eva = new EvaluateTuples();
+		eva.evaluate(bugs, ficmasknew.getBugs());
+		this.evaluates.get(MASK_FIC_OLD).add(eva);
 
 		// System.out.println("Mask fic");
 		// for (Tuple tuple : ficmasknew.getBugs())
@@ -320,11 +320,13 @@ public class UnitSimulate {
 		exData.setHigherPriority(priority);
 		exData.setBugs(bugs);
 
+		// this.setBugs(bugs);
+
 		List<Tuple> bench = new ArrayList<Tuple>();
 		for (Integer key : bugs.keySet())
 			bench.addAll(bugs.get(key));
 
-//		this.setBugs(bench);
+		this.setBugs(bench);
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
@@ -357,17 +359,34 @@ public class UnitSimulate {
 
 		}
 
-//		for (int i : new int[] { 0, 3, 6 }) {
-//			System.out.println(i);
-//			// for (TestCase testCase : this.additionalTestCases.get(i))
-//			double metric = 0;
-//			for (EvaluateTuples eva : this.evaluates.get(i)) {
-//				metric += eva.getMetric();
-//			}
-//			if (allNum > 0)
-//				System.out.println(metric / (double) allNum);
-//
-//		}
+		for (int i : new int[] { 0, 3, 6 }) {
+			System.out.println(i);
+			// for (TestCase testCase : this.additionalTestCases.get(i))
+			double metric = 0;
+			double ignore = 0;
+			double parent = 0;
+			double child = 0;
+			double irrelevant = 0;
+			double accuarte = 0;
+			for (EvaluateTuples eva : this.evaluates.get(i)) {
+				metric += eva.getMetric();
+				ignore += eva.getMissTuples().size();
+				accuarte += eva.getAccurateTuples().size();
+				parent += eva.getFatherTuples().size();
+				child += eva.getChildTuples().size();
+				irrelevant += eva.getRedundantTuples().size();
+
+			}
+			if (allNum > 0) {
+				System.out.println("metric: " + metric / (double) allNum);
+				System.out.println("ignore: " + ignore / (double) allNum);
+				System.out.println("parent: " + parent / (double) allNum);
+				System.out.println("child: " + child / (double) allNum);
+				System.out.println("irrelevant: " + irrelevant / (double) allNum);
+				System.out.println("accuarte: " + accuarte / (double) allNum);
+			}
+
+		}
 
 		// for(Tuple tuple : bench)
 		// System.out.println(tuple.toString());
