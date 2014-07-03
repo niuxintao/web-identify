@@ -89,7 +89,7 @@ public class UnitSimulate {
 		evaluates = new HashMap<Integer, List<EvaluateTuples>>();
 		// this.bugs = bugs;
 
-		for (int i = 0; i < NUM; i++) {
+		for (int i = 0; i < NUM + 3; i++) {
 			HashSet<Tuple> tuple = new HashSet<Tuple>();
 			List<TestCase> testCase = new ArrayList<TestCase>();
 			List<EvaluateTuples> evas = new ArrayList<EvaluateTuples>();

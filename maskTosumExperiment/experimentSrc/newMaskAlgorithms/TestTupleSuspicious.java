@@ -29,7 +29,7 @@ public class TestTupleSuspicious {
 											// redesign this program instead of
 											// repair it.
 
-	public static final int CANDIDATENUM = 3;
+	public static final int CANDIDATENUM = 1;
 
 	private BasicRunner runner;
 
