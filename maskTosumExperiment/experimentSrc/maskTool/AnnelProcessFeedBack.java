@@ -23,20 +23,18 @@ public class AnnelProcessFeedBack implements AnnelInf {
 	private double T;// 温度T
 	private double decrement;// 控温下降
 
-//	public AnnelProcessFeedBack(int N, double T, double decrement) {
-//		this.N = N;
-//		this.T = T;
-//		this.decrement = decrement;
-//
-//		this.initAnneling();
-//	}
-	
+	// public AnnelProcessFeedBack(int N, double T, double decrement) {
+	// this.N = N;
+	// this.T = T;
+	// this.decrement = decrement;
+	//
+	// this.initAnneling();
+	// }
+
 	private HashSet<Tuple> mfs;
 
-
-
-	public AnnelProcessFeedBack(HashSet<Tuple> mfs, int N, double T, int[] coveringArray,
-			Integer unCovered, double decrement) {
+	public AnnelProcessFeedBack(HashSet<Tuple> mfs, int N, double T,
+			int[] coveringArray, Integer unCovered, double decrement) {
 		// TODO Auto-generated constructor stub
 		this.N = N;
 		this.T = T;
@@ -44,7 +42,7 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		this.unCovered = unCovered;
 		this.coveringArray = coveringArray;
 		this.mfs = mfs;
-		
+
 		this.initAnneling();
 	}
 
@@ -56,13 +54,18 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		CoveringManagementInf cm = new CoveringManage();
 		// 随机生成一个N*K的表
 		// 初始化coveringArray
-//		this.coveringArray = new int[DataCenter.coveringArrayNum];
-//		unCovered = this.coveringArray.length;
+		// this.coveringArray = new int[DataCenter.coveringArrayNum];
+		// unCovered = this.coveringArray.length;
 		this.freezingTimes = 0;
 		table = new int[N][DataCenter.param.length];
 		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < DataCenter.param.length; j++)
-				table[i][j] = randomGenerator.nextInt(DataCenter.param[j]);
+			while (true) {
+				for (int j = 0; j < DataCenter.param.length; j++)
+					table[i][j] = randomGenerator.nextInt(DataCenter.param[j]);
+				//gen not contain the mfs
+				if (!this.containsMFS(table[i]))
+					break;
+			}
 			unCovered = cm.setCover(unCovered, coveringArray, table[i]);
 		}
 	}
@@ -113,9 +116,18 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		oldRow = table[rowChange];
 		newRow = table[rowChange].clone();
 		
-		int col = randomGenerator.nextInt(DataCenter.param.length);
-		int newValue = (table[rowChange][col] + 1) % DataCenter.param[col];
-		newRow[col] = newValue;
+		while (true) {
+			for (int j = 0; j < DataCenter.param.length; j++)
+				newRow[j] = randomGenerator.nextInt(DataCenter.param[j]);
+			//gen not contain the mfs
+			if (!this.containsMFS(newRow))
+				break;
+		}
+//		unCovered = cm.setCover(unCovered, coveringArray, table[i]);
+//
+//		int col = randomGenerator.nextInt(DataCenter.param.length);
+//		int newValue = (table[rowChange][col] + 1) % DataCenter.param[col];
+//		newRow[col] = newValue;
 	}
 
 	@Override
@@ -152,32 +164,30 @@ public class AnnelProcessFeedBack implements AnnelInf {
 			}
 		}
 	}
-	
-	public boolean containsMFS(int[] test){
+
+	public boolean containsMFS(int[] test) {
 		boolean result = false;
-		for(Tuple mfs : this.mfs){
-			if(this.testContainSchema(test, mfs)){
+		for (Tuple mfs : this.mfs) {
+			if (this.testContainSchema(test, mfs)) {
 				result = true;
 				break;
 			}
 		}
 		return result;
 	}
-	
-	public boolean testContainSchema(int[] testCase, Tuple tuple){
+
+	public boolean testContainSchema(int[] testCase, Tuple tuple) {
 		int[] index = tuple.getParamIndex();
 		int[] value = tuple.getParamValue();
 
 		for (int i = 0; i < tuple.getDegree(); i++) {
-			if (index[i] >=  testCase.length)
+			if (index[i] >= testCase.length)
 				return false;
 			if (testCase[index[i]] != value[i])
 				return false;
 		}
 		return true;
 	}
-	
-
 
 	@Override
 	public boolean isOk() {
