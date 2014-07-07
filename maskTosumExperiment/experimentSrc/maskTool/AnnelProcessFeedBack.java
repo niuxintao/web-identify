@@ -62,7 +62,7 @@ public class AnnelProcessFeedBack implements AnnelInf {
 			while (true) {
 				for (int j = 0; j < DataCenter.param.length; j++)
 					table[i][j] = randomGenerator.nextInt(DataCenter.param[j]);
-				//gen not contain the mfs
+				// gen not contain the mfs
 				if (!this.containsMFS(table[i]))
 					break;
 			}
@@ -115,19 +115,38 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		this.rowChange = randomGenerator.nextInt(N);
 		oldRow = table[rowChange];
 		newRow = table[rowChange].clone();
+
+		int tryT = 0;
+		int changeNum = 1;
 		
 		while (true) {
-			for (int j = 0; j < DataCenter.param.length; j++)
-				newRow[j] = randomGenerator.nextInt(DataCenter.param[j]);
-			//gen not contain the mfs
+			tryT++;
+			
+			for (int i = 0; i < changeNum; i++) {
+				int col = randomGenerator.nextInt(DataCenter.param.length);
+				int newValue = (table[rowChange][col] + 1)
+						% DataCenter.param[col];
+				newRow[col] = newValue;
+			}
+
 			if (!this.containsMFS(newRow))
 				break;
+
+			if (tryT > DataCenter.param.length * DataCenter.param[0]) {
+				tryT = 0;
+				changeNum++;
+			}
+
+			//
+			// for (int j = 0; j < DataCenter.param.length; j++)
+			// newRow[j] = randomGenerator.nextInt(DataCenter.param[j]);
+			// gen not contain the mfs
+
 		}
-//		unCovered = cm.setCover(unCovered, coveringArray, table[i]);
-//
-//		int col = randomGenerator.nextInt(DataCenter.param.length);
-//		int newValue = (table[rowChange][col] + 1) % DataCenter.param[col];
-//		newRow[col] = newValue;
+		// unCovered = cm.setCover(unCovered, coveringArray, table[i]);
+		//
+
+		//
 	}
 
 	@Override

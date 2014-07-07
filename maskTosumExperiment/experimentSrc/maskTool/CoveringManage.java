@@ -115,7 +115,7 @@ public class CoveringManage implements CoveringManagementInf {
 		for (int i = 0; i < tuple.getDegree(); i++) {
 
 			int k = i + 1;
-			int temR = tuple.getParamValue()[tuple.getParamIndex()[i]];
+			int temR = tuple.getParamValue()[i];
 			while (k < tuple.getDegree()) {
 				temR *= DataCenter.param[tuple.getParamIndex()[k]];
 				k++;

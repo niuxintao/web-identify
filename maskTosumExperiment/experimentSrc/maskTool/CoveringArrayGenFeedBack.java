@@ -13,6 +13,7 @@ import maskSimulateExperiment.BasicRunner;
 
 //import com.fc.coveringArray.CoveringManagementInf;
 import com.fc.coveringArray.DataCenter;
+import com.fc.testObject.TestCase;
 //import com.fc.coveringArray.Process;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.testObject.TestSuite;
@@ -86,8 +87,9 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	public void get(BasicRunner basicRunner) throws Exception {
-		while (feedBackCritiria()) {
+		while (!feedBackCritiria()) {
 			// generate
+//			System.out.println("handle");
 			process();
 
 			// execute
@@ -111,7 +113,6 @@ public class CoveringArrayGenFeedBack {
 			CoveringManage cm = new CoveringManage();
 			cm.rmCover(unCovered, currentTable, coveringArray,
 					this.currentNewlyMFS);
-
 
 			// reset;
 			// set the the bugs removed;
@@ -168,11 +169,61 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	static public void main(String[] args) {
-		int param[] = { 10, 10, 10, 10, 10, 10, 10 };
+		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3 };
 		DataCenter.init(param, 2);
 		System.out.println(DataCenter.coveringArrayNum);
+		
 		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
-		t.process();
+
+		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1 };
+
+		TestCase wrongCase = new TestCaseImplement();
+		wrongCase.setTestState(TestCase.FAILED);
+		((TestCaseImplement) wrongCase).setTestCase(wrong);
+
+		int[] wrong2 = new int[] { 2, 2, 2, 2, 2, 2, 2 };
+
+		TestCase wrongCase2 = new TestCaseImplement();
+		wrongCase2.setTestState(TestCase.FAILED);
+		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
+
+		Tuple bug1 = new Tuple(2, wrongCase);
+		bug1.set(0, 0);
+		bug1.set(1, 1);
+
+		List<Tuple> bugs1 = new ArrayList<Tuple>();
+		bugs1.add(bug1);
+
+		Tuple bug2 = new Tuple(2, wrongCase2);
+		bug2.set(0, 3);
+		bug2.set(1, 4);
+
+		List<Tuple> bugs2 = new ArrayList<Tuple>();
+		bugs2.add(bug2);
+
+		List<Integer> priority1 = new ArrayList<Integer>();
+		priority1.add(2);
+		List<Integer> priority2 = new ArrayList<Integer>();
+
+		HashMap<Integer, List<Tuple>> bugs = new HashMap<Integer, List<Tuple>>();
+		bugs.put(1, bugs1);
+		bugs.put(2, bugs2);
+
+		HashMap<Integer, List<Integer>> priority = new HashMap<Integer, List<Integer>>();
+
+		priority.put(1, priority1);
+		priority.put(2, priority2);
+
+		BasicRunner basicRunner = new BasicRunner(priority, bugs);
+
+//		System.out.println(t.unCovered);
+		try {
+			t.get(basicRunner);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		for (int[] row : t.rsTable) {
 			for (int i : row)
 				System.out.print(i + " ");
