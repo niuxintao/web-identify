@@ -1,5 +1,6 @@
 package maskTool;
 
+import java.util.HashSet;
 import java.util.Random;
 
 import com.fc.coveringArray.AnnelInf;
@@ -22,11 +23,28 @@ public class AnnelProcessFeedBack implements AnnelInf {
 	private double T;// 温度T
 	private double decrement;// 控温下降
 
-	public AnnelProcessFeedBack(int N, double T, double decrement) {
+//	public AnnelProcessFeedBack(int N, double T, double decrement) {
+//		this.N = N;
+//		this.T = T;
+//		this.decrement = decrement;
+//
+//		this.initAnneling();
+//	}
+	
+	private HashSet<Tuple> mfs;
+
+
+
+	public AnnelProcessFeedBack(HashSet<Tuple> mfs, int N, double T, int[] coveringArray,
+			Integer unCovered, double decrement) {
+		// TODO Auto-generated constructor stub
 		this.N = N;
 		this.T = T;
 		this.decrement = decrement;
-
+		this.unCovered = unCovered;
+		this.coveringArray = coveringArray;
+		this.mfs = mfs;
+		
 		this.initAnneling();
 	}
 
@@ -38,8 +56,8 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		CoveringManagementInf cm = new CoveringManage();
 		// 随机生成一个N*K的表
 		// 初始化coveringArray
-		this.coveringArray = new int[DataCenter.coveringArrayNum];
-		unCovered = this.coveringArray.length;
+//		this.coveringArray = new int[DataCenter.coveringArrayNum];
+//		unCovered = this.coveringArray.length;
 		this.freezingTimes = 0;
 		table = new int[N][DataCenter.param.length];
 		for (int i = 0; i < N; i++) {
@@ -92,10 +110,11 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		// TODO Auto-generated method stub
 		// 任意挑出一个cell改变其值
 		this.rowChange = randomGenerator.nextInt(N);
-		int col = randomGenerator.nextInt(DataCenter.param.length);
-		int newValue = (table[rowChange][col] + 1) % DataCenter.param[col];
 		oldRow = table[rowChange];
 		newRow = table[rowChange].clone();
+		
+		int col = randomGenerator.nextInt(DataCenter.param.length);
+		int newValue = (table[rowChange][col] + 1) % DataCenter.param[col];
 		newRow[col] = newValue;
 	}
 
@@ -133,6 +152,32 @@ public class AnnelProcessFeedBack implements AnnelInf {
 			}
 		}
 	}
+	
+	public boolean containsMFS(int[] test){
+		boolean result = false;
+		for(Tuple mfs : this.mfs){
+			if(this.testContainSchema(test, mfs)){
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	public boolean testContainSchema(int[] testCase, Tuple tuple){
+		int[] index = tuple.getParamIndex();
+		int[] value = tuple.getParamValue();
+
+		for (int i = 0; i < tuple.getDegree(); i++) {
+			if (index[i] >=  testCase.length)
+				return false;
+			if (testCase[index[i]] != value[i])
+				return false;
+		}
+		return true;
+	}
+	
+
 
 	@Override
 	public boolean isOk() {
