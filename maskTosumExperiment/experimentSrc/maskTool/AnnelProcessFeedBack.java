@@ -40,10 +40,12 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		this.T = T;
 		this.decrement = decrement;
 		this.unCovered = unCovered;
-		this.coveringArray = coveringArray;
+		this.coveringArray = coveringArray.clone();
 		this.mfs = mfs;
 
 		this.initAnneling();
+		
+//		System.out.println("start : " + unCovered);
 	}
 
 	@Override

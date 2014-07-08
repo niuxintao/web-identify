@@ -58,7 +58,11 @@ public class CoveringArrayGenFeedBack {
 		int end = 0;
 		boolean flag = false;
 		long starttime = new Date().getTime();
+		int[][] rstable = null;
+		Integer unc = unCovered;
+		int[] coveri = null;
 		// ���ַ����ҵ���С��N
+		System.out.println("uncover :" + unCovered);
 		while (start > end || !flag) {
 			if (start <= end)// ��һ�������ҵ����ʵ�start��end
 			{
@@ -69,14 +73,18 @@ public class CoveringArrayGenFeedBack {
 			AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss, middle, T,
 					coveringArray, unCovered, decrement);
 			al.startAnneling();
+			// unCovered = al.unCovered;
 			if (al.isOk()) {
 				start = middle - 1;
-				this.currentTable = new ArrayList<int[]>();
-
-				for (int[] a : al.table) {
-					rsTable.add(a);
-					currentTable.add(a);
-				}
+				rstable = al.table;
+				unc = al.unCovered;
+				coveri = al.coveringArray;
+				// this.currentTable = new ArrayList<int[]>();
+				//
+				// for (int[] a : al.table) {
+				// rsTable.add(a);
+				// currentTable.add(a);
+				// }
 
 				flag = true;
 			} else
@@ -84,12 +92,24 @@ public class CoveringArrayGenFeedBack {
 		}
 		long endtime = new Date().getTime();
 		time = endtime - starttime;
+
+		this.currentTable = new ArrayList<int[]>();
+
+		for (int[] a : rstable) {
+			rsTable.add(a);
+			currentTable.add(a);
+		}
+
+		this.unCovered = unc;
+		
+		this.coveringArray = coveri;
+
 	}
 
 	public void get(BasicRunner basicRunner) throws Exception {
 		while (!feedBackCritiria()) {
 			// generate
-//			System.out.println("handle");
+			// System.out.println("handle");
 			process();
 
 			// execute
@@ -102,6 +122,7 @@ public class CoveringArrayGenFeedBack {
 					List<Tuple> curBugs = bugs.get(key);
 					for (Tuple bug : curBugs) {
 						if (!this.mfss.contains(bug)) {
+							System.out.println(bug.toString());
 							mfss.add(bug);
 							this.currentNewlyMFS.add(bug);
 						}
@@ -111,7 +132,7 @@ public class CoveringArrayGenFeedBack {
 
 			// rm the false confidenced covered
 			CoveringManage cm = new CoveringManage();
-			cm.rmCover(unCovered, currentTable, coveringArray,
+			unCovered = cm.rmCover(unCovered, currentTable, coveringArray,
 					this.currentNewlyMFS);
 
 			// reset;
@@ -169,19 +190,19 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	static public void main(String[] args) {
-		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3 };
+		int[] param = new int[] { 2, 2, 2, 2, 2 };
 		DataCenter.init(param, 2);
-		System.out.println(DataCenter.coveringArrayNum);
-		
+//		System.out.println(DataCenter.coveringArrayNum);
+
 		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
 
-		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1 };
+		int[] wrong = new int[] { 0, 0, 0, 0, 0};
 
 		TestCase wrongCase = new TestCaseImplement();
 		wrongCase.setTestState(TestCase.FAILED);
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
 
-		int[] wrong2 = new int[] { 2, 2, 2, 2, 2, 2, 2 };
+		int[] wrong2 = new int[] { 1, 1, 1, 1, 1 };
 
 		TestCase wrongCase2 = new TestCaseImplement();
 		wrongCase2.setTestState(TestCase.FAILED);
@@ -216,7 +237,7 @@ public class CoveringArrayGenFeedBack {
 
 		BasicRunner basicRunner = new BasicRunner(priority, bugs);
 
-//		System.out.println(t.unCovered);
+		// System.out.println(t.unCovered);
 		try {
 			t.get(basicRunner);
 		} catch (Exception e) {

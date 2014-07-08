@@ -28,6 +28,7 @@ public class CoveringManage implements CoveringManagementInf {
 					}
 					thisIndex += temR;
 				}
+//				System.out.println(coveringArray[thisIndex]);
 				if (coveringArray[thisIndex] == 1)
 					unCovered++;
 				coveringArray[thisIndex] = coveringArray[thisIndex] - 1;
@@ -65,9 +66,13 @@ public class CoveringManage implements CoveringManagementInf {
 			int[] coveringArray, HashSet<Tuple> mfs) {
 		// TODO Auto-generated method stub
 		for (int[] row : table) {
+			for (int i : row)
+				System.out.print(i + " ");
+			System.out.println();
 			boolean contain = false;
 			for (Tuple m : mfs) {
 				if (this.containMFS(row, m)) {
+					System.out.println("contain");
 					contain = true;
 					break;
 					// unCovered = this.rmCover(unCovered, coveringArray, row);
@@ -75,10 +80,11 @@ public class CoveringManage implements CoveringManagementInf {
 			}
 			if (contain) {
 				unCovered = this.rmCover(unCovered, coveringArray, row);
+				System.out.println("rm " + unCovered);
 			}
 		}
 		for (Tuple m : mfs)
-			this.setCover(unCovered, coveringArray, m);
+			unCovered = this.setCover(unCovered, coveringArray, m);
 
 		return unCovered;
 	}
@@ -108,6 +114,10 @@ public class CoveringManage implements CoveringManagementInf {
 	}
 
 	public int setCover(Integer unCovered, int[] coveringArray, Tuple tuple) {
+		// System.out.println("setCover:¡¡"+ tuple.toString());
+		if(tuple.getDegree() != DataCenter.degree)
+			return unCovered;
+		
 		int num = getIndex(tuple);
 
 		int thisIndex = DataCenter.index[num];
