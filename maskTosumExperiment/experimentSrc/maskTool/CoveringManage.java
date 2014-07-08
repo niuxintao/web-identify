@@ -141,7 +141,7 @@ public class CoveringManage implements CoveringManagementInf {
 		return unCovered;
 	}
 
-	private int getIndex(Tuple tuple) {
+	public  int getIndex(Tuple tuple) {
 		int beforeIndex = 0;
 
 		int num = 0;

@@ -52,9 +52,18 @@ public class CoveringArrayGenFeedBack {
 		this.decrement = decrement;
 	}
 
+	public int getCoverLeft() {
+		int result = 0;
+		for (int i : this.coveringArray) {
+			if (i == 0)
+				result++;
+		}
+		return result;
+	}
+
 	public void process() {
 		// N��ʼ��Ϊ���Ƕ�
-		int start = unCovered;// DataCenter.coveringArrayNum;
+		int start = unCovered;//  DataCenter.coveringArrayNum;
 		int end = 0;
 		boolean flag = false;
 		long starttime = new Date().getTime();
@@ -62,7 +71,8 @@ public class CoveringArrayGenFeedBack {
 		Integer unc = unCovered;
 		int[] coveri = null;
 		// ���ַ����ҵ���С��N
-		System.out.println("uncover :" + unCovered);
+		System.out.println("uncover :" + unCovered + " covrRemained :"
+				+ this.getCoverLeft());
 		while (start > end || !flag) {
 			if (start <= end)// ��һ�������ҵ����ʵ�start��end
 			{
@@ -70,6 +80,7 @@ public class CoveringArrayGenFeedBack {
 				start *= 2;
 			}
 			int middle = (start + end) / 2;
+			middle = middle > 0 ? middle : 1;
 			AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss, middle, T,
 					coveringArray, unCovered, decrement);
 			al.startAnneling();
@@ -89,6 +100,7 @@ public class CoveringArrayGenFeedBack {
 				flag = true;
 			} else
 				end = middle + 1;
+			System.out.println(start + " " + end);
 		}
 		long endtime = new Date().getTime();
 		time = endtime - starttime;
@@ -101,7 +113,7 @@ public class CoveringArrayGenFeedBack {
 		}
 
 		this.unCovered = unc;
-		
+
 		this.coveringArray = coveri;
 
 	}
@@ -190,13 +202,13 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	static public void main(String[] args) {
-		int[] param = new int[] { 2, 2, 2, 2, 2 };
+		int[] param = new int[] { 3, 3, 3, 3, 3 };
 		DataCenter.init(param, 2);
-//		System.out.println(DataCenter.coveringArrayNum);
+		// System.out.println(DataCenter.coveringArrayNum);
 
 		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
 
-		int[] wrong = new int[] { 0, 0, 0, 0, 0};
+		int[] wrong = new int[] { 0, 0, 0, 0, 0 };
 
 		TestCase wrongCase = new TestCaseImplement();
 		wrongCase.setTestState(TestCase.FAILED);
