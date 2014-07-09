@@ -1,14 +1,19 @@
 package maskSimulateExperiment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
 import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
+import com.fc.testObject.TestSuite;
+import com.fc.testObject.TestSuiteImplement;
 import com.fc.tuple.Tuple;
 
+import maskAlogrithms.CTA;
 import maskTool.CoveringArrayGenFeedBack;
 import maskTool.EvaluateTuples;
 import newMaskAlgorithms.FIC_MASK_SOVLER;
@@ -19,11 +24,13 @@ public class Unit_FB_OUR {
 	// for the first covering array, identify the error test case using our
 	// compare the result ()
 	// 30 times and get average
-	private List<TestCase> additionalFIC;
+	// the third one gives the same test cases to the cta
+	private HashSet<TestCase> additionalFIC;
 	private HashSet<Tuple> bugsFIC;
+	// private HashMap<Integer, HashSet<Tuple>> bugsFIC_record;
 	private EvaluateTuples evaluateFIC;
 
-	public List<TestCase> getAdditionalFIC() {
+	public HashSet<TestCase> getAdditionalFIC() {
 		return additionalFIC;
 	}
 
@@ -51,13 +58,21 @@ public class Unit_FB_OUR {
 	private HashSet<Tuple> bugsFB;
 	private EvaluateTuples evaluateFB;
 
+	private EvaluateTuples evaluateFB_addtional;
+
 	public Unit_FB_OUR() {
 		this.additionalFB = new ArrayList<TestCase>();
-		this.additionalFIC = new ArrayList<TestCase>();
+		this.additionalFIC = new HashSet<TestCase>();
 		this.bugsFB = new HashSet<Tuple>();
 		this.bugsFIC = new HashSet<Tuple>();
 		this.evaluateFB = new EvaluateTuples();
 		this.evaluateFIC = new EvaluateTuples();
+		this.evaluateFB_addtional = new EvaluateTuples();
+
+	}
+
+	public EvaluateTuples getEvaluateFB_addtional() {
+		return evaluateFB_addtional;
 	}
 
 	public void testFB_OUR(List<Tuple> bugs, BasicRunner basicRunner,
@@ -85,9 +100,10 @@ public class Unit_FB_OUR {
 			TestCaseImplement testCase = new TestCaseImplement(test);
 			firstTestCases.add(testCase);
 		}
-		
-		
+
 		this.testMASKFIC(bugs, firstTestCases, param, basicRunner);
+
+		this.testAddtionalFB(bugs, basicRunner);
 
 	}
 
@@ -110,6 +126,52 @@ public class Unit_FB_OUR {
 		List<Tuple> tuples = new ArrayList<Tuple>();
 		tuples.addAll(bugsFIC);
 		evaluateFIC.evaluate(bugs, tuples);
+
+	}
+
+	public void testAddtionalFB(List<Tuple> bench, BasicRunner basicRunner)
+			throws Exception {
+		HashSet<Integer> result = new HashSet<Integer>();
+		TestSuite suite = new TestSuiteImplement();
+		String[] state = new String[this.additionalFIC.size()];
+		int i = 0;
+		for (TestCase add : this.additionalFIC) {
+			suite.addTest(add);
+			int runresult = basicRunner.runTestCase(add);
+			state[i] = "" + runresult;
+			result.add(runresult);
+			i++;
+		}
+
+		String[] classes = new String[result.size()];
+		// classes[0] = "0";
+		int j = 0;
+		for (Integer r : result) {
+			classes[j] = r + "";
+			j++;
+		}
+		// for (int j = 0; j < classes.length; j++)
+		// classes[j] = result + "";
+
+		CTA cta = new CTA();
+
+		cta.process(DataCenter.param, classes, suite, state);
+
+		HashMap<Integer, List<Tuple>> bugs = cta.getBugs();
+
+		HashSet<Tuple> mfs = new HashSet<Tuple>();
+		for (Integer key : bugs.keySet()) {
+			if (key != 0) {
+				List<Tuple> curBugs = bugs.get(key);
+				for (Tuple bug : curBugs) {
+					mfs.add(bug);
+				}
+			}
+		}
+
+		List<Tuple> tuples = new ArrayList<Tuple>();
+		tuples.addAll(mfs);
+		evaluateFB_addtional.evaluate(bench, tuples);
 
 	}
 
