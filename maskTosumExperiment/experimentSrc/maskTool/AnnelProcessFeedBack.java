@@ -61,7 +61,7 @@ public class AnnelProcessFeedBack implements AnnelInf {
 
 		this.initAnneling();
 
-		System.out.println("start : " + N);
+//		System.out.println("start : " + N);
 	}
 
 	@Override

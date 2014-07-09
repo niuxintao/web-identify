@@ -24,6 +24,7 @@ public class CoveringArrayGenFeedBack {
 	public double T;
 	public double decrement;
 	public long time;
+	public static int maxTimes = 3;
 
 	public List<int[]> rsTable;
 
@@ -36,6 +37,10 @@ public class CoveringArrayGenFeedBack {
 	private int[] coveringArray;
 
 	private Integer unCovered;
+	
+	
+	private int OldMaxUnCover ;
+	private int NewMaxUnCover ;
 
 	public CoveringArrayGenFeedBack(double T, double decrement) {
 		rsTable = new ArrayList<int[]>();
@@ -47,6 +52,11 @@ public class CoveringArrayGenFeedBack {
 		// CoveringManagementInf cm = new CoveringManage();
 		this.coveringArray = new int[DataCenter.coveringArrayNum];
 		unCovered = this.coveringArray.length;
+		
+		
+		OldMaxUnCover = 0;
+		
+		NewMaxUnCover = this.coveringArray.length;
 
 		this.T = T;
 		this.decrement = decrement;
@@ -73,6 +83,12 @@ public class CoveringArrayGenFeedBack {
 		// ���ַ����ҵ���С��N
 		System.out.println("uncover :" + unCovered + " covrRemained :"
 				+ this.getCoverLeft());
+		
+		int maxUncover = unCovered;
+		int times = 0;
+		
+		//start > end go on
+		//flag: cannot find a satisfied go on
 		while (start > end || !flag) {
 			if (start <= end)// ��һ�������ҵ����ʵ�start��end
 			{
@@ -85,6 +101,12 @@ public class CoveringArrayGenFeedBack {
 					coveringArray, unCovered, decrement);
 			al.startAnneling();
 			// unCovered = al.unCovered;
+			if (maxUncover != 0 && al.unCovered == maxUncover) {
+				times++;
+				if (times >= maxTimes)
+					break;
+			}
+			
 			if (al.isOk()) {
 				start = middle - 1;
 				rstable = al.table;
@@ -100,11 +122,45 @@ public class CoveringArrayGenFeedBack {
 				flag = true;
 			} else
 				end = middle + 1;
-			System.out.println(start + " " + end);
+			
+			if (al.unCovered < maxUncover)
+				maxUncover = al.unCovered;
+			
+//			System.out.println("start: " + start + " end :" + end);
 		}
+		
+//		System.out.println("out");
+		
+		if (maxUncover != 0) {
+			start = (start + end) / 2;
+			end = 0;
+			while (start > end || !flag) {
+				if (start <= end) {
+					end = start;
+					start *= 2;
+				}
+				int middle = (start + end) / 2;
+				middle = middle > 0 ? middle : 1;
+				AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss, middle, T,
+						coveringArray, unCovered, decrement);
+				al.startAnneling();
+				if (al.unCovered == maxUncover) {
+					start = middle - 1;
+					rstable = al.table;
+					unc = al.unCovered;
+					coveri = al.coveringArray;
+					flag = true;
+				} else
+					end = middle + 1;
+			}
+		}
+		
 		long endtime = new Date().getTime();
 		time = endtime - starttime;
 
+		this.OldMaxUnCover = this.NewMaxUnCover;
+		this.NewMaxUnCover = maxUncover;
+		
 		this.currentTable = new ArrayList<int[]>();
 
 		for (int[] a : rstable) {
@@ -155,7 +211,7 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	public boolean feedBackCritiria() {
-		return this.unCovered == 0;
+		return this.unCovered == 0 || this.NewMaxUnCover == this.OldMaxUnCover;
 	}
 
 	// public executeAndCharactersiz() {
@@ -202,7 +258,7 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	static public void main(String[] args) {
-		int[] param = new int[] { 3, 3, 3, 3, 3 };
+		int[] param = new int[] { 2, 2, 2, 2, 2 };
 		DataCenter.init(param, 2);
 		// System.out.println(DataCenter.coveringArrayNum);
 

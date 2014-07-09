@@ -66,13 +66,13 @@ public class CoveringManage implements CoveringManagementInf {
 			int[] coveringArray, HashSet<Tuple> mfs) {
 		// TODO Auto-generated method stub
 		for (int[] row : table) {
-			for (int i : row)
-				System.out.print(i + " ");
-			System.out.println();
+//			for (int i : row)
+//				System.out.print(i + " ");
+//			System.out.println();
 			boolean contain = false;
 			for (Tuple m : mfs) {
 				if (this.containMFS(row, m)) {
-					System.out.println("contain");
+//					System.out.println("contain");
 					contain = true;
 					break;
 					// unCovered = this.rmCover(unCovered, coveringArray, row);
@@ -80,7 +80,7 @@ public class CoveringManage implements CoveringManagementInf {
 			}
 			if (contain) {
 				unCovered = this.rmCover(unCovered, coveringArray, row);
-				System.out.println("rm " + unCovered);
+//				System.out.println("rm " + unCovered);
 			}
 		}
 		for (Tuple m : mfs)
