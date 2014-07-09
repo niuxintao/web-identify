@@ -37,14 +37,29 @@ public class CoveringArrayGenFeedBack {
 	private int[] coveringArray;
 
 	private Integer unCovered;
-	
-	
-	private int OldMaxUnCover ;
-	private int NewMaxUnCover ;
+
+	public HashSet<Tuple> getMfss() {
+		return mfss;
+	}
+
+	public HashSet<Tuple> getCurrentNewlyMFS() {
+		return currentNewlyMFS;
+	}
+
+	public List<int[]> getFirstCoveringArray() {
+		return firstCoveringArray;
+	}
+
+	private List<int[]> firstCoveringArray;
+
+	private int OldMaxUnCover;
+	private int NewMaxUnCover;
 
 	public CoveringArrayGenFeedBack(double T, double decrement) {
 		rsTable = new ArrayList<int[]>();
 		currentTable = new ArrayList<int[]>();
+
+		firstCoveringArray = new ArrayList<int[]>();
 
 		mfss = new HashSet<Tuple>();
 		currentNewlyMFS = new HashSet<Tuple>();
@@ -52,10 +67,9 @@ public class CoveringArrayGenFeedBack {
 		// CoveringManagementInf cm = new CoveringManage();
 		this.coveringArray = new int[DataCenter.coveringArrayNum];
 		unCovered = this.coveringArray.length;
-		
-		
+
 		OldMaxUnCover = 0;
-		
+
 		NewMaxUnCover = this.coveringArray.length;
 
 		this.T = T;
@@ -73,7 +87,7 @@ public class CoveringArrayGenFeedBack {
 
 	public void process() {
 		// N��ʼ��Ϊ���Ƕ�
-		int start = unCovered;//  DataCenter.coveringArrayNum;
+		int start = unCovered;// DataCenter.coveringArrayNum;
 		int end = 0;
 		boolean flag = false;
 		long starttime = new Date().getTime();
@@ -81,14 +95,14 @@ public class CoveringArrayGenFeedBack {
 		Integer unc = unCovered;
 		int[] coveri = null;
 		// ���ַ����ҵ���С��N
-//		System.out.println("uncover :" + unCovered + " covrRemained :"
-//				+ this.getCoverLeft());
-		
+		// System.out.println("uncover :" + unCovered + " covrRemained :"
+		// + this.getCoverLeft());
+
 		int maxUncover = unCovered;
 		int times = 0;
-		
-		//start > end go on
-		//flag: cannot find a satisfied go on
+
+		// start > end go on
+		// flag: cannot find a satisfied go on
 		while (start > end || !flag) {
 			if (start <= end)// ��һ�������ҵ����ʵ�start��end
 			{
@@ -106,7 +120,7 @@ public class CoveringArrayGenFeedBack {
 				if (times >= maxTimes)
 					break;
 			}
-			
+
 			if (al.isOk()) {
 				start = middle - 1;
 				rstable = al.table;
@@ -122,15 +136,15 @@ public class CoveringArrayGenFeedBack {
 				flag = true;
 			} else
 				end = middle + 1;
-			
+
 			if (al.unCovered < maxUncover)
 				maxUncover = al.unCovered;
-			
-//			System.out.println("start: " + start + " end :" + end);
+
+			// System.out.println("start: " + start + " end :" + end);
 		}
-		
-//		System.out.println("out");
-		
+
+		// System.out.println("out");
+
 		if (maxUncover != 0) {
 			start = (start + end) / 2;
 			end = 0;
@@ -141,8 +155,8 @@ public class CoveringArrayGenFeedBack {
 				}
 				int middle = (start + end) / 2;
 				middle = middle > 0 ? middle : 1;
-				AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss, middle, T,
-						coveringArray, unCovered, decrement);
+				AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss,
+						middle, T, coveringArray, unCovered, decrement);
 				al.startAnneling();
 				if (al.unCovered == maxUncover) {
 					start = middle - 1;
@@ -154,13 +168,13 @@ public class CoveringArrayGenFeedBack {
 					end = middle + 1;
 			}
 		}
-		
+
 		long endtime = new Date().getTime();
 		time = endtime - starttime;
 
 		this.OldMaxUnCover = this.NewMaxUnCover;
 		this.NewMaxUnCover = maxUncover;
-		
+
 		this.currentTable = new ArrayList<int[]>();
 
 		for (int[] a : rstable) {
@@ -175,10 +189,16 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	public void get(BasicRunner basicRunner) throws Exception {
+		int i = 0;
 		while (!feedBackCritiria()) {
 			// generate
 			// System.out.println("handle");
 			process();
+
+			if (i == 0) {
+				this.firstCoveringArray = this.currentTable;
+				i++;
+			}
 
 			// execute
 			HashMap<Integer, List<Tuple>> bugs = executeAndCharactersiz(
@@ -189,11 +209,11 @@ public class CoveringArrayGenFeedBack {
 				if (key != 0) {
 					List<Tuple> curBugs = bugs.get(key);
 					for (Tuple bug : curBugs) {
-//						if (!this.mfss.contains(bug)) {
-//							System.out.println(bug.toString());
-							mfss.add(bug);
-							this.currentNewlyMFS.add(bug);
-//						}
+						// if (!this.mfss.contains(bug)) {
+						// System.out.println(bug.toString());
+						mfss.add(bug);
+						this.currentNewlyMFS.add(bug);
+						// }
 					}
 				}
 			}
@@ -312,13 +332,13 @@ public class CoveringArrayGenFeedBack {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		for(Tuple tuple : t.currentNewlyMFS)
+
+		for (Tuple tuple : t.currentNewlyMFS)
 			System.out.println(tuple.toString());
-		
+
 		System.out.println("**********************");
-		
-		for(Tuple tuple : t.mfss)
+
+		for (Tuple tuple : t.mfss)
 			System.out.println(tuple.toString());
 
 		for (int[] row : t.rsTable) {
@@ -326,8 +346,7 @@ public class CoveringArrayGenFeedBack {
 				System.out.print(i + " ");
 			System.out.println();
 		}
-		
-		
+
 		System.out.println("arrayLength: " + t.rsTable.size());
 		System.out.println("time: " + t.time + " ms");
 	}
