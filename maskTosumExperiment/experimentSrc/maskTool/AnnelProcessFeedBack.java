@@ -23,6 +23,12 @@ public class AnnelProcessFeedBack implements AnnelInf {
 	private int N; // 给定大小N
 	private double T;// 温度T
 	private double decrement;// 控温下降
+	
+	
+	
+	public static int MAXGEN = 1000;
+	
+	private boolean generated = true;
 
 	// public AnnelProcessFeedBack(int N, double T, double decrement) {
 	// this.N = N;
@@ -31,6 +37,10 @@ public class AnnelProcessFeedBack implements AnnelInf {
 	//
 	// this.initAnneling();
 	// }
+
+	public boolean isGenerated() {
+		return generated;
+	}
 
 	private HashSet<Tuple> mfs;
 
@@ -77,15 +87,23 @@ public class AnnelProcessFeedBack implements AnnelInf {
 		this.freezingTimes = 0;
 		table = new int[N][DataCenter.param.length];
 		for (int i = 0; i < N; i++) {
+			int trys = 0;
 			while (true) {
 				for (int j = 0; j < DataCenter.param.length; j++)
 					table[i][j] = randomGenerator.nextInt(DataCenter.param[j]);
 				// gen not contain the mfs
 				if (!this.containsMFS(table[i]))
 					break;
+				trys++;
+				if(trys > MAXGEN){
+					this.generated = false;
+					break;
+				}
 
 				// System.out.println("init ");
 			}
+			if(this.generated == false)
+				break;
 			unCovered = cm.setCover(unCovered, coveringArray, table[i]);
 		}
 	}

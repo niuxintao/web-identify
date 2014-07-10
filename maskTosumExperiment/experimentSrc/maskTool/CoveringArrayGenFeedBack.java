@@ -10,6 +10,11 @@ import maskAlogrithms.CTA;
 //import maskPracticalExperiment.Statistics;
 //import maskPracticalExperiment.TableRunnerBasic;
 import maskSimulateExperiment.BasicRunner;
+import maskSimulateExperiment.DataRecord;
+import maskSimulateExperiment.ExpriSetUp;
+
+
+
 
 //import com.fc.coveringArray.CoveringManagementInf;
 import com.fc.coveringArray.DataCenter;
@@ -85,7 +90,7 @@ public class CoveringArrayGenFeedBack {
 		return result;
 	}
 
-	public void process() {
+	public boolean process() {
 		// N��ʼ��Ϊ���Ƕ�
 		int start = unCovered;// DataCenter.coveringArrayNum;
 		int end = 0;
@@ -95,8 +100,8 @@ public class CoveringArrayGenFeedBack {
 		Integer unc = unCovered;
 		int[] coveri = null;
 		// ���ַ����ҵ���С��N
-		// System.out.println("uncover :" + unCovered + " covrRemained :"
-		// + this.getCoverLeft());
+//		 System.out.println("uncover :" + unCovered + " covrRemained :"
+//		 + this.getCoverLeft());
 
 		int maxUncover = unCovered;
 		int times = 0;
@@ -113,6 +118,9 @@ public class CoveringArrayGenFeedBack {
 			middle = middle > 0 ? middle : 1;
 			AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss, middle, T,
 					coveringArray, unCovered, decrement);
+			if(!al.isGenerated()){
+				return false;
+			}
 			al.startAnneling();
 			// unCovered = al.unCovered;
 			if (maxUncover != 0 && al.unCovered == maxUncover) {
@@ -185,6 +193,8 @@ public class CoveringArrayGenFeedBack {
 		this.unCovered = unc;
 
 		this.coveringArray = coveri;
+		
+		return true;
 
 	}
 
@@ -193,7 +203,10 @@ public class CoveringArrayGenFeedBack {
 		while (!feedBackCritiria()) {
 			// generate
 			// System.out.println("handle");
-			process();
+			boolean result = process();
+			if(!result){
+				break;
+			}
 
 			if (i == 0) {
 				this.firstCoveringArray = this.currentTable;
@@ -209,11 +222,11 @@ public class CoveringArrayGenFeedBack {
 				if (key != 0) {
 					List<Tuple> curBugs = bugs.get(key);
 					for (Tuple bug : curBugs) {
-						// if (!this.mfss.contains(bug)) {
-						// System.out.println(bug.toString());
+//						 if (!this.mfss.contains(bug)) {
+//						 System.out.println(bug.toString());
 						mfss.add(bug);
 						this.currentNewlyMFS.add(bug);
-						// }
+//						 }
 					}
 				}
 			}
@@ -276,8 +289,58 @@ public class CoveringArrayGenFeedBack {
 		return cta.getBugs();
 
 	}
+	
+	public void test(){
+		ExpriSetUp setup = new ExpriSetUp();
+		DataRecord record = setup.getRecords().get(7);
+		setup.set(record.param, record.wrongs, record.bugs, record.faults,
+				record.priority);
+
+		List<Tuple> bench = new ArrayList<Tuple>();
+		for (Integer key : setup.getBugsList().keySet()) {
+			bench.addAll(setup.getBugsList().get(key));
+		}
+
+		BasicRunner basicRunner = new BasicRunner(setup.getPriorityList(),
+				setup.getBugsList());
+		
+		DataCenter.init(setup.getParam(), 2);
+		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
+		try {
+			
+			t.get(basicRunner);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		for (Tuple tuple : t.currentNewlyMFS)
+			System.out.println(tuple.toString());
+
+		System.out.println("**********************");
+
+		for (Tuple tuple : t.mfss)
+			System.out.println(tuple.toString());
+
+		for (int[] row : t.rsTable) {
+			for (int i : row)
+				System.out.print(i + " ");
+			System.out.println();
+		}
+
+		System.out.println("arrayLength: " + t.rsTable.size());
+		System.out.println("time: " + t.time + " ms");
+	}
 
 	static public void main(String[] args) {
+		for(int i = 0; i < 30; i++){
+		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
+		t.test();
+		}
+		
+	}
+
+	public static void testSimple() {
 		int[] param = new int[] { 2, 2, 2, 2, 2 };
 		DataCenter.init(param, 2);
 		// System.out.println(DataCenter.coveringArrayNum);
