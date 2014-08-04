@@ -1,12 +1,12 @@
 package com.fc.coveringArray;
 
 public class DataCenter {
-	// static public int N; //��Ĵ�С=0
-	static public int[] param; // �������
-	static public int degree = -1; // ά��
-	static public int maxFreeing;// ���סֵ
-	static public int coveringArrayNum;// ������һ��coveringArray�Ĵ�С
-	static public int[] index;// ����
+	// static public int N;
+	static public int[] param;
+	static public int degree = -1;
+	static public int maxFreeing;
+	static public int coveringArrayNum;
+	static public int[] index;
 
 	static public void init(int[] param, int degree) {
 		DataCenter.param = param.clone();
@@ -16,13 +16,17 @@ public class DataCenter {
 		for (int k = 0; k < degree; k++) {
 			indexNum *= param.length - degree + k + 1;
 		}
+
+		for (int k = 1; k <= degree; k++) {
+			indexNum /= k;
+		}
 		DataCenter.index = new int[indexNum];
 		int currentPoint = 0;
 		int allNum = 0;
 		int i = 0;
 		while (true) {
 			if (stack.isFull()) {
-				DataCenter.index[i] = allNum; // ���㿪ʼ��
+				DataCenter.index[i] = allNum;
 				allNum += stack.mutli();
 				i++;
 				stack.pop();
@@ -37,6 +41,7 @@ public class DataCenter {
 				currentPoint++;
 			}
 		}
+		System.out.println(i);
 		DataCenter.coveringArrayNum = allNum;
 		DataCenter.maxFreeing = allNum;
 	}

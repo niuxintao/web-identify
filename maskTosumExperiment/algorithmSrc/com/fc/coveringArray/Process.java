@@ -42,7 +42,8 @@ public class Process {
 
 	static public void main(String[] args) {
 		int param[] = { 10, 10, 10, 10, 10, 10, 10 };
-		DataCenter.init(param, 2);
+		DataCenter.init(param, 3);
+		System.out.println(DataCenter.index.length);
 		System.out.println(DataCenter.coveringArrayNum);
 		Process t = new Process(2, 0.9998);
 		t.process();
