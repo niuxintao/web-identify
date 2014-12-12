@@ -50,11 +50,6 @@ public class TraditionalFGLI {
 		
 		
 		//merge them 
-		
 		overallTestCases.addAll(additional);
-		
-		
-		
-		
 	}
 }
