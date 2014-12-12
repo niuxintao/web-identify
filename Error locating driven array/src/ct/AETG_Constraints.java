@@ -1,6 +1,10 @@
 package ct;
 
+import interaction.InputToClauses;
+import interaction.SAT;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -18,10 +22,68 @@ public class AETG_Constraints {
 
 	public List<int[]> coveringArray;
 
+	private InputToClauses ic;
+	private SAT sat;
+
+	private List<int[]> clauses;
+
+	private List<Tuple> MFS;
+
 	public AETG_Constraints() {
 		coveringArray = new ArrayList<int[]>();
 		coveredMark = new int[DataCenter.coveringArrayNum];
 		unCovered = this.coveredMark.length;
+		ic = new InputToClauses(DataCenter.param);
+		clauses = new ArrayList<int[]>();
+		clauses.addAll(ic.getClauses());
+		MFS = new ArrayList<Tuple> ();
+		sat = new SAT();
+	}
+
+	public void addConstriants(List<Tuple> MFS) {
+		this.MFS.addAll(MFS);
+
+		for (Tuple mfs : MFS) {
+			int[] clause = ic.combinationToClause(mfs.getParamIndex(),
+					mfs.getParamValue());
+			for (int i = 0; i < clause.length; i++)
+				clause[i] = -clause[i];
+			clauses.add(clause);
+		}
+	}
+	
+	
+	public void setCoverage(){
+		//itself
+		
+		//the parent
+		
+		//the implicit
+	}
+
+	public boolean isInvoude(int index, int value) {
+		for (Tuple tuple : this.MFS) {
+			int[] indexes = tuple.getParamIndex();
+			for (int i = 0; i < indexes.length; i++) {
+				if (indexes[i] == index && tuple.getParamValue()[i] == value)
+					return true;
+			}
+		}
+
+		return false;
+
+	}
+
+	public boolean isSatisifed(Tuple tuple) {
+		int[] clause = ic.combinationToClause(tuple.getParamIndex(),
+				tuple.getParamValue());
+
+		int[][] clauses = new int[this.clauses.size()][];
+		for (int i = 0; i < clauses.length; i++) {
+			clauses[i] = this.clauses.get(i);
+		}
+
+		return this.sat.issatisfied(ic.getAllValue(), clauses, clause);
 	}
 
 	public void init() {
@@ -39,15 +101,74 @@ public class AETG_Constraints {
 				testCase[k] = -1;
 
 			// select the first parameter and value
-			IJ first = selectFirst();
+			IJ first = null;
+			HashSet<IJ> cannot = new HashSet<IJ>();
+			boolean isSat = false;
+			IJ tempFirst = null;
+
+			while (!isSat) {
+				if (tempFirst != null)
+					cannot.add(tempFirst);
+
+				first = selectFirst(cannot);
+
+				tempFirst = first;
+
+				// judege if it is satisified
+				TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+				for (int j = 0; j < testCase.length; j++) {
+					if (j == first.parameter)
+						testCaseForTuple.set(j, first.value);
+				}
+				Tuple tuple = new Tuple(1, testCaseForTuple);
+				tuple.set(0, first.parameter);
+
+				isSat = !this.isInvoude(first.parameter, first.value)
+						|| this.isSatisifed(tuple);
+			}
+
 			testCase[first.parameter] = first.value;
-//			System.out.println("first" + first.parameter + " " + first.value);
+			// System.out.println("first" + first.parameter + " " +
+			// first.value);
 
 			// random the remaining parameters
 			int[] remainingSequence = this.randomSequnce(first.parameter);
+
+			
+			//************************dit not add maxtries time *************************/
+			
 			for (int rmI : remainingSequence) {
 				// for each remaining parameter, select the best value
-				int value = this.getBestValue(testCase, rmI);
+				isSat = false;
+				int value = -1;
+				int tempValue = -1;
+				HashSet<Integer> cannot2 = new HashSet<Integer> ();
+				while (!isSat) {
+					if(tempValue != -1)
+						cannot2.add(tempValue);
+					 value = this.getBestValue(testCase, rmI, cannot2);
+					 tempValue = value;
+					 
+					// judege if it is satisified
+					     List<Integer> indexes = new ArrayList<Integer> ();
+						TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+						for (int j = 0; j < testCase.length; j++) {
+							if (j == rmI){
+								testCaseForTuple.set(j, value);
+								indexes.add(j);
+							}
+							else if(testCase[j] != -1){
+								testCaseForTuple.set(j, testCase[j]);
+								indexes.add(j);
+							}
+						}
+						Tuple tuple = new Tuple(indexes.size(), testCaseForTuple);
+						tuple.setParamIndex(convertIntegers(indexes));;
+
+						isSat = !this.isInvoude(rmI, value)
+								|| this.isSatisifed(tuple);
+					 
+				}
 				testCase[rmI] = value;
 			}
 
@@ -109,7 +230,7 @@ public class AETG_Constraints {
 		System.out.println();
 	}
 
-	public IJ selectFirst() {
+	public IJ selectFirst(HashSet<IJ> cannot) {
 		IJ ij = new IJ();
 
 		int bestI = -1;
@@ -122,6 +243,13 @@ public class AETG_Constraints {
 			int tempBestUncover = -1;
 
 			for (int j = 0; j < DataCenter.param[i]; j++) {
+				IJ tempij = new IJ();
+				tempij.parameter = i;
+				tempij.value = j;
+				if(cannot.contains(ij))
+					continue;
+						
+				
 				int uncoverThis = getUncoveredNumber(i, j);
 
 				if (uncoverThis > tempBestUncover) {
@@ -158,14 +286,15 @@ public class AETG_Constraints {
 
 	// if reached to t, we just give the most Existed uncovered.
 
-	public int getBestValue(int[] testCase, int rmI) {
+	public int getBestValue(int[] testCase, int rmI, HashSet<Integer> cannot) {
 		int bestUnCover = -1;
 		int bestV = -1;
 
-		
-
 		for (int v = 0; v < DataCenter.param[rmI]; v++) {
 			
+			if(cannot.contains(v))
+				continue;
+
 			int[] tempTestCase = new int[testCase.length];
 			System.arraycopy(testCase, 0, tempTestCase, 0, testCase.length);
 			tempTestCase[rmI] = v;
@@ -178,16 +307,6 @@ public class AETG_Constraints {
 					value.add(tempTestCase[i]);
 				}
 			}
-			
-
-//			List<Integer> tempIndex = new ArrayList<Integer>();
-//			tempIndex.addAll(index);
-//			List<Integer> tempValue = new ArrayList<Integer>();
-//			tempValue.addAll(value);
-//
-//			tempIndex.add(rmI);
-//			tempValue.add(v);
-
 			int tempCover = 0;
 
 			int[] givenIndex = convertIntegers(index);
@@ -201,10 +320,8 @@ public class AETG_Constraints {
 				Tuple tuple = new Tuple(givenIndex.length, testCaseForTuple);
 
 				tuple.setParamIndex(givenIndex);
-				
-				
 
-//				print(tuple.getParamIndex());
+				// print(tuple.getParamIndex());
 
 				List<Tuple> child = tuple
 						.getChildTuplesByDegree(DataCenter.degree);
@@ -296,12 +413,6 @@ public class AETG_Constraints {
 	public int getIndexOfTuple(Tuple tuple) {
 		int result = 0;
 		int[] values = tuple.getParamValue();
-
-		// System.out.println("tuple" + tuple.toString());
-		// print(tuple.getParamIndex());
-		// System.out.println(tuple.toString() + " " +
-		// CoveringManage.getIndex(tuple));
-
 		int basicIndex = DataCenter.index[CoveringManage.getIndex(tuple)];
 
 		for (int j = 0; j < DataCenter.degree; j++) {
@@ -423,9 +534,24 @@ public class AETG_Constraints {
 	}
 
 	public static void main(String[] args) {
-		int[] param = new int[] { 2, 2, 2, 2 };
+		int[] param = new int[] { 3,3,3,3,3,3,3,3,3 };
 		DataCenter.init(param, 2);
 		AETG_Constraints aetg = new AETG_Constraints();
+		
+		TestCaseImplement testCaseForTuple = new TestCaseImplement(DataCenter.n);
+	    int[] test = new int[] {1,1,1,1,1,1,1,1,1};
+	    testCaseForTuple.setTestCase(test);
+		
+		Tuple tuple = new Tuple(3, testCaseForTuple);
+		tuple.set(0, 1);
+		tuple.set(1, 2);
+		tuple.set(2, 3);
+		
+		List<Tuple> MFS = new ArrayList<Tuple> ();
+		MFS.add(tuple);
+		
+		
+		aetg.addConstriants(MFS);
 		aetg.process();
 	}
 

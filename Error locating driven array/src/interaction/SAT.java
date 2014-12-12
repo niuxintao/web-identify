@@ -18,7 +18,7 @@ public class SAT {
 	 * 
 	 * @return
 	 */
-	boolean issatisfied(int valueNum, int[][] Clauses) {
+	public boolean issatisfied(int valueNum, int[][] Clauses) {
 		ISolver solver = SolverFactory.newDefault();
 		// prepare the solver to accept MAXVAR variables . MANDATORY
 		solver.newVar(valueNum);
@@ -54,7 +54,7 @@ public class SAT {
 	 *            {1, 2, 3}
 	 * @return
 	 */
-	boolean issatisfied(int valueNum, int[][] Clauses, int[] combination) {
+	public boolean issatisfied(int valueNum, int[][] Clauses, int[] combination) {
 		ISolver solver = SolverFactory.newDefault();
 		// prepare the solver to accept MAXVAR variables . MANDATORY
 		solver.newVar(valueNum);

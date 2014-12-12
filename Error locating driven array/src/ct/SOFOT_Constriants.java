@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
+import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -18,6 +19,12 @@ public class SOFOT_Constriants {
 
 	private List<TestCase> executed;
 
+	private List<Tuple> constraints;
+
+	private TestCase wrongCase;
+
+	private int currentIndex = 0;
+
 	public List<TestCase> getExecuted() {
 		return executed;
 	}
@@ -27,20 +34,57 @@ public class SOFOT_Constriants {
 	public SOFOT_Constriants() {
 		executed = new ArrayList<TestCase>();
 		bugs = new ArrayList<Tuple>();
+		constraints = new ArrayList<Tuple>();
 	}
 
+	public SOFOT_Constriants(TestCase wrongCase, List<Tuple> constriants) {
+		executed = new ArrayList<TestCase>();
+		bugs = new ArrayList<Tuple>();
+		this.constraints = constriants;
+		this.wrongCase = wrongCase;
+	}
+
+	public void setConstriants(List<Tuple> constraints) {
+		this.constraints = constraints;
+	}
+
+	public void setWrongCase(TestCase wrongCase) {
+		this.wrongCase = wrongCase;
+	}
+
+	public boolean isEnd() {
+		return currentIndex == DataCenter.n;
+	}
+
+	public TestCase generateNext() {
+		TestCase lastCase = wrongCase;
+		TestCase testCase = generateTestCase(wrongCase, DataCenter.param,
+				this.currentIndex, lastCase);
+		
+		executed.add(testCase);
+		
+		currentIndex++;
+		
+		return testCase;
+	}
+
+	
+	public void analysis(){
+		analysis(executed, wrongCase, DataCenter.param);
+	}
+	
 	public void process(TestCase wrongCase, int[] parameters, CaseRunner runner) {
-//		executed.add(wrongCase);
-//		 List<TestCase> analysisT = new ArrayList<TestCase>();
+		// executed.add(wrongCase);
+		// List<TestCase> analysisT = new ArrayList<TestCase>();
 		for (int i = 0; i < wrongCase.getLength(); i++) {
 			TestCase lastCase = wrongCase;
 			TestCase testCase = generateTestCase(wrongCase, parameters, i,
 					lastCase);
 			testCase.setTestState(runner.runTestCase(testCase));
 			executed.add(testCase);
-//			analysisT.add(testCase);
+			// analysisT.add(testCase);
 		}
-		analysis(executed, wrongCase, parameters, runner);
+		analysis(executed, wrongCase, parameters);
 	}
 
 	public TestCase generateTestCase(TestCase wrongCase, int[] parameters,
@@ -58,22 +102,22 @@ public class SOFOT_Constriants {
 	}
 
 	public void analysis(List<TestCase> array, TestCase wrongCase,
-			int[] parameters, CaseRunner runner) {
+			int[] parameters) {
 		Tuple tuple = new Tuple(0, wrongCase);
-//		System.out.println(array.size());
+		// System.out.println(array.size());
 		for (int i = 0; i < array.size(); i++) {
 			TestCase testCase = array.get(i);
 			if (testCase.testDescription() == TestCase.PASSED) {
 				Tuple tem = new Tuple(1, wrongCase);
 				tem.set(0, i);
 				tuple = tuple.cat(tuple, tem);
-//				System.out.println(tuple.toString());
+				// System.out.println(tuple.toString());
 				// failure-inducing + 1
 			} else if (testCase.testDescription() == TestCase.FAILED) {
 
 			}
 		}
-	
+
 		this.bugs.add(tuple);
 	}
 
