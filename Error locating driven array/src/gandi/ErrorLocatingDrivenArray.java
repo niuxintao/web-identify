@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.coveringArray.CoveringManage;
-import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -42,11 +41,13 @@ public class ErrorLocatingDrivenArray {
 				cm.setCover(ac.unCovered, ac.coveredMark, test);
 			} else {
 
-				SOFOT_Constriants sc = new SOFOT_Constriants();
+				SOFOT_Constriants sc = new SOFOT_Constriants(testCase, ac);
 				// sc.process(testCase, DataCenter.param, caseRunner);
 
 				while (sc.isEnd()) {
 					TestCase nextTestCase = sc.generateNext();
+					overallTestCases.add(nextTestCase);
+					
 					int[] next = new int[nextTestCase.getLength()];
 					for (int i = 0; i < next.length; i++) {
 						next[i] = nextTestCase.getAt(i);
@@ -58,35 +59,14 @@ public class ErrorLocatingDrivenArray {
 
 				sc.analysis();
 				List<Tuple> mfs = sc.getBugs();
+				ac.addConstriants(mfs);
 				this.MFS.addAll(mfs);
-				setCoverage(mfs);
-
+//				setCoverage(mfs);
 			}
 			overallTestCases.add(testCase);
 		}
 	}
 
-	public void setCoverage(List<Tuple> mfs) {
-		// t-way itsself
-		for (Tuple tuple : mfs) {
-			if (tuple.getDegree() == DataCenter.degree) {
-				// setCoverage
-			} else if (tuple.getDegree() < DataCenter.degree) {
-				List<Tuple> parents = tuple
-						.getFatherTuplesByDegree(DataCenter.degree);
-				for (Tuple parent : parents) {
-					// set parent coverage
-				}
-			}
-		}
 
-		// the remaining coverage
-		List<Tuple> remianing = null;
-
-		for (Tuple remain : remianing) {
-			// to test if it is implicit
-			// and set it as forbidden.
-		}
-	}
 
 }

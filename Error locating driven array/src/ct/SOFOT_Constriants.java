@@ -1,6 +1,7 @@
 package ct;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
@@ -19,11 +20,13 @@ public class SOFOT_Constriants {
 
 	private List<TestCase> executed;
 
-	private List<Tuple> constraints;
+	// private List<Tuple> constraints;
 
 	private TestCase wrongCase;
 
 	private int currentIndex = 0;
+
+	private AETG_Constraints ac;
 
 	public List<TestCase> getExecuted() {
 		return executed;
@@ -34,18 +37,19 @@ public class SOFOT_Constriants {
 	public SOFOT_Constriants() {
 		executed = new ArrayList<TestCase>();
 		bugs = new ArrayList<Tuple>();
-		constraints = new ArrayList<Tuple>();
+		// constraints = new ArrayList<Tuple>();
 	}
 
-	public SOFOT_Constriants(TestCase wrongCase, List<Tuple> constriants) {
+	public SOFOT_Constriants(TestCase wrongCase, AETG_Constraints ac) {
 		executed = new ArrayList<TestCase>();
 		bugs = new ArrayList<Tuple>();
-		this.constraints = constriants;
+		// this.constraints = constriants;
 		this.wrongCase = wrongCase;
+		this.ac = ac;
 	}
 
-	public void setConstriants(List<Tuple> constraints) {
-		this.constraints = constraints;
+	public void setAETG_Constraints(AETG_Constraints ac) {
+		this.ac = ac;
 	}
 
 	public void setWrongCase(TestCase wrongCase) {
@@ -57,22 +61,71 @@ public class SOFOT_Constriants {
 	}
 
 	public TestCase generateNext() {
-		TestCase lastCase = wrongCase;
 		TestCase testCase = generateTestCase(wrongCase, DataCenter.param,
-				this.currentIndex, lastCase);
-		
+				this.currentIndex);
+
 		executed.add(testCase);
-		
+
 		currentIndex++;
-		
+
 		return testCase;
 	}
 
-	
-	public void analysis(){
+	public TestCase generateTestCase(TestCase wrongCase, int[] param,
+			int currentIndex) {
+		boolean isSat = false;
+		int rmI = currentIndex;
+
+		int[] testCase = new int[wrongCase.getLength()];
+		for (int i = 0; i < testCase.length; i++)
+			testCase[i] = wrongCase.getAt(i);
+		testCase[currentIndex] = -1;
+
+		int value = -1;
+
+		int tempValue = -1;
+		HashSet<Integer> cannot2 = new HashSet<Integer>();
+		cannot2.add(wrongCase.getAt(currentIndex));
+
+		while (!isSat) {
+			if (tempValue != -1)
+				cannot2.add(tempValue);
+			value = ac.getBestValue(testCase, rmI, cannot2);
+			tempValue = value;
+
+			// judege if it is satisified
+			List<Integer> indexes = new ArrayList<Integer>();
+			TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+			for (int j = 0; j < testCase.length; j++) {
+				if (j == rmI) {
+					testCaseForTuple.set(j, value);
+					indexes.add(j);
+				} else if (testCase[j] != -1) {
+					testCaseForTuple.set(j, testCase[j]);
+					indexes.add(j);
+				}
+			}
+			Tuple tuple = new Tuple(indexes.size(), testCaseForTuple);
+			tuple.setParamIndex(AETG_Constraints.convertIntegers(indexes));
+			;
+
+			isSat = !ac.isInvoude(rmI, value) || ac.isSatisifed(tuple);
+
+		}
+
+		testCase[rmI] = value;
+
+		TestCaseImplement casetemple = new TestCaseImplement(
+				wrongCase.getLength());
+		casetemple.setTestCase(testCase);
+
+		return casetemple;
+	}
+
+	public void analysis() {
 		analysis(executed, wrongCase, DataCenter.param);
 	}
-	
+
 	public void process(TestCase wrongCase, int[] parameters, CaseRunner runner) {
 		// executed.add(wrongCase);
 		// List<TestCase> analysisT = new ArrayList<TestCase>();

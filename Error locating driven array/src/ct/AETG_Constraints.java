@@ -36,7 +36,7 @@ public class AETG_Constraints {
 		ic = new InputToClauses(DataCenter.param);
 		clauses = new ArrayList<int[]>();
 		clauses.addAll(ic.getClauses());
-		MFS = new ArrayList<Tuple> ();
+		MFS = new ArrayList<Tuple>();
 		sat = new SAT();
 	}
 
@@ -50,15 +50,44 @@ public class AETG_Constraints {
 				clause[i] = -clause[i];
 			clauses.add(clause);
 		}
+
+		setCoverage(MFS);
 	}
-	
-	
-	public void setCoverage(){
-		//itself
-		
-		//the parent
-		
-		//the implicit
+
+	public void setCoverage(Tuple tuple) {
+		int index = this.getIndexOfTuple(tuple);
+		if (this.coveredMark[index] == 0){
+			coveredMark[index] = 1;
+			this.unCovered --;
+		}
+	}
+
+	public void setCoverage(List<Tuple> newlyMFS) {
+		// itself
+		for (Tuple mfs : newlyMFS) {
+			if (mfs.getDegree() == DataCenter.degree) {
+				setCoverage(mfs);
+			} else if (mfs.getDegree() < DataCenter.degree) {
+				// the parent
+				List<Tuple> parentT = mfs
+						.getFatherTuplesByDegree(DataCenter.degree);
+				for (Tuple parent : parentT) {
+					setCoverage(parent);
+				}
+
+			}
+		}
+		// the implicit
+		for (int i = 0; i < this.coveredMark.length; i++) {
+			if (this.coveredMark[i] == 0) {
+//				System.out.println(i);
+				Tuple tuple = this.getTupleFromIndex(i);
+				if (!this.isSatisifed(tuple)){
+					this.coveredMark[i] = 1;
+					this.unCovered --;
+				}
+			}
+		}
 	}
 
 	public boolean isInvoude(int index, int value) {
@@ -134,40 +163,41 @@ public class AETG_Constraints {
 			// random the remaining parameters
 			int[] remainingSequence = this.randomSequnce(first.parameter);
 
-			
-			//************************dit not add maxtries time *************************/
-			
+			// ************************dit not add maxtries time
+			// *************************/
+
 			for (int rmI : remainingSequence) {
 				// for each remaining parameter, select the best value
 				isSat = false;
 				int value = -1;
 				int tempValue = -1;
-				HashSet<Integer> cannot2 = new HashSet<Integer> ();
+				HashSet<Integer> cannot2 = new HashSet<Integer>();
 				while (!isSat) {
-					if(tempValue != -1)
+					if (tempValue != -1)
 						cannot2.add(tempValue);
-					 value = this.getBestValue(testCase, rmI, cannot2);
-					 tempValue = value;
-					 
-					// judege if it is satisified
-					     List<Integer> indexes = new ArrayList<Integer> ();
-						TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
-						for (int j = 0; j < testCase.length; j++) {
-							if (j == rmI){
-								testCaseForTuple.set(j, value);
-								indexes.add(j);
-							}
-							else if(testCase[j] != -1){
-								testCaseForTuple.set(j, testCase[j]);
-								indexes.add(j);
-							}
-						}
-						Tuple tuple = new Tuple(indexes.size(), testCaseForTuple);
-						tuple.setParamIndex(convertIntegers(indexes));;
+					value = this.getBestValue(testCase, rmI, cannot2);
+					tempValue = value;
 
-						isSat = !this.isInvoude(rmI, value)
-								|| this.isSatisifed(tuple);
-					 
+					// judege if it is satisified
+					List<Integer> indexes = new ArrayList<Integer>();
+					TestCase testCaseForTuple = new TestCaseImplement(
+							DataCenter.n);
+					for (int j = 0; j < testCase.length; j++) {
+						if (j == rmI) {
+							testCaseForTuple.set(j, value);
+							indexes.add(j);
+						} else if (testCase[j] != -1) {
+							testCaseForTuple.set(j, testCase[j]);
+							indexes.add(j);
+						}
+					}
+					Tuple tuple = new Tuple(indexes.size(), testCaseForTuple);
+					tuple.setParamIndex(convertIntegers(indexes));
+					;
+
+					isSat = !this.isInvoude(rmI, value)
+							|| this.isSatisifed(tuple);
+
 				}
 				testCase[rmI] = value;
 			}
@@ -246,10 +276,9 @@ public class AETG_Constraints {
 				IJ tempij = new IJ();
 				tempij.parameter = i;
 				tempij.value = j;
-				if(cannot.contains(ij))
+				if (cannot.contains(ij))
 					continue;
-						
-				
+
 				int uncoverThis = getUncoveredNumber(i, j);
 
 				if (uncoverThis > tempBestUncover) {
@@ -291,8 +320,8 @@ public class AETG_Constraints {
 		int bestV = -1;
 
 		for (int v = 0; v < DataCenter.param[rmI]; v++) {
-			
-			if(cannot.contains(v))
+
+			if (cannot.contains(v))
 				continue;
 
 			int[] tempTestCase = new int[testCase.length];
@@ -410,6 +439,10 @@ public class AETG_Constraints {
 		return result;
 	}
 
+	/**
+	 * important function
+	 * ***********************************************************************
+	 **/
 	public int getIndexOfTuple(Tuple tuple) {
 		int result = 0;
 		int[] values = tuple.getParamValue();
@@ -427,6 +460,136 @@ public class AETG_Constraints {
 		result = basicIndex;
 
 		return result;
+	}
+
+	/**
+	 * important function
+	 * ***********************************************************************
+	 **/
+	public Tuple getTupleFromIndex(int index) {
+		int[] indexOfTuple = this.getTupleIndex(index);
+//		print(indexOfTuple);
+
+		int[] valueOfTuple = new int[DataCenter.degree];
+
+		
+		TestCase testCaseForTuple2 = new TestCaseImplement(DataCenter.n);
+		Tuple tuple2 = new Tuple(DataCenter.degree, testCaseForTuple2);
+		tuple2.setParamIndex(indexOfTuple);
+		
+		
+		int indexreMian = index - this.getIndexOfTuple(tuple2);
+		
+		for (int i = 0; i < DataCenter.degree; i++) {
+			int needMode = 1;
+			for (int j = i + 1; j < DataCenter.degree; j++) {
+				needMode *= DataCenter.param[indexOfTuple[j]];
+			}
+			int value = indexreMian / needMode;
+			indexreMian = indexreMian % needMode;
+			valueOfTuple[i] = value;
+
+		}
+
+		TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+		for (int i = 0; i < indexOfTuple.length; i++)
+			testCaseForTuple.set(indexOfTuple[i], valueOfTuple[i]);
+		Tuple tuple = new Tuple(indexOfTuple.length, testCaseForTuple);
+		tuple.setParamIndex(indexOfTuple);
+
+		return tuple;
+	}
+
+	public int[] getTupleIndex(int index) {
+		int[] indexes = new int[DataCenter.degree];
+		int degree = DataCenter.degree;
+
+		int[] indexFirst = new int[0];
+		for (int i = 0; i < degree; i++) {
+			int nextIndex = this.getNextIndex(indexFirst, index);
+//			System.out.println(nextIndex);
+			indexes[i] = nextIndex;
+			int[] indexFirstTemp = new int[indexFirst.length + 1];
+			for (int j = 0; j < indexFirst.length; j++) {
+				indexFirstTemp[j] = indexFirst[j];
+			}
+			indexFirstTemp[indexFirst.length] = nextIndex;
+			indexFirst = indexFirstTemp;
+		}
+
+		return indexes;
+	}
+
+	public int getNextIndex(int[] indexFirst, int index) {
+
+		int low = 0;
+		if (indexFirst != null && indexFirst.length > 0)
+			low = indexFirst[indexFirst.length - 1] + 1;
+
+		// add 1 or not
+		int high = DataCenter.n - DataCenter.degree;
+		if (indexFirst != null && indexFirst.length > 0)
+			high = DataCenter.n - (DataCenter.degree - indexFirst.length);
+
+		
+//		 System.out.println("high : " + high  + "low : " + low);
+		 
+		int result = high;
+
+		while (high >= low) {
+			int middle = (int) (0.5 * (low + high));
+//			 System.out.println("middle : " + middle);
+			
+			 if(middle == high){
+				 result = middle;
+				 break;
+			 }
+			int[] first = new int[indexFirst.length + 1];
+			for (int i = 0; i < indexFirst.length; i++)
+				first[i] = indexFirst[i];
+			first[indexFirst.length] = middle;
+
+			int[] first2 = new int[indexFirst.length + 1];
+			for (int i = 0; i < indexFirst.length; i++)
+				first2[i] = indexFirst[i];
+			first2[indexFirst.length] = middle + 1;
+
+			Tuple tuple1 = this.getTuple(first, DataCenter.degree);
+			int tuple1Index = this.getIndexOfTuple(tuple1);
+
+			Tuple tuple2 = this.getTuple(first2, DataCenter.degree);
+			int tuple2Index = this.getIndexOfTuple(tuple2);
+
+			if (tuple1Index <= index && tuple2Index > index) {
+				result = middle;
+				break;
+			} else if (index >= tuple2Index) {
+				low = middle + 1;
+
+			} else if (index < tuple1Index) {
+				high = middle - 1;
+			}
+//			 System.out.println("start : " + low + " tail : " + high);
+		}
+
+
+		return result;
+	}
+
+	public Tuple getTuple(int[] indexFirst, int degree) {
+		TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+		Tuple tuple = new Tuple(degree, testCaseForTuple);
+		int last = -1;
+		for (int i = 0; i < degree; i++) {
+			if (i < indexFirst.length) {
+				last = indexFirst[i];
+				tuple.set(i, last);
+			} else {
+				last++;
+				tuple.set(i, last);
+			}
+		}
+		return tuple;
 	}
 
 	public boolean isOverlapp(int[] ina, int[] inb) {
@@ -534,25 +697,48 @@ public class AETG_Constraints {
 	}
 
 	public static void main(String[] args) {
-		int[] param = new int[] { 3,3,3,3,3,3,3,3,3 };
+		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
 		DataCenter.init(param, 2);
 		AETG_Constraints aetg = new AETG_Constraints();
+
 		
+		//next implicat (- , -, 1, 1,- , -, -, - )
 		TestCaseImplement testCaseForTuple = new TestCaseImplement(DataCenter.n);
-	    int[] test = new int[] {1,1,1,1,1,1,1,1,1};
-	    testCaseForTuple.setTestCase(test);
-		
-		Tuple tuple = new Tuple(3, testCaseForTuple);
+		int[] test = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+		testCaseForTuple.setTestCase(test);
+
+		Tuple tuple = new Tuple(2, testCaseForTuple);
 		tuple.set(0, 1);
 		tuple.set(1, 2);
-		tuple.set(2, 3);
 		
-		List<Tuple> MFS = new ArrayList<Tuple> ();
+		
+		TestCaseImplement testCaseForTupl2e = new TestCaseImplement(DataCenter.n);
+		int[] test2 = new int[] { 1, 0, 1, 1, 1, 1, 1, 1, 1 };
+		testCaseForTupl2e.setTestCase(test2);
+		Tuple tuple2 = new Tuple(2, testCaseForTupl2e);
+		tuple2.set(0, 1);
+		tuple2.set(1, 3);
+		
+		
+		
+		//child
+		Tuple tuple3 = new Tuple(1, testCaseForTuple);
+		tuple3.set(0, 7);
+		
+//		tuple.set(2, 3);
+
+		List<Tuple> MFS = new ArrayList<Tuple>();
 		MFS.add(tuple);
-		
-		
+		MFS.add(tuple2);
+		MFS.add(tuple3);
+
 		aetg.addConstriants(MFS);
 		aetg.process();
+//		int index = aetg.getIndexOfTuple(tuple);
+//		System.out.println(index);
+//		Tuple tu = aetg.getTupleFromIndex(63);
+//		System.out.println(tu.toString());
+		
 	}
 
 }
