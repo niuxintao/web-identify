@@ -93,7 +93,7 @@ public class AETG {
 	public void process() {
 		while (unCovered > 0) {
 			int[] testCase = this.getNextTestCase();
-			print(testCase);
+			//print(testCase);
 			CoveringManage cm = new CoveringManage();
 			unCovered = cm.setCover(unCovered, coveredMark, testCase);
 

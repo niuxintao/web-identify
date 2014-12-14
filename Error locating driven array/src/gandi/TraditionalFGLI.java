@@ -3,6 +3,7 @@ package gandi;
 import java.util.HashSet;
 
 import com.fc.caseRunner.CaseRunner;
+import com.fc.caseRunner.CaseRunnerWithBugInject;
 import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
@@ -19,11 +20,19 @@ public class TraditionalFGLI {
 	
 	private HashSet<Tuple> MFS; 
 	
+	public HashSet<TestCase> getOverallTestCases() {
+		return overallTestCases;
+	}
+
+	public HashSet<Tuple> getMFS() {
+		return MFS;
+	}
 
 	
 	public TraditionalFGLI(CaseRunner caseRunner){
 		this.caseRunner = caseRunner;
 		overallTestCases = new HashSet<TestCase>();
+		MFS = new HashSet<Tuple> ();
 	}
 	
 	public void run(){
@@ -52,4 +61,42 @@ public class TraditionalFGLI {
 		//merge them 
 		overallTestCases.addAll(additional);
 	}
+	
+	public static void main(String[] args){
+		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
+		TestCase wrongCase = new TestCaseImplement();
+		((TestCaseImplement) wrongCase).setTestCase(wrong);
+
+		int[] wrong2 = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+		TestCase wrongCase2 = new TestCaseImplement();
+		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
+
+		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3};
+		
+		DataCenter.init(param, 2);
+
+		Tuple bugModel1 = new Tuple(2, wrongCase);
+		bugModel1.set(0, 2);
+		bugModel1.set(1, 5);
+
+		Tuple bugModel2 = new Tuple(1, wrongCase2);
+		bugModel2.set(0, 1);
+
+		CaseRunner caseRunner = new CaseRunnerWithBugInject();
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
+		
+		TraditionalFGLI fglt = new TraditionalFGLI(caseRunner);
+		fglt.run();
+		
+		System.out.println("testCase Num: " + fglt.getOverallTestCases().size());
+		for(TestCase testCase : fglt.getOverallTestCases()){
+			System.out.println(testCase.getStringOfTest());
+		}
+		System.out.println("MFS");
+		for(Tuple mfs : fglt.getMFS())
+			System.out.println(mfs.toString());
+	}
+
+
 }

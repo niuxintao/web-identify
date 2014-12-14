@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
+import com.fc.coveringArray.CoveringManage;
 import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
@@ -57,6 +58,7 @@ public class SOFOT_Constriants {
 	}
 
 	public boolean isEnd() {
+//		System.out.println(currentIndex + " " + DataCenter.n);
 		return currentIndex == DataCenter.n;
 	}
 
@@ -179,36 +181,60 @@ public class SOFOT_Constriants {
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
 
-		int[] wrong2 = new int[] { 2, 2, 2, 2, 2, 2, 2, 2 };
+		int[] wrong2 = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 		TestCase wrongCase2 = new TestCaseImplement();
 		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
 
-		int[] param = new int[] { 10, 10, 10, 10, 10, 10, 10, 10 };
+		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3};
+		
+		DataCenter.init(param, 2);
 
 		Tuple bugModel1 = new Tuple(2, wrongCase);
 		bugModel1.set(0, 2);
 		bugModel1.set(1, 5);
 
 		Tuple bugModel2 = new Tuple(1, wrongCase2);
-		bugModel2.set(0, 2);
+		bugModel2.set(0, 1);
 
 		CaseRunner caseRunner = new CaseRunnerWithBugInject();
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
+		
+		
+		List<Tuple> MFS = new ArrayList<Tuple> ();
+		MFS.add(bugModel2);
+		AETG_Constraints ac = new AETG_Constraints();
+		ac.addConstriants(MFS);
 
-		SOFOT_Constriants ofot = new SOFOT_Constriants();
-		ofot.process(wrongCase, param, caseRunner);
+		SOFOT_Constriants sc = new SOFOT_Constriants(wrongCase, ac);
+		CoveringManage cm = new CoveringManage();
+		// sc.process(testCase, DataCenter.param, caseRunner);
 
+		while (!sc.isEnd()) {
+			TestCase nextTestCase = sc.generateNext();
+			
+			int[] next = new int[nextTestCase.getLength()];
+			for (int i = 0; i < next.length; i++) {
+				next[i] = nextTestCase.getAt(i);
+			}
+			if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
+				cm.setCover(ac.unCovered, ac.coveredMark, next);
+				nextTestCase.setTestState(TestCase.PASSED);
+			}else
+				nextTestCase.setTestState(TestCase.FAILED);
+			
+		}
+
+		sc.analysis();
 		System.out.println("bugs:");
-		for (Tuple tuple : ofot.bugs) {
+		for (Tuple tuple : sc.bugs) {
 			System.out.println(tuple.toString());
 		}
 		System.out.println("cases:");
 
-		for (TestCase cases : ofot.executed) {
+		for (TestCase cases : sc.executed) {
 			System.out.print(cases.getStringOfTest());
 			System.out.println(" " + cases.testDescription());
 		}
-
 	}
 }
