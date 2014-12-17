@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
+
+import interaction.CoveringManage;
+import interaction.DataCenter;
 
 public class AETG {
 
@@ -17,11 +19,14 @@ public class AETG {
 	public Integer unCovered;//
 
 	public List<int[]> coveringArray;
+	
+	public  DataCenter dataCenter;
 
-	public AETG() {
+	public AETG(DataCenter dataCenter) {
 		coveringArray = new ArrayList<int[]>();
-		coveredMark = new int[DataCenter.coveringArrayNum];
+		coveredMark = new int[dataCenter.coveringArrayNum];
 		unCovered = this.coveredMark.length;
+		this.dataCenter = dataCenter;
 	}
 
 	public void init() {
@@ -29,12 +34,12 @@ public class AETG {
 	}
 
 	public int[] getNextTestCase() {
-		int[] best = new int[DataCenter.n];
+		int[] best = new int[dataCenter.n];
 
 		int bestUncovered = -1;
 
 		for (int i = 0; i < M; i++) {
-			int[] testCase = new int[DataCenter.n];
+			int[] testCase = new int[dataCenter.n];
 			for (int k = 0; k < testCase.length; k++)
 				testCase[k] = -1;
 
@@ -67,7 +72,7 @@ public class AETG {
 
 	public int getUncovered(int[] testCase) {
 		int tempCover = 0;
-		TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
 		for (int i = 0; i < testCase.length; i++)
 			testCaseForTuple.set(i, testCase[i]);
 
@@ -79,7 +84,7 @@ public class AETG {
 
 		// System.out.print(tuple.toString());;
 
-		List<Tuple> child = tuple.getChildTuplesByDegree(DataCenter.degree);
+		List<Tuple> child = tuple.getChildTuplesByDegree(dataCenter.degree);
 
 		for (Tuple ch : child) {
 			int ind = this.getIndexOfTuple(ch);
@@ -97,7 +102,7 @@ public class AETG {
 		while (unCovered > 0) {
 			int[] testCase = this.getNextTestCase();
 			//print(testCase);
-			CoveringManage cm = new CoveringManage();
+			CoveringManage cm = new CoveringManage(dataCenter);
 			unCovered = cm.setCover(unCovered, coveredMark, testCase);
 
 			// print(this.coveredMark);
@@ -119,12 +124,12 @@ public class AETG {
 		int bestJ = -1;
 		int bestUncovered = -1;
 
-		for (int i = 0; i < DataCenter.n; i++) {
+		for (int i = 0; i < dataCenter.n; i++) {
 
 			int tempBestJ = -1;
 			int tempBestUncover = -1;
 
-			for (int j = 0; j < DataCenter.param[i]; j++) {
+			for (int j = 0; j < dataCenter.param[i]; j++) {
 				int uncoverThis = getUncoveredNumber(i, j);
 
 				if (uncoverThis > tempBestUncover) {
@@ -167,7 +172,7 @@ public class AETG {
 
 		
 
-		for (int v = 0; v < DataCenter.param[rmI]; v++) {
+		for (int v = 0; v < dataCenter.param[rmI]; v++) {
 			
 			int[] tempTestCase = new int[testCase.length];
 			System.arraycopy(testCase, 0, tempTestCase, 0, testCase.length);
@@ -196,8 +201,8 @@ public class AETG {
 			int[] givenIndex = convertIntegers(index);
 			int[] givenValue = convertIntegers(value);
 
-			if (index.size() >= DataCenter.degree) {
-				TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+			if (index.size() >= dataCenter.degree) {
+				TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
 				for (int i = 0; i < givenIndex.length; i++)
 					testCaseForTuple.set(givenIndex[i], givenValue[i]);
 
@@ -210,7 +215,7 @@ public class AETG {
 //				print(tuple.getParamIndex());
 
 				List<Tuple> child = tuple
-						.getChildTuplesByDegree(DataCenter.degree);
+						.getChildTuplesByDegree(dataCenter.degree);
 
 				for (Tuple ch : child) {
 					int ind = this.getIndexOfTuple(ch);
@@ -231,10 +236,10 @@ public class AETG {
 	}
 
 	public int[] randomSequnce(int firstIndex) {
-		int[] sequence = new int[DataCenter.n - 1];
+		int[] sequence = new int[dataCenter.n - 1];
 		// sequence[0] = firstIndex;
 		int cur = 0;
-		for (int i = 0; i < DataCenter.n; i++) {
+		for (int i = 0; i < dataCenter.n; i++) {
 			if (i != firstIndex) {
 				sequence[cur] = i;
 				cur++;
@@ -259,7 +264,7 @@ public class AETG {
 	public int getNumberOfCovered(int[] givenIndex, int[] givenValue) {
 		int result = 0;
 
-		int[][] lowIndexes = this.getAllDgreeIndexs(DataCenter.degree
+		int[][] lowIndexes = this.getAllDgreeIndexs(dataCenter.degree
 				- givenIndex.length);
 
 		for (int[] lowIndex : lowIndexes) {
@@ -272,7 +277,7 @@ public class AETG {
 			for (int[] lowValue : allValues) {
 
 				// firstSet the given
-				TestCase testCase = new TestCaseImplement(DataCenter.n);
+				TestCase testCase = new TestCaseImplement(dataCenter.n);
 				for (int i = 0; i < givenIndex.length; i++)
 					testCase.set(givenIndex[i], givenValue[i]);
 
@@ -304,14 +309,15 @@ public class AETG {
 		// print(tuple.getParamIndex());
 		// System.out.println(tuple.toString() + " " +
 		// CoveringManage.getIndex(tuple));
+		CoveringManage cm = new CoveringManage(dataCenter);
 
-		int basicIndex = DataCenter.index[CoveringManage.getIndex(tuple)];
+		int basicIndex = dataCenter.index[cm.getIndex(tuple)];
 
-		for (int j = 0; j < DataCenter.degree; j++) {
+		for (int j = 0; j < dataCenter.degree; j++) {
 			int k = j + 1;
 			int temR = values[j];
-			while (k < DataCenter.degree) {
-				temR *= DataCenter.param[tuple.getParamIndex()[k]];
+			while (k < dataCenter.degree) {
+				temR *= dataCenter.param[tuple.getParamIndex()[k]];
 				k++;
 			}
 			basicIndex += temR;
@@ -334,7 +340,7 @@ public class AETG {
 	public int[][] getAllPossibleValues(int[] index) {
 		int allValuesNumber = 1;
 		for (int i : index)
-			allValuesNumber *= DataCenter.param[i];
+			allValuesNumber *= dataCenter.param[i];
 
 		int[][] result = new int[allValuesNumber][];
 
@@ -354,7 +360,7 @@ public class AETG {
 				i++;
 				stack.pop();
 				currentPoint++;
-			} else if (currentPoint == DataCenter.param[index[stack.currentIndex]]) {
+			} else if (currentPoint == dataCenter.param[index[stack.currentIndex]]) {
 				if (stack.isEmpty())
 					break;
 				stack.pop();
@@ -379,7 +385,7 @@ public class AETG {
 		// get All the numnber of low degree indexes
 		int allIndexesNum = 1;
 		for (int i = 0; i < degree; i++) {
-			allIndexesNum *= DataCenter.n - i;
+			allIndexesNum *= dataCenter.n - i;
 		}
 		for (int i = 0; i < degree; i++) {
 			allIndexesNum /= i + 1;
@@ -402,7 +408,7 @@ public class AETG {
 
 				i++;
 				stack.pop();
-			} else if (currentPoint == DataCenter.param.length) {
+			} else if (currentPoint == dataCenter.param.length) {
 				if (stack.isEmpty())
 					break;
 				stack.pop();
@@ -427,8 +433,8 @@ public class AETG {
 
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2 };
-		DataCenter.init(param, 3);
-		AETG aetg = new AETG();
+		DataCenter dataCenter = new DataCenter(param, 2);
+		AETG aetg = new AETG(dataCenter);
 		aetg.process();
 	}
 
