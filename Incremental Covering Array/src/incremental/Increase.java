@@ -44,6 +44,18 @@ public class Increase {
 		return result;
 	}
 	
+	
+	public void outputSize(){
+		System.out.println("size");
+		int size = 0;
+		for(int i = this.minDegree; i <= this.maxDegree ; i++){
+			List<int[]> testCases = this.incrementalTestCases.get(i);
+			size += testCases.size();
+			System.out.print("  degree : " + size);
+		}
+		System.out.println();
+	}
+	
 	public void output(){
 		for(int i = this.minDegree; i <= this.maxDegree ; i++){
 			List<int[]> testCases = this.incrementalTestCases.get(i);
