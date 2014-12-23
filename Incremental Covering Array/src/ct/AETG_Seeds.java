@@ -446,9 +446,20 @@ public class AETG_Seeds {
 
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2 };
-		DataCenter dataCenter = new DataCenter(param, 2);
+		DataCenter dataCenter = new DataCenter(param, 3);
 		AETG_Seeds aetg = new AETG_Seeds(dataCenter);
+		
+		List<int[]> a = new ArrayList<int[]> ();
+		a.add(new int[] {0,0,1,0});
+		a.add(new int[] {1,0,0,0});
+		a.add(new int[] {1,1,1,0});
+		a.add(new int[] {0,1,0,1});
+		a.add(new int[] {1,0,1,1});
+		aetg.addSeeds(a);
 		aetg.process();
+		for(int[] i : aetg.coveringArray)
+			aetg.print(i);
+
 	}
 
 }

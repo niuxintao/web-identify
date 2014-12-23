@@ -3,8 +3,8 @@ package example;
 import incremental.Decrease;
 import incremental.Increase;
 
-public class TestInAndDe {
-	
+public class Experiment {
+
 	public static void main(String[] args){
 		
 		Increase incease = new Increase();
