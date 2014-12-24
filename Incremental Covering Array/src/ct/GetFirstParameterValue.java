@@ -13,7 +13,7 @@ public class GetFirstParameterValue {
 		this.dataCenter = dataCenter;
 	}
 	public IJ selectFirst(int[] coveredMark, DealTupleOfIndex DOI) {
-
+//		long current = System.currentTimeMillis();
 		int[][] paramStatic = new int[this.dataCenter.n][];
 		for (int i = 0; i < paramStatic.length; i++) {
 			paramStatic[i] = new int[dataCenter.param[i]];
@@ -49,10 +49,16 @@ public class GetFirstParameterValue {
 
 		ij.parameter = bestI;
 		ij.value = bestJ;
+		
+//		current = System.currentTimeMillis() - current;
+//		System.out.println(current/ 1000);
+		
 		return ij;
 	}
 	
 	public IJ selectFirst(HashSet<IJ> cannot, int[] coveredMark, DealTupleOfIndex DOI) {
+//		long current = System.currentTimeMillis();
+		
 		int[][] paramStatic = new int[this.dataCenter.n][];
 		for (int i = 0; i < paramStatic.length; i++) {
 			paramStatic[i] = new int[dataCenter.param[i]];
@@ -96,6 +102,10 @@ public class GetFirstParameterValue {
 		
 		ij.parameter = bestI;
 		ij.value = bestJ;
+		
+//		current = System.currentTimeMillis() - current;
+//		System.out.println(current/ 1000);
+		
 		return ij;
 	}
 

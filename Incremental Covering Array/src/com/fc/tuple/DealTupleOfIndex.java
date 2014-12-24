@@ -8,11 +8,11 @@ import com.fc.testObject.TestCaseImplement;
 
 public class DealTupleOfIndex {
 	private DataCenter dataCenter;
-	
-	public DealTupleOfIndex(DataCenter dataCenter){
+
+	public DealTupleOfIndex(DataCenter dataCenter) {
 		this.dataCenter = dataCenter;
 	}
-	
+
 	public int getIndexOfTuple(Tuple tuple) {
 		int result = 0;
 		int[] values = tuple.getParamValue();
@@ -32,23 +32,19 @@ public class DealTupleOfIndex {
 
 		return result;
 	}
-	
-	
-	
+
 	public Tuple getTupleFromIndex(int index) {
-		int[] indexOfTuple = this.getTupleIndex(index);
-//		print(indexOfTuple);
+		int[] indexOfTuple = this.getTupleIndex2(index);
+//		 print(indexOfTuple);
 
 		int[] valueOfTuple = new int[dataCenter.degree];
 
-		
 		TestCase testCaseForTuple2 = new TestCaseImplement(dataCenter.n);
 		Tuple tuple2 = new Tuple(dataCenter.degree, testCaseForTuple2);
 		tuple2.setParamIndex(indexOfTuple);
-		
-		
+
 		int indexreMian = index - this.getIndexOfTuple(tuple2);
-		
+
 		for (int i = 0; i < dataCenter.degree; i++) {
 			int needMode = 1;
 			for (int j = i + 1; j < dataCenter.degree; j++) {
@@ -69,6 +65,48 @@ public class DealTupleOfIndex {
 		return tuple;
 	}
 
+	
+	public void print(int[] a){
+		for(int i: a)
+			System.out.print(i + " ");
+		System.out.println();
+	}
+	public int[] getTupleIndex2(int index) {
+		int[] indexs = dataCenter.index;
+
+		int high = indexs.length - 1;
+		int low = 0;
+
+		int result = high;
+
+		while (high >= low) {
+			int middle = (int) (0.5 * (low + high));
+			// System.out.println("middle : " + middle);
+
+			if (middle == high) {
+				result = middle;
+				break;
+			}
+
+			int thisIndex = dataCenter.index[middle];
+			int nextIndex = dataCenter.index[middle + 1];
+
+			if (thisIndex <= index && nextIndex > index) {
+				result = middle;
+				break;
+			} else if (index >= nextIndex) {
+				low = middle + 1;
+
+			} else if (index < thisIndex) {
+				high = middle - 1;
+			}
+		}
+
+		Tuple tuple = dataCenter.tupleIndex[result];
+		return tuple.getParamIndex();
+
+	}
+
 	public int[] getTupleIndex(int index) {
 		int[] indexes = new int[dataCenter.degree];
 		int degree = dataCenter.degree;
@@ -76,7 +114,7 @@ public class DealTupleOfIndex {
 		int[] indexFirst = new int[0];
 		for (int i = 0; i < degree; i++) {
 			int nextIndex = this.getNextIndex(indexFirst, index);
-//			System.out.println(nextIndex);
+			// System.out.println(nextIndex);
 			indexes[i] = nextIndex;
 			int[] indexFirstTemp = new int[indexFirst.length + 1];
 			for (int j = 0; j < indexFirst.length; j++) {
@@ -100,19 +138,18 @@ public class DealTupleOfIndex {
 		if (indexFirst != null && indexFirst.length > 0)
 			high = dataCenter.n - (dataCenter.degree - indexFirst.length);
 
-		
-//		 System.out.println("high : " + high  + "low : " + low);
-		 
+		// System.out.println("high : " + high + "low : " + low);
+
 		int result = high;
 
 		while (high >= low) {
 			int middle = (int) (0.5 * (low + high));
-//			 System.out.println("middle : " + middle);
-			
-			 if(middle == high){
-				 result = middle;
-				 break;
-			 }
+			// System.out.println("middle : " + middle);
+
+			if (middle == high) {
+				result = middle;
+				break;
+			}
 			int[] first = new int[indexFirst.length + 1];
 			for (int i = 0; i < indexFirst.length; i++)
 				first[i] = indexFirst[i];
@@ -138,9 +175,8 @@ public class DealTupleOfIndex {
 			} else if (index < tuple1Index) {
 				high = middle - 1;
 			}
-//			 System.out.println("start : " + low + " tail : " + high);
+			// System.out.println("start : " + low + " tail : " + high);
 		}
-
 
 		return result;
 	}

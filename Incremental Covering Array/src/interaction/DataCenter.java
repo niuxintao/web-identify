@@ -1,12 +1,17 @@
 package interaction;
 
+import com.fc.testObject.TestCaseImplement;
+import com.fc.tuple.Tuple;
+
 public class DataCenter {
 	public int[] param;
 	public int degree = -1;
 	public int coveringArrayNum; // all the possible t-way combiantions
 	public int[] index; // the index of each possible combination
 	public int n;
-	
+
+	public Tuple[] tupleIndex;
+
 	public DataCenter(int[] param, int degree) {
 		this.init(param, degree);
 	}
@@ -107,6 +112,11 @@ public class DataCenter {
 		this.param = param.clone();
 		this.degree = degree;
 		myStack stack = new myStack(degree);
+
+		int[] test = new int[n];
+		TestCaseImplement testCase = new TestCaseImplement();
+		testCase.setTestCase(test);
+
 		int indexNum = 1;
 		for (int k = 0; k < degree; k++) {
 			indexNum *= param.length - degree + k + 1;
@@ -116,6 +126,7 @@ public class DataCenter {
 		}
 
 		this.index = new int[indexNum];
+		this.tupleIndex = new Tuple[indexNum];
 		int currentPoint = 0;
 		int allNum = 0;
 		int i = 0;
@@ -123,6 +134,15 @@ public class DataCenter {
 			if (stack.isFull()) {
 				this.index[i] = allNum;
 				allNum += stack.mutli();
+
+				Tuple tuple = new Tuple(degree, testCase);
+				int[] indexs = new int[degree];
+				for (int j = 0; j < degree; j++)
+					indexs[j] = stack.dataIndexs[j];
+				tuple.setParamIndex(indexs);
+
+				this.tupleIndex[i] = tuple;
+
 				i++;
 				stack.pop();
 			} else if (currentPoint == param.length) {

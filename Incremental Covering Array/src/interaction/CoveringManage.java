@@ -162,38 +162,6 @@ public class CoveringManage  {
 		return num;
 	}
 
-	public int getIndex2(Tuple tuple) {
-		// TODO Auto-generated method stub
-		myStack2 stack = new myStack2(dataCenter.degree);
-		int i = 0;
-		int currentPoint = 0;
-		while (true) {
-			if (stack.isFull()) {
-				boolean flag = true;
-				for (int j = 0; j < dataCenter.degree; j++) {
-					if (tuple.getParamIndex()[j] != stack.dataIndexs[j]) {
-						flag = false;
-						break;
-					}
-				}
-				if (flag)
-					return i;
-
-				i++;
-				stack.pop();
-			} else if (currentPoint == dataCenter.param.length) {
-				if (stack.isEmpty())
-					break;
-				stack.pop();
-				currentPoint = stack.dataIndexs[stack.currentIndex] + 1;
-
-			} else {
-				stack.push(dataCenter.param[currentPoint], currentPoint);
-				currentPoint++;
-			}
-		}
-		return -1;
-	}
 
 	public static void main(String[] args) {
 		DataCenter dataCenter = new DataCenter(new int[] { 2,2,2 }, 2);
@@ -204,7 +172,6 @@ public class CoveringManage  {
 		CoveringManage cm = new CoveringManage(dataCenter);
 
 		System.out.println(cm.getIndex(tuple));
-		System.out.println(cm.getIndex2(tuple));
 	}
 
 	public int setCover(Integer unCovered, int[] coveringArray, int[] row) {

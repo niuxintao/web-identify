@@ -14,7 +14,7 @@ import interaction.DataCenter;
 
 public class AETG_Seeds {
 
-	public static final int M = 50;
+	public static final int M = 10;
 
 	public int[] coveredMark; //
 	public Integer unCovered;//

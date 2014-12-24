@@ -93,8 +93,8 @@ public class Experiment {
 	public static void main(String[] args) {
 
 		Experiment ex = new Experiment();
-		int[] param = new int[30];
-		for (int i = 0; i < 30; i ++ )
+		int[] param = new int[15];
+		for (int i = 0; i < 15; i ++ )
 			param[i] = 2;
 		ex.execute(param);
 	}
