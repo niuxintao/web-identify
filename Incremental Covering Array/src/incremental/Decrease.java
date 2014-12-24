@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ct.AETG;
+import ct.AETG_OLD;
 import ct.GenCoveringArray_From_Existing;
 
 public class Decrease {
@@ -29,9 +29,9 @@ public class Decrease {
 		for (int i = maxDegree; i >= minDegree; i--) {
 			DataCenter dataCenter = new DataCenter(param, i);
 			if (i == maxDegree) {
-				AETG aetg = new AETG(dataCenter);
-				aetg.process();
-				this.rawTestCases.put(i, aetg.coveringArray);
+				AETG_OLD aetg_old = new AETG_OLD(dataCenter);
+				aetg_old.process();
+				this.rawTestCases.put(i, aetg_old.coveringArray);
 			} else {
 				GenCoveringArray_From_Existing ge = new GenCoveringArray_From_Existing(
 						dataCenter, rawTestCases.get(i + 1));

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
+import com.fc.tuple.DealTupleOfIndex;
 import com.fc.tuple.Tuple;
 
 import interaction.CoveringManage;
@@ -24,12 +25,19 @@ public class AETG_Seeds {
 
 	public List<int[]> seeds;
 	
+	private DealTupleOfIndex DOI;
+	
+	private GetFirstParameterValue gpv;
+	
 	public AETG_Seeds(DataCenter dataCenter) {
 		coveringArray = new ArrayList<int[]>();
 		coveredMark = new int[dataCenter.coveringArrayNum];
 		unCovered = this.coveredMark.length;
 		seeds = new ArrayList<int[]> ();
 		this.dataCenter = dataCenter;
+		
+		DOI = new DealTupleOfIndex(dataCenter);
+		gpv = new GetFirstParameterValue(dataCenter);
 	}
 
 	public void init() {
@@ -49,13 +57,16 @@ public class AETG_Seeds {
 
 		int bestUncovered = -1;
 
+		
+		IJ first = gpv.selectFirst(coveredMark, DOI);
+		
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.n];
 			for (int k = 0; k < testCase.length; k++)
 				testCase[k] = -1;
 
 			// select the first parameter and value
-			IJ first = selectFirst();
+			
 			testCase[first.parameter] = first.value;
 //			System.out.println("first" + first.parameter + " " + first.value);
 
@@ -128,41 +139,6 @@ public class AETG_Seeds {
 		for (int i : array)
 			System.out.print(i + " ");
 		System.out.println();
-	}
-
-	public IJ selectFirst() {
-		IJ ij = new IJ();
-
-		int bestI = -1;
-		int bestJ = -1;
-		int bestUncovered = -1;
-
-		for (int i = 0; i < dataCenter.n; i++) {
-
-			int tempBestJ = -1;
-			int tempBestUncover = -1;
-
-			for (int j = 0; j < dataCenter.param[i]; j++) {
-				int uncoverThis = getUncoveredNumber(i, j);
-
-				if (uncoverThis > tempBestUncover) {
-					tempBestUncover = uncoverThis;
-					tempBestJ = j;
-				}
-			}
-
-			if (tempBestUncover > bestUncovered) {
-				bestUncovered = tempBestUncover;
-				bestI = i;
-				bestJ = tempBestJ;
-			}
-
-			ij.parameter = bestI;
-			ij.value = bestJ;
-
-		}
-
-		return ij;
 	}
 
 	public int getUncoveredNumber(int i, int j) {
@@ -357,7 +333,7 @@ public class AETG_Seeds {
 
 		int[][] result = new int[allValuesNumber][];
 
-		myStack stack = new myStack(index.length);
+		MyStack stack = new MyStack(index.length);
 		// int indexNum = 1;
 		int currentPoint = 0;
 
@@ -405,7 +381,7 @@ public class AETG_Seeds {
 		}
 
 		int[][] tupleIndexs = new int[allIndexesNum][];
-		myStack stack = new myStack(degree);
+		MyStack stack = new MyStack(degree);
 		// int indexNum = 1;
 		int currentPoint = 0;
 		// int allNum = 0;
