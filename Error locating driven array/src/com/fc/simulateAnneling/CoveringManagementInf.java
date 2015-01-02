@@ -1,4 +1,4 @@
-package com.fc.coveringArray;
+package com.fc.simulateAnneling;
 
 public interface CoveringManagementInf {
 	public int setCover(Integer unCovered,int[] coveringArray,int[] row); //������һ��

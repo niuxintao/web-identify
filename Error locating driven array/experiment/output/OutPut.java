@@ -32,7 +32,7 @@ public class OutPut {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void print(String content) {
 		try {
 			outSta.write(content);
@@ -41,5 +41,16 @@ public class OutPut {
 			System.out.println(content);
 			e.printStackTrace();
 		}
+	}
+
+	public void close() {
+		try {
+			outSta.flush();
+			outSta.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }

@@ -1,0 +1,27 @@
+2-way for HSQLDB
+average elda num: 26.6
+num elda deviration: 8.044045416745648
+average elda accurate: NaN
+accurate elda deviration:NaN
+average fglt num: 28.3
+num fglt deviration: 6.304231383232483
+average fglt accurate: NaN
+accurate fglt deviration:NaN
+3-way for HSQLDB
+average elda num: 63.6
+num elda deviration: 5.65449673563734
+average elda accurate: 0.8000000000000002
+accurate elda deviration:0.1632993161855452
+average fglt num: 82.36666666666666
+num fglt deviration: 9.232129885471835
+average fglt accurate: 0.8333333333333331
+accurate fglt deviration:1.1102230246251565E-16
+4-way for HSQLDB
+average elda num: 144.16666666666666
+num elda deviration: 6.767980168082318
+average elda accurate: 0.7666666666666667
+accurate elda deviration:0.15275252316519466
+average fglt num: 231.43333333333334
+num fglt deviration: 11.339263154583232
+average fglt accurate: 0.8333333333333331
+accurate fglt deviration:1.1102230246251565E-16

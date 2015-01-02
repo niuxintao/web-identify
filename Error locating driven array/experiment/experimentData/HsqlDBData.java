@@ -1,11 +1,12 @@
 package experimentData;
 
+import interaction.DataCenter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
-import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -15,7 +16,11 @@ public class HsqlDBData implements ExperimentData {
 	private int[] param;
 	private CaseRunner caseRunner;
 	private List<Tuple> realMFS;
-	private int degree;
+	private DataCenter dataCenter;
+
+	public DataCenter getDataCenter() {
+		return dataCenter;
+	}
 
 	public HsqlDBData() {
 		this.init();
@@ -55,8 +60,7 @@ public class HsqlDBData implements ExperimentData {
 	}
 
 	public void setDegree(int degree) {
-		DataCenter.init(param, degree);
-		this.degree = degree;
+		this.dataCenter = new DataCenter(param, degree);
 	}
 
 	public int[] getParam() {
@@ -71,7 +75,4 @@ public class HsqlDBData implements ExperimentData {
 		return realMFS;
 	}
 
-	public int getDegree() {
-		return degree;
-	}
 }

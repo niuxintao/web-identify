@@ -1,16 +1,16 @@
-package com.fc.coveringArray;
+package com.fc.simulateAnneling;
 
 import java.util.Random;
 
 public class AnnelProcess implements AnnelInf {
-	public int[] coveringArray; // 覆盖记录，在一个点的数值意味着被覆盖的次数
-	public Integer unCovered;// 未被覆盖对
-	public int freezingTimes;// 僵住的次数
+	public int[] coveringArray; // 覆盖记录，在�?个点的数值意味着被覆盖的次数
+	public Integer unCovered;// 未被覆盖�?
+	public int freezingTimes;// 僵住的次�?
 	public int[][] table; // N*K的表
-	private Random randomGenerator = new Random(); // 随机生成器
+	private Random randomGenerator = new Random(); // 随机生成�?
 	private int rowChange;// 改变的行
-	private int[] oldRow; // 改变前的行
-	private int[] newRow; // 改变后的行
+	private int[] oldRow; // 改变前的�?
+	private int[] newRow; // 改变后的�?
 	private boolean feasiable;// 是否可行
 	private int N; // 给定大小N
 	private double T;// 温度T
@@ -25,10 +25,10 @@ public class AnnelProcess implements AnnelInf {
 	@Override
 	public void initAnneling() {
 		// TODO Auto-generated method stub
-		// 随机生成一个N*K的表`
+		// 随机生成�?个N*K的表`
 		this.feasiable = false;
 		CoveringManagementInf cm = new CoveringManage();
-		// 随机生成一个N*K的表
+		// 随机生成�?个N*K的表
 		// 初始化coveringArray
 		this.coveringArray = new int[DataCenter.coveringArrayNum];
 		unCovered = this.coveringArray.length;
@@ -82,7 +82,7 @@ public class AnnelProcess implements AnnelInf {
 	@Override
 	public void makeChange() {
 		// TODO Auto-generated method stub
-		// 任意挑出一个cell改变其值
+		// 任意挑出�?个cell改变其�??
 		this.rowChange = randomGenerator.nextInt(N);
 		int col = randomGenerator.nextInt(DataCenter.param.length);
 		int newValue = (table[rowChange][col] + 1) % DataCenter.param[col];
@@ -105,7 +105,7 @@ public class AnnelProcess implements AnnelInf {
 			else {
 				CoveringManagementInf cm = new CoveringManage();
 				unCovered=cm.rmCover(unCovered, coveringArray, newRow);
-				unCovered=cm.setCover(unCovered, coveringArray, oldRow); // 回退
+				unCovered=cm.setCover(unCovered, coveringArray, oldRow); // 回�??
 			}
 			this.T = this.T * this.decrement;
 		}

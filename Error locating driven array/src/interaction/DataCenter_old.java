@@ -1,18 +1,12 @@
 package interaction;
 
-import com.fc.testObject.TestCaseImplement;
-import com.fc.tuple.Tuple;
+public class DataCenter_old {
+	private int[] param;
+	private int degree = -1;
+	private int coveringArrayNum; // all the possible t-way combiantions
+	private int[] index; // the index of each possible combination
 
-public class DataCenter {
-	public int[] param;
-	public int degree = -1;
-	public int coveringArrayNum; // all the possible t-way combiantions
-	public int[] index; // the index of each possible combination
-	public int n;
-
-	public Tuple[] tupleIndex;
-
-	public DataCenter(int[] param, int degree) {
+	public DataCenter_old(int[] param, int degree) {
 		this.init(param, degree);
 	}
 
@@ -108,15 +102,9 @@ public class DataCenter {
 	}
 
 	public void init(int[] param, int degree) {
-		this.n = param.length;
 		this.param = param.clone();
 		this.degree = degree;
 		myStack stack = new myStack(degree);
-
-		int[] test = new int[n];
-		TestCaseImplement testCase = new TestCaseImplement();
-		testCase.setTestCase(test);
-
 		int indexNum = 1;
 		for (int k = 0; k < degree; k++) {
 			indexNum *= param.length - degree + k + 1;
@@ -126,7 +114,6 @@ public class DataCenter {
 		}
 
 		this.index = new int[indexNum];
-		this.tupleIndex = new Tuple[indexNum];
 		int currentPoint = 0;
 		int allNum = 0;
 		int i = 0;
@@ -134,15 +121,6 @@ public class DataCenter {
 			if (stack.isFull()) {
 				this.index[i] = allNum;
 				allNum += stack.mutli();
-
-				Tuple tuple = new Tuple(degree, testCase);
-				int[] indexs = new int[degree];
-				for (int j = 0; j < degree; j++)
-					indexs[j] = stack.dataIndexs[j];
-				tuple.setParamIndex(indexs);
-
-				this.tupleIndex[i] = tuple;
-
 				i++;
 				stack.pop();
 			} else if (currentPoint == param.length) {
@@ -160,46 +138,46 @@ public class DataCenter {
 	}
 }
 
-class myStack {
-	public int size;
-	public int currentIndex;
-	public int[] dataIndexs;
-	public int[] data;
-
-	public myStack(int size) {
-		this.size = size;
-		data = new int[size];
-		dataIndexs = new int[size];
-	}
-
-	public boolean isFull() {
-		if (this.currentIndex == size)
-			return true;
-		else
-			return false;
-	}
-
-	public boolean isEmpty() {
-		if (this.currentIndex == 0)
-			return true;
-		else
-			return false;
-	}
-
-	public void push(int num, int dataIndex) {
-		data[this.currentIndex] = num;
-		dataIndexs[this.currentIndex] = dataIndex;
-		this.currentIndex++;
-	}
-
-	public void pop() {
-		this.currentIndex--;
-	}
-
-	public int mutli() {
-		int result = 1;
-		for (int i = 0; i < size; i++)
-			result *= data[i];
-		return result;
-	}
-}
+//class myStack {
+//	public int size;
+//	public int currentIndex;
+//	public int[] dataIndexs;
+//	public int[] data;
+//
+//	public myStack(int size) {
+//		this.size = size;
+//		data = new int[size];
+//		dataIndexs = new int[size];
+//	}
+//
+//	public boolean isFull() {
+//		if (this.currentIndex == size)
+//			return true;
+//		else
+//			return false;
+//	}
+//
+//	public boolean isEmpty() {
+//		if (this.currentIndex == 0)
+//			return true;
+//		else
+//			return false;
+//	}
+//
+//	public void push(int num, int dataIndex) {
+//		data[this.currentIndex] = num;
+//		dataIndexs[this.currentIndex] = dataIndex;
+//		this.currentIndex++;
+//	}
+//
+//	public void pop() {
+//		this.currentIndex--;
+//	}
+//
+//	public int mutli() {
+//		int result = 1;
+//		for (int i = 0; i < size; i++)
+//			result *= data[i];
+//		return result;
+//	}
+//}

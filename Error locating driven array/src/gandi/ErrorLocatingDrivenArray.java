@@ -1,12 +1,14 @@
 package gandi;
 
+import interaction.CoveringManage;
+import interaction.DataCenter;
+
 import java.util.HashSet;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
-import com.fc.coveringArray.CoveringManage;
-import com.fc.coveringArray.DataCenter;
+//import com.fc.coveringArray.CoveringManage;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -21,9 +23,11 @@ public class ErrorLocatingDrivenArray {
 	private HashSet<TestCase> overallTestCases;
 
 	private HashSet<Tuple> MFS;
+	
+	private DataCenter dataCenter;
 
 	private CoveringManage cm;
-	
+
 	public HashSet<TestCase> getOverallTestCases() {
 		return overallTestCases;
 	}
@@ -32,42 +36,46 @@ public class ErrorLocatingDrivenArray {
 		return MFS;
 	}
 
-	public ErrorLocatingDrivenArray(CaseRunner caseRunner) {
+	public ErrorLocatingDrivenArray(DataCenter dataCenter, CaseRunner caseRunner) {
 		this.caseRunner = caseRunner;
 		overallTestCases = new HashSet<TestCase>();
-		cm = new CoveringManage();
-		MFS = new HashSet<Tuple> ();
+		cm = new CoveringManage(dataCenter);
+		MFS = new HashSet<Tuple>();
+		this.dataCenter = dataCenter;
 	}
 
 	public void run() {
 
-		AETG_Constraints ac = new AETG_Constraints();
+		AETG_Constraints ac = new AETG_Constraints(dataCenter);
 
 		// coverage is equal to 0 is ending
 		while (ac.unCovered > 0) {
 			int[] test = ac.getNextTestCase();
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
-//			System.out.println("aetg" + testCase.getStringOfTest() + " "+ac.unCovered);
+			// System.out.println("aetg" + testCase.getStringOfTest() +
+			// " "+ac.unCovered);
 
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
 			} else {
 
-				SOFOT_Constriants sc = new SOFOT_Constriants(testCase, ac);
+				SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter, testCase, ac);
 				// sc.process(testCase, DataCenter.param, caseRunner);
 
 				while (!sc.isEnd()) {
 					TestCase nextTestCase = sc.generateNext();
 					overallTestCases.add(nextTestCase);
-//					System.out.println("ofot" + nextTestCase.getStringOfTest());
+					// System.out.println("ofot" +
+					// nextTestCase.getStringOfTest());
 
 					int[] next = new int[nextTestCase.getLength()];
 					for (int i = 0; i < next.length; i++) {
 						next[i] = nextTestCase.getAt(i);
 					}
 					if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
-						ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, next);
+						ac.unCovered = cm.setCover(ac.unCovered,
+								ac.coveredMark, next);
 						nextTestCase.setTestState(TestCase.PASSED);
 					} else
 						nextTestCase.setTestState(TestCase.FAILED);
@@ -79,11 +87,11 @@ public class ErrorLocatingDrivenArray {
 				this.MFS.addAll(mfs);
 				// setCoverage(mfs);
 			}
-			
+
 		}
 	}
-	
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
@@ -92,9 +100,9 @@ public class ErrorLocatingDrivenArray {
 		TestCase wrongCase2 = new TestCaseImplement();
 		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
 
-		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3};
-		
-		DataCenter.init(param, 2);
+		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };
+
+		DataCenter dataCenter = new DataCenter(param, 2);
 
 		Tuple bugModel1 = new Tuple(2, wrongCase);
 		bugModel1.set(0, 2);
@@ -106,20 +114,20 @@ public class ErrorLocatingDrivenArray {
 		CaseRunner caseRunner = new CaseRunnerWithBugInject();
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
-		
-		
-		ErrorLocatingDrivenArray elda = new ErrorLocatingDrivenArray(caseRunner);
+
+		ErrorLocatingDrivenArray elda = new ErrorLocatingDrivenArray(
+				dataCenter, caseRunner);
 		elda.run();
-		
-		System.out.println("testCase Num: " + elda.getOverallTestCases().size());
-		for(TestCase testCase : elda.getOverallTestCases()){
+
+		System.out
+				.println("testCase Num: " + elda.getOverallTestCases().size());
+		for (TestCase testCase : elda.getOverallTestCases()) {
 			System.out.println(testCase.getStringOfTest());
 		}
 		System.out.println("MFS");
-		for(Tuple mfs : elda.getMFS())
+		for (Tuple mfs : elda.getMFS())
 			System.out.println(mfs.toString());
-		
+
 	}
-	
 
 }

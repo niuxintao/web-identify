@@ -1,4 +1,4 @@
-package com.fc.coveringArray;
+package com.fc.simulateAnneling;
 
 import java.util.Date;
 

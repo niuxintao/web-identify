@@ -1,13 +1,14 @@
 package ct;
 
+import interaction.CoveringManage;
+import interaction.DataCenter;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
-import com.fc.coveringArray.CoveringManage;
-import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -34,14 +35,18 @@ public class SOFOT_Constriants {
 	}
 
 	private List<Tuple> bugs;
+	
+	private DataCenter dataCenter;
 
-	public SOFOT_Constriants() {
+	public SOFOT_Constriants(DataCenter dataCenter) {
 		executed = new ArrayList<TestCase>();
 		bugs = new ArrayList<Tuple>();
+		this.dataCenter = dataCenter;
 		// constraints = new ArrayList<Tuple>();
 	}
 
-	public SOFOT_Constriants(TestCase wrongCase, AETG_Constraints ac) {
+	public SOFOT_Constriants(DataCenter dataCenter, TestCase wrongCase, AETG_Constraints ac) {
+		this.dataCenter = dataCenter;
 		executed = new ArrayList<TestCase>();
 		bugs = new ArrayList<Tuple>();
 		// this.constraints = constriants;
@@ -59,11 +64,11 @@ public class SOFOT_Constriants {
 
 	public boolean isEnd() {
 //		System.out.println(currentIndex + " " + DataCenter.n);
-		return currentIndex == DataCenter.n;
+		return currentIndex == dataCenter.n;
 	}
 
 	public TestCase generateNext() {
-		TestCase testCase = generateTestCase(wrongCase, DataCenter.param,
+		TestCase testCase = generateTestCase(wrongCase, dataCenter.param,
 				this.currentIndex);
 
 		executed.add(testCase);
@@ -97,7 +102,7 @@ public class SOFOT_Constriants {
 
 			// judege if it is satisified
 			List<Integer> indexes = new ArrayList<Integer>();
-			TestCase testCaseForTuple = new TestCaseImplement(DataCenter.n);
+			TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
 			for (int j = 0; j < testCase.length; j++) {
 				if (j == rmI) {
 					testCaseForTuple.set(j, value);
@@ -125,7 +130,7 @@ public class SOFOT_Constriants {
 	}
 
 	public void analysis() {
-		analysis(executed, wrongCase, DataCenter.param);
+		analysis(executed, wrongCase, dataCenter.param);
 	}
 
 	public void process(TestCase wrongCase, int[] parameters, CaseRunner runner) {
@@ -187,7 +192,7 @@ public class SOFOT_Constriants {
 
 		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3};
 		
-		DataCenter.init(param, 2);
+		DataCenter dataCenter = new DataCenter(param, 2);
 
 		Tuple bugModel1 = new Tuple(2, wrongCase);
 		bugModel1.set(0, 2);
@@ -202,12 +207,12 @@ public class SOFOT_Constriants {
 		
 		
 		List<Tuple> MFS = new ArrayList<Tuple> ();
-		MFS.add(bugModel2);
-		AETG_Constraints ac = new AETG_Constraints();
+		MFS.add(bugModel1);
+		AETG_Constraints ac = new AETG_Constraints(dataCenter);
 		ac.addConstriants(MFS);
 
-		SOFOT_Constriants sc = new SOFOT_Constriants(wrongCase, ac);
-		CoveringManage cm = new CoveringManage();
+		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter, wrongCase, ac);
+		CoveringManage cm = new CoveringManage(dataCenter);
 		// sc.process(testCase, DataCenter.param, caseRunner);
 
 		while (!sc.isEnd()) {

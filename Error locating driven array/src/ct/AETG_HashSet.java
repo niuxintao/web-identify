@@ -1,6 +1,7 @@
 package ct;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -10,9 +11,10 @@ import com.fc.tuple.DealTupleOfIndex;
 import com.fc.tuple.Tuple;
 
 import interaction.CoveringManage;
+import interaction.CoveringManage_WithHash;
 import interaction.DataCenter;
 
-public class AETG {
+public class AETG_HashSet {
 
 	public static final int M = 10;
 
@@ -25,15 +27,18 @@ public class AETG {
 
 	private DealTupleOfIndex DOI;
 	
-	private GetFirstParameterValue gpv;
+	private HashSet<Integer> UncoveredSet;
 
-	public AETG(DataCenter dataCenter) {
+	public AETG_HashSet(DataCenter dataCenter) {
 		coveringArray = new ArrayList<int[]>();
 		coveredMark = new int[dataCenter.coveringArrayNum];
 		unCovered = this.coveredMark.length;
 		this.dataCenter = dataCenter;
 		DOI = new DealTupleOfIndex(dataCenter);
-		gpv = new GetFirstParameterValue(dataCenter);
+	
+		UncoveredSet = new HashSet<Integer> ();
+		for(int i = 0; i < dataCenter.coveringArrayNum; i++)
+			UncoveredSet.add(i);
 	}
 
 	public void init() {
@@ -45,11 +50,8 @@ public class AETG {
 
 		int bestUncovered = -1;
 
-//		System.out.println("tFirst strat");	
-		IJ first = gpv.selectFirst(coveredMark, DOI);
-//		System.out.println("tFirst End");	
+		IJ first = selectFirst();
 
-//		System.out.println("rem strat");	
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.n];
 			for (int k = 0; k < testCase.length; k++)
@@ -81,8 +83,6 @@ public class AETG {
 			}
 		}
 
-//		System.out.println("rem end");	
-		
 		coveringArray.add(best);
 		return best;
 	}
@@ -119,8 +119,8 @@ public class AETG {
 		while (unCovered > 0) {
 			int[] testCase = this.getNextTestCase();
 			// print(testCase);
-			CoveringManage cm = new CoveringManage(dataCenter);
-			unCovered = cm.setCover(unCovered, coveredMark, testCase);
+			CoveringManage_WithHash cm = new CoveringManage_WithHash(dataCenter);
+			unCovered = cm.setCover(this.UncoveredSet,unCovered, coveredMark, testCase);
 
 			// print(this.coveredMark);
 			// System.out.println(unCovered);
@@ -134,7 +134,70 @@ public class AETG {
 		System.out.println();
 	}
 
-	
+	public IJ selectFirst() {
+
+		int[][] paramStatic = new int[this.dataCenter.n][];
+		for (int i = 0; i < paramStatic.length; i++) {
+			paramStatic[i] = new int[dataCenter.param[i]];
+		}
+
+		IJ ij = new IJ();
+
+		int bestI = -1;
+		int bestJ = -1;
+		int bestUncovered = -1;
+
+		for (Integer i : this.UncoveredSet) {
+			if (this.coveredMark[i] == 0) {
+				Tuple tuple = DOI.getTupleFromIndex(i);
+				int[] index = tuple.getParamIndex();
+				int[] value = tuple.getParamValue();
+				for (int j = 0; j < index.length; j++) {
+					paramStatic[index[j]][value[j]] += 1;
+				}
+			}
+		}
+		
+		for(int i = 0; i < dataCenter.n; i++){
+			for(int j = 0; j < dataCenter.param[i]; j ++){
+				if(paramStatic[i][j] > bestUncovered){
+					bestUncovered = paramStatic[i][j];
+					bestI = i;
+					bestJ = j;
+				}
+			}
+		}
+		
+//
+//
+//		for (int i = 0; i < dataCenter.n; i++) {
+//
+//			int tempBestJ = -1;
+//			int tempBestUncover = -1;
+//
+//			for (int j = 0; j < dataCenter.param[i]; j++) {
+//				int uncoverThis = getUncoveredNumber(i, j);
+//				// System.out.println("unCover " + i + " " + j + " :" +
+//				// uncoverThis);
+//
+//				if (uncoverThis > tempBestUncover) {
+//					tempBestUncover = uncoverThis;
+//					tempBestJ = j;
+//				}
+//			}
+//
+//			if (tempBestUncover > bestUncovered) {
+//				bestUncovered = tempBestUncover;
+//				bestI = i;
+//				bestJ = tempBestJ;
+//			}
+//		}
+
+		ij.parameter = bestI;
+		ij.value = bestJ;
+		return ij;
+	}
+
 	public int getUncoveredNumber(int i, int j) {
 
 		int[] giveindex = new int[1];
@@ -417,8 +480,9 @@ public class AETG {
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2 };
 		DataCenter dataCenter = new DataCenter(param, 2);
-		AETG aetg = new AETG(dataCenter);
+		AETG_HashSet aetg = new AETG_HashSet(dataCenter);
 		aetg.process();
 	}
 
 }
+

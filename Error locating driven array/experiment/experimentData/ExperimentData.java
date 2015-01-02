@@ -1,5 +1,7 @@
 package experimentData;
 
+import interaction.DataCenter;
+
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
@@ -17,6 +19,5 @@ public interface ExperimentData {
 
 	public abstract List<Tuple> getRealMFS();
 
-	public abstract int getDegree();
-
+	public abstract DataCenter getDataCenter();
 }

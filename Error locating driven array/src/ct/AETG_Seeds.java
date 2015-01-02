@@ -12,7 +12,7 @@ import com.fc.tuple.Tuple;
 import interaction.CoveringManage;
 import interaction.DataCenter;
 
-public class AETG {
+public class AETG_Seeds {
 
 	public static final int M = 10;
 
@@ -20,18 +20,22 @@ public class AETG {
 	public Integer unCovered;//
 
 	public List<int[]> coveringArray;
+	
+	public  DataCenter dataCenter;
 
-	public DataCenter dataCenter;
-
+	public List<int[]> seeds;
+	
 	private DealTupleOfIndex DOI;
 	
 	private GetFirstParameterValue gpv;
-
-	public AETG(DataCenter dataCenter) {
+	
+	public AETG_Seeds(DataCenter dataCenter) {
 		coveringArray = new ArrayList<int[]>();
 		coveredMark = new int[dataCenter.coveringArrayNum];
 		unCovered = this.coveredMark.length;
+		seeds = new ArrayList<int[]> ();
 		this.dataCenter = dataCenter;
+		
 		DOI = new DealTupleOfIndex(dataCenter);
 		gpv = new GetFirstParameterValue(dataCenter);
 	}
@@ -39,27 +43,32 @@ public class AETG {
 	public void init() {
 
 	}
+	
+	public void addSeeds(List<int[]> seeds){
+		this.seeds.addAll(seeds);
+		for(int[] seed : seeds){
+			CoveringManage cm = new CoveringManage(dataCenter);
+			unCovered = cm.setCover(unCovered, coveredMark, seed);
+		}
+	}
 
 	public int[] getNextTestCase() {
 		int[] best = new int[dataCenter.n];
 
 		int bestUncovered = -1;
 
-//		System.out.println("tFirst strat");	
+		
 		IJ first = gpv.selectFirst(coveredMark, DOI);
-//		System.out.println("tFirst End");	
-
-//		System.out.println("rem strat");	
+		
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.n];
 			for (int k = 0; k < testCase.length; k++)
 				testCase[k] = -1;
 
 			// select the first parameter and value
-
+			
 			testCase[first.parameter] = first.value;
-			// System.out.println("first" + first.parameter + " " +
-			// first.value);
+//			System.out.println("first" + first.parameter + " " + first.value);
 
 			// random the remaining parameters
 			int[] remainingSequence = this.randomSequnce(first.parameter);
@@ -67,12 +76,10 @@ public class AETG {
 				// for each remaining parameter, select the best value
 				int value = this.getBestValue(testCase, rmI);
 				testCase[rmI] = value;
-				// System.out.println("the " + rmI + " " + value);
 			}
 
 			int thisUncovered = this.getUncovered(testCase);
-			// System.out.println("remaining selected, this uncovred: " +
-			// thisUncovered);
+//			 System.out.println(thisUncovered);
 
 			// repeat 50 times to get the best one.
 			if (thisUncovered > bestUncovered) {
@@ -81,8 +88,6 @@ public class AETG {
 			}
 		}
 
-//		System.out.println("rem end");	
-		
 		coveringArray.add(best);
 		return best;
 	}
@@ -95,11 +100,13 @@ public class AETG {
 
 		Tuple tuple = new Tuple(testCase.length, testCaseForTuple);
 		int[] indexset = new int[testCase.length];
-		for (int i = 0; i < indexset.length; i++)
+		for(int i = 0; i < indexset.length; i++)
 			indexset[i] = i;
 		tuple.setParamIndex(indexset);
 
-		// System.out.print(tuple.toString());;
+//		 System.out.print("tuple degree" + tuple.getDegree() + " " + tuple.toString());;
+//		 
+//		 print(tuple.getParamIndex());
 
 		List<Tuple> child = tuple.getChildTuplesByDegree(dataCenter.degree);
 
@@ -118,7 +125,7 @@ public class AETG {
 	public void process() {
 		while (unCovered > 0) {
 			int[] testCase = this.getNextTestCase();
-			// print(testCase);
+			//print(testCase);
 			CoveringManage cm = new CoveringManage(dataCenter);
 			unCovered = cm.setCover(unCovered, coveredMark, testCase);
 
@@ -134,7 +141,6 @@ public class AETG {
 		System.out.println();
 	}
 
-	
 	public int getUncoveredNumber(int i, int j) {
 
 		int[] giveindex = new int[1];
@@ -153,8 +159,10 @@ public class AETG {
 		int bestUnCover = -1;
 		int bestV = -1;
 
-		for (int v = 0; v < dataCenter.param[rmI]; v++) {
+		
 
+		for (int v = 0; v < dataCenter.param[rmI]; v++) {
+			
 			int[] tempTestCase = new int[testCase.length];
 			System.arraycopy(testCase, 0, tempTestCase, 0, testCase.length);
 			tempTestCase[rmI] = v;
@@ -167,14 +175,15 @@ public class AETG {
 					value.add(tempTestCase[i]);
 				}
 			}
+			
 
-			// List<Integer> tempIndex = new ArrayList<Integer>();
-			// tempIndex.addAll(index);
-			// List<Integer> tempValue = new ArrayList<Integer>();
-			// tempValue.addAll(value);
-			//
-			// tempIndex.add(rmI);
-			// tempValue.add(v);
+//			List<Integer> tempIndex = new ArrayList<Integer>();
+//			tempIndex.addAll(index);
+//			List<Integer> tempValue = new ArrayList<Integer>();
+//			tempValue.addAll(value);
+//
+//			tempIndex.add(rmI);
+//			tempValue.add(v);
 
 			int tempCover = 0;
 
@@ -189,8 +198,10 @@ public class AETG {
 				Tuple tuple = new Tuple(givenIndex.length, testCaseForTuple);
 
 				tuple.setParamIndex(givenIndex);
+				
+				
 
-				// print(tuple.getParamIndex());
+//				print(tuple.getParamIndex());
 
 				List<Tuple> child = tuple
 						.getChildTuplesByDegree(dataCenter.degree);
@@ -201,10 +212,9 @@ public class AETG {
 						tempCover++;
 				}
 
-			} else {
+			} else
 				tempCover = this.getNumberOfCovered(givenIndex, givenValue);
-				// System.out.println("tempCover " + tempCover);
-			}
+
 			if (tempCover > bestUnCover) {
 				bestUnCover = tempCover;
 				bestV = v;
@@ -241,14 +251,12 @@ public class AETG {
 	}
 
 	public int getNumberOfCovered(int[] givenIndex, int[] givenValue) {
-		// System.out.println("start");
 		int result = 0;
 
 		int[][] lowIndexes = this.getAllDgreeIndexs(dataCenter.degree
 				- givenIndex.length);
 
 		for (int[] lowIndex : lowIndexes) {
-			// System.out.println("once");
 			if (this.isOverlapp(givenIndex, lowIndex))
 				continue;
 
@@ -279,8 +287,6 @@ public class AETG {
 			}
 
 		}
-
-		// System.out.println("end");
 		return result;
 	}
 
@@ -416,9 +422,21 @@ public class AETG {
 
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2 };
-		DataCenter dataCenter = new DataCenter(param, 2);
-		AETG aetg = new AETG(dataCenter);
+		DataCenter dataCenter = new DataCenter(param, 3);
+		AETG_Seeds aetg = new AETG_Seeds(dataCenter);
+		
+		List<int[]> a = new ArrayList<int[]> ();
+		a.add(new int[] {0,0,1,0});
+		a.add(new int[] {1,0,0,0});
+		a.add(new int[] {1,1,1,0});
+		a.add(new int[] {0,1,0,1});
+		a.add(new int[] {1,0,1,1});
+		aetg.addSeeds(a);
 		aetg.process();
+		for(int[] i : aetg.coveringArray)
+			aetg.print(i);
+
 	}
 
 }
+

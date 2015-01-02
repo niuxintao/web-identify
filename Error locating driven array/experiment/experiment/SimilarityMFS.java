@@ -5,6 +5,31 @@ import java.util.List;
 import com.fc.tuple.Tuple;
 
 public class SimilarityMFS {
+	public static double[] getPreciseAndRecall(List<Tuple> identified,
+			List<Tuple> MFS) {
+		double[] result = new double[2];
+		int got = 0;
+		for (Tuple t : identified) {
+			if (isContain(t, MFS))
+				got++;
+		}
+
+		result[0] =  (double)(got) / (double) (identified.size());
+		result[1] /= (double)(got) /(double) (MFS.size());
+
+		return result;
+	}
+
+	public static boolean isContain(Tuple t, List<Tuple> tuples) {
+		boolean result = false;
+		for (Tuple tuple : tuples) {
+			if (tuple.equals(t)) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
 
 	public static double getSimilarity(Tuple a, Tuple b) {
 		double result = 0;

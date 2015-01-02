@@ -1,11 +1,12 @@
 package experimentData;
 
+import interaction.DataCenter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
-import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -15,7 +16,7 @@ public class JFlexData implements ExperimentData {
 	private int[] param;
 	private CaseRunner caseRunner;
 	private List<Tuple> realMFS;
-	private int degree;
+	private DataCenter dataCenter;
 
 	public JFlexData() {
 		this.init();
@@ -50,8 +51,7 @@ public class JFlexData implements ExperimentData {
 	 */
 	@Override
 	public void setDegree(int degree) {
-		DataCenter.init(param, degree);
-		this.degree = degree;
+		dataCenter = new DataCenter(param, degree);
 	}
 
 	/* (non-Javadoc)
@@ -78,11 +78,10 @@ public class JFlexData implements ExperimentData {
 		return realMFS;
 	}
 
-	/* (non-Javadoc)
-	 * @see experimentData.ExperimentData#getDegree()
-	 */
 	@Override
-	public int getDegree() {
-		return degree;
+	public DataCenter getDataCenter() {
+		// TODO Auto-generated method stub
+		return dataCenter;
 	}
+
 }
