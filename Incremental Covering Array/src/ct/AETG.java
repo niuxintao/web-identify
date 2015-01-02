@@ -45,8 +45,11 @@ public class AETG {
 
 		int bestUncovered = -1;
 
+//		System.out.println("tFirst strat");	
 		IJ first = gpv.selectFirst(coveredMark, DOI);
+//		System.out.println("tFirst End");	
 
+//		System.out.println("rem strat");	
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.n];
 			for (int k = 0; k < testCase.length; k++)
@@ -78,6 +81,8 @@ public class AETG {
 			}
 		}
 
+//		System.out.println("rem end");	
+		
 		coveringArray.add(best);
 		return best;
 	}

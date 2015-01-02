@@ -5,6 +5,7 @@ import incremental.Increase;
 
 public class Experiment {
 	public final static int ITE = 30;
+	public final static int NUM = 3;
 
 	public int[][] execute(int[] paramter, int min, int max) {
 		int[][] result = new int[2][];
@@ -18,41 +19,41 @@ public class Experiment {
 		result[0] = incease.getSize();
 		result[1] = decrease.getSize();
 
-		// System.out.println("increase");
-		// incease.outputSize();
-		// System.out.println("decrease");
-		// decrease.outputSize();
+		 System.out.println("increase");
+		 incease.outputSize();
+		 System.out.println("decrease");
+		 decrease.outputSize();
 
 		return result;
 	}
 
 	public void execute(int[] parameter) {
-		int[][] increase = new int[4][];
-		int[][] decrease = new int[4][];
+		int[][] increase = new int[NUM][];
+		int[][] decrease = new int[NUM][];
 
 		for (int i = 0; i < ITE; i++) {
-			System.out.println("the " + i + " th");
-			System.out.println("2 - 3");
+//			System.out.println("the " + i + " th");
+//			System.out.println("2 - 3");
 			int[][] te23 = execute(parameter, 2, 3);
 			increase[0] = this.addOrAssign(increase[0], te23[0]);
 			decrease[0] = this.addOrAssign(decrease[0], te23[1]);
-			System.out.println("2 - 4");
+//			System.out.println("2 - 4");
 			int[][] te24 = execute(parameter, 2, 4);
 			increase[1] = this.addOrAssign(increase[1], te24[0]);
 			decrease[1] = this.addOrAssign(decrease[1], te24[1]);
-			System.out.println("2 - 5");
+//			System.out.println("2 - 5");
 			int[][] te25 = execute(parameter, 2, 5);
 			increase[2] = this.addOrAssign(increase[2], te25[0]);
 			decrease[2] = this.addOrAssign(decrease[2], te25[1]);
-			System.out.println("2 - 6");
-			int[][] te26 = execute(parameter, 2, 6);
-			increase[3] = this.addOrAssign(increase[3], te26[0]);
-			decrease[3] = this.addOrAssign(decrease[3], te26[1]);
+//			System.out.println("2 - 6");
+//			int[][] te26 = execute(parameter, 2, 6);
+//			increase[3] = this.addOrAssign(increase[3], te26[0]);
+//			decrease[3] = this.addOrAssign(decrease[3], te26[1]);
 		}
 
-		double[][] inc = new double[4][];
-		double[][] dec = new double[4][];
-		for (int i = 0; i < 4; i++) {
+		double[][] inc = new double[NUM][];
+		double[][] dec = new double[NUM][];
+		for (int i = 0; i < NUM; i++) {
 			inc[i] = this.getAvg(increase[i]);
 			print(inc[i]);
 			dec[i] = this.getAvg(decrease[i]);
@@ -92,10 +93,17 @@ public class Experiment {
 
 	public static void main(String[] args) {
 
-		Experiment ex = new Experiment();
-		int[] param = new int[15];
-		for (int i = 0; i < 15; i ++ )
-			param[i] = 2;
-		ex.execute(param);
+		ExperimentData ExD = new ExperimentData();
+//		
+//		for(int i = 0; i < 1; i ++){
+//			Experiment ex = new Experiment();
+//			ex.execute(ExD.param[i]);
+//		}
+//		
+		for (int i = 6; i < ExD.SUTNUM; i++) {
+			System.out.println("SUT" + i);
+			Experiment ex = new Experiment();
+			ex.execute(ExD.param[i]);
+		}
 	}
 }
