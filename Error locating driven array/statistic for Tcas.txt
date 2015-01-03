@@ -1,0 +1,75 @@
+2-way for Tcas
+average elda num: 108.63333333333334
+num elda deviration: 2.8223315814332572
+average elda precise: 0.0
+precise elda deviration: NaN
+average elda recall: 0.0
+recall elda deviration: NaN
+average elda f-measure: 0.0
+f-measure elda deviration: NaN
+average elda accurate: 0.0
+accurate elda deviration:0.0
+average elda oppiste_accurate: 0.0
+oppiste_accurate elda deviration: 0.0
+average fglt num: 109.0
+num fglt deviration: 2.9776948578836393
+average fglt precise: 0.0
+precise fglt deviration: NaN
+average fglt recall: 0.0
+recall fglt deviration: NaN
+average fglt f-measure: 0.0
+f-measure fglt deviration: NaN
+average fglt accurate: 0.0
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 0.0
+oppiste_accurate fglt deviration: 0.0
+3-way for Tcas
+average elda num: 426.76666666666665
+num elda deviration: 4.971138926063345
+average elda precise: 0.03333333333333333
+precise elda deviration: 0.17950549357115012
+average elda recall: 6.944444444444444E-4
+recall elda deviration: 0.003739697782732292
+average elda f-measure: 0.001360544217687075
+f-measure elda deviration: 0.0073267548396387825
+average elda accurate: 0.06296296296296296
+accurate elda deviration:0.23602213283488618
+average elda oppiste_accurate: 0.06296296296296296
+oppiste_accurate elda deviration: 0.14670971266473554
+average fglt num: 426.8333333333333
+num fglt deviration: 4.390013920504378
+average fglt precise: 0.0
+precise fglt deviration: NaN
+average fglt recall: 0.0
+recall fglt deviration: NaN
+average fglt f-measure: 0.0
+f-measure fglt deviration: NaN
+average fglt accurate: 0.08956228956228957
+accurate fglt deviration:0.2687037453667019
+average fglt oppiste_accurate: 0.08956228956228957
+oppiste_accurate fglt deviration: 0.18701281429640376
+4-way for Tcas
+average elda num: 1638.2333333333333
+num elda deviration: 11.12559611386684
+average elda precise: 0.06666666666666667
+precise elda deviration: 0.24944382578492946
+average elda recall: 0.0013888888888888887
+recall elda deviration: 0.0051967463705193595
+average elda f-measure: 0.00272108843537415
+f-measure elda deviration: 0.010181380644282836
+average elda accurate: 0.2981481481481482
+accurate elda deviration:0.42323546388212446
+average elda oppiste_accurate: 0.2981481481481482
+oppiste_accurate elda deviration: 0.3000377282177783
+average fglt num: 1638.5666666666666
+num fglt deviration: 14.34964188480752
+average fglt precise: 0.03333333333333333
+precise fglt deviration: 0.12472191289246473
+average fglt recall: 0.0013888888888888887
+recall fglt deviration: 0.0051967463705193595
+average fglt f-measure: 0.002666666666666666
+f-measure fglt deviration: 0.009977753031397175
+average fglt accurate: 0.3543097643097644
+accurate fglt deviration:0.43437770464858666
+average fglt oppiste_accurate: 0.3543097643097644
+oppiste_accurate fglt deviration: 0.32338793889330614

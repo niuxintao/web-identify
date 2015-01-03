@@ -10,6 +10,8 @@ import com.fc.tuple.Tuple;
 
 import experimentData.ExperimentData;
 import experimentData.HsqlDBData;
+import experimentData.JFlexData;
+import experimentData.TcasData;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.TraditionalFGLI;
 
@@ -297,10 +299,28 @@ public class SimpleExperiment {
 
 		this.test(subject, data);
 	}
+	
+	public void testJFlex() {
+		/********** only this two statement needs to revise */
+		String subject = "JFlex";
+		JFlexData data = new JFlexData();
+		/******************************/
+
+		this.test(subject, data);
+	}
+	
+	public void testTcas() {
+		/********** only this two statement needs to revise */
+		String subject = "Tcas";
+		TcasData data = new TcasData();
+		/******************************/
+
+		this.test(subject, data);
+	}
 
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-		ex.testHSQLDB();
+		ex.testTcas();
 	}
 }
 

@@ -1,0 +1,75 @@
+2-way for JFlex
+average elda num: 29.966666666666665
+num elda deviration: 1.0796089827134432
+average elda precise: 1.0
+precise elda deviration: NaN
+average elda recall: 1.0
+recall elda deviration: NaN
+average elda f-measure: 1.0
+f-measure elda deviration: NaN
+average elda accurate: 1.0
+accurate elda deviration:0.0
+average elda oppiste_accurate: 1.0
+oppiste_accurate elda deviration: 0.0
+average fglt num: 48.266666666666666
+num fglt deviration: 10.20762242422571
+average fglt precise: 1.0
+precise fglt deviration: NaN
+average fglt recall: 1.0
+recall fglt deviration: NaN
+average fglt f-measure: 1.0
+f-measure fglt deviration: NaN
+average fglt accurate: 1.0
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 1.0
+oppiste_accurate fglt deviration: 0.0
+3-way for JFlex
+average elda num: 63.3
+num elda deviration: 1.9000000000000004
+average elda precise: 1.0
+precise elda deviration: NaN
+average elda recall: 1.0
+recall elda deviration: NaN
+average elda f-measure: 1.0
+f-measure elda deviration: NaN
+average elda accurate: 1.0
+accurate elda deviration:0.0
+average elda oppiste_accurate: 1.0
+oppiste_accurate elda deviration: 0.0
+average fglt num: 187.93333333333334
+num fglt deviration: 19.973204271946177
+average fglt precise: 1.0
+precise fglt deviration: NaN
+average fglt recall: 1.0
+recall fglt deviration: NaN
+average fglt f-measure: 1.0
+f-measure fglt deviration: NaN
+average fglt accurate: 1.0
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 1.0
+oppiste_accurate fglt deviration: 0.0
+4-way for JFlex
+average elda num: 159.76666666666668
+num elda deviration: 3.703001785338783
+average elda precise: 1.0
+precise elda deviration: NaN
+average elda recall: 1.0
+recall elda deviration: NaN
+average elda f-measure: 1.0
+f-measure elda deviration: NaN
+average elda accurate: 1.0
+accurate elda deviration:0.0
+average elda oppiste_accurate: 1.0
+oppiste_accurate elda deviration: 0.0
+average fglt num: 580.2333333333333
+num fglt deviration: 31.129496551591632
+average fglt precise: 1.0
+precise fglt deviration: NaN
+average fglt recall: 1.0
+recall fglt deviration: NaN
+average fglt f-measure: 1.0
+f-measure fglt deviration: NaN
+average fglt accurate: 1.0
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 1.0
+oppiste_accurate fglt deviration: 0.0

@@ -434,7 +434,7 @@ public class Statistics {
 
 	public static void main(String[] args) {
 		Statistics statistic = new Statistics();
-		statistic.readTestCases("./resultNew.txt");
+		statistic.readTestCases("./result_of_testCase.txt");
 		statistic.readBugCodeAndLowePriority("./FaultLevel.txt");
 
 		for (int i = 0; i < statistic.getBugCode().size(); i++) {

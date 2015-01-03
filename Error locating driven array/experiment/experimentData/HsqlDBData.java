@@ -18,13 +18,15 @@ public class HsqlDBData implements ExperimentData {
 	private List<Tuple> realMFS;
 	private DataCenter dataCenter;
 
+	public HsqlDBData() {
+		this.init();
+	}
+
+	
 	public DataCenter getDataCenter() {
 		return dataCenter;
 	}
 
-	public HsqlDBData() {
-		this.init();
-	}
 
 	public void init() {
 

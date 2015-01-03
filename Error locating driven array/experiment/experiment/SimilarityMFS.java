@@ -58,7 +58,7 @@ public class SimilarityMFS {
 			} else if (A.getParamIndex()[Aindex] < B.getParamIndex()[Bindex]) {
 				Aindex++;
 			} else if (A.getParamIndex()[Aindex] == B.getParamIndex()[Bindex]) {
-				if (A.getParamValue()[Aindex] == B.getParamValue()[Aindex])
+				if (A.getParamValue()[Aindex] == B.getParamValue()[Bindex])
 					result++;
 				Aindex++;
 				Bindex++;

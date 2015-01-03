@@ -1,0 +1,4 @@
+mutilple:
+28800 / 67200
+overlapped:
+28800 / 28800
