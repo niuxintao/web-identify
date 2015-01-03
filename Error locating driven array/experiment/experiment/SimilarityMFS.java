@@ -13,9 +13,12 @@ public class SimilarityMFS {
 			if (isContain(t, MFS))
 				got++;
 		}
-
-		result[0] =  (double)(got) / (double) (identified.size());
-		result[1] /= (double)(got) /(double) (MFS.size());
+		
+		
+		if (identified.size() != 0)
+			result[0] = ((double) (got)) / ((double) (identified.size()));
+		
+		result[1] = ((double) (got)) / ((double) (MFS.size()));
 
 		return result;
 	}
@@ -84,7 +87,11 @@ public class SimilarityMFS {
 		for (Tuple t : identified) {
 			result += getSimilarity(t, MFS);
 		}
-		result /= identified.size();
+
+		if (identified.size() == 0)
+			result = 0;
+		else
+			result /= identified.size();
 
 		return result;
 	}

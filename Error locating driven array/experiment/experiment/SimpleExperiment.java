@@ -19,38 +19,73 @@ public class SimpleExperiment {
 
 	}
 
+	public double f_measue(double precise, double recall) {
+		double fenzi = 2 * precise * recall;
+		double fenmu = precise + recall;
+		if (fenmu == 0)
+			return 0;
+		else
+			return fenzi / fenmu;
+	}
+
 	public EDATA execute(ExperimentData data, int degree, OutPut outElda,
 			OutPut outFglt) {
 		data.setDegree(degree);
 
-		ErrorLocatingDrivenArray elda = new ErrorLocatingDrivenArray(data.getDataCenter(),
-				data.getCaseRunner());
+		ErrorLocatingDrivenArray elda = new ErrorLocatingDrivenArray(
+				data.getDataCenter(), data.getCaseRunner());
 		elda.run();
 
-		TraditionalFGLI fglt = new TraditionalFGLI(data.getDataCenter(),data.getCaseRunner());
+		TraditionalFGLI fglt = new TraditionalFGLI(data.getDataCenter(),
+				data.getCaseRunner());
 		fglt.run();
 
+		// deal the results
 		EDATA edata = new EDATA();
 
 		// output to the ELDA
+
+		// test cases
 		outElda.println("testCase Num: " + elda.getOverallTestCases().size());
 		for (TestCase testCase : elda.getOverallTestCases()) {
 			outElda.println(testCase.getStringOfTest());
 		}
 		edata.numTestCases_ELDA = elda.getOverallTestCases().size();
 
+		// MFS
 		outElda.println("MFS");
 		for (Tuple mfs : elda.getMFS())
 			outElda.println(mfs.toString());
 
-		outElda.println("accurate");
+		// precise and recall
 		List<Tuple> identified = new ArrayList<Tuple>();
 		identified.addAll(elda.getMFS());
+
+		double[] pAndR = SimilarityMFS.getPreciseAndRecall(identified,
+				data.getRealMFS());
+		outElda.println("precise");
+		outElda.println("" + pAndR[0]);
+		outElda.println("recall");
+		outElda.println("" + pAndR[1]);
+		outElda.println("F-measure");
+		outElda.println("" + f_measue(pAndR[0], pAndR[1]));
+
+		edata.precise_ELDA = pAndR[0];
+		edata.recall_ELDA = pAndR[1];
+
+		// accurate and accurate_oppsite
+		outElda.println("accurate");
 		double accurate = SimilarityMFS.getSimilarity(identified,
 				data.getRealMFS());
 		outElda.println("" + accurate);
 
+		outElda.println("accurate_oppsite");
+		double accurate_oppsite = SimilarityMFS.getSimilarity(
+				data.getRealMFS(), identified);
+		outElda.println("" + accurate_oppsite);
+
 		edata.accurate_ELDA = accurate;
+		edata.oppsite_accurate_ELDA = accurate_oppsite;
 
 		// output to the FGLT
 		outFglt.println("testCase Num: " + fglt.getOverallTestCases().size());
@@ -64,14 +99,33 @@ public class SimpleExperiment {
 		for (Tuple mfs : fglt.getMFS())
 			outFglt.println(mfs.toString());
 
-		outFglt.println("accurate");
 		List<Tuple> identified2 = new ArrayList<Tuple>();
 		identified2.addAll(fglt.getMFS());
+		double[] pAndR2 = SimilarityMFS.getPreciseAndRecall(identified2,
+				data.getRealMFS());
+		outFglt.println("precise");
+		outFglt.println("" + pAndR2[0]);
+		outFglt.println("recall");
+		outFglt.println("" + pAndR2[1]);
+		outFglt.println("F-measure");
+		outFglt.println("" + f_measue(pAndR2[0], pAndR2[1]));
+
+		edata.precise_FGLT = pAndR2[0];
+		edata.recall_FGLT = pAndR2[1];
+
+		outFglt.println("accurate");
+
 		double accurate2 = SimilarityMFS.getSimilarity(identified2,
 				data.getRealMFS());
 		outFglt.println("" + accurate2);
 
+		outFglt.println("accurate_oppsite");
+		double accurate_oppsite2 = SimilarityMFS.getSimilarity(
+				data.getRealMFS(), identified2);
+		outFglt.println("" + accurate_oppsite2);
+
 		edata.accurate_FGLT = accurate2;
+		edata.oppsite_accurate_FGLT = accurate_oppsite2;
 
 		return edata;
 	}
@@ -117,70 +171,122 @@ public class SimpleExperiment {
 
 	}
 
+	public void SingleStatisitc(int mark, EDATA[] edata, OutPut out) {
+		double num = 0;
+		double numDEV = 0;
+
+		double pre = 0;
+		double preDEV = 0;
+
+		double recall = 0;
+		double recallDev = 0;
+
+		double accurate = 0;
+		double acDEV = 0;
+
+		double oppiste_accurate = 0;
+		double oppisteacDEV = 0;
+
+		double f_mea = 0;
+		double f_dev = 0;
+		double[] f_meas = new double[30];
+
+		int i = 0;
+
+		for (EDATA data : edata) {
+			if (mark == 0) {
+				num += data.numTestCases_ELDA;
+				pre += data.precise_ELDA;
+				recall += data.recall_ELDA;
+				accurate += data.accurate_ELDA;
+				oppiste_accurate += data.accurate_ELDA;
+				f_meas[i] = f_measue(data.precise_ELDA, data.recall_ELDA);
+				f_mea += f_meas[i];
+			} else {
+				num += data.numTestCases_FGLT;
+				pre += data.precise_FGLT;
+				recall += data.recall_FGLT;
+				accurate += data.accurate_FGLT;
+				oppiste_accurate += data.accurate_FGLT;
+				f_meas[i] = f_measue(data.precise_FGLT, data.recall_FGLT);
+				f_mea += f_meas[i];
+			}
+			i++;
+		}
+
+		num /= edata.length;
+		pre /= edata.length;
+		recall /= edata.length;
+		accurate /= edata.length;
+		oppiste_accurate /= edata.length;
+		f_mea /= edata.length;
+
+		i = 0;
+		for (EDATA data : edata) {
+			if (mark == 0) {
+				numDEV += (data.numTestCases_ELDA - num)
+						* (data.numTestCases_ELDA - num);
+				preDEV += (data.precise_ELDA - pre) * (data.precise_ELDA - pre);
+				recallDev += (data.recall_ELDA - recall)
+						* (data.recall_ELDA - pre);
+				acDEV += (data.accurate_ELDA - accurate)
+						* (data.accurate_ELDA - accurate);
+				oppisteacDEV += (data.oppsite_accurate_ELDA - oppiste_accurate)
+						* (data.oppsite_accurate_ELDA - oppiste_accurate);
+				f_dev += (f_meas[i] - f_mea) * (f_meas[i] - f_mea);
+			} else {
+				numDEV += (data.numTestCases_FGLT - num)
+						* (data.numTestCases_FGLT - num);
+				preDEV += (data.precise_FGLT - pre) * (data.precise_FGLT - pre);
+				recallDev += (data.recall_FGLT - recall)
+						* (data.recall_FGLT - pre);
+				acDEV += (data.accurate_FGLT - accurate)
+						* (data.accurate_FGLT - accurate);
+				oppisteacDEV += (data.oppsite_accurate_FGLT - oppiste_accurate)
+						* (data.oppsite_accurate_FGLT - oppiste_accurate);
+				f_dev += (f_meas[i] - f_mea) * (f_meas[i] - f_mea);
+			}
+			i++;
+		}
+
+		numDEV /= edata.length;
+		preDEV /= edata.length;
+		recallDev /= edata.length;
+		acDEV /= edata.length;
+		oppisteacDEV /= edata.length;
+		f_dev /= edata.length;
+
+		numDEV = Math.sqrt(numDEV);
+		preDEV /= Math.sqrt(preDEV);
+		recallDev /= Math.sqrt(recallDev);
+		acDEV = Math.sqrt(acDEV);
+		oppisteacDEV = Math.sqrt(oppisteacDEV);
+		f_dev /=  Math.sqrt(f_dev);
+
+		String s = mark == 0 ? "elda" : "fglt";
+
+		out.println("average " + s + " num: " + num);
+		out.println("num " + s + " deviration: " + numDEV);
+
+		out.println("average " + s + " precise: " + pre);
+		out.println("precise " + s + " deviration: " + preDEV);
+
+		out.println("average " + s + " recall: " + recall);
+		out.println("recall " + s + " deviration: " + recallDev);
+		
+		out.println("average " + s + " f-measure: " + f_mea);
+		out.println("f-measure " + s + " deviration: " + f_dev);
+
+		out.println("average " + s + " accurate: " + accurate);
+		out.println("accurate " + s + " deviration:" + acDEV);
+
+		out.println("average " + s + " oppiste_accurate: " + oppiste_accurate);
+		out.println("oppiste_accurate " + s + " deviration: " + oppisteacDEV);
+	}
+
 	public void statistic(EDATA[] edata, OutPut out) {
-		double num_ELDA = 0;
-		double numDEV_ELDA = 0;
-
-		double accurate_ELDA = 0;
-		double acDEV_ELDA = 0;
-
-		for (EDATA data : edata) {
-			num_ELDA += data.numTestCases_ELDA;
-			accurate_ELDA += data.accurate_ELDA;
-		}
-
-		num_ELDA /= edata.length;
-		accurate_ELDA /= edata.length;
-
-		for (EDATA data : edata) {
-			numDEV_ELDA += (data.numTestCases_ELDA - num_ELDA)
-					* (data.numTestCases_ELDA - num_ELDA);
-			acDEV_ELDA += (data.accurate_ELDA - accurate_ELDA)
-					* (data.accurate_ELDA - accurate_ELDA);
-		}
-
-		numDEV_ELDA /= edata.length;
-		acDEV_ELDA /= edata.length;
-
-		numDEV_ELDA = Math.sqrt(numDEV_ELDA);
-		acDEV_ELDA = Math.sqrt(acDEV_ELDA);
-
-		out.println("average elda num: " + num_ELDA);
-		out.println("num elda deviration: " + numDEV_ELDA);
-		out.println("average elda accurate: " + accurate_ELDA);
-		out.println("accurate elda deviration:" + acDEV_ELDA);
-
-		double num_FGLT = 0;
-		double numDEV_FGLT = 0;
-
-		double accurate_FGLT = 0;
-		double acDEV_FGLT = 0;
-
-		for (EDATA data : edata) {
-			num_FGLT += data.numTestCases_FGLT;
-			accurate_FGLT += data.accurate_FGLT;
-		}
-
-		num_FGLT /= edata.length;
-		accurate_FGLT /= edata.length;
-
-		for (EDATA data : edata) {
-			numDEV_FGLT += (data.numTestCases_FGLT - num_FGLT)
-					* (data.numTestCases_FGLT - num_FGLT);
-			acDEV_FGLT += (data.accurate_FGLT - accurate_FGLT)
-					* (data.accurate_FGLT - accurate_FGLT);
-		}
-
-		numDEV_FGLT /= edata.length;
-		acDEV_FGLT /= edata.length;
-
-		numDEV_FGLT = Math.sqrt(numDEV_FGLT);
-		acDEV_FGLT = Math.sqrt(acDEV_FGLT);
-
-		out.println("average fglt num: " + num_FGLT);
-		out.println("num fglt deviration: " + numDEV_FGLT);
-		out.println("average fglt accurate: " + accurate_FGLT);
-		out.println("accurate fglt deviration:" + acDEV_FGLT);
+		SingleStatisitc(0, edata, out);
+		SingleStatisitc(1, edata, out);
 	}
 
 	public void testHSQLDB() {
@@ -203,4 +309,12 @@ class EDATA {
 	public double accurate_ELDA;
 	public int numTestCases_FGLT;
 	public double accurate_FGLT;
+
+	public double precise_ELDA;
+	public double recall_ELDA;
+	public double precise_FGLT;
+	public double recall_FGLT;
+
+	public double oppsite_accurate_ELDA;
+	public double oppsite_accurate_FGLT;
 }
