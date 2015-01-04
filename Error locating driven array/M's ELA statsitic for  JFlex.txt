@@ -1,0 +1,11 @@
+num: 48
+time: 0
+num: 50
+time: 0
+num: 49
+time: 0
+average
+average  num: 49.0
+num  deviration: 0.816496580927726
+average  time: 0.0
+time deviration: NaN

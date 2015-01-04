@@ -9,6 +9,7 @@ import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
 import experimentData.ExperimentData;
+import experimentData.GccData;
 import experimentData.HsqlDBData;
 import experimentData.JFlexData;
 import experimentData.TcasData;
@@ -317,10 +318,20 @@ public class SimpleExperiment {
 
 		this.test(subject, data);
 	}
+	
+	
+	public void testGcc() {
+		/********** only this two statement needs to revise */
+		String subject = "Gcc";
+		GccData data = new GccData();
+		/******************************/
+
+		this.test(subject, data);
+	}
 
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-		ex.testTcas();
+		ex.testGcc();
 	}
 }
 

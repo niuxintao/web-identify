@@ -1,0 +1,11 @@
+num: 347
+time: 8
+num: 328
+time: 6
+num: 336
+time: 7
+average
+average  num: 337.0
+num  deviration: 7.788880963698615
+average  time: 7.0
+time deviration: 0.816496580927726

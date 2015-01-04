@@ -1,0 +1,2 @@
+average Num : 460800
+time: ------
