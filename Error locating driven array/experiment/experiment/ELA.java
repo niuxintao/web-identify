@@ -10,6 +10,7 @@ import com.fc.tuple.Tuple;
 
 import ct.AETG;
 import experimentData.ExperimentData;
+import experimentData.GccData;
 import experimentData.HsqlDBData;
 import experimentData.JFlexData;
 import experimentData.TcasData;
@@ -17,7 +18,7 @@ import interaction.DataCenter;
 
 public class ELA {
 
-	public static int MAX = 3;
+	public static int MAX = 10;
 
 	public ELAData identifyMFS(ExperimentData data, OutPut outEachTime,
 			OutPut coveringArray) {
@@ -146,10 +147,21 @@ public class ELA {
 
 		this.test(subject, data);
 	}
+	
+	public void testGcc() {
+		/********** only this two statement needs to revise */
+		String subject = "GccB";
+		GccData data = new GccData();
+		/******************************/
+
+		this.test(subject, data);
+	}
 
 	public static void main(String[] args) {
 		ELA ex = new ELA();
-		ex.testJFlex();
+//		ex.testJFlex();
+//		ex.testHSQLDB();
+		ex.testGcc();
 	}
 
 }

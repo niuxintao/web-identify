@@ -1,11 +1,25 @@
+num: 50
+time: 0
+num: 48
+time: 0
+num: 47
+time: 0
+num: 48
+time: 0
 num: 48
 time: 0
 num: 50
 time: 0
-num: 49
+num: 48
+time: 0
+num: 53
+time: 0
+num: 52
+time: 0
+num: 47
 time: 0
 average
-average  num: 49.0
-num  deviration: 0.816496580927726
+average  num: 49.1
+num  deviration: 1.9723082923316018
 average  time: 0.0
 time deviration: NaN

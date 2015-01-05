@@ -1,0 +1,75 @@
+2-way for Tomcat
+average elda num: 21.966666666666665
+num elda deviration: 1.015983376941878
+average elda precise: 0.0
+precise elda deviration: NaN
+average elda recall: 0.0
+recall elda deviration: NaN
+average elda f-measure: 0.0
+f-measure elda deviration: NaN
+average elda accurate: 0.5
+accurate elda deviration:0.0
+average elda oppiste_accurate: 0.5
+oppiste_accurate elda deviration: 0.0
+average fglt num: 49.2
+num fglt deviration: 5.12770253947451
+average fglt precise: 0.0
+precise fglt deviration: NaN
+average fglt recall: 0.0
+recall fglt deviration: NaN
+average fglt f-measure: 0.0
+f-measure fglt deviration: NaN
+average fglt accurate: 0.5
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 0.5
+oppiste_accurate fglt deviration: 0.0
+3-way for Tomcat
+average elda num: 39.0
+num elda deviration: 0.9309493362512627
+average elda precise: 0.0
+precise elda deviration: NaN
+average elda recall: 0.0
+recall elda deviration: NaN
+average elda f-measure: 0.0
+f-measure elda deviration: NaN
+average elda accurate: 0.5
+accurate elda deviration:0.0
+average elda oppiste_accurate: 0.5
+oppiste_accurate elda deviration: 0.0
+average fglt num: 130.66666666666666
+num fglt deviration: 6.4670103001481465
+average fglt precise: 0.0
+precise fglt deviration: NaN
+average fglt recall: 0.0
+recall fglt deviration: NaN
+average fglt f-measure: 0.0
+f-measure fglt deviration: NaN
+average fglt accurate: 0.5
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 0.5
+oppiste_accurate fglt deviration: 0.0
+4-way for Tomcat
+average elda num: 81.46666666666667
+num elda deviration: 2.1561282171728307
+average elda precise: 0.0
+precise elda deviration: NaN
+average elda recall: 0.0
+recall elda deviration: NaN
+average elda f-measure: 0.0
+f-measure elda deviration: NaN
+average elda accurate: 0.5
+accurate elda deviration:0.0
+average elda oppiste_accurate: 0.5
+oppiste_accurate elda deviration: 0.0
+average fglt num: 315.0
+num fglt deviration: 12.680693987317888
+average fglt precise: 0.0
+precise fglt deviration: NaN
+average fglt recall: 0.0
+recall fglt deviration: NaN
+average fglt f-measure: 0.0
+f-measure fglt deviration: NaN
+average fglt accurate: 0.5
+accurate fglt deviration:0.0
+average fglt oppiste_accurate: 0.5
+oppiste_accurate fglt deviration: 0.0

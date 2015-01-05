@@ -1,75 +1,75 @@
 2-way for Gcc
-average elda num: 24.633333333333333
-num elda deviration: 1.9745604292826506
-average elda precise: 0.0
-precise elda deviration: NaN
-average elda recall: 0.0
-recall elda deviration: NaN
-average elda f-measure: 0.0
-f-measure elda deviration: NaN
-average elda accurate: 0.34444444444444444
-accurate elda deviration:0.059835164523716726
-average elda oppiste_accurate: 0.34444444444444444
-oppiste_accurate elda deviration: 0.059835164523716726
-average fglt num: 55.43333333333333
-num fglt deviration: 6.020428187060747
-average fglt precise: 0.14444444444444443
-precise fglt deviration: 0.16933056282364636
-average fglt recall: 0.030952380952380943
-recall fglt deviration: 0.03539540177932976
-average fglt f-measure: 0.05078976034858388
-f-measure fglt deviration: 0.05811960938012911
-average fglt accurate: 0.5925925925925927
-accurate fglt deviration:0.08646383355502776
-average fglt oppiste_accurate: 0.5925925925925927
-oppiste_accurate fglt deviration: 0.06803109504322391
+average elda num: 32.733333333333334
+num elda deviration: 8.314378442727326
+average elda precise: 0.4666666666666667
+precise elda deviration: 0.4000000000000001
+average elda recall: 0.275
+recall elda deviration: 0.26100766272276377
+average elda f-measure: 0.3403174603174603
+f-measure elda deviration: 0.30692617762002716
+average elda accurate: 0.7222222222222221
+accurate elda deviration:0.2821872244266732
+average elda oppiste_accurate: 0.7222222222222221
+oppiste_accurate elda deviration: 0.25276251480171835
+average fglt num: 34.166666666666664
+num fglt deviration: 6.072250177835415
+average fglt precise: 0.3277777777777778
+precise fglt deviration: 0.25633937766798504
+average fglt recall: 0.18333333333333332
+recall fglt deviration: 0.15723301886761004
+average fglt f-measure: 0.23333333333333328
+f-measure fglt deviration: 0.19101115352506265
+average fglt accurate: 0.7129629629629629
+accurate fglt deviration:0.16609985923326775
+average fglt oppiste_accurate: 0.7129629629629629
+oppiste_accurate fglt deviration: 0.17534015540092904
 3-way for Gcc
-average elda num: 50.43333333333333
-num elda deviration: 5.9311793843121015
-average elda precise: 0.01111111111111111
-precise elda deviration: 0.05983516452371672
-average elda recall: 0.0023809523809523807
-recall elda deviration: 0.012821820969367865
-average elda f-measure: 0.00392156862745098
-f-measure elda deviration: 0.021118293361311772
-average elda accurate: 0.44814814814814824
-accurate elda deviration:0.16350918558995642
-average elda oppiste_accurate: 0.44814814814814824
-oppiste_accurate elda deviration: 0.15833769824202729
-average fglt num: 169.5
-num fglt deviration: 16.497979674291436
-average fglt precise: 0.2066666666666667
-precise fglt deviration: 0.17768924949966755
-average fglt recall: 0.07142857142857141
-recall fglt deviration: 0.07377111135633173
-average fglt f-measure: 0.10480564155486753
-f-measure fglt deviration: 0.10220136590341632
-average fglt accurate: 0.6460846560846563
-accurate fglt deviration:0.08154465701782934
-average fglt oppiste_accurate: 0.6460846560846563
-oppiste_accurate fglt deviration: 0.08847220615381321
+average elda num: 72.5
+num elda deviration: 9.229481747819502
+average elda precise: 0.4555555555555555
+precise elda deviration: 0.3598696609044811
+average elda recall: 0.36666666666666664
+recall elda deviration: 0.3144660377352202
+average elda f-measure: 0.40476190476190477
+f-measure elda deviration: 0.3321407236661297
+average elda accurate: 0.7296296296296296
+accurate elda deviration:0.2512247093646166
+average elda oppiste_accurate: 0.7296296296296296
+oppiste_accurate elda deviration: 0.23520705643418408
+average fglt num: 114.53333333333333
+num fglt deviration: 10.213498693178336
+average fglt precise: 0.35944444444444457
+precise fglt deviration: 0.12192008108937392
+average fglt recall: 0.43333333333333335
+recall fglt deviration: 0.14337208778404378
+average fglt f-measure: 0.3912962962962964
+f-measure fglt deviration: 0.1286418716380711
+average fglt accurate: 0.7312962962962962
+accurate fglt deviration:0.04349644830430598
+average fglt oppiste_accurate: 0.7312962962962962
+oppiste_accurate fglt deviration: 0.09371193786102196
 4-way for Gcc
-average elda num: 96.36666666666666
-num elda deviration: 7.534291974403139
-average elda precise: 0.0
-precise elda deviration: NaN
-average elda recall: 0.0
-recall elda deviration: NaN
-average elda f-measure: 0.0
-f-measure elda deviration: NaN
-average elda accurate: 0.46666666666666673
-accurate elda deviration:0.16329931618554516
-average elda oppiste_accurate: 0.46666666666666673
-oppiste_accurate elda deviration: 0.16329931618554516
-average fglt num: 345.5
-num fglt deviration: 18.342573429047516
-average fglt precise: 0.3036772486772487
-precise fglt deviration: 0.14287337993165028
-average fglt recall: 0.11190476190476192
-recall fglt deviration: 0.06568149630539871
-average fglt f-measure: 0.1609654143884861
-f-measure fglt deviration: 0.08791468432627401
-average fglt accurate: 0.6923456790123458
-accurate fglt deviration:0.06367192093496134
-average fglt oppiste_accurate: 0.6923456790123458
-oppiste_accurate fglt deviration: 0.10365724102832544
+average elda num: 130.66666666666666
+num elda deviration: 12.169177823044945
+average elda precise: 0.5777777777777777
+precise elda deviration: 0.34354721852756226
+average elda recall: 0.48333333333333334
+recall elda deviration: 0.3287180487219336
+average elda f-measure: 0.5238095238095237
+f-measure elda deviration: 0.332652365649009
+average elda accurate: 0.7925925925925926
+accurate elda deviration:0.23784584234077513
+average elda oppiste_accurate: 0.7925925925925926
+oppiste_accurate elda deviration: 0.2285968411309183
+average fglt num: 234.36666666666667
+num fglt deviration: 16.306406375682194
+average fglt precise: 0.3333333333333333
+precise fglt deviration: NaN
+average fglt recall: 0.5
+recall fglt deviration: NaN
+average fglt f-measure: 0.4000000000000002
+f-measure fglt deviration: 1.6653345369377348E-16
+average fglt accurate: 0.7222222222222218
+accurate fglt deviration:4.440892098500626E-16
+average fglt oppiste_accurate: 0.7222222222222218
+oppiste_accurate fglt deviration: 0.11111111111111152

@@ -1,11 +1,25 @@
-num: 347
-time: 8
+num: 326
+time: 7
+num: 329
+time: 7
+num: 332
+time: 7
+num: 327
+time: 7
+num: 340
+time: 7
 num: 328
-time: 6
-num: 336
+time: 7
+num: 330
+time: 7
+num: 345
+time: 7
+num: 351
+time: 7
+num: 330
 time: 7
 average
-average  num: 337.0
-num  deviration: 7.788880963698615
+average  num: 333.8
+num  deviration: 8.096912991998863
 average  time: 7.0
-time deviration: 0.816496580927726
+time deviration: NaN

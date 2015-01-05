@@ -13,6 +13,7 @@ import experimentData.GccData;
 import experimentData.HsqlDBData;
 import experimentData.JFlexData;
 import experimentData.TcasData;
+import experimentData.TomcatData;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.TraditionalFGLI;
 
@@ -329,9 +330,20 @@ public class SimpleExperiment {
 		this.test(subject, data);
 	}
 
+	
+	public void testTomcat() {
+		/********** only this two statement needs to revise */
+		String subject = "Tomcat";
+		TomcatData data = new TomcatData();
+		/******************************/
+
+		this.test(subject, data);
+	}
+
+	
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-		ex.testGcc();
+		ex.testTomcat();
 	}
 }
 
