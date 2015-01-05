@@ -14,6 +14,7 @@ import experimentData.GccData;
 import experimentData.HsqlDBData;
 import experimentData.JFlexData;
 import experimentData.TcasData;
+import experimentData.TomcatData;
 import interaction.DataCenter;
 
 public class ELA {
@@ -156,12 +157,21 @@ public class ELA {
 
 		this.test(subject, data);
 	}
+	
+	public void testTomcat() {
+		/********** only this two statement needs to revise */
+		String subject = "Tomcat";
+		TomcatData data = new TomcatData();
+		/******************************/
+
+		this.test(subject, data);
+	}
 
 	public static void main(String[] args) {
 		ELA ex = new ELA();
 //		ex.testJFlex();
 //		ex.testHSQLDB();
-		ex.testGcc();
+		ex.testTomcat();
 	}
 
 }
