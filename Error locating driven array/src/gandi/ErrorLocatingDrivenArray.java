@@ -21,6 +21,11 @@ public class ErrorLocatingDrivenArray {
 	private CaseRunner caseRunner;
 
 	private HashSet<TestCase> overallTestCases;
+	
+	private HashSet<TestCase> regularCTCases;
+	
+	private HashSet<TestCase> identifyCases;
+
 
 	private HashSet<Tuple> MFS;
 	
@@ -39,6 +44,8 @@ public class ErrorLocatingDrivenArray {
 	public ErrorLocatingDrivenArray(DataCenter dataCenter, CaseRunner caseRunner) {
 		this.caseRunner = caseRunner;
 		overallTestCases = new HashSet<TestCase>();
+		regularCTCases = new HashSet<TestCase>();
+		identifyCases = new HashSet<TestCase>();
 		cm = new CoveringManage(dataCenter);
 		MFS = new HashSet<Tuple>();
 		this.dataCenter = dataCenter;
@@ -53,6 +60,7 @@ public class ErrorLocatingDrivenArray {
 			int[] test = ac.getNextTestCase();
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
+			regularCTCases.add(testCase);
 			// System.out.println("aetg" + testCase.getStringOfTest() +
 			// " "+ac.unCovered);
 
@@ -65,6 +73,7 @@ public class ErrorLocatingDrivenArray {
 
 				while (!sc.isEnd()) {
 					TestCase nextTestCase = sc.generateNext();
+					identifyCases.add(nextTestCase);
 					overallTestCases.add(nextTestCase);
 					// System.out.println("ofot" +
 					// nextTestCase.getStringOfTest());
@@ -89,6 +98,14 @@ public class ErrorLocatingDrivenArray {
 			}
 
 		}
+	}
+
+	public HashSet<TestCase> getRegularCTCases() {
+		return regularCTCases;
+	}
+
+	public HashSet<TestCase> getIdentifyCases() {
+		return identifyCases;
 	}
 
 	public static void main(String[] args) {

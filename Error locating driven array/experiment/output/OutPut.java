@@ -33,6 +33,10 @@ public class OutPut {
 		}
 	}
 
+	public void println() {
+		this.println("");
+	}
+
 	public void print(String content) {
 		try {
 			outSta.write(content);

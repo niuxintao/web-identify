@@ -50,6 +50,11 @@ public class SimpleExperiment {
 		// output to the ELDA
 
 		// test cases
+		outElda.println("regaular Num: " + elda.getRegularCTCases().size());
+		outElda.println("identify Num: " + elda.getIdentifyCases().size());
+		edata.numIdentify_ELDA = elda.getIdentifyCases().size();
+		edata.numRegular_ELDA = elda.getRegularCTCases().size();
+
 		outElda.println("testCase Num: " + elda.getOverallTestCases().size());
 		for (TestCase testCase : elda.getOverallTestCases()) {
 			outElda.println(testCase.getStringOfTest());
@@ -92,6 +97,12 @@ public class SimpleExperiment {
 		edata.oppsite_accurate_ELDA = accurate_oppsite;
 
 		// output to the FGLT
+
+		outFglt.println("regaular Num: " + fglt.getRegularCTCases().size());
+		outFglt.println("identify Num: " + fglt.getIdentifyCases().size());
+		edata.numIdentify_FGLT = fglt.getIdentifyCases().size();
+		edata.numRegular_FGLT = fglt.getRegularCTCases().size();
+
 		outFglt.println("testCase Num: " + fglt.getOverallTestCases().size());
 		for (TestCase testCase : fglt.getOverallTestCases()) {
 			outFglt.println(testCase.getStringOfTest());
@@ -176,8 +187,16 @@ public class SimpleExperiment {
 	}
 
 	public void SingleStatisitc(int mark, EDATA[] edata, OutPut out) {
+		out.println("###############################################");
+		out.println("###############################################");
 		double num = 0;
 		double numDEV = 0;
+
+		double num_r = 0;
+		double num_rDEV = 0;
+
+		double num_i = 0;
+		double num_iDEV = 0;
 
 		double pre = 0;
 		double preDEV = 0;
@@ -200,6 +219,8 @@ public class SimpleExperiment {
 		for (EDATA data : edata) {
 			if (mark == 0) {
 				num += data.numTestCases_ELDA;
+				num_r += data.numRegular_ELDA;
+				num_i += data.numIdentify_ELDA;
 				pre += data.precise_ELDA;
 				recall += data.recall_ELDA;
 				accurate += data.accurate_ELDA;
@@ -208,6 +229,8 @@ public class SimpleExperiment {
 				f_mea += f_meas[i];
 			} else {
 				num += data.numTestCases_FGLT;
+				num_r += data.numRegular_FGLT;
+				num_i += data.numIdentify_FGLT;
 				pre += data.precise_FGLT;
 				recall += data.recall_FGLT;
 				accurate += data.accurate_FGLT;
@@ -219,6 +242,8 @@ public class SimpleExperiment {
 		}
 
 		num /= edata.length;
+		num_r /= edata.length;
+		num_i /= edata.length;
 		pre /= edata.length;
 		recall /= edata.length;
 		accurate /= edata.length;
@@ -230,6 +255,10 @@ public class SimpleExperiment {
 			if (mark == 0) {
 				numDEV += (data.numTestCases_ELDA - num)
 						* (data.numTestCases_ELDA - num);
+				num_rDEV += (data.numRegular_ELDA - num)
+						* (data.numRegular_ELDA - num);
+				num_iDEV += (data.numIdentify_ELDA - num)
+						* (data.numIdentify_ELDA - num);
 				preDEV += (data.precise_ELDA - pre) * (data.precise_ELDA - pre);
 				recallDev += (data.recall_ELDA - recall)
 						* (data.recall_ELDA - pre);
@@ -241,6 +270,10 @@ public class SimpleExperiment {
 			} else {
 				numDEV += (data.numTestCases_FGLT - num)
 						* (data.numTestCases_FGLT - num);
+				num_rDEV += (data.numRegular_FGLT - num)
+						* (data.numRegular_FGLT - num);
+				num_iDEV += (data.numIdentify_FGLT - num)
+						* (data.numIdentify_FGLT - num);
 				preDEV += (data.precise_FGLT - pre) * (data.precise_FGLT - pre);
 				recallDev += (data.recall_FGLT - recall)
 						* (data.recall_FGLT - pre);
@@ -254,6 +287,8 @@ public class SimpleExperiment {
 		}
 
 		numDEV /= edata.length;
+		num_rDEV /= edata.length;
+		num_iDEV /= edata.length;
 		preDEV /= edata.length;
 		recallDev /= edata.length;
 		acDEV /= edata.length;
@@ -261,31 +296,47 @@ public class SimpleExperiment {
 		f_dev /= edata.length;
 
 		numDEV = Math.sqrt(numDEV);
+		num_rDEV = Math.sqrt(num_rDEV);
+		num_iDEV = Math.sqrt(num_iDEV);
 		preDEV /= Math.sqrt(preDEV);
 		recallDev /= Math.sqrt(recallDev);
 		acDEV = Math.sqrt(acDEV);
 		oppisteacDEV = Math.sqrt(oppisteacDEV);
-		f_dev /=  Math.sqrt(f_dev);
+		f_dev /= Math.sqrt(f_dev);
 
 		String s = mark == 0 ? "elda" : "fglt";
 
 		out.println("average " + s + " num: " + num);
 		out.println("num " + s + " deviration: " + numDEV);
+		out.println();
+		
+		out.println("average " + s + " num_r: " + num_r);
+		out.println("num_r " + s + " deviration: " + num_rDEV);
+		out.println();
+		
+		out.println("average " + s + " num_i: " + num_i);
+		out.println("num_i " + s + " deviration: " + num_iDEV);
+		out.println();
 
 		out.println("average " + s + " precise: " + pre);
 		out.println("precise " + s + " deviration: " + preDEV);
+		out.println();
 
 		out.println("average " + s + " recall: " + recall);
 		out.println("recall " + s + " deviration: " + recallDev);
-		
+		out.println();
+
 		out.println("average " + s + " f-measure: " + f_mea);
 		out.println("f-measure " + s + " deviration: " + f_dev);
+		out.println();
 
 		out.println("average " + s + " accurate: " + accurate);
 		out.println("accurate " + s + " deviration:" + acDEV);
-
+		out.println();
+		
 		out.println("average " + s + " oppiste_accurate: " + oppiste_accurate);
 		out.println("oppiste_accurate " + s + " deviration: " + oppisteacDEV);
+		out.println();
 	}
 
 	public void statistic(EDATA[] edata, OutPut out) {
@@ -301,7 +352,7 @@ public class SimpleExperiment {
 
 		this.test(subject, data);
 	}
-	
+
 	public void testJFlex() {
 		/********** only this two statement needs to revise */
 		String subject = "JFlex";
@@ -310,7 +361,7 @@ public class SimpleExperiment {
 
 		this.test(subject, data);
 	}
-	
+
 	public void testTcas() {
 		/********** only this two statement needs to revise */
 		String subject = "Tcas";
@@ -319,8 +370,7 @@ public class SimpleExperiment {
 
 		this.test(subject, data);
 	}
-	
-	
+
 	public void testGcc() {
 		/********** only this two statement needs to revise */
 		String subject = "Gcc";
@@ -330,7 +380,6 @@ public class SimpleExperiment {
 		this.test(subject, data);
 	}
 
-	
 	public void testTomcat() {
 		/********** only this two statement needs to revise */
 		String subject = "Tomcat";
@@ -340,14 +389,21 @@ public class SimpleExperiment {
 		this.test(subject, data);
 	}
 
-	
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-		ex.testTomcat();
+		ex.testTcas();
+		ex.testJFlex();
+		ex.testGcc();
+		ex.testHSQLDB();
 	}
 }
 
 class EDATA {
+	public int numRegular_ELDA;
+	public int numIdentify_ELDA;
+	public int numRegular_FGLT;
+	public int numIdentify_FGLT;
+
 	public int numTestCases_ELDA;
 	public double accurate_ELDA;
 	public int numTestCases_FGLT;

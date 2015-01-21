@@ -1,75 +1,159 @@
 2-way for Tomcat
-average elda num: 42.9
-num elda deviration: 0.8306623862918076
+###############################################
+###############################################
+average elda num: 42.733333333333334
+num elda deviration: 0.8137703743822468
+
+average elda num_r: 12.733333333333333
+num_r elda deviration: 30.01103500751386
+
+average elda num_i: 30.0
+num_i elda deviration: 12.733333333333338
+
 average elda precise: 1.0
 precise elda deviration: NaN
+
 average elda recall: 1.0
 recall elda deviration: NaN
+
 average elda f-measure: 1.0
 f-measure elda deviration: NaN
+
 average elda accurate: 1.0
 accurate elda deviration:0.0
+
 average elda oppiste_accurate: 1.0
 oppiste_accurate elda deviration: 0.0
-average fglt num: 118.6
-num fglt deviration: 10.271643815216077
-average fglt precise: 0.7055555555555555
-precise fglt deviration: 0.11928283640879939
-average fglt recall: 0.7555555555555554
-recall fglt deviration: 0.20964402515681343
-average fglt f-measure: 0.7241269841269842
-f-measure fglt deviration: 0.15682957387920904
-average fglt accurate: 0.7055555555555555
-accurate fglt deviration:0.11928283640879939
-average fglt oppiste_accurate: 0.7055555555555555
-oppiste_accurate fglt deviration: 0.2331348362039699
+
+###############################################
+###############################################
+average fglt num: 117.96666666666667
+num fglt deviration: 9.652230599998923
+
+average fglt num_r: 14.1
+num_r fglt deviration: 103.86998817966837
+
+average fglt num_i: 105.6
+num_i fglt deviration: 15.658047274307373
+
+average fglt precise: 0.7694444444444445
+precise fglt deviration: 0.15617436440967333
+
+average fglt recall: 0.7888888888888891
+recall fglt deviration: 0.18223577185396359
+
+average fglt f-measure: 0.7768253968253969
+f-measure fglt deviration: 0.16491475309186857
+
+average fglt accurate: 0.7694444444444445
+accurate fglt deviration:0.15617436440967333
+
+average fglt oppiste_accurate: 0.7694444444444445
+oppiste_accurate fglt deviration: 0.1729598897339788
+
 3-way for Tomcat
-average elda num: 65.0
-num elda deviration: 1.0327955589886444
-average elda precise: 1.0
-precise elda deviration: NaN
-average elda recall: 1.0
-recall elda deviration: NaN
-average elda f-measure: 1.0
-f-measure elda deviration: NaN
-average elda accurate: 1.0
-accurate elda deviration:0.0
-average elda oppiste_accurate: 1.0
-oppiste_accurate elda deviration: 0.0
-average fglt num: 288.8
-num fglt deviration: 15.46264315482102
+###############################################
+###############################################
+average elda num: 64.63333333333334
+num elda deviration: 2.0733762053445317
+
+average elda num_r: 34.96666666666667
+num_r elda deviration: 29.685181488412702
+
+average elda num_i: 29.666666666666668
+num_i elda deviration: 35.01271197722337
+
+average elda precise: 0.9833333333333333
+precise elda deviration: 0.08975274678557499
+
+average elda recall: 0.9777777777777779
+recall elda deviration: 0.11967032904743337
+
+average elda f-measure: 0.98
+f-measure elda deviration: 0.10770329614269013
+
+average elda accurate: 0.9916666666666667
+accurate elda deviration:0.04487637339278751
+
+average elda oppiste_accurate: 0.9916666666666667
+oppiste_accurate elda deviration: 0.05989960736902172
+
+###############################################
+###############################################
+average fglt num: 292.7
+num fglt deviration: 17.140886791528608
+
+average fglt num_r: 38.3
+num_r fglt deviration: 254.40552273879592
+
+average fglt num_i: 256.03333333333336
+num_i fglt deviration: 40.07754982530742
+
 average fglt precise: 0.75
 precise fglt deviration: NaN
+
 average fglt recall: 1.0
 recall fglt deviration: NaN
+
 average fglt f-measure: 0.8571428571428574
 f-measure fglt deviration: 3.3306690738754696E-16
+
 average fglt accurate: 0.75
 accurate fglt deviration:0.0
+
 average fglt oppiste_accurate: 0.75
 oppiste_accurate fglt deviration: 0.25
+
 4-way for Tomcat
-average elda num: 114.1
-num elda deviration: 4.245389656242796
-average elda precise: 0.95
-precise elda deviration: 0.15000000000000005
-average elda recall: 0.9333333333333332
-recall elda deviration: 0.19999999999999998
-average elda f-measure: 0.94
-f-measure elda deviration: 0.18000000000000005
-average elda accurate: 0.975
-accurate elda deviration:0.07500000000000001
-average elda oppiste_accurate: 0.975
-oppiste_accurate elda deviration: 0.10034662148993581
-average fglt num: 668.6
-num fglt deviration: 23.081883227616707
+###############################################
+###############################################
+average elda num: 114.83333333333333
+num elda deviration: 2.852873794770614
+
+average elda num_r: 85.56666666666666
+num_r elda deviration: 29.33342803015017
+
+average elda num_i: 29.333333333333332
+num_i elda deviration: 85.53637952486777
+
+average elda precise: 0.9666666666666667
+precise elda deviration: 0.12472191289246475
+
+average elda recall: 0.9555555555555555
+recall elda deviration: 0.16629588385661973
+
+average elda f-measure: 0.9600000000000001
+f-measure elda deviration: 0.14966629547095775
+
+average elda accurate: 0.9833333333333333
+accurate elda deviration:0.06236095644623236
+
+average elda oppiste_accurate: 0.9833333333333333
+oppiste_accurate elda deviration: 0.08333333333333329
+
+###############################################
+###############################################
+average fglt num: 664.7333333333333
+num fglt deviration: 21.517331515677206
+
+average fglt num_r: 93.4
+num_r fglt deviration: 571.3411862548604
+
+average fglt num_i: 578.4
+num_i fglt deviration: 88.87979397915919
+
 average fglt precise: 0.75
 precise fglt deviration: NaN
+
 average fglt recall: 1.0
 recall fglt deviration: NaN
+
 average fglt f-measure: 0.8571428571428574
 f-measure fglt deviration: 3.3306690738754696E-16
+
 average fglt accurate: 0.75
 accurate fglt deviration:0.0
+
 average fglt oppiste_accurate: 0.75
 oppiste_accurate fglt deviration: 0.25
+

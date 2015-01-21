@@ -18,6 +18,11 @@ public class TraditionalFGLI {
 	private CaseRunner caseRunner;
 
 	private HashSet<TestCase> overallTestCases;
+	
+	
+	private HashSet<TestCase> regularCTCases;
+	
+	private HashSet<TestCase> identifyCases;
 
 	private HashSet<Tuple> MFS;
 
@@ -35,6 +40,8 @@ public class TraditionalFGLI {
 		this.caseRunner = caseRunner;
 		this.dataCenter = dataCenter;
 		overallTestCases = new HashSet<TestCase>();
+		regularCTCases = new HashSet<TestCase>();
+		identifyCases = new HashSet<TestCase>();
 		MFS = new HashSet<Tuple>();
 	}
 
@@ -45,6 +52,7 @@ public class TraditionalFGLI {
 		for (int[] test : aetg.coveringArray) {
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
+			regularCTCases.add(testCase);
 		}
 
 		// idenitfy
@@ -54,6 +62,7 @@ public class TraditionalFGLI {
 				SOFOT ofot = new SOFOT();
 				ofot.process(testCase, dataCenter.param, caseRunner);
 				additional.addAll(ofot.getExecuted());
+				identifyCases.addAll(ofot.getExecuted());
 				MFS.addAll(ofot.getBugs());
 				// MFS.add(ofot.)
 
@@ -62,6 +71,14 @@ public class TraditionalFGLI {
 
 		// merge them
 		overallTestCases.addAll(additional);
+	}
+
+	public HashSet<TestCase> getRegularCTCases() {
+		return regularCTCases;
+	}
+
+	public HashSet<TestCase> getIdentifyCases() {
+		return identifyCases;
 	}
 
 	public static void main(String[] args) {
