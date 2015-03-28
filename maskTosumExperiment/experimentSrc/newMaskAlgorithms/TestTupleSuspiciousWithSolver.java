@@ -37,6 +37,12 @@ public class TestTupleSuspiciousWithSolver {
 	private int[] param;
 
 	private int[] Vindex;
+	
+	
+	
+	public int time;
+	
+	public long millions;
 
 	// private List<TestCase> executed;
 
@@ -69,6 +75,9 @@ public class TestTupleSuspiciousWithSolver {
 	}
 
 	public boolean testTuple(Tuple tuple, int fault, TestCase wrongCase) {
+		time = -1;
+		millions = 0;
+		long start = System.currentTimeMillis();
 		StrengthMatrix stengthMatrix = new StrengthMatrix(executedHash, param,
 				Vindex);
 
@@ -86,7 +95,7 @@ public class TestTupleSuspiciousWithSolver {
 		// param, tuple);
 
 		while (true) {
-			// time++;
+			 time++;
 			// if (time > TRYNUMBER) {
 			// result = true;
 			// break;
@@ -143,6 +152,8 @@ public class TestTupleSuspiciousWithSolver {
 				// break;
 			}
 		}
+		
+		this.millions = System.currentTimeMillis()- start;
 
 		stengthMatrix.merge();
 		this.executedHash = stengthMatrix.getExecuted();

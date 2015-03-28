@@ -38,7 +38,11 @@ public class TestTupleSuspicious {
 	private List<TestCase> executed;
 
 	private HashMap<Integer, List<TestCase>> executedHash;
-
+	
+	
+	public int time;
+	public long millions;
+	
 	public TestTupleSuspicious(BasicRunner runner, int[] param,
 			TestCase wrongCase, int fault) {
 		this.runner = runner;
@@ -59,14 +63,15 @@ public class TestTupleSuspicious {
 
 	public boolean testTuple(Tuple tuple, int fault, TestCase wrongCase) {
 
-		// System.out.println(tuple.toString());
-		// int time = 0;
+		time = -1;
+		millions = 0;
+		long start = System.currentTimeMillis();
 		boolean result = true;
 		GenMaskTestCaseNewly generate = new GenMaskTestCaseNewly(wrongCase,
 				param, tuple);
 
 		while (true) {
-			// time++;
+			 time++;
 			// if (time > TRYNUMBER) {
 			// result = true;
 			// break;
@@ -151,6 +156,7 @@ public class TestTupleSuspicious {
 			}
 		}
 
+		this.millions = System.currentTimeMillis()- start;
 		return result;
 	}
 

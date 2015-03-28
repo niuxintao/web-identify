@@ -19,6 +19,16 @@ public class FIC_MASK_SOVLER {
 	protected List<Tuple> bugs;
 	protected TestSuite extraCases;
 	protected TestTupleSuspiciousWithSolver testTuple;
+	protected List<Integer> times;
+	protected List<Long> timemillions;
+	
+	public List<Integer> getTimes(){
+		return times;
+	}
+	
+	public List<Long> getTimeMillions(){
+		return timemillions;
+	}
 	// protected int[] otherFaults;
 
 	private int level;
@@ -45,6 +55,9 @@ public class FIC_MASK_SOVLER {
 		extraCases = new TestSuiteImplement();
 		testTuple = new TestTupleSuspiciousWithSolver(caseRunner, param,
 				testCase, level);
+		
+		times = new ArrayList<Integer>();
+		timemillions = new ArrayList<Long>();
 		// this.otherFaults = otherFaults;
 	}
 
@@ -115,6 +128,13 @@ public class FIC_MASK_SOVLER {
 		tuple = tuple.getReverseTuple();
 
 		boolean result = testTuple.testTuple(tuple, level, testCase);
+		
+		if(testTuple.time > 0){
+			Integer newTime = new Integer(testTuple.time);
+			Long millions = new Long(testTuple.millions);
+		   this.times.add(newTime);
+		   this.timemillions.add(millions);
+		}
 
 		// System.out.println(tuple.toString()+": "+result);
 
@@ -228,6 +248,7 @@ public class FIC_MASK_SOVLER {
 			CTabu.clear();
 			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
 		}
+		
 	}
 
 	/**

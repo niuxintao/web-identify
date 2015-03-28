@@ -18,6 +18,18 @@ public class FIC_MASK_NEWLY {
 	protected List<Tuple> bugs;
 	protected TestSuite extraCases;
 	protected TestTupleSuspicious testTuple;
+	
+	
+	protected List<Integer> times;
+	protected List<Long> timemillions;
+
+	
+	public List<Long> getTimeMillions(){
+		return timemillions;
+	}
+	public List<Integer> getTimes(){
+		return times;
+	}
 	// protected int[] otherFaults;
 
 	private int level;
@@ -43,6 +55,8 @@ public class FIC_MASK_NEWLY {
 		// this.caseRunner = caseRunner;
 		extraCases = new TestSuiteImplement();
 		testTuple = new TestTupleSuspicious(caseRunner, param, testCase, level);
+		times = new ArrayList<Integer>();
+		timemillions = new ArrayList<Long>();
 		// this.otherFaults = otherFaults;
 	}
 
@@ -113,7 +127,13 @@ public class FIC_MASK_NEWLY {
 		tuple = tuple.getReverseTuple();
 
 		boolean result = testTuple.testTuple(tuple, level, testCase);
-
+		if(testTuple.time > 0){
+			Integer newTime = new Integer(testTuple.time);
+			Long millions = new Long(testTuple.millions);
+			   this.times.add(newTime);
+			   this.timemillions.add(millions);
+		}
+         
 		// System.out.println(tuple.toString()+": "+result);
 
 		return result;
