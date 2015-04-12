@@ -99,7 +99,7 @@ public class RandomAndILP {
 				double avg = 0;
 				System.out.print("replace :");
 				for (int j = 0; j < 30; j++) {
-					System.out.print(datas[j][replace] + " ");
+					System.out.print(datas[j][k][replace] + " ");
 					avg += datas[j][k][replace];
 				}
 				avg /= 30;
@@ -109,7 +109,7 @@ public class RandomAndILP {
 				avg = 0;
 				System.out.print("replaceTime :");
 				for (int j = 0; j < 30; j++) {
-					System.out.print(datas[j][replaceTime] + " ");
+					System.out.print(datas[j][k][replaceTime] + " ");
 					avg += datas[j][k][replaceTime];
 				}
 				avg /= 30;
@@ -119,7 +119,7 @@ public class RandomAndILP {
 				avg = 0;
 				System.out.print("replaceTime :");
 				for (int j = 0; j < 30; j++) {
-					System.out.print(datas[j][millions] + " ");
+					System.out.print(datas[j][k][millions] + " ");
 					avg += datas[j][k][millions];
 				}
 				avg /= 30;
