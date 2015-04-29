@@ -41,7 +41,7 @@ public class AETG {
 		DOI = new DealTupleOfIndex(dataCenter);
 		DOIminus1 = new DealTupleOfIndex(dataCenterTminus1);
 
-		gpv = new GetFirstParameterValue(dataCenter, dataCenterTminus1);
+		gpv = new GetFirstParameterValue();
 	}
 
 	public void init() {
@@ -54,7 +54,7 @@ public class AETG {
 		int bestUncovered = -1;
 
 		// System.out.println("tFirst strat");
-		Tuple first = gpv.selectFirstTmiunus1(coveredMark, DOI, DOIminus1);
+		Tuple first = gpv.selectFirstTmiunus1(coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 		// System.out.println("tFirst End");
 
 		// System.out.println("rem strat");

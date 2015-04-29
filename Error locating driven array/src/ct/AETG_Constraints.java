@@ -132,7 +132,7 @@ public class AETG_Constraints extends AETG {
 			if (tempFirst != null)
 				cannot.add(tempFirst);
 
-			first = gpv.selectFirst(cannot, coveredMark, DOI, DOIminus1);
+			first = gpv.selectFirst(cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 
 			tempFirst = first;
 
