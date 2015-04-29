@@ -24,7 +24,7 @@ public class AETG {
 	public DataCenter dataCenter;
 
 	private DealTupleOfIndex DOI;
-	
+
 	private GetFirstParameterValue gpv;
 
 	public AETG(DataCenter dataCenter) {
@@ -45,11 +45,11 @@ public class AETG {
 
 		int bestUncovered = -1;
 
-//		System.out.println("tFirst strat");	
+		// System.out.println("tFirst strat");
 		IJ first = gpv.selectFirst(coveredMark, DOI);
-//		System.out.println("tFirst End");	
+		// System.out.println("tFirst End");
 
-//		System.out.println("rem strat");	
+		// System.out.println("rem strat");
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.n];
 			for (int k = 0; k < testCase.length; k++)
@@ -81,8 +81,8 @@ public class AETG {
 			}
 		}
 
-//		System.out.println("rem end");	
-		
+		// System.out.println("rem end");
+
 		coveringArray.add(best);
 		return best;
 	}
@@ -134,7 +134,6 @@ public class AETG {
 		System.out.println();
 	}
 
-	
 	public int getUncoveredNumber(int i, int j) {
 
 		int[] giveindex = new int[1];
@@ -415,10 +414,20 @@ public class AETG {
 	}
 
 	public static void main(String[] args) {
-		int[] param = new int[] { 2, 2, 2, 2 };
-		DataCenter dataCenter = new DataCenter(param, 2);
+		long start = System.currentTimeMillis();
+		int[] param = new int[30];
+		for (int i = 0; i < 30; i++) {
+			param[i] = 3;
+		}
+		DataCenter dataCenter = new DataCenter(param, 4);
 		AETG aetg = new AETG(dataCenter);
 		aetg.process();
+		List<int[]> corrvery = aetg.coveringArray;
+		for (int[] row : corrvery) {
+			aetg.print(row);
+		}
+		long time = System.currentTimeMillis() - start;
+		System.out.print(time / 1000);
 	}
 
 }

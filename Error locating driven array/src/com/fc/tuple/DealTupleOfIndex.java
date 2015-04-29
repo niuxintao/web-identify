@@ -39,7 +39,7 @@ public class DealTupleOfIndex {
 
 		int[] valueOfTuple = new int[dataCenter.degree];
 
-		TestCase testCaseForTuple2 = new TestCaseImplement(dataCenter.n);
+		TestCase testCaseForTuple2 = new TestCaseImplement(dataCenter.param_num);
 		Tuple tuple2 = new Tuple(dataCenter.degree, testCaseForTuple2);
 		tuple2.setParamIndex(indexOfTuple);
 
@@ -56,7 +56,7 @@ public class DealTupleOfIndex {
 
 		}
 
-		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
+		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
 		for (int i = 0; i < indexOfTuple.length; i++)
 			testCaseForTuple.set(indexOfTuple[i], valueOfTuple[i]);
 		Tuple tuple = new Tuple(indexOfTuple.length, testCaseForTuple);
@@ -134,9 +134,9 @@ public class DealTupleOfIndex {
 			low = indexFirst[indexFirst.length - 1] + 1;
 
 		// add 1 or not
-		int high = dataCenter.n - dataCenter.degree;
+		int high = dataCenter.param_num - dataCenter.degree;
 		if (indexFirst != null && indexFirst.length > 0)
-			high = dataCenter.n - (dataCenter.degree - indexFirst.length);
+			high = dataCenter.param_num - (dataCenter.degree - indexFirst.length);
 
 		// System.out.println("high : " + high + "low : " + low);
 
@@ -182,7 +182,7 @@ public class DealTupleOfIndex {
 	}
 
 	public Tuple getTuple(int[] indexFirst, int degree) {
-		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
+		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
 		Tuple tuple = new Tuple(degree, testCaseForTuple);
 		int last = -1;
 		for (int i = 0; i < degree; i++) {

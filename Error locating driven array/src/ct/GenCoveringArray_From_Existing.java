@@ -33,7 +33,7 @@ public class GenCoveringArray_From_Existing {
 	}
 
 	public int[] getNextTestCase() {
-		int[] best = new int[dataCenter.n];
+		int[] best = new int[dataCenter.param_num];
 
 		int bestC = -1;
 		for (int[] c : this.existing) {
@@ -51,7 +51,7 @@ public class GenCoveringArray_From_Existing {
 
 	public int getUncovered(int[] testCase) {
 		int tempCover = 0;
-		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
+		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
 		for (int i = 0; i < testCase.length; i++)
 			testCaseForTuple.set(i, testCase[i]);
 

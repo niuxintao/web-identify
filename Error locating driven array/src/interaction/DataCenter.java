@@ -8,7 +8,7 @@ public class DataCenter {
 	public int degree = -1;
 	public int coveringArrayNum; // all the possible t-way combiantions
 	public int[] index; // the index of each possible combination
-	public int n;
+	public int param_num;
 
 	public Tuple[] tupleIndex;
 
@@ -108,12 +108,12 @@ public class DataCenter {
 	}
 
 	public void init(int[] param, int degree) {
-		this.n = param.length;
+		this.param_num = param.length;
 		this.param = param.clone();
 		this.degree = degree;
 		myStack stack = new myStack(degree);
 
-		int[] test = new int[n];
+		int[] test = new int[param_num];
 		TestCaseImplement testCase = new TestCaseImplement();
 		testCase.setTestCase(test);
 

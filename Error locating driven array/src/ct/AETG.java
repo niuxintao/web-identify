@@ -23,17 +23,25 @@ public class AETG {
 
 	public DataCenter dataCenter;
 
-	private DealTupleOfIndex DOI;
-	
-	private GetFirstParameterValue gpv;
+	public DataCenter dataCenterTminus1;
+
+	protected DealTupleOfIndex DOI;
+
+	protected DealTupleOfIndex DOIminus1;
+
+	protected GetFirstParameterValue gpv;
 
 	public AETG(DataCenter dataCenter) {
 		coveringArray = new ArrayList<int[]>();
 		coveredMark = new int[dataCenter.coveringArrayNum];
 		unCovered = this.coveredMark.length;
 		this.dataCenter = dataCenter;
+		dataCenterTminus1 = new DataCenter(dataCenter.param,
+				dataCenter.degree - 1);
 		DOI = new DealTupleOfIndex(dataCenter);
-		gpv = new GetFirstParameterValue(dataCenter);
+		DOIminus1 = new DealTupleOfIndex(dataCenterTminus1);
+
+		gpv = new GetFirstParameterValue(dataCenter, dataCenterTminus1);
 	}
 
 	public void init() {
@@ -41,32 +49,40 @@ public class AETG {
 	}
 
 	public int[] getNextTestCase() {
-		int[] best = new int[dataCenter.n];
+		int[] best = new int[dataCenter.param_num];
 
 		int bestUncovered = -1;
 
-//		System.out.println("tFirst strat");	
-		IJ first = gpv.selectFirst(coveredMark, DOI);
-//		System.out.println("tFirst End");	
+		// System.out.println("tFirst strat");
+		Tuple first = gpv.selectFirstTmiunus1(coveredMark, DOI, DOIminus1);
+		// System.out.println("tFirst End");
 
-//		System.out.println("rem strat");	
+		// System.out.println("rem strat");
 		for (int i = 0; i < M; i++) {
-			int[] testCase = new int[dataCenter.n];
+			int[] testCase = new int[dataCenter.param_num];
 			for (int k = 0; k < testCase.length; k++)
 				testCase[k] = -1;
 
 			// select the first parameter and value
 
-			testCase[first.parameter] = first.value;
+			int[] index = first.getParamIndex();
+			int[] value = first.getParamValue();
+			for (int j = 0; j < index.length; j++)
+				testCase[index[j]] = value[j];
 			// System.out.println("first" + first.parameter + " " +
 			// first.value);
 
 			// random the remaining parameters
-			int[] remainingSequence = this.randomSequnce(first.parameter);
+			int[] firstSequnce = new int[dataCenter.param_num];
+			for (int j : index) {
+				firstSequnce[j] = 1;
+			}
+			int[] remainingSequence = this.randomSequnce(firstSequnce);
+
 			for (int rmI : remainingSequence) {
 				// for each remaining parameter, select the best value
-				int value = this.getBestValue(testCase, rmI);
-				testCase[rmI] = value;
+				int bvalue = this.getBestValue(testCase, rmI);
+				testCase[rmI] = bvalue;
 				// System.out.println("the " + rmI + " " + value);
 			}
 
@@ -81,15 +97,15 @@ public class AETG {
 			}
 		}
 
-//		System.out.println("rem end");	
-		
+		// System.out.println("rem end");
+
 		coveringArray.add(best);
 		return best;
 	}
 
 	public int getUncovered(int[] testCase) {
 		int tempCover = 0;
-		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
+		TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
 		for (int i = 0; i < testCase.length; i++)
 			testCaseForTuple.set(i, testCase[i]);
 
@@ -134,17 +150,6 @@ public class AETG {
 		System.out.println();
 	}
 
-	
-	public int getUncoveredNumber(int i, int j) {
-
-		int[] giveindex = new int[1];
-		int[] givevalue = new int[1];
-		giveindex[0] = i;
-		givevalue[0] = j;
-
-		return this.getNumberOfCovered(giveindex, givevalue);
-	}
-
 	// the settled parameters if not reach to t, then we just
 
 	// if reached to t, we just give the most Existed uncovered.
@@ -181,30 +186,25 @@ public class AETG {
 			int[] givenIndex = convertIntegers(index);
 			int[] givenValue = convertIntegers(value);
 
-			if (index.size() >= dataCenter.degree) {
-				TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
-				for (int i = 0; i < givenIndex.length; i++)
-					testCaseForTuple.set(givenIndex[i], givenValue[i]);
+			TestCase testCaseForTuple = new TestCaseImplement(
+					dataCenter.param_num);
+			for (int i = 0; i < givenIndex.length; i++)
+				testCaseForTuple.set(givenIndex[i], givenValue[i]);
 
-				Tuple tuple = new Tuple(givenIndex.length, testCaseForTuple);
+			Tuple tuple = new Tuple(givenIndex.length, testCaseForTuple);
 
-				tuple.setParamIndex(givenIndex);
+			tuple.setParamIndex(givenIndex);
 
-				// print(tuple.getParamIndex());
+			// print(tuple.getParamIndex());
 
-				List<Tuple> child = tuple
-						.getChildTuplesByDegree(dataCenter.degree);
+			List<Tuple> child = tuple.getChildTuplesByDegree(dataCenter.degree);
 
-				for (Tuple ch : child) {
-					int ind = this.getIndexOfTuple(ch);
-					if (coveredMark[ind] == 0)
-						tempCover++;
-				}
-
-			} else {
-				tempCover = this.getNumberOfCovered(givenIndex, givenValue);
-				// System.out.println("tempCover " + tempCover);
+			for (Tuple ch : child) {
+				int ind = this.getIndexOfTuple(ch);
+				if (coveredMark[ind] == 0)
+					tempCover++;
 			}
+
 			if (tempCover > bestUnCover) {
 				bestUnCover = tempCover;
 				bestV = v;
@@ -215,11 +215,25 @@ public class AETG {
 	}
 
 	public int[] randomSequnce(int firstIndex) {
-		int[] sequence = new int[dataCenter.n - 1];
+		int[] sequence = new int[dataCenter.param_num - 1];
 		// sequence[0] = firstIndex;
 		int cur = 0;
-		for (int i = 0; i < dataCenter.n; i++) {
+		for (int i = 0; i < dataCenter.param_num; i++) {
 			if (i != firstIndex) {
+				sequence[cur] = i;
+				cur++;
+			}
+		}
+		shuffleArray(sequence);
+		return sequence;
+	}
+
+	public int[] randomSequnce(int[] firstIndex) {
+		int[] sequence = new int[dataCenter.param_num - 1];
+		// sequence[0] = firstIndex;
+		int cur = 0;
+		for (int i = 0; i < dataCenter.param_num; i++) {
+			if (firstIndex[i] != 1) {
 				sequence[cur] = i;
 				cur++;
 			}
@@ -238,50 +252,6 @@ public class AETG {
 			ar[index] = ar[i];
 			ar[i] = a;
 		}
-	}
-
-	public int getNumberOfCovered(int[] givenIndex, int[] givenValue) {
-		// System.out.println("start");
-		int result = 0;
-
-		int[][] lowIndexes = this.getAllDgreeIndexs(dataCenter.degree
-				- givenIndex.length);
-
-		for (int[] lowIndex : lowIndexes) {
-			// System.out.println("once");
-			if (this.isOverlapp(givenIndex, lowIndex))
-				continue;
-
-			int[][] allValues = this.getAllPossibleValues(lowIndex);
-
-			// loop each possible value
-			for (int[] lowValue : allValues) {
-
-				// firstSet the given
-				TestCase testCase = new TestCaseImplement(dataCenter.n);
-				for (int i = 0; i < givenIndex.length; i++)
-					testCase.set(givenIndex[i], givenValue[i]);
-
-				// Then set the low part
-				for (int i = 0; i < lowIndex.length; i++)
-					testCase.set(lowIndex[i], lowValue[i]);
-
-				Tuple existed = new Tuple(givenIndex.length, testCase);
-				existed.setParamIndex(givenIndex);
-				Tuple Low = new Tuple(lowIndex.length, testCase);
-				Low.setParamIndex(lowIndex);
-
-				Tuple newT = existed.cat(existed, Low);
-
-				int index = getIndexOfTuple(newT);
-				if (coveredMark[index] == 0)
-					result++;
-			}
-
-		}
-
-		// System.out.println("end");
-		return result;
 	}
 
 	public int getIndexOfTuple(Tuple tuple) {
@@ -368,7 +338,7 @@ public class AETG {
 		// get All the numnber of low degree indexes
 		int allIndexesNum = 1;
 		for (int i = 0; i < degree; i++) {
-			allIndexesNum *= dataCenter.n - i;
+			allIndexesNum *= dataCenter.param_num - i;
 		}
 		for (int i = 0; i < degree; i++) {
 			allIndexesNum /= i + 1;
@@ -415,10 +385,20 @@ public class AETG {
 	}
 
 	public static void main(String[] args) {
-		int[] param = new int[] { 2, 2, 2, 2 };
-		DataCenter dataCenter = new DataCenter(param, 2);
+		long start = System.currentTimeMillis();
+		int[] param = new int[30];
+		for (int i = 0; i < 30; i++) {
+			param[i] = 3;
+		}
+		DataCenter dataCenter = new DataCenter(param, 4);
 		AETG aetg = new AETG(dataCenter);
 		aetg.process();
+		List<int[]> corrvery = aetg.coveringArray;
+		for (int[] row : corrvery) {
+			aetg.print(row);
+		}
+		long time = System.currentTimeMillis() - start;
+		System.out.print(time / 1000);
 	}
 
 }

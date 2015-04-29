@@ -64,7 +64,7 @@ public class SOFOT_Constriants {
 
 	public boolean isEnd() {
 //		System.out.println(currentIndex + " " + DataCenter.n);
-		return currentIndex == dataCenter.n;
+		return currentIndex == dataCenter.param_num;
 	}
 
 	public TestCase generateNext() {
@@ -102,7 +102,7 @@ public class SOFOT_Constriants {
 
 			// judege if it is satisified
 			List<Integer> indexes = new ArrayList<Integer>();
-			TestCase testCaseForTuple = new TestCaseImplement(dataCenter.n);
+			TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
 			for (int j = 0; j < testCase.length; j++) {
 				if (j == rmI) {
 					testCaseForTuple.set(j, value);
