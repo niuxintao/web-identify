@@ -3,6 +3,7 @@ package gandi;
 import interaction.DataCenter;
 
 import java.util.HashSet;
+import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
@@ -13,7 +14,7 @@ import com.fc.tuple.Tuple;
 import ct.AETG;
 import ct.SOFOT;
 
-public class TraditionalFGLI {
+public class TraditionalFGLI implements CT_process {
 
 	private CaseRunner caseRunner;
 
@@ -27,6 +28,27 @@ public class TraditionalFGLI {
 	private HashSet<Tuple> MFS;
 
 	private DataCenter dataCenter;
+	
+	private int[] coveredMark; // schemas covered condition
+	
+	private int[] t_tested_coveredMark; // t-covered mark
+
+	private long timeAll = 0;
+
+	private long timeIden = 0;
+
+	private long timeGen = 0;
+
+	private int multipleMFS = 0;
+
+	private double precise = 0;
+
+	private double recall = 0;
+
+	private double f_measure = 0;
+	
+
+	private int t_tested_covered = 0;
 
 	public HashSet<TestCase> getOverallTestCases() {
 		return overallTestCases;
@@ -116,6 +138,72 @@ public class TraditionalFGLI {
 		System.out.println("MFS");
 		for (Tuple mfs : fglt.getMFS())
 			System.out.println(mfs.toString());
+	}
+
+	@Override
+	public int[] getCoveredMark() {
+		// TODO Auto-generated method stub
+		return this.coveredMark;
+	}
+
+	@Override
+	public int[] getT_tested_coveredMark() {
+		// TODO Auto-generated method stub
+		return this.t_tested_coveredMark;
+	}
+
+	@Override
+	public void evaluate(List<Tuple> actualMFS) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public long getTimeAll() {
+		// TODO Auto-generated method stub
+		return this.timeAll;
+	}
+
+	@Override
+	public long getTimeIden() {
+		// TODO Auto-generated method stub
+		return this.timeIden;
+	}
+
+	@Override
+	public long getTimeGen() {
+		// TODO Auto-generated method stub
+		return this.timeGen;
+	}
+
+	@Override
+	public int getMultipleMFS() {
+		// TODO Auto-generated method stub
+		return this.multipleMFS;
+	}
+
+	@Override
+	public double getPrecise() {
+		// TODO Auto-generated method stub
+		return this.precise;
+	}
+
+	@Override
+	public double getRecall() {
+		// TODO Auto-generated method stub
+		return this.recall;
+	}
+
+	@Override
+	public double getF_measure() {
+		// TODO Auto-generated method stub
+		return this.f_measure;
+	}
+
+	@Override
+	public int getT_tested_covered() {
+		// TODO Auto-generated method stub
+		return this.t_tested_covered;
 	}
 
 }

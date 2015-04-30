@@ -22,6 +22,15 @@ public class SimilarityMFS {
 
 		return result;
 	}
+	
+	public static double f_measue(double precise, double recall) {
+		double fenzi = 2 * precise * recall;
+		double fenmu = precise + recall;
+		if (fenmu == 0)
+			return 0;
+		else
+			return fenzi / fenmu;
+	}
 
 	public static boolean isContain(Tuple t, List<Tuple> tuples) {
 		boolean result = false;
