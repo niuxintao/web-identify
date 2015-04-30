@@ -1,7 +1,9 @@
 package gandi;
 
+import interaction.CoveringManage;
 import interaction.DataCenter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -12,25 +14,28 @@ import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
 import ct.AETG;
+import ct.AETG_Constraints;
 import ct.SOFOT;
+import experiment.SimilarityMFS;
 
 public class TraditionalFGLI implements CT_process {
 
 	private CaseRunner caseRunner;
 
 	private HashSet<TestCase> overallTestCases;
-	
-	
+
 	private HashSet<TestCase> regularCTCases;
-	
+
 	private HashSet<TestCase> identifyCases;
+
+	private HashSet<TestCase> failTestCase;
 
 	private HashSet<Tuple> MFS;
 
 	private DataCenter dataCenter;
-	
+
 	private int[] coveredMark; // schemas covered condition
-	
+
 	private int[] t_tested_coveredMark; // t-covered mark
 
 	private long timeAll = 0;
@@ -46,7 +51,6 @@ public class TraditionalFGLI implements CT_process {
 	private double recall = 0;
 
 	private double f_measure = 0;
-	
 
 	private int t_tested_covered = 0;
 
@@ -64,23 +68,35 @@ public class TraditionalFGLI implements CT_process {
 		overallTestCases = new HashSet<TestCase>();
 		regularCTCases = new HashSet<TestCase>();
 		identifyCases = new HashSet<TestCase>();
+		failTestCase = new HashSet<TestCase>();
 		MFS = new HashSet<Tuple>();
 	}
 
 	public void run() {
 		// generate covering array
+		long allTime = System.currentTimeMillis();
+		long geTime = System.currentTimeMillis();
+
 		AETG aetg = new AETG(dataCenter);
 		aetg.process();
+
+		geTime = System.currentTimeMillis() - geTime;
+		this.timeGen += geTime;
+
 		for (int[] test : aetg.coveringArray) {
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 			regularCTCases.add(testCase);
 		}
 
+		long ideTime = System.currentTimeMillis();
 		// idenitfy
 		HashSet<TestCase> additional = new HashSet<TestCase>();
 		for (TestCase testCase : overallTestCases) {
 			if (caseRunner.runTestCase(testCase) == TestCase.FAILED) {
+
+				failTestCase.add(testCase);
+
 				SOFOT ofot = new SOFOT();
 				ofot.process(testCase, dataCenter.param, caseRunner);
 				additional.addAll(ofot.getExecuted());
@@ -91,8 +107,27 @@ public class TraditionalFGLI implements CT_process {
 			}
 		}
 
+		ideTime = System.currentTimeMillis() - ideTime;
+		this.timeIden += ideTime;
+
+		allTime = System.currentTimeMillis() - allTime;
+		this.timeAll += allTime;
+
+		
+		CoveringManage cm = new CoveringManage(dataCenter);
+		for (TestCase testCase : additional) {
+			int[] test = new int[testCase.getLength()];
+			for (int i = 0; i < test.length; i++) {
+				test[i] = testCase.getAt(i);
+			}
+			cm.setCover(aetg.unCovered, aetg.coveredMark, test);
+		}
+		
+		this.coveredMark = aetg.coveredMark;
+
 		// merge them
 		overallTestCases.addAll(additional);
+
 	}
 
 	public HashSet<TestCase> getRegularCTCases() {
@@ -155,7 +190,59 @@ public class TraditionalFGLI implements CT_process {
 	@Override
 	public void evaluate(List<Tuple> actualMFS) {
 		// TODO Auto-generated method stub
-		
+
+		CoveringManage cm = new CoveringManage(dataCenter);
+
+		List<Tuple> identified = new ArrayList<Tuple>();
+		identified.addAll(MFS);
+
+		// computingF-meausre
+
+		double[] pAndR = SimilarityMFS.getPreciseAndRecall(identified,
+				actualMFS);
+		this.precise = pAndR[0];
+		this.recall = pAndR[1];
+		this.f_measure = SimilarityMFS.f_measue(pAndR[0], pAndR[1]);
+
+		// computing multiple
+
+		for (TestCase testCase : this.failTestCase) {
+			int contain = 0;
+			for (Tuple acMFS : actualMFS) {
+				if (testCase.containsOf(acMFS))
+					contain++;
+				if (contain > 1) {
+					this.multipleMFS++;
+					break;
+				}
+			}
+		}
+
+		// computingTcove
+		t_tested_coveredMark = new int[dataCenter.coveringArrayNum];
+		AETG_Constraints ac = new AETG_Constraints(dataCenter);
+		//
+
+		for (TestCase testCase : this.overallTestCases) {
+			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
+				int[] test = new int[testCase.getLength()];
+				for (int i = 0; i < test.length; i++) {
+					test[i] = testCase.getAt(i);
+				}
+				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
+			}
+		}
+
+		List<Tuple> mfss = new ArrayList<Tuple>();
+		for (Tuple mfs : MFS) {
+			if (actualMFS.contains(mfs)) {
+				mfss.add(mfs);
+			}
+		}
+		ac.addConstriants(mfss);
+
+		this.t_tested_covered = dataCenter.coveringArrayNum - ac.unCovered;
+		this.t_tested_coveredMark = ac.coveredMark;
 	}
 
 	@Override
