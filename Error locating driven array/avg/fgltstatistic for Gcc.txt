@@ -1,0 +1,87 @@
+2-way for Gcc
+###############################################
+###############################################
+average fglt num :40.0
+
+average fglt num_r :15.0
+
+average fglt num_i :25.0
+
+average fglt recall :0.0
+
+average fglt precise :0.0
+
+average fglt f-measure :0.0
+
+average fglt multi :1.0
+
+average fglt time :9.0
+
+average fglt time_r :8.5
+
+average fglt time_i :0.5
+
+average fglt t_cover :251.0
+
+average fglt all_cover :252.0
+
+average fglt CoverNUM
+(1 : 21.0)  (2 : 19.0)  (3 : 11.0)  (4 : 14.5)  (5 : 8.0)  (6 : 4.0)  (7 : 4.5)  (8 : 3.5)  (9 : 8.5)  (10 : 2.5)  (11 : 9.5)  (12 : 11.0)  (13 : 6.5)  (14 : 3.0)  (15 : 4.5)  (16 : 2.5)  (17 : 1.0)  (18 : 2.5)  (19 : 1.5)  (20 : 1.0)  (21 : 4.0)  (22 : 1.0)  (23 : 1.0)  (24 : 0.5)  (29 : 0.5)  (31 : 2.5)  
+3-way for Gcc
+###############################################
+###############################################
+average fglt num :104.5
+
+average fglt num_r :49.5
+
+average fglt num_i :55.0
+
+average fglt recall :0.375
+
+average fglt precise :0.325
+
+average fglt f-measure :0.3472222222222222
+
+average fglt multi :1.5
+
+average fglt time :84.5
+
+average fglt time_r :84.0
+
+average fglt time_i :0.5
+
+average fglt t_cover :1532.5
+
+average fglt all_cover :1536.0
+
+average fglt CoverNUM
+(1 : 73.0)  (2 : 125.5)  (3 : 90.0)  (4 : 43.0)  (5 : 38.0)  (6 : 33.5)  (7 : 36.0)  (8 : 22.5)  (9 : 25.5)  (10 : 27.0)  (11 : 34.5)  (12 : 28.5)  (13 : 22.0)  (14 : 20.0)  (15 : 17.0)  (16 : 12.5)  (17 : 19.5)  (18 : 17.0)  (19 : 17.5)  (20 : 12.5)  (21 : 6.0)  (22 : 7.5)  (23 : 9.5)  (24 : 7.0)  (25 : 5.5)  (26 : 6.0)  (27 : 5.0)  (28 : 3.0)  (29 : 4.5)  (30 : 3.5)  (31 : 2.5)  (32 : 2.0)  (33 : 2.0)  (34 : 1.0)  (35 : 1.0)  (36 : 1.0)  (37 : 0.5)  (38 : 1.0)  (39 : 0.5)  (40 : 0.5)  (45 : 0.5)  
+4-way for Gcc
+###############################################
+###############################################
+average fglt num :246.0
+
+average fglt num_r :103.5
+
+average fglt num_i :143.0
+
+average fglt recall :0.5
+
+average fglt precise :0.3333333333333333
+
+average fglt f-measure :0.4
+
+average fglt multi :5.0
+
+average fglt time :427.0
+
+average fglt time_r :426.0
+
+average fglt time_i :0.5
+
+average fglt t_cover :6018.0
+
+average fglt all_cover :6048.0
+
+average fglt CoverNUM
+(1 : 270.5)  (2 : 608.5)  (3 : 390.5)  (4 : 166.5)  (5 : 108.5)  (6 : 94.0)  (7 : 99.5)  (8 : 87.5)  (9 : 102.5)  (10 : 128.5)  (11 : 117.5)  (12 : 98.5)  (13 : 74.5)  (14 : 83.5)  (15 : 69.5)  (16 : 79.0)  (17 : 71.0)  (18 : 65.0)  (19 : 56.0)  (20 : 31.0)  (21 : 42.0)  (22 : 39.5)  (23 : 34.5)  (24 : 23.0)  (25 : 16.0)  (26 : 17.0)  (27 : 14.5)  (28 : 10.5)  (29 : 8.0)  (30 : 10.5)  (31 : 5.5)  (32 : 4.0)  (33 : 4.0)  (34 : 4.0)  (35 : 2.0)  (36 : 2.5)  (37 : 1.5)  (38 : 1.0)  (39 : 1.0)  (40 : 1.0)  (41 : 1.0)  (43 : 0.5)  

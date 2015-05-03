@@ -1,5 +1,6 @@
 package gandi;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -39,5 +40,7 @@ public interface CT_process {
 	public abstract HashSet<TestCase> getRegularCTCases();
 
 	public abstract HashSet<TestCase> getIdentifyCases();
+
+	HashMap<Integer, Integer> getCoveredNums();
 
 }

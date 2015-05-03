@@ -1,0 +1,78 @@
+num elda deviration: 4.5
+
+num_r elda deviration: 0.5
+
+num_i elda deviration: 5.0
+
+recall elda deviration: 0.125
+
+precise elda deviration: 0.0
+
+f-measure elda deviration: 0.09523809523809523
+
+multi elda deviration: 0.0
+
+time elda deviration: 1.0
+
+time_r elda deviration: 2.5
+
+time_i elda deviration: 1.0
+
+t_cover elda deviration: 0.0
+
+all_cover elda deviration: 0.0
+
+deviration elda CoverNUM
+(1 : 790.25)  (2 : 939.25)  (3 : 242.5)  (4 : 114.25)  (5 : 122.5)  (6 : 141.25)  (7 : 25.25)  (8 : 12.25)  (9 : 10.0)  (10 : 8.0)  (11 : 1.125)  
+num elda deviration: 0.5
+
+num_r elda deviration: 0.5
+
+num_i elda deviration: 0.0
+
+recall elda deviration: 0.0
+
+precise elda deviration: 0.0
+
+f-measure elda deviration: 0.0
+
+multi elda deviration: 0.0
+
+time elda deviration: 81.5
+
+time_r elda deviration: 24.5
+
+time_i elda deviration: 0.5
+
+t_cover elda deviration: 7.0
+
+all_cover elda deviration: 0.0
+
+deviration elda CoverNUM
+(1 : 11676.25)  (2 : 27061.25)  (3 : 21629.25)  (4 : 4791.25)  (5 : 2851.25)  (6 : 2473.25)  (7 : 2641.25)  (8 : 1296.25)  (9 : 909.0)  (10 : 432.5)  (11 : 160.25)  (12 : 98.5)  (13 : 76.25)  (14 : 20.5)  (15 : 4.25)  (16 : 0.25)  (17 : 4.0)  (18 : 0.125)  (20 : 0.5)  
+num elda deviration: 8.5
+
+num_r elda deviration: 1.5
+
+num_i elda deviration: 10.0
+
+recall elda deviration: 0.5
+
+precise elda deviration: 0.5
+
+f-measure elda deviration: 0.5
+
+multi elda deviration: 1.0
+
+time elda deviration: 186.0
+
+time_r elda deviration: 20.5
+
+time_i elda deviration: 0.5
+
+t_cover elda deviration: 112.0
+
+all_cover elda deviration: 0.0
+
+deviration elda CoverNUM
+(1 : 208462.5)  (2 : 778213.0)  (3 : 324636.25)  (4 : 61896.25)  (5 : 39271.25)  (6 : 33306.25)  (7 : 22512.25)  (8 : 16904.0)  (9 : 6218.5)  (10 : 3406.25)  (11 : 798.5)  (12 : 372.5)  (13 : 44.5)  (14 : 85.0)  (15 : 29.25)  (16 : 0.125)  (17 : 0.5)  (18 : 0.125)  (19 : 0.5)  

@@ -4,6 +4,7 @@ import interaction.CoveringManage;
 import interaction.DataCenter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -53,6 +54,14 @@ public class TraditionalFGLI implements CT_process {
 	private double f_measure = 0;
 
 	private int t_tested_covered = 0;
+	
+	private HashMap<Integer, Integer> coveredNums;
+
+	@Override
+	public HashMap<Integer, Integer> getCoveredNums() {
+		return coveredNums;
+	}
+
 
 	public HashSet<TestCase> getOverallTestCases() {
 		return overallTestCases;
@@ -70,6 +79,7 @@ public class TraditionalFGLI implements CT_process {
 		identifyCases = new HashSet<TestCase>();
 		failTestCase = new HashSet<TestCase>();
 		MFS = new HashSet<Tuple>();
+		coveredNums = new HashMap<Integer, Integer>();
 	}
 
 	public void run() {
@@ -218,6 +228,13 @@ public class TraditionalFGLI implements CT_process {
 			}
 		}
 
+		computeT_cover(actualMFS, cm);
+		
+		computeCoveredNum();
+	}
+
+
+	public void computeT_cover(List<Tuple> actualMFS, CoveringManage cm) {
 		// computingTcove
 		t_tested_coveredMark = new int[dataCenter.coveringArrayNum];
 		AETG_Constraints ac = new AETG_Constraints(dataCenter);
@@ -243,6 +260,19 @@ public class TraditionalFGLI implements CT_process {
 
 		this.t_tested_covered = dataCenter.coveringArrayNum - ac.unCovered;
 		this.t_tested_coveredMark = ac.coveredMark;
+	}
+	
+	public void computeCoveredNum() {
+		
+		for (int i : coveredMark) {
+			Integer I = new Integer(i);
+			if (!this.coveredNums.containsKey(I)) {
+				this.coveredNums.put(I, 1);
+			} else {
+				this.coveredNums.put(I,
+						(this.coveredNums.get(I).intValue() + 1));
+			}
+		}
 	}
 
 	@Override

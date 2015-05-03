@@ -1,0 +1,87 @@
+2-way for JFlex
+###############################################
+###############################################
+average elda num :30.0
+
+average elda num_r :16.0
+
+average elda num_i :14.0
+
+average elda recall :1.0
+
+average elda precise :1.0
+
+average elda f-measure :1.0
+
+average elda multi :0.0
+
+average elda time :156.5
+
+average elda time_r :86.0
+
+average elda time_i :0.0
+
+average elda t_cover :473.0
+
+average elda all_cover :473.0
+
+average elda CoverNUM
+(1 : 48.0)  (2 : 57.0)  (3 : 60.5)  (4 : 35.5)  (5 : 7.5)  (6 : 3.5)  (7 : 2.5)  (8 : 10.5)  (9 : 10.0)  (10 : 5.5)  (11 : 1.5)  
+3-way for JFlex
+###############################################
+###############################################
+average elda num :63.0
+
+average elda num_r :49.0
+
+average elda num_i :14.0
+
+average elda recall :1.0
+
+average elda precise :1.0
+
+average elda f-measure :1.0
+
+average elda multi :0.0
+
+average elda time :1357.5
+
+average elda time_r :951.5
+
+average elda time_i :0.0
+
+average elda t_cover :4282.0
+
+average elda all_cover :4282.0
+
+average elda CoverNUM
+(1 : 204.0)  (2 : 385.0)  (3 : 445.0)  (4 : 381.5)  (5 : 272.0)  (6 : 185.0)  (7 : 104.0)  (8 : 43.5)  (9 : 36.0)  (10 : 25.0)  (11 : 17.5)  (12 : 18.5)  (13 : 11.5)  (14 : 12.0)  (15 : 5.5)  (16 : 2.5)  (17 : 1.0)  (18 : 13.0)  (19 : 9.5)  (20 : 4.5)  (21 : 3.0)  (23 : 2.0)  (24 : 0.5)  
+4-way for JFlex
+###############################################
+###############################################
+average elda num :147.0
+
+average elda num_r :133.0
+
+average elda num_i :14.0
+
+average elda recall :1.0
+
+average elda precise :1.0
+
+average elda f-measure :1.0
+
+average elda multi :0.0
+
+average elda time :7339.0
+
+average elda time_r :4473.0
+
+average elda time_i :6.0
+
+average elda t_cover :26532.0
+
+average elda all_cover :26532.0
+
+average elda CoverNUM
+(1 : 819.5)  (2 : 1713.0)  (3 : 2445.0)  (4 : 2234.5)  (5 : 1743.5)  (6 : 1325.0)  (7 : 933.5)  (8 : 677.0)  (9 : 419.5)  (10 : 278.5)  (11 : 200.5)  (12 : 134.5)  (13 : 85.5)  (14 : 55.5)  (15 : 41.0)  (16 : 22.5)  (17 : 30.0)  (18 : 20.0)  (19 : 17.5)  (20 : 18.0)  (21 : 20.5)  (22 : 16.0)  (23 : 12.5)  (24 : 6.5)  (25 : 4.0)  (26 : 2.0)  (27 : 2.0)  (28 : 1.0)  (29 : 1.5)  (30 : 1.0)  (31 : 1.5)  (32 : 1.0)  (33 : 0.5)  (34 : 1.0)  

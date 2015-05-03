@@ -1,0 +1,78 @@
+num fglt deviration: 1.0
+
+num_r fglt deviration: 1.0
+
+num_i fglt deviration: 0.0
+
+recall fglt deviration: 0.0
+
+precise fglt deviration: 0.0
+
+f-measure fglt deviration: 0.0
+
+multi fglt deviration: 0.0
+
+time fglt deviration: 1.0
+
+time_r fglt deviration: 1.0
+
+time_i fglt deviration: 0.0
+
+t_cover fglt deviration: 0.0
+
+all_cover fglt deviration: 0.0
+
+deviration fglt CoverNUM
+(1 : 2377.25)  (2 : 2306.25)  (3 : 2070.5)  (4 : 211.25)  (5 : 2.25)  (6 : 2.5)  (7 : 25.0)  (8 : 40.0)  (9 : 20.0)  (10 : 36.0)  (11 : 3.125)  
+num fglt deviration: 7.0
+
+num_r fglt deviration: 1.0
+
+num_i fglt deviration: 6.0
+
+recall fglt deviration: 0.0
+
+precise fglt deviration: 0.0
+
+f-measure fglt deviration: 0.0
+
+multi fglt deviration: 0.0
+
+time fglt deviration: 1.5
+
+time_r fglt deviration: 1.0
+
+time_i fglt deviration: 0.0
+
+t_cover fglt deviration: 1.0
+
+all_cover fglt deviration: 0.0
+
+deviration fglt CoverNUM
+(1 : 6975.25)  (2 : 28066.0)  (3 : 48500.0)  (4 : 31532.5)  (5 : 16032.25)  (6 : 8306.0)  (7 : 4034.5)  (8 : 2235.25)  (9 : 750.25)  (10 : 184.5)  (11 : 556.25)  (12 : 1489.0)  (13 : 3037.25)  (14 : 2456.5)  (15 : 1324.25)  (16 : 740.0)  (17 : 231.25)  (18 : 111.25)  (19 : 42.5)  (20 : 17.0)  (21 : 18.25)  (22 : 51.25)  (23 : 144.5)  (24 : 156.25)  (25 : 97.25)  (26 : 185.0)  (27 : 50.5)  (28 : 15.25)  (29 : 1.0)  (30 : 4.0)  (31 : 32.5)  (32 : 40.5)  (33 : 20.0)  (34 : 50.0)  (35 : 2.0)  (36 : 1.125)  (37 : 0.5)  (40 : 1.125)  (41 : 1.125)  
+num fglt deviration: 7.0
+
+num_r fglt deviration: 2.0
+
+num_i fglt deviration: 5.0
+
+recall fglt deviration: 0.0
+
+precise fglt deviration: 0.0
+
+f-measure fglt deviration: 0.0
+
+multi fglt deviration: 0.0
+
+time fglt deviration: 16.5
+
+time_r fglt deviration: 16.5
+
+time_i fglt deviration: 0.0
+
+t_cover fglt deviration: 3.0
+
+all_cover fglt deviration: 0.0
+
+deviration fglt CoverNUM
+(1 : 64858.25)  (2 : 439956.0)  (3 : 784057.0)  (4 : 651886.25)  (5 : 442531.25)  (6 : 317552.5)  (7 : 195096.25)  (8 : 100797.25)  (9 : 47573.0)  (10 : 26193.25)  (11 : 37072.25)  (12 : 51952.5)  (13 : 64909.0)  (14 : 51938.5)  (15 : 36562.0)  (16 : 19330.0)  (17 : 9562.5)  (18 : 6242.0)  (19 : 3676.25)  (20 : 4261.0)  (21 : 7497.25)  (22 : 5985.25)  (23 : 3565.25)  (24 : 2520.25)  (25 : 1563.25)  (26 : 884.5)  (27 : 426.5)  (28 : 552.5)  (29 : 786.25)  (30 : 384.5)  (31 : 345.25)  (32 : 116.5)  (33 : 73.25)  (34 : 259.25)  (35 : 189.25)  (36 : 44.5)  (37 : 81.25)  (38 : 37.25)  (39 : 13.25)  (40 : 17.0)  (41 : 91.25)  (42 : 81.25)  (43 : 13.0)  (44 : 3.25)  (45 : 21.25)  (46 : 21.25)  (47 : 18.0)  (48 : 3.125)  (49 : 2.0)  (50 : 0.125)  (51 : 0.5)  (52 : 0.125)  (53 : 0.125)  (54 : 0.5)  (55 : 0.125)  

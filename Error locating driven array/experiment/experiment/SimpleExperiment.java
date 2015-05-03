@@ -1,5 +1,8 @@
 package experiment;
 
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import output.OutPut;
 
 import com.fc.testObject.TestCase;
@@ -17,7 +20,7 @@ import gandi.TraditionalFGLI;
 
 public class SimpleExperiment {
 
-	public final static int REP = 3;
+	public final static int REP = 2;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -73,7 +76,7 @@ public class SimpleExperiment {
 
 		/****** schemas covered, how to describe, how to use it ***************/
 		// schemas covered
-		edata.coveredSchemasNum = ct_process.getCoveredMark();
+		edata.coveredSchemasNum = ct_process.getCoveredNums();
 		/******     ***************/
 
 		edata.precise = ct_process.getPrecise();
@@ -124,6 +127,10 @@ public class SimpleExperiment {
 		output.println("all-cover");
 		output.println("" + edata.allCover);
 
+		for (Entry<Integer, Integer> da : edata.coveredSchemasNum.entrySet()) {
+			output.print("(" + da.getKey() + " : " + da.getValue() + ")  ");
+		}
+		output.println();
 		// output.println("" + edata.);
 
 		return edata;
@@ -146,36 +153,107 @@ public class SimpleExperiment {
 
 		String s = algorithm == ICT ? "elda" : "fglt";
 
-		OutPut statistic = new OutPut(s + "statistic for " + subject + ".txt");
+		OutPut statistic = new OutPut("avg/" +s + "statistic for " + subject + ".txt");
+		OutPut statisticDev = new OutPut("dev/" + s + "statistic for " + subject + ".txt");
 
-		OutPut out2 = new OutPut(s + "2-way for " + subject + ".txt");
+		OutPut out2 = new OutPut("specific/" +s + "2-way for " + subject + ".txt");
 		EDATA[] data2 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
 		statistic.println("2-way for " + subject);
-		this.statistic(algorithm, data2, statistic);
+		this.statistic(algorithm, data2, statistic, statisticDev);
 		out2.close();
 
-		OutPut out3 = new OutPut(s + "3-way for " + subject + ".txt");
+		OutPut out3 = new OutPut("specific/" +s + "3-way for " + subject + ".txt");
 		EDATA[] data3 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data3[i] = execute(algorithm, data, 3, out3);
 		statistic.println("3-way for " + subject);
-		this.statistic(algorithm, data3, statistic);
+		this.statistic(algorithm, data3, statistic, statisticDev);
 		out3.close();
 
-		OutPut out4 = new OutPut(s + "4-way for " + subject + ".txt");
+		OutPut out4 = new OutPut("specific/" +s + "4-way for " + subject + ".txt");
 		EDATA[] data4 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data4[i] = execute(algorithm, data, 4, out4);
 		statistic.println("4-way for " + subject);
-		this.statistic(algorithm, data4, statistic);
+		this.statistic(algorithm, data4, statistic,statisticDev);
 		out4.close();
 
 		statistic.close();
+		statisticDev.close();
 	}
 
-	public void statistic(int algorithm, EDATA[] data, OutPut out, int state) {
+	public void statistic_cover(int algorithm, EDATA[] data, OutPut out,
+			OutPut outDev) {
+
+		HashMap<Integer, Integer> coverAll = new HashMap<Integer, Integer>();
+
+		HashMap<Integer, Double> coverAvg = new HashMap<Integer, Double>();
+
+		HashMap<Integer, Double> coverDev = new HashMap<Integer, Double>();
+
+		for (EDATA daa : data) {
+			HashMap<Integer, Integer> cover = daa.coveredSchemasNum;
+			for (Entry<Integer, Integer> daen : cover.entrySet()) {
+				if (!coverAll.containsKey(daen.getKey())) {
+					coverAll.put(daen.getKey(), daen.getValue());
+				} else {
+					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey())
+							.intValue() + 1));
+				}
+			}
+		}
+
+		for (Entry<Integer, Integer> cen : coverAll.entrySet()) {
+			coverAvg.put(cen.getKey(), cen.getValue().doubleValue()
+					/ (double) data.length);
+		}
+
+		// compute dev
+		for (EDATA daa : data) {
+			HashMap<Integer, Integer> cover = daa.coveredSchemasNum;
+			for (Entry<Integer, Integer> daen : cover.entrySet()) {
+				double dev = (daen.getValue().doubleValue() - coverAvg.get(
+						daen.getKey()).doubleValue())
+						* (daen.getValue().doubleValue() - coverAvg.get(
+								daen.getKey()).doubleValue());
+
+				if (!coverDev.containsKey(daen.getKey())) {
+					coverDev.put(daen.getKey(), dev);
+				} else {
+					coverDev.put(daen.getKey(), (coverDev.get(daen.getKey())
+							.doubleValue() + dev));
+				}
+			}
+		}
+
+		for (Entry<Integer, Double> cen : coverDev.entrySet()) {
+			coverDev.put(cen.getKey(), cen.getValue().doubleValue()
+					/ (double) data.length);
+		}
+
+		String s = algorithm == ICT ? "elda" : "fglt";
+
+		out.println("average " + s + " " + "CoverNUM");
+
+		for (Entry<Integer, Double> cen : coverAvg.entrySet()) {
+			out.print("(" + cen.getKey() + " : " + cen.getValue() + ")  ");
+		}
+
+		out.println();
+
+		outDev.println("deviration " + s + " " + "CoverNUM");
+		for (Entry<Integer, Double> cen : coverDev.entrySet()) {
+			outDev.print("(" + cen.getKey() + " : " + cen.getValue() + ")  ");
+		}
+
+		outDev.println();
+
+	}
+
+	public void statistic(int algorithm, EDATA[] data, OutPut out,
+			OutPut outDev, int state) {
 		double da = 0;
 		double da_dev = 0;
 
@@ -273,17 +351,19 @@ public class SimpleExperiment {
 		String s = algorithm == ICT ? "elda" : "fglt";
 
 		out.println("average " + s + " " + SHOW[state] + " :" + da);
-		out.println(SHOW[state] + " " + s + " deviration: " + da_dev);
 		out.println();
+		outDev.println(SHOW[state] + " " + s + " deviration: " + da_dev);
+		outDev.println();
 	}
 
-	public void statistic(int algorithm, EDATA[] edata, OutPut out) {
+	public void statistic(int algorithm, EDATA[] edata, OutPut out,  OutPut outDev) {
 		out.println("###############################################");
 		out.println("###############################################");
 
 		for (int i = 0; i < SHOW.length; i++) {
-			this.statistic(algorithm, edata, out, i);
+			this.statistic(algorithm, edata, out, outDev,  i);
 		}
+		statistic_cover(algorithm, edata, out, outDev);
 
 		// output.println("" + edata.);
 	}
@@ -346,10 +426,11 @@ public class SimpleExperiment {
 
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-		ex.testTcas();
 		ex.testJFlex();
 		ex.testGcc();
 		ex.testHSQLDB();
+		ex.testTomcat();
+		ex.testTcas();
 	}
 }
 
@@ -358,7 +439,7 @@ class EDATA {
 	public int numIdentify;
 	public int numTestCases;
 
-	public int[] coveredSchemasNum;
+	public HashMap<Integer, Integer> coveredSchemasNum;
 
 	public double precise;
 	public double recall;

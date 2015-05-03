@@ -1,0 +1,78 @@
+num fglt deviration: 5.0
+
+num_r fglt deviration: 0.0
+
+num_i fglt deviration: 5.0
+
+recall fglt deviration: 0.0
+
+precise fglt deviration: 0.0
+
+f-measure fglt deviration: 0.0
+
+multi fglt deviration: 0.0
+
+time fglt deviration: 1.0
+
+time_r fglt deviration: 0.5
+
+time_i fglt deviration: 0.5
+
+t_cover fglt deviration: 0.0
+
+all_cover fglt deviration: 0.0
+
+deviration fglt CoverNUM
+(1 : 488.0)  (2 : 246.5)  (3 : 54.5)  (4 : 112.25)  (5 : 224.5)  (6 : 36.5)  (7 : 7.25)  (8 : 6.25)  (9 : 49.25)  (10 : 16.25)  (11 : 42.25)  (12 : 68.0)  (13 : 15.25)  (14 : 26.5)  (15 : 21.25)  (16 : 4.25)  (17 : 0.5)  (18 : 3.125)  (19 : 1.125)  (20 : 18.0)  (21 : 8.0)  (22 : 0.5)  (23 : 0.5)  (24 : 0.125)  (29 : 0.125)  (31 : 3.125)  
+num fglt deviration: 5.5
+
+num_r fglt deviration: 0.5
+
+num_i fglt deviration: 5.0
+
+recall fglt deviration: 0.125
+
+precise fglt deviration: 0.07500000000000001
+
+f-measure fglt deviration: 0.09722222222222224
+
+multi fglt deviration: 0.5
+
+time fglt deviration: 0.5
+
+time_r fglt deviration: 1.0
+
+time_i fglt deviration: 0.5
+
+t_cover fglt deviration: 0.5
+
+all_cover fglt deviration: 0.0
+
+deviration fglt CoverNUM
+(1 : 5042.0)  (2 : 13421.25)  (3 : 11525.0)  (4 : 3332.0)  (5 : 1165.0)  (6 : 1024.25)  (7 : 900.5)  (8 : 531.25)  (9 : 1161.25)  (10 : 1690.0)  (11 : 886.25)  (12 : 813.25)  (13 : 508.5)  (14 : 661.0)  (15 : 256.0)  (16 : 276.25)  (17 : 216.25)  (18 : 128.0)  (19 : 139.25)  (20 : 67.25)  (21 : 62.5)  (22 : 31.25)  (23 : 141.25)  (24 : 50.0)  (25 : 10.25)  (26 : 13.0)  (27 : 8.0)  (28 : 4.0)  (29 : 9.25)  (30 : 6.25)  (31 : 3.125)  (32 : 2.0)  (33 : 2.0)  (34 : 0.5)  (35 : 0.5)  (36 : 0.0)  (37 : 0.125)  (38 : 0.0)  (39 : 0.125)  (40 : 0.125)  (45 : 0.125)  
+num fglt deviration: 12.0
+
+num_r fglt deviration: 0.5
+
+num_i fglt deviration: 11.0
+
+recall fglt deviration: 0.0
+
+precise fglt deviration: 0.0
+
+f-measure fglt deviration: 0.0
+
+multi fglt deviration: 0.0
+
+time fglt deviration: 2.0
+
+time_r fglt deviration: 2.0
+
+time_i fglt deviration: 0.5
+
+t_cover fglt deviration: 2.0
+
+all_cover fglt deviration: 0.0
+
+deviration fglt CoverNUM
+(1 : 62650.25)  (2 : 318431.25)  (3 : 152883.25)  (4 : 51645.25)  (5 : 6724.25)  (6 : 7212.5)  (7 : 8011.25)  (8 : 5016.25)  (9 : 5892.25)  (10 : 10019.25)  (11 : 11637.25)  (12 : 12256.25)  (13 : 6104.25)  (14 : 4729.25)  (15 : 5749.25)  (16 : 8660.0)  (17 : 6322.0)  (18 : 3672.5)  (19 : 3824.5)  (20 : 2970.5)  (21 : 3018.5)  (22 : 2172.25)  (23 : 2706.25)  (24 : 722.5)  (25 : 994.5)  (26 : 492.5)  (27 : 182.25)  (28 : 480.25)  (29 : 152.5)  (30 : 198.25)  (31 : 65.25)  (32 : 76.5)  (33 : 54.5)  (34 : 29.0)  (35 : 1.0)  (36 : 4.25)  (37 : 6.25)  (38 : 0.0)  (39 : 0.5)  (40 : 0.0)  (41 : 0.5)  (43 : 0.125)  

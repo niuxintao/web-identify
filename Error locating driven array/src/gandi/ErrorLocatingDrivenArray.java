@@ -4,6 +4,7 @@ import interaction.CoveringManage;
 import interaction.DataCenter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 	private DataCenter dataCenter;
 
 	private int[] coveredMark; // schemas covered condition
-	
+
 	private int[] t_tested_coveredMark; // t-covered mark
 
 	private long timeAll = 0;
@@ -57,7 +58,16 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 	private int t_tested_covered = 0;
 
-	/* (non-Javadoc)
+	private HashMap<Integer, Integer> coveredNums;
+
+	@Override
+	public HashMap<Integer, Integer> getCoveredNums() {
+		return coveredNums;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getCoveredMark()
 	 */
 	@Override
@@ -67,7 +77,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 	private CoveringManage cm;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getOverallTestCases()
 	 */
 	@Override
@@ -75,7 +87,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return overallTestCases;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getMFS()
 	 */
 	@Override
@@ -91,10 +105,13 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		failTestCase = new HashSet<TestCase>();
 		cm = new CoveringManage(dataCenter);
 		MFS = new HashSet<Tuple>();
+		coveredNums = new HashMap<Integer, Integer>();
 		this.dataCenter = dataCenter;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#run()
 	 */
 	@Override
@@ -106,12 +123,12 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		while (ac.unCovered > 0) {
 			long allTime = System.currentTimeMillis();
 			long geTime = System.currentTimeMillis();
-			
+
 			int[] test = ac.getNextTestCase();
-			
+
 			geTime = System.currentTimeMillis() - geTime;
 			this.timeGen += geTime;
-			
+
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 			regularCTCases.add(testCase);
@@ -122,7 +139,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
 			} else {
 				long ideTime = System.currentTimeMillis();
-				
+
 				this.failTestCase.add(testCase);
 
 				SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter,
@@ -149,16 +166,16 @@ public class ErrorLocatingDrivenArray implements CT_process {
 				}
 
 				sc.analysis();
-				
+
 				ideTime = System.currentTimeMillis() - ideTime;
 				this.timeIden += ideTime;
-				
+
 				List<Tuple> mfs = sc.getBugs();
 				ac.addConstriants(mfs);
 				this.MFS.addAll(mfs);
 				// setCoverage(mfs);
 			}
-			
+
 			allTime = System.currentTimeMillis() - allTime;
 			this.timeAll += allTime;
 		}
@@ -166,7 +183,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		this.coveredMark = ac.coveredMark;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getT_tested_coveredMark()
 	 */
 	@Override
@@ -174,25 +193,26 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return t_tested_coveredMark;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#evaluate(java.util.List)
 	 */
 	@Override
 	public void evaluate(List<Tuple> actualMFS) {
 		List<Tuple> identified = new ArrayList<Tuple>();
 		identified.addAll(MFS);
-		
-//		computingF-meausre
-		
+
+		// computingF-meausre
+
 		double[] pAndR = SimilarityMFS.getPreciseAndRecall(identified,
 				actualMFS);
 		this.precise = pAndR[0];
 		this.recall = pAndR[1];
 		this.f_measure = SimilarityMFS.f_measue(pAndR[0], pAndR[1]);
 
-		
-//		computing multiple
-				
+		// computing multiple
+
 		for (TestCase testCase : this.failTestCase) {
 			int contain = 0;
 			for (Tuple acMFS : actualMFS) {
@@ -204,37 +224,57 @@ public class ErrorLocatingDrivenArray implements CT_process {
 				}
 			}
 		}
+
+		// computingTcove
+		computeT_cover(actualMFS);
 		
-		
-//		computingTcove
+		computeCoveredNum();
+
+	}
+
+	public void computeT_cover(List<Tuple> actualMFS) {
 		t_tested_coveredMark = new int[dataCenter.coveringArrayNum];
 		AETG_Constraints ac = new AETG_Constraints(dataCenter);
 		//
-		
-		for(TestCase testCase : this.overallTestCases){
+
+		for (TestCase testCase : this.overallTestCases) {
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				int[] test = new int[testCase.getLength()];
 				for (int i = 0; i < test.length; i++) {
 					test[i] = testCase.getAt(i);
 				}
-				ac.unCovered = cm.setCover(ac.unCovered,ac.coveredMark, test);
-			} 
+				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
+			}
 		}
-		
-		List<Tuple> mfss = new ArrayList<Tuple> ();
-		for(Tuple mfs : MFS){
-			if(actualMFS.contains(mfs)){
+
+		List<Tuple> mfss = new ArrayList<Tuple>();
+		for (Tuple mfs : MFS) {
+			if (actualMFS.contains(mfs)) {
 				mfss.add(mfs);
 			}
 		}
 		ac.addConstriants(mfss);
-		
+
 		this.t_tested_covered = dataCenter.coveringArrayNum - ac.unCovered;
 		this.t_tested_coveredMark = ac.coveredMark;
 	}
 
-	
-	/* (non-Javadoc)
+	public void computeCoveredNum() {
+		
+		for (int i : coveredMark) {
+			Integer I = new Integer(i);
+			if (!this.coveredNums.containsKey(I)) {
+				this.coveredNums.put(I, 1);
+			} else {
+				this.coveredNums.put(I,
+						(this.coveredNums.get(I).intValue() + 1));
+			}
+		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getTimeAll()
 	 */
 	@Override
@@ -242,7 +282,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return timeAll;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getTimeIden()
 	 */
 	@Override
@@ -250,7 +292,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return timeIden;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getTimeGen()
 	 */
 	@Override
@@ -258,7 +302,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return timeGen;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getMultipleMFS()
 	 */
 	@Override
@@ -266,7 +312,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return multipleMFS;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getPrecise()
 	 */
 	@Override
@@ -274,7 +322,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return precise;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getRecall()
 	 */
 	@Override
@@ -282,7 +332,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return recall;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getF_measure()
 	 */
 	@Override
@@ -290,7 +342,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return f_measure;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getT_tested_covered()
 	 */
 	@Override
@@ -298,7 +352,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return t_tested_covered;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getRegularCTCases()
 	 */
 	@Override
@@ -306,7 +362,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return regularCTCases;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see gandi.CT_process#getIdentifyCases()
 	 */
 	@Override
@@ -338,8 +396,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 
-		CT_process elda = new ErrorLocatingDrivenArray(
-				dataCenter, caseRunner);
+		CT_process elda = new ErrorLocatingDrivenArray(dataCenter, caseRunner);
 		elda.run();
 
 		System.out
