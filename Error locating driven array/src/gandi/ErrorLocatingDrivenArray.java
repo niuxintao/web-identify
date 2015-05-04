@@ -22,29 +22,29 @@ import experiment.SimilarityMFS;
 
 public class ErrorLocatingDrivenArray implements CT_process {
 
-	private CaseRunner caseRunner;
+	protected CaseRunner caseRunner;
 
-	private HashSet<TestCase> overallTestCases;
+	protected HashSet<TestCase> overallTestCases;
 
-	private HashSet<TestCase> regularCTCases;
+	protected HashSet<TestCase> regularCTCases;
 
-	private HashSet<TestCase> identifyCases;
+	protected HashSet<TestCase> identifyCases;
 
-	private HashSet<TestCase> failTestCase;
+	protected HashSet<TestCase> failTestCase;
 
-	private HashSet<Tuple> MFS;
+	protected HashSet<Tuple> MFS;
 
-	private DataCenter dataCenter;
+	protected DataCenter dataCenter;
 
-	private int[] coveredMark; // schemas covered condition
+	protected int[] coveredMark; // schemas covered condition
 
 	private int[] t_tested_coveredMark; // t-covered mark
 
-	private long timeAll = 0;
+	protected long timeAll = 0;
 
-	private long timeIden = 0;
+	protected long timeIden = 0;
 
-	private long timeGen = 0;
+	protected long timeGen = 0;
 
 	private int multipleMFS = 0;
 
@@ -76,7 +76,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return coveredMark;
 	}
 
-	private CoveringManage cm;
+	protected CoveringManage cm;
 
 	/*
 	 * (non-Javadoc)
@@ -139,39 +139,15 @@ public class ErrorLocatingDrivenArray implements CT_process {
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
 			} else {
+				this.failTestCase.add(testCase);
+				
 				long ideTime = System.currentTimeMillis();
 
-				this.failTestCase.add(testCase);
-
-				SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter,
-						testCase, ac);
-				// sc.process(testCase, DataCenter.param, caseRunner);
-
-				while (!sc.isEnd()) {
-					TestCase nextTestCase = sc.generateNext();
-					identifyCases.add(nextTestCase);
-					overallTestCases.add(nextTestCase);
-					// System.out.println("ofot" +
-					// nextTestCase.getStringOfTest());
-
-					int[] next = new int[nextTestCase.getLength()];
-					for (int i = 0; i < next.length; i++) {
-						next[i] = nextTestCase.getAt(i);
-					}
-					if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
-						ac.unCovered = cm.setCover(ac.unCovered,
-								ac.coveredMark, next);
-						nextTestCase.setTestState(TestCase.PASSED);
-					} else
-						nextTestCase.setTestState(TestCase.FAILED);
-				}
-
-				sc.analysis();
-
+				List<Tuple> mfs = getMFS(ac, testCase);
+				
 				ideTime = System.currentTimeMillis() - ideTime;
 				this.timeIden += ideTime;
-
-				List<Tuple> mfs = sc.getBugs();
+				
 				ac.addConstriants(mfs);
 				this.MFS.addAll(mfs);
 				// setCoverage(mfs);
@@ -182,6 +158,38 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		}
 
 		this.coveredMark = ac.coveredMark;
+	}
+
+	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
+	
+
+		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter,
+				testCase, ac);
+		// sc.process(testCase, DataCenter.param, caseRunner);
+
+		while (!sc.isEnd()) {
+			TestCase nextTestCase = sc.generateNext();
+			identifyCases.add(nextTestCase);
+			overallTestCases.add(nextTestCase);
+			// System.out.println("ofot" +
+			// nextTestCase.getStringOfTest());
+
+			int[] next = new int[nextTestCase.getLength()];
+			for (int i = 0; i < next.length; i++) {
+				next[i] = nextTestCase.getAt(i);
+			}
+			if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
+				ac.unCovered = cm.setCover(ac.unCovered,
+						ac.coveredMark, next);
+				nextTestCase.setTestState(TestCase.PASSED);
+			} else
+				nextTestCase.setTestState(TestCase.FAILED);
+		}
+
+		sc.analysis();
+		
+		List<Tuple> mfs = sc.getBugs();
+		return mfs;
 	}
 
 	/*
