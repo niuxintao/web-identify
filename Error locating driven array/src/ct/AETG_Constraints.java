@@ -20,7 +20,7 @@ public class AETG_Constraints extends AETG {
 
 	protected List<int[]> clauses;
 
-	protected List<Tuple> MFS;
+	protected HashSet<Tuple> MFS;
 
 	public AETG_Constraints(DataCenter dataCenter) {
 		super(dataCenter);
@@ -28,7 +28,7 @@ public class AETG_Constraints extends AETG {
 		ic = new InputToClauses(dataCenter.param);
 		clauses = new ArrayList<int[]>();
 		clauses.addAll(ic.getClauses());
-		MFS = new ArrayList<Tuple>();
+		MFS = new HashSet<Tuple>();
 		sat = new SAT();
 
 	}

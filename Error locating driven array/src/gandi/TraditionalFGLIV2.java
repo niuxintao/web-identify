@@ -4,6 +4,8 @@ import interaction.DataCenter;
 
 import java.util.HashSet;
 
+import location.SOFOT;
+
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
 import com.fc.testObject.TestCase;
@@ -11,7 +13,6 @@ import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
 import ct.AETG;
-import ct.SOFOT;
 
 public class TraditionalFGLIV2 {
 

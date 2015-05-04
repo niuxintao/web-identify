@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import location.SOFOT_Constriants;
+
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
 //import com.fc.coveringArray.CoveringManage;
@@ -16,7 +18,6 @@ import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
 import ct.AETG_Constraints;
-import ct.SOFOT_Constriants;
 import experiment.SimilarityMFS;
 
 public class ErrorLocatingDrivenArray implements CT_process {

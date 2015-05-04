@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import location.SOFOT;
+
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
 import com.fc.testObject.TestCase;
@@ -16,7 +18,6 @@ import com.fc.tuple.Tuple;
 
 import ct.AETG;
 import ct.AETG_Constraints;
-import ct.SOFOT;
 import experiment.SimilarityMFS;
 
 public class TraditionalFGLI implements CT_process {

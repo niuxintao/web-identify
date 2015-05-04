@@ -27,8 +27,11 @@ public class AETG_Constraints_Seeds extends AETG_Constraints {
 		}
 	}
 
-	
-
+	public void addSeeds(int[] coveredMark, int uncovred) {
+		for (int i = 0; i < coveredMark.length; i++)
+			this.coveredMark[i] = coveredMark[i];
+		this.unCovered = uncovred;
+	}
 
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
