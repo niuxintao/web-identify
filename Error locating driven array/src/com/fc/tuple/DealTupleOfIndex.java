@@ -8,6 +8,11 @@ import com.fc.testObject.TestCaseImplement;
 
 public class DealTupleOfIndex {
 	private DataCenter dataCenter;
+	
+	
+	public int getDegree(){
+		return dataCenter.getDegree();
+	}
 
 	public DealTupleOfIndex(DataCenter dataCenter) {
 		this.dataCenter = dataCenter;

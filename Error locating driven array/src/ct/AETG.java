@@ -54,7 +54,7 @@ public class AETG {
 		int bestUncovered = -1;
 
 		// System.out.println("tFirst strat");
-		Tuple first = gpv.selectFirstTmiunus1(coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+		Tuple first = gpv.selectFirst(coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 		// System.out.println("tFirst End");
 
 		// System.out.println("rem strat");

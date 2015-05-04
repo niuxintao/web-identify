@@ -2,7 +2,7 @@ package gandi;
 
 import java.util.List;
 
-import location.SOFOT_Constriants;
+import locatConstaint.SOFOT_Constriants;
 import interaction.DataCenter;
 
 import com.fc.caseRunner.CaseRunner;

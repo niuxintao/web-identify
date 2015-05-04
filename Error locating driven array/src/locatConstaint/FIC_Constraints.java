@@ -1,4 +1,5 @@
-package location;
+package locatConstaint;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,13 +11,17 @@ import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
-public class FIC {
+import ct.AETG_Constraints;
+
+public class FIC_Constraints {
 	protected CaseRunner caseRunner;
 	protected TestCase testCase;
 	protected int[] param;
 	protected List<Tuple> bugs;
 	protected List<TestCase> executed;
 	private HashMap<TestCase, Boolean> tested;
+
+	GetBestTestCaseAndConstraints gtc;
 
 	class Pa {
 		public List<Integer> CFree;
@@ -30,14 +35,16 @@ public class FIC {
 		return bugs;
 	}
 
-	public FIC(TestCase testCase, int[] param, CaseRunner caseRunner) {
+
+	public FIC_Constraints(TestCase testCase, int[] param, CaseRunner caseRunner, AETG_Constraints ac) {
 		tested = new HashMap<TestCase, Boolean>();
 		this.testCase = testCase;
 		this.param = param;
 		bugs = new ArrayList<Tuple>();
 		this.caseRunner = caseRunner;
 		executed = new ArrayList<TestCase>();
-//		executed.add(testCase);
+		gtc = new GetBestTestCaseAndConstraints(ac, testCase);
+		// executed.add(testCase);
 	}
 
 	public Pa LocateFixedParam(List<Integer> CFree, Tuple partBug) {
@@ -175,8 +182,7 @@ public class FIC {
 			Low.setParamIndex(lower);
 
 			Tuple Temp = freeTuple.catComm(freeTuple, Low);
-			if (this.testTuple(this.CovertTntToTnteger(Temp
-					.getParamIndex()))) {
+			if (this.testTuple(this.CovertTntToTnteger(Temp.getParamIndex()))) {
 				high = middle;
 				middle = (low + high) / 2;
 			} else {
@@ -268,7 +274,7 @@ public class FIC {
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
 
-		FIC fic = new FIC(wrongCase, param, caseRunner);
+		FIC_Constraints fic = new FIC_Constraints(wrongCase, param, caseRunner, null);
 		fic.FicNOP();
 
 		for (int i = 0; i < fic.getExecuted().size(); i++) {

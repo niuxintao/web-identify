@@ -132,7 +132,8 @@ public class AETG_Constraints extends AETG {
 			if (tempFirst != null)
 				cannot.add(tempFirst);
 
-			first = gpv.selectFirst(cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+			first = gpv.selectFirst(cannot, coveredMark,
+					dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 
 			tempFirst = first;
 
@@ -151,7 +152,7 @@ public class AETG_Constraints extends AETG {
 			int[] value = first.getParamValue();
 			for (int j = 0; j < index.length; j++)
 				testCase[index[j]] = value[j];
-			
+
 			int[] firstSequnce = new int[dataCenter.param_num];
 			for (int j : index) {
 				firstSequnce[j] = 1;
@@ -270,6 +271,110 @@ public class AETG_Constraints extends AETG {
 		return bestV;
 	}
 
+	public int[] getBestTestCase(Tuple part) {
+		int[] best = new int[dataCenter.param_num];
+
+		int bestUncovered = -1;
+
+		// select the first parameter and value
+		HashSet<Tuple> cannot = new HashSet<Tuple>();
+		boolean isSat = false;
+
+		Tuple first = null;
+		Tuple tempFirst = null;
+
+		// get the first part
+		if (part.getDegree() >= dataCenter.degree - 1) {
+			first = part;
+		} else {
+			while (!isSat) {
+				if (tempFirst != null)
+					cannot.add(tempFirst);
+
+				first = gpv.selectFirst(part, cannot, coveredMark,
+						dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+
+				tempFirst = first;
+
+				// judege if it is satisified
+				isSat = !this.isInvoude(first.getParamIndex(),
+						first.getParamValue())
+						|| this.isSatisifed(first);
+			}
+		}
+
+		for (int i = 0; i < M; i++) {
+			int[] testCase = new int[dataCenter.param_num];
+			for (int k = 0; k < testCase.length; k++)
+				testCase[k] = -1;
+
+			int[] index = first.getParamIndex();
+			int[] value = first.getParamValue();
+			for (int j = 0; j < index.length; j++)
+				testCase[index[j]] = value[j];
+
+			int[] firstSequnce = new int[dataCenter.param_num];
+			for (int j : index) {
+				firstSequnce[j] = 1;
+			}
+			// System.out.println("first" + first.parameter + " " +
+			// first.value);
+
+			// random the remaining parameters
+			int[] remainingSequence = this.randomSequnce(firstSequnce);
+
+			// ************************dit not add maxtries time
+			// *************************/
+
+			for (int rmI : remainingSequence) {
+				// for each remaining parameter, select the best value
+				isSat = false;
+				int bvalue = -1;
+				int tempValue = -1;
+				HashSet<Integer> cannot2 = new HashSet<Integer>();
+				while (!isSat) {
+					if (tempValue != -1)
+						cannot2.add(tempValue);
+					bvalue = this.getBestValue(testCase, rmI, cannot2);
+					tempValue = bvalue;
+
+					// judege if it is satisified
+					List<Integer> indexes = new ArrayList<Integer>();
+					TestCase testCaseForTuple = new TestCaseImplement(
+							dataCenter.param_num);
+					for (int j = 0; j < testCase.length; j++) {
+						if (j == rmI) {
+							testCaseForTuple.set(j, bvalue);
+							indexes.add(j);
+						} else if (testCase[j] != -1) {
+							testCaseForTuple.set(j, testCase[j]);
+							indexes.add(j);
+						}
+					}
+					Tuple tuple = new Tuple(indexes.size(), testCaseForTuple);
+					tuple.setParamIndex(convertIntegers(indexes));
+					;
+
+					isSat = !this.isInvoude(rmI, bvalue)
+							|| this.isSatisifed(tuple);
+				}
+				testCase[rmI] = bvalue;
+			}
+
+			int thisUncovered = this.getUncovered(testCase);
+			// System.out.println(thisUncovered);
+
+			// repeat 50 times to get the best one.
+			if (thisUncovered > bestUncovered) {
+				best = testCase;
+				bestUncovered = thisUncovered;
+			}
+		}
+
+		coveringArray.add(best);
+		return best;
+	}
+
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2 };
 		DataCenter dataCenter = new DataCenter(param, 2);
@@ -306,7 +411,7 @@ public class AETG_Constraints extends AETG {
 
 		aetg.addConstriants(MFS);
 		aetg.process();
-		
+
 		List<int[]> corrvery = aetg.coveringArray;
 		for (int[] row : corrvery) {
 			aetg.print(row);
