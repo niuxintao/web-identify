@@ -1,0 +1,78 @@
+num cb deviration: 10.5
+
+num_r cb deviration: 1.5
+
+num_i cb deviration: 12.0
+
+recall cb deviration: 0.0
+
+precise cb deviration: 0.0
+
+f-measure cb deviration: 0.0
+
+multi cb deviration: 0.0
+
+time cb deviration: 51.0
+
+time_r cb deviration: 1.0
+
+time_i cb deviration: 49.0
+
+t_cover cb deviration: 0.0
+
+all_cover cb deviration: 0.0
+
+deviration cb CoverNUM
+(1 : 703.25)  (2 : 229.0)  (3 : 137.0)  (4 : 315.25)  (5 : 130.25)  (6 : 49.25)  (7 : 65.0)  (8 : 17.0)  (9 : 29.25)  (10 : 8.0)  (11 : 7.25)  (12 : 1.25)  (13 : 10.0)  (14 : 1.25)  (15 : 3.25)  (16 : 10.0)  (17 : 11.25)  (18 : 0.5)  (19 : 0.5)  (21 : 1.125)  (22 : 0.125)  
+num cb deviration: 7.0
+
+num_r cb deviration: 6.5
+
+num_i cb deviration: 0.5
+
+recall cb deviration: 0.0
+
+precise cb deviration: 0.0
+
+f-measure cb deviration: 0.0
+
+multi cb deviration: 0.0
+
+time cb deviration: 51.5
+
+time_r cb deviration: 6.0
+
+time_i cb deviration: 27.5
+
+t_cover cb deviration: 83.0
+
+all_cover cb deviration: 0.0
+
+deviration cb CoverNUM
+(1 : 66111.25)  (2 : 30631.25)  (3 : 13712.5)  (4 : 5030.5)  (5 : 1610.5)  (6 : 3937.25)  (7 : 2276.0)  (8 : 1542.5)  (9 : 872.5)  (10 : 438.25)  (11 : 119.25)  (12 : 72.5)  (13 : 67.25)  (14 : 40.5)  (15 : 8.0)  (16 : 2.0)  (17 : 12.5)  (18 : 12.25)  (19 : 1.125)  
+num cb deviration: 6.0
+
+num_r cb deviration: 11.0
+
+num_i cb deviration: 17.0
+
+recall cb deviration: 0.0
+
+precise cb deviration: 0.0
+
+f-measure cb deviration: 0.0
+
+multi cb deviration: 0.5
+
+time cb deviration: 190.0
+
+time_r cb deviration: 114.0
+
+time_i cb deviration: 192.5
+
+t_cover cb deviration: 206.5
+
+all_cover cb deviration: 0.0
+
+deviration cb CoverNUM
+(1 : 1694332.25)  (2 : 402128.5)  (3 : 174530.5)  (4 : 63787.25)  (5 : 10303.25)  (6 : 3336.25)  (7 : 3931.25)  (8 : 2938.5)  (9 : 749.25)  (10 : 284.5)  (11 : 308.25)  (12 : 731.25)  (13 : 1316.25)  (14 : 396.25)  (15 : 153.0)  (16 : 114.25)  (17 : 49.25)  (18 : 13.25)  (19 : 14.5)  (20 : 9.0)  (21 : 12.25)  (22 : 20.5)  (23 : 7.25)  (24 : 28.25)  (25 : 2.5)  (26 : 5.0)  (27 : 18.0)  (28 : 8.0)  (29 : 2.0)  (30 : 0.125)  (31 : 0.125)  (33 : 0.125)  (34 : 0.5)  (39 : 0.125)  (42 : 0.125)  (49 : 0.125)  

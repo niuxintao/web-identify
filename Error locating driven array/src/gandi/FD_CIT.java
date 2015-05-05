@@ -149,7 +149,7 @@ public class FD_CIT implements CT_process {
 				TestCase testCase = new TestCaseImplement(test);
 				overallTestCases.add(testCase);
 				regularCTCases.add(testCase);
-				System.out.println(testCase.getStringOfTest());
+//				System.out.println(testCase.getStringOfTest());
 			}
 
 			long ideTime = System.currentTimeMillis();
@@ -180,7 +180,7 @@ public class FD_CIT implements CT_process {
 
 			for (Tuple bug : bugs) {
 				this.MFS.add(bug);
-				System.out.println(bug.toString());
+//				System.out.println(bug.toString());
 			}
 
 			ideTime = System.currentTimeMillis() - ideTime;

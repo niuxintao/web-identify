@@ -8,6 +8,7 @@ import output.OutPut;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
+
 import experimentData.ExperimentData;
 import experimentData.GccData;
 import experimentData.HsqlDBData;
@@ -15,12 +16,11 @@ import experimentData.JFlexData;
 import experimentData.TcasData;
 import experimentData.TomcatData;
 import gandi.CT_process;
-import gandi.ErrorLocatingDrivenArray;
-import gandi.TraditionalFGLI;
+import gandi.ErrorLocatingDrivenArray_CB;
+import gandi.ErrorLocatingDrivenArray_TL;
 
-public class SimpleExperiment {
-
-	public final static int REP = 2;
+public class SimpleExperiment_TLandCB {
+	public int REP = SimpleExperiment.REP;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -49,7 +49,7 @@ public class SimpleExperiment {
 			"precise", "f-measure", "multi", "time", "time_r", "time_i",
 			"t_cover", "all_cover" };
 
-	public SimpleExperiment() {
+	public SimpleExperiment_TLandCB() {
 
 	}
 
@@ -57,11 +57,11 @@ public class SimpleExperiment {
 			OutPut output) {
 		data.setDegree(degree);
 		CT_process ct_process = null;
-		if (algorithm == ICT) {
-			ct_process = new ErrorLocatingDrivenArray(data.getDataCenter(),
+		if (algorithm == ICT_CB) {
+			ct_process = new ErrorLocatingDrivenArray_CB(data.getDataCenter(),
 					data.getCaseRunner());
-		} else if (algorithm == SCT) {
-			ct_process = new TraditionalFGLI(data.getDataCenter(),
+		} else if (algorithm == ICT_TL) {
+			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(),
 					data.getCaseRunner());
 		}
 
@@ -152,12 +152,12 @@ public class SimpleExperiment {
 
 	public void test(int algorithm, String subject, ExperimentData data) {
 
-		String s = algorithm == ICT ? "elda" : "fglt";
+		String s = algorithm == ICT_CB ? "cb" : "tl";
 
-		OutPut statistic = new OutPut("avg/" +s + "statistic for " + subject + ".txt");
-		OutPut statisticDev = new OutPut("dev/" + s + "statistic for " + subject + ".txt");
+		OutPut statistic = new OutPut("TL_CB/avg/" +s + "statistic for " + subject + ".txt");
+		OutPut statisticDev = new OutPut("TL_CB/dev/" + s + "statistic for " + subject + ".txt");
 
-		OutPut out2 = new OutPut("specific/" +s + "2-way for " + subject + ".txt");
+		OutPut out2 = new OutPut("TL_CB/specific/" +s + "2-way for " + subject + ".txt");
 		EDATA[] data2 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
@@ -165,7 +165,7 @@ public class SimpleExperiment {
 		this.statistic(algorithm, data2, statistic, statisticDev);
 		out2.close();
 
-		OutPut out3 = new OutPut("specific/" +s + "3-way for " + subject + ".txt");
+		OutPut out3 = new OutPut("TL_CB/specific/" +s + "3-way for " + subject + ".txt");
 		EDATA[] data3 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data3[i] = execute(algorithm, data, 3, out3);
@@ -173,7 +173,7 @@ public class SimpleExperiment {
 		this.statistic(algorithm, data3, statistic, statisticDev);
 		out3.close();
 
-		OutPut out4 = new OutPut("specific/" +s + "4-way for " + subject + ".txt");
+		OutPut out4 = new OutPut("TL_CB/specific/" +s + "4-way for " + subject + ".txt");
 		EDATA[] data4 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data4[i] = execute(algorithm, data, 4, out4);
@@ -234,7 +234,7 @@ public class SimpleExperiment {
 					/ (double) data.length);
 		}
 
-		String s = algorithm == ICT ? "elda" : "fglt";
+		String s = algorithm == ICT_CB ? "cb" : "tl";
 
 		out.println("average " + s + " " + "CoverNUM");
 
@@ -349,7 +349,7 @@ public class SimpleExperiment {
 
 		da_dev = Math.sqrt(da_dev);
 
-		String s = algorithm == ICT ? "elda" : "fglt";
+		String s = algorithm == ICT_CB ? "cb" : "tl";
 
 		out.println("average " + s + " " + SHOW[state] + " :" + da);
 		out.println();
@@ -381,8 +381,8 @@ public class SimpleExperiment {
 		HsqlDBData data = new HsqlDBData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		this.test(ICT_CB, subject, data);
+		this.test(ICT_TL, subject, data);
 	}
 
 	public void testJFlex() {
@@ -391,8 +391,8 @@ public class SimpleExperiment {
 		JFlexData data = new JFlexData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		this.test(ICT_CB, subject, data);
+		this.test(ICT_TL, subject, data);
 	}
 
 	public void testTcas() {
@@ -401,8 +401,8 @@ public class SimpleExperiment {
 		TcasData data = new TcasData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		this.test(ICT_CB, subject, data);
+		this.test(ICT_TL, subject, data);
 	}
 
 	public void testGcc() {
@@ -411,8 +411,8 @@ public class SimpleExperiment {
 		GccData data = new GccData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		this.test(ICT_CB, subject, data);
+		this.test(ICT_TL, subject, data);
 	}
 
 	public void testTomcat() {
@@ -421,38 +421,16 @@ public class SimpleExperiment {
 		TomcatData data = new TomcatData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		this.test(ICT_CB, subject, data);
+		this.test(ICT_TL, subject, data);
 	}
 
 	public static void main(String[] args) {
-		SimpleExperiment ex = new SimpleExperiment();
+		SimpleExperiment_TLandCB ex = new SimpleExperiment_TLandCB();
 		ex.testJFlex();
 		ex.testGcc();
 		ex.testHSQLDB();
 		ex.testTomcat();
 		ex.testTcas();
 	}
-}
-
-class EDATA {
-	public int numRegular;
-	public int numIdentify;
-	public int numTestCases;
-
-	public HashMap<Integer, Integer> coveredSchemasNum;
-
-	public double precise;
-	public double recall;
-	public double f_measure;
-
-	public int multipleMFS;
-
-	public int t_testedCover;
-	public int allCover;
-
-	public long allTime;
-	public long GeneratTime;
-	public long identificationTime;
-
 }

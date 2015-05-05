@@ -1,0 +1,78 @@
+num tl deviration: 5.5
+
+num_r tl deviration: 0.5
+
+num_i tl deviration: 6.0
+
+recall tl deviration: 0.0
+
+precise tl deviration: 0.25
+
+f-measure tl deviration: 0.08333333333333331
+
+multi tl deviration: 0.0
+
+time tl deviration: 8.0
+
+time_r tl deviration: 1.5
+
+time_i tl deviration: 0.5
+
+t_cover tl deviration: 0.0
+
+all_cover tl deviration: 0.0
+
+deviration tl CoverNUM
+(1 : 1226.25)  (2 : 2734.25)  (3 : 1012.5)  (4 : 601.25)  (5 : 176.5)  (6 : 42.25)  (7 : 11.25)  (8 : 17.0)  (9 : 16.25)  (10 : 6.25)  (11 : 0.5)  
+num tl deviration: 0.5
+
+num_r tl deviration: 0.5
+
+num_i tl deviration: 0.0
+
+recall tl deviration: 0.0
+
+precise tl deviration: 0.16666666666666669
+
+f-measure tl deviration: 0.09999999999999998
+
+multi tl deviration: 0.0
+
+time tl deviration: 112.5
+
+time_r tl deviration: 35.0
+
+time_i tl deviration: 2.0
+
+t_cover tl deviration: 1.0
+
+all_cover tl deviration: 0.0
+
+deviration tl CoverNUM
+(1 : 17305.0)  (2 : 55890.25)  (3 : 85612.5)  (4 : 40522.0)  (5 : 33698.5)  (6 : 14762.0)  (7 : 7407.25)  (8 : 1706.0)  (9 : 606.5)  (10 : 282.5)  (11 : 196.25)  (12 : 128.5)  (13 : 120.25)  (14 : 36.5)  (15 : 15.25)  (16 : 30.25)  (17 : 25.0)  (18 : 12.5)  (19 : 0.5)  (21 : 0.125)  
+num tl deviration: 3.5
+
+num_r tl deviration: 2.5
+
+num_i tl deviration: 6.0
+
+recall tl deviration: 0.25
+
+precise tl deviration: 0.25
+
+f-measure tl deviration: 0.25
+
+multi tl deviration: 0.0
+
+time tl deviration: 140.5
+
+time_r tl deviration: 76.0
+
+time_i tl deviration: 1.0
+
+t_cover tl deviration: 53.0
+
+all_cover tl deviration: 0.0
+
+deviration tl CoverNUM
+(1 : 349425.0)  (2 : 1566508.25)  (3 : 2239172.5)  (4 : 1482982.25)  (5 : 674934.5)  (6 : 358544.5)  (7 : 163162.25)  (8 : 57630.25)  (9 : 25335.25)  (10 : 12453.25)  (11 : 4798.25)  (12 : 1084.5)  (13 : 420.5)  (14 : 284.5)  (15 : 207.25)  (16 : 85.0)  (17 : 78.5)  (18 : 32.5)  (19 : 26.5)  (20 : 22.5)  (21 : 27.25)  (22 : 9.0)  (23 : 10.125)  (24 : 3.125)  (25 : 10.125)  

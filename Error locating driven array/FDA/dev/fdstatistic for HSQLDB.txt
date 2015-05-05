@@ -1,0 +1,78 @@
+num fd deviration: 2.5
+
+num_r fd deviration: 2.5
+
+num_i fd deviration: 0.0
+
+recall fd deviration: 0.0
+
+precise fd deviration: 0.0
+
+f-measure fd deviration: 0.0
+
+multi fd deviration: 0.0
+
+time fd deviration: 15.5
+
+time_r fd deviration: 7.5
+
+time_i fd deviration: 8.0
+
+t_cover fd deviration: 0.5
+
+all_cover fd deviration: 0.0
+
+deviration fd CoverNUM
+(1 : 2768.5)  (2 : 2846.5)  (3 : 1482.5)  (4 : 191.25)  (5 : 28.25)  (6 : 0.5)  (7 : 1.125)  (8 : 98.0)  (9 : 58.25)  (10 : 22.5)  (11 : 28.125)  (12 : 0.125)  
+num fd deviration: 1.0
+
+num_r fd deviration: 1.0
+
+num_i fd deviration: 0.0
+
+recall fd deviration: 0.0
+
+precise fd deviration: 0.1333333333333333
+
+f-measure fd deviration: 0.11428571428571427
+
+multi fd deviration: 0.0
+
+time fd deviration: 10.0
+
+time_r fd deviration: 10.0
+
+time_i fd deviration: 0.0
+
+t_cover fd deviration: 0.0
+
+all_cover fd deviration: 0.0
+
+deviration fd CoverNUM
+(1 : 24050.0)  (2 : 68382.5)  (3 : 85168.25)  (4 : 45176.5)  (5 : 18896.0)  (6 : 7941.25)  (7 : 4315.25)  (8 : 2316.25)  (9 : 1942.25)  (10 : 502.25)  (11 : 122.5)  (12 : 56.25)  (13 : 4.0)  (14 : 6.5)  (15 : 6.25)  (16 : 81.25)  (17 : 97.25)  (18 : 65.0)  (19 : 32.5)  (20 : 16.25)  (21 : 13.25)  (22 : 3.125)  (23 : 0.5)  (24 : 0.5)  (25 : 0.5)  
+num fd deviration: 2.0
+
+num_r fd deviration: 2.0
+
+num_i fd deviration: 0.0
+
+recall fd deviration: 0.0
+
+precise fd deviration: 0.0
+
+f-measure fd deviration: 0.0
+
+multi fd deviration: 0.0
+
+time fd deviration: 93.5
+
+time_r fd deviration: 86.0
+
+time_i fd deviration: 7.5
+
+t_cover fd deviration: 0.0
+
+all_cover fd deviration: 0.0
+
+deviration fd CoverNUM
+(1 : 259731.25)  (2 : 1401425.0)  (3 : 2050841.25)  (4 : 1313430.5)  (5 : 799300.0)  (6 : 408961.25)  (7 : 159365.0)  (8 : 78527.25)  (9 : 41024.0)  (10 : 14335.25)  (11 : 7705.25)  (12 : 4087.25)  (13 : 1513.25)  (14 : 841.25)  (15 : 594.5)  (16 : 106.0)  (17 : 98.5)  (18 : 86.5)  (19 : 36.25)  (20 : 54.5)  (21 : 29.25)  (22 : 112.25)  (23 : 112.5)  (24 : 57.25)  (25 : 21.125)  (26 : 4.5)  (27 : 2.0)  

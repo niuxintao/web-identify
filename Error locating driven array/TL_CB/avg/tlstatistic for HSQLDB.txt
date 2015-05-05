@@ -1,0 +1,87 @@
+2-way for HSQLDB
+###############################################
+###############################################
+average tl num :32.5
+
+average tl num_r :14.5
+
+average tl num_i :18.0
+
+average tl recall :0.5
+
+average tl precise :0.75
+
+average tl f-measure :0.5833333333333333
+
+average tl multi :0.0
+
+average tl time :34.0
+
+average tl time_r :14.5
+
+average tl time_i :0.5
+
+average tl t_cover :357.0
+
+average tl all_cover :357.0
+
+average tl CoverNUM
+(1 : 41.5)  (2 : 47.5)  (3 : 37.0)  (4 : 24.5)  (5 : 9.0)  (6 : 4.5)  (7 : 2.5)  (8 : 6.0)  (9 : 5.5)  (10 : 4.5)  (11 : 1.0)  
+3-way for HSQLDB
+###############################################
+###############################################
+average tl num :103.5
+
+average tl num_r :43.5
+
+average tl num_i :60.0
+
+average tl recall :1.0
+
+average tl precise :0.8333333333333333
+
+average tl f-measure :0.9
+
+average tl multi :0.0
+
+average tl time :384.5
+
+average tl time_r :212.0
+
+average tl time_i :5.0
+
+average tl t_cover :2741.0
+
+average tl all_cover :2742.0
+
+average tl CoverNUM
+(1 : 144.0)  (2 : 265.5)  (3 : 301.0)  (4 : 213.0)  (5 : 155.0)  (6 : 111.0)  (7 : 72.5)  (8 : 37.0)  (9 : 23.0)  (10 : 10.0)  (11 : 4.5)  (12 : 2.0)  (13 : 6.5)  (14 : 9.0)  (15 : 6.5)  (16 : 6.5)  (17 : 6.0)  (18 : 5.0)  (19 : 1.0)  (21 : 0.5)  
+4-way for HSQLDB
+###############################################
+###############################################
+average tl num :148.5
+
+average tl num_r :118.5
+
+average tl num_i :30.0
+
+average tl recall :0.25
+
+average tl precise :0.25
+
+average tl f-measure :0.25
+
+average tl multi :0.0
+
+average tl time :3757.5
+
+average tl time_r :1678.0
+
+average tl time_i :4.0
+
+average tl t_cover :13972.0
+
+average tl all_cover :14136.0
+
+average tl CoverNUM
+(1 : 604.0)  (2 : 1236.5)  (3 : 1445.0)  (4 : 1244.5)  (5 : 814.0)  (6 : 581.0)  (7 : 369.5)  (8 : 235.5)  (9 : 181.5)  (10 : 123.5)  (11 : 91.5)  (12 : 46.0)  (13 : 21.0)  (14 : 14.0)  (15 : 9.5)  (16 : 8.0)  (17 : 7.0)  (18 : 9.0)  (19 : 8.0)  (20 : 7.0)  (21 : 7.5)  (22 : 4.0)  (23 : 4.5)  (24 : 2.5)  (25 : 4.5)  
