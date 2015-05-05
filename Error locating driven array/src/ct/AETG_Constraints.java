@@ -46,6 +46,49 @@ public class AETG_Constraints extends AETG {
 
 		setCoverage(MFS);
 	}
+	
+	public void addConstriants(HashSet<Tuple> MFS) {
+		this.MFS.addAll(MFS);
+
+		for (Tuple mfs : MFS) {
+			int[] clause = ic.combinationToClause(mfs.getParamIndex(),
+					mfs.getParamValue());
+			for (int i = 0; i < clause.length; i++)
+				clause[i] = -clause[i];
+			clauses.add(clause);
+		}
+
+		setCoverage(MFS);
+	}
+	
+	public void setCoverage(HashSet<Tuple> newlyMFS) {
+		// itself
+		for (Tuple mfs : newlyMFS) {
+			if (mfs.getDegree() == dataCenter.degree) {
+				setCoverage(mfs);
+			} else if (mfs.getDegree() < dataCenter.degree) {
+				// the parent
+				List<Tuple> parentT = mfs
+						.getFatherTuplesByDegree(dataCenter.degree);
+				for (Tuple parent : parentT) {
+					setCoverage(parent);
+				}
+
+			}
+		}
+		// the implicit
+		for (int i = 0; i < this.coveredMark.length; i++) {
+			if (this.coveredMark[i] == 0) {
+				// System.out.println(i);
+				Tuple tuple = DOI.getTupleFromIndex(i);
+				if (!this.isSatisifed(tuple)) {
+					this.coveredMark[i] = 1;
+					this.unCovered--;
+				}
+			}
+		}
+	}
+
 
 	public void setCoverage(Tuple tuple) {
 		int index = DOI.getIndexOfTuple(tuple);

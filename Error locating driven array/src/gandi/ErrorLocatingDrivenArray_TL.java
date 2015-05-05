@@ -1,5 +1,7 @@
 package gandi;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import interaction.DataCenter;
@@ -42,6 +44,14 @@ public class ErrorLocatingDrivenArray_TL extends ErrorLocatingDrivenArray {
 
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
+				
+				Iterator<Tuple> it = MFS.iterator();
+				while (it.hasNext()) {
+					Tuple t = it.next();
+					if (testCase.containsOf(t))
+						it.remove();
+				}
+				
 			} else {
 				this.failTestCase.add(testCase);
 				
@@ -52,7 +62,13 @@ public class ErrorLocatingDrivenArray_TL extends ErrorLocatingDrivenArray {
 				ideTime = System.currentTimeMillis() - ideTime;
 				this.timeIden += ideTime;
 				
-				ac.addConstriants(mfs);
+				List<Tuple> doubleIdentified = new ArrayList<Tuple> ();
+				for(Tuple newI: mfs){
+					if(MFS.contains(newI)){
+						doubleIdentified.add(newI);
+					}
+				}
+				ac.addConstriants(doubleIdentified);
 				this.MFS.addAll(mfs);
 				// setCoverage(mfs);
 			}
