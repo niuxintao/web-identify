@@ -1,6 +1,5 @@
 package locatConstaint;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,8 +34,8 @@ public class FIC_Constraints {
 		return bugs;
 	}
 
-
-	public FIC_Constraints(TestCase testCase, int[] param, CaseRunner caseRunner, AETG_Constraints ac) {
+	public FIC_Constraints(TestCase testCase, int[] param,
+			CaseRunner caseRunner, AETG_Constraints ac) {
 		tested = new HashMap<TestCase, Boolean>();
 		this.testCase = testCase;
 		this.param = param;
@@ -132,14 +131,22 @@ public class FIC_Constraints {
 		}
 	}
 
-	private TestCase Motivate(List<Integer> change) {
+	private TestCase Motivate(List<Integer> temp) {
 		// TODO Auto-generated method stub
-		TestCase newCase = testCase.copy();
-		newCase.setTestState(TestCase.UNTESTED);
-		for (Integer i : change) {
-			int index = i;
-			newCase.set(index, (testCase.getAt(index) + 1) % param[index]);
+
+		Tuple tuple = new Tuple(temp.size(), testCase);
+		int location = 0;
+		for (int i : temp) {
+			tuple.set(location, i);
+			location++;
 		}
+		tuple = tuple.getReverseTuple();
+		
+		
+		int[] test = this.gtc.getTestCase(tuple);
+		
+		TestCaseImplement newCase = new TestCaseImplement(test);
+		
 		// extraCases.addTest(newCase);
 		return newCase;
 	}
@@ -274,7 +281,8 @@ public class FIC_Constraints {
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
 
-		FIC_Constraints fic = new FIC_Constraints(wrongCase, param, caseRunner, null);
+		FIC_Constraints fic = new FIC_Constraints(wrongCase, param, caseRunner,
+				null);
 		fic.FicNOP();
 
 		for (int i = 0; i < fic.getExecuted().size(); i++) {

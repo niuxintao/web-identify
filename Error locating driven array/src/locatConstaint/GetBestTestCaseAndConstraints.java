@@ -3,7 +3,6 @@ package locatConstaint;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
-import interaction.DataCenter;
 import ct.AETG_Constraints;
 
 public class GetBestTestCaseAndConstraints {
