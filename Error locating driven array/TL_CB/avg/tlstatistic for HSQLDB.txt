@@ -1,23 +1,23 @@
 2-way for HSQLDB
 ###############################################
 ###############################################
-average tl num :32.5
+average tl num :28.5
 
-average tl num_r :14.5
+average tl num_r :16.5
 
-average tl num_i :18.0
+average tl num_i :12.0
 
-average tl recall :0.5
+average tl recall :0.25
 
-average tl precise :0.75
+average tl precise :0.5
 
-average tl f-measure :0.5833333333333333
+average tl f-measure :0.3333333333333333
 
 average tl multi :0.0
 
-average tl time :34.0
+average tl time :31.0
 
-average tl time_r :14.5
+average tl time_r :27.0
 
 average tl time_i :0.5
 
@@ -26,15 +26,15 @@ average tl t_cover :357.0
 average tl all_cover :357.0
 
 average tl CoverNUM
-(1 : 41.5)  (2 : 47.5)  (3 : 37.0)  (4 : 24.5)  (5 : 9.0)  (6 : 4.5)  (7 : 2.5)  (8 : 6.0)  (9 : 5.5)  (10 : 4.5)  (11 : 1.0)  
+(1 : 42.0)  (2 : 50.0)  (3 : 39.0)  (4 : 19.5)  (5 : 6.5)  (6 : 2.5)  (7 : 3.5)  (8 : 1.5)  (9 : 2.0)  (10 : 7.0)  (11 : 8.0)  (12 : 3.0)  
 3-way for HSQLDB
 ###############################################
 ###############################################
-average tl num :103.5
+average tl num :93.0
 
-average tl num_r :43.5
+average tl num_r :45.0
 
-average tl num_i :60.0
+average tl num_i :48.0
 
 average tl recall :1.0
 
@@ -44,44 +44,44 @@ average tl f-measure :0.9
 
 average tl multi :0.0
 
-average tl time :384.5
+average tl time :467.5
 
-average tl time_r :212.0
+average tl time_r :226.0
 
-average tl time_i :5.0
+average tl time_i :3.0
 
-average tl t_cover :2741.0
+average tl t_cover :2740.0
 
 average tl all_cover :2742.0
 
 average tl CoverNUM
-(1 : 144.0)  (2 : 265.5)  (3 : 301.0)  (4 : 213.0)  (5 : 155.0)  (6 : 111.0)  (7 : 72.5)  (8 : 37.0)  (9 : 23.0)  (10 : 10.0)  (11 : 4.5)  (12 : 2.0)  (13 : 6.5)  (14 : 9.0)  (15 : 6.5)  (16 : 6.5)  (17 : 6.0)  (18 : 5.0)  (19 : 1.0)  (21 : 0.5)  
+(1 : 145.5)  (2 : 263.0)  (3 : 287.5)  (4 : 200.0)  (5 : 148.0)  (6 : 111.0)  (7 : 67.0)  (8 : 48.0)  (9 : 22.0)  (10 : 13.0)  (11 : 17.0)  (12 : 12.0)  (13 : 3.0)  (14 : 5.0)  (15 : 3.0)  (16 : 8.5)  (17 : 8.0)  (18 : 7.5)  (19 : 7.5)  (20 : 2.5)  (21 : 1.0)  
 4-way for HSQLDB
 ###############################################
 ###############################################
-average tl num :148.5
+average tl num :168.5
 
-average tl num_r :118.5
+average tl num_r :120.5
 
-average tl num_i :30.0
+average tl num_i :48.0
 
-average tl recall :0.25
+average tl recall :0.5
 
-average tl precise :0.25
+average tl precise :0.5
 
-average tl f-measure :0.25
+average tl f-measure :0.5
 
 average tl multi :0.0
 
-average tl time :3757.5
+average tl time :3989.0
 
-average tl time_r :1678.0
+average tl time_r :1808.5
 
-average tl time_i :4.0
+average tl time_i :7.5
 
-average tl t_cover :13972.0
+average tl t_cover :14084.5
 
 average tl all_cover :14136.0
 
 average tl CoverNUM
-(1 : 604.0)  (2 : 1236.5)  (3 : 1445.0)  (4 : 1244.5)  (5 : 814.0)  (6 : 581.0)  (7 : 369.5)  (8 : 235.5)  (9 : 181.5)  (10 : 123.5)  (11 : 91.5)  (12 : 46.0)  (13 : 21.0)  (14 : 14.0)  (15 : 9.5)  (16 : 8.0)  (17 : 7.0)  (18 : 9.0)  (19 : 8.0)  (20 : 7.0)  (21 : 7.5)  (22 : 4.0)  (23 : 4.5)  (24 : 2.5)  (25 : 4.5)  
+(1 : 484.5)  (2 : 1171.5)  (3 : 1404.0)  (4 : 1208.0)  (5 : 905.5)  (6 : 616.5)  (7 : 443.0)  (8 : 305.0)  (9 : 187.0)  (10 : 130.5)  (11 : 72.0)  (12 : 45.0)  (13 : 27.5)  (14 : 21.0)  (15 : 18.0)  (16 : 16.5)  (17 : 8.5)  (18 : 5.5)  (19 : 3.5)  (20 : 3.0)  (21 : 2.5)  (22 : 2.0)  (23 : 3.0)  (24 : 2.0)  (25 : 1.0)  

@@ -1,11 +1,11 @@
 2-way for HSQLDB
 ###############################################
 ###############################################
-average cb num :14.5
+average cb num :30.0
 
-average cb num_r :14.5
+average cb num_r :12.5
 
-average cb num_i :0.0
+average cb num_i :17.5
 
 average cb recall :0.0
 
@@ -15,26 +15,26 @@ average cb f-measure :0.0
 
 average cb multi :0.0
 
-average cb time :26.0
+average cb time :36.5
 
-average cb time_r :25.5
+average cb time_r :16.0
 
-average cb time_i :0.0
+average cb time_i :20.0
 
 average cb t_cover :357.0
 
 average cb all_cover :357.0
 
 average cb CoverNUM
-(1 : 43.5)  (2 : 55.5)  (3 : 43.0)  (4 : 19.0)  (5 : 2.5)  (6 : 3.0)  (7 : 7.0)  (8 : 7.0)  (9 : 2.5)  
+(1 : 52.0)  (2 : 46.5)  (3 : 31.0)  (4 : 22.0)  (5 : 7.5)  (6 : 2.5)  (7 : 2.5)  (8 : 3.0)  (9 : 4.5)  (10 : 4.5)  (11 : 7.5)  (12 : 1.0)  (13 : 2.0)  (14 : 0.5)  
 3-way for HSQLDB
 ###############################################
 ###############################################
-average cb num :80.5
+average cb num :89.0
 
-average cb num_r :33.0
+average cb num_r :34.0
 
-average cb num_i :47.5
+average cb num_i :55.0
 
 average cb recall :0.0
 
@@ -44,26 +44,26 @@ average cb f-measure :0.0
 
 average cb multi :0.0
 
-average cb time :809.5
+average cb time :546.0
 
-average cb time_r :180.5
+average cb time_r :149.5
 
-average cb time_i :589.0
+average cb time_i :384.5
 
-average cb t_cover :2730.5
+average cb t_cover :2724.5
 
 average cb all_cover :2742.0
 
 average cb CoverNUM
-(1 : 137.5)  (2 : 241.0)  (3 : 271.5)  (4 : 227.5)  (5 : 159.0)  (6 : 127.0)  (7 : 76.0)  (8 : 53.0)  (9 : 30.0)  (10 : 16.5)  (11 : 12.0)  (12 : 11.5)  (13 : 7.5)  (14 : 4.0)  (15 : 2.0)  (16 : 1.5)  (17 : 1.5)  (18 : 0.5)  
+(1 : 165.0)  (2 : 244.0)  (3 : 262.0)  (4 : 200.0)  (5 : 153.0)  (6 : 112.5)  (7 : 75.5)  (8 : 44.5)  (9 : 29.0)  (10 : 21.0)  (11 : 16.5)  (12 : 13.0)  (13 : 11.5)  (14 : 11.5)  (15 : 8.0)  (16 : 4.5)  (17 : 3.5)  (18 : 2.5)  (19 : 1.0)  (20 : 1.0)  (21 : 1.5)  
 4-way for HSQLDB
 ###############################################
 ###############################################
-average cb num :161.5
+average cb num :144.5
 
-average cb num_r :110.5
+average cb num_r :105.0
 
-average cb num_i :51.0
+average cb num_i :39.5
 
 average cb recall :0.0
 
@@ -73,15 +73,15 @@ average cb f-measure :0.0
 
 average cb multi :0.0
 
-average cb time :3113.5
+average cb time :3124.5
 
-average cb time_r :1317.0
+average cb time_r :1465.5
 
-average cb time_i :1254.0
+average cb time_i :856.0
 
-average cb t_cover :14035.5
+average cb t_cover :14015.5
 
 average cb all_cover :14136.0
 
 average cb CoverNUM
-(1 : 573.0)  (2 : 1248.5)  (3 : 1465.0)  (4 : 1232.5)  (5 : 866.5)  (6 : 569.0)  (7 : 382.5)  (8 : 223.0)  (9 : 161.5)  (10 : 117.5)  (11 : 79.5)  (12 : 47.5)  (13 : 29.0)  (14 : 14.0)  (15 : 4.0)  (16 : 6.5)  (17 : 8.0)  (18 : 5.5)  (19 : 9.5)  (20 : 11.0)  (21 : 7.0)  (22 : 9.5)  (23 : 4.5)  (24 : 2.5)  (25 : 2.0)  (26 : 2.0)  
+(1 : 581.0)  (2 : 1205.0)  (3 : 1463.0)  (4 : 1168.0)  (5 : 860.0)  (6 : 622.5)  (7 : 401.5)  (8 : 285.0)  (9 : 196.5)  (10 : 113.0)  (11 : 70.5)  (12 : 28.0)  (13 : 16.5)  (14 : 8.5)  (15 : 6.0)  (16 : 4.5)  (17 : 11.0)  (18 : 10.5)  (19 : 10.0)  (20 : 10.5)  (21 : 6.0)  (22 : 0.5)  (23 : 1.0)  (24 : 0.5)  

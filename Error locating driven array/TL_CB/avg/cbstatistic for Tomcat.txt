@@ -1,0 +1,87 @@
+2-way for Tomcat
+###############################################
+###############################################
+average cb num :31.0
+
+average cb num_r :7.0
+
+average cb num_i :24.0
+
+average cb recall :0.3333333333333333
+
+average cb precise :0.1
+
+average cb f-measure :0.15384615384615383
+
+average cb multi :0.0
+
+average cb time :42.0
+
+average cb time_r :8.0
+
+average cb time_i :26.5
+
+average cb t_cover :139.0
+
+average cb all_cover :236.0
+
+average cb CoverNUM
+(1 : 84.5)  (2 : 12.5)  (3 : 8.5)  (6 : 14.0)  (7 : 1.0)  
+3-way for Tomcat
+###############################################
+###############################################
+average cb num :38.0
+
+average cb num_r :7.0
+
+average cb num_i :31.0
+
+average cb recall :0.3333333333333333
+
+average cb precise :0.1
+
+average cb f-measure :0.15384615384615383
+
+average cb multi :0.0
+
+average cb time :144.0
+
+average cb time_r :15.0
+
+average cb time_i :91.0
+
+average cb t_cover :558.0
+
+average cb all_cover :1424.0
+
+average cb CoverNUM
+(1 : 614.5)  (2 : 42.5)  (3 : 28.5)  (6 : 28.5)  
+4-way for Tomcat
+###############################################
+###############################################
+average cb num :49.5
+
+average cb num_r :5.0
+
+average cb num_i :45.5
+
+average cb recall :0.3333333333333333
+
+average cb precise :0.06349206349206349
+
+average cb f-measure :0.10644257703081234
+
+average cb multi :0.0
+
+average cb time :602.5
+
+average cb time_r :30.5
+
+average cb time_i :467.0
+
+average cb t_cover :1813.0
+
+average cb all_cover :5600.0
+
+average cb CoverNUM
+(1 : 2650.0)  (2 : 70.5)  (3 : 18.0)  (4 : 28.5)  (5 : 18.0)  (6 : 17.5)  

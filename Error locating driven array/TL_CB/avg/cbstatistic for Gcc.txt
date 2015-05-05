@@ -1,11 +1,11 @@
 2-way for Gcc
 ###############################################
 ###############################################
-average cb num :53.5
+average cb num :51.5
 
-average cb num_r :9.5
+average cb num_r :10.5
 
-average cb num_i :44.0
+average cb num_i :42.0
 
 average cb recall :0.0
 
@@ -13,28 +13,28 @@ average cb precise :0.0
 
 average cb f-measure :0.0
 
-average cb multi :0.0
+average cb multi :0.5
 
-average cb time :115.0
+average cb time :58.5
 
 average cb time_r :7.0
 
-average cb time_i :104.0
+average cb time_i :46.0
 
-average cb t_cover :252.0
+average cb t_cover :249.5
 
 average cb all_cover :252.0
 
 average cb CoverNUM
-(1 : 28.5)  (2 : 18.0)  (3 : 16.0)  (4 : 15.5)  (5 : 16.5)  (6 : 8.5)  (7 : 4.0)  (8 : 4.0)  (9 : 2.5)  (10 : 1.0)  (11 : 2.5)  (12 : 2.5)  (13 : 3.0)  (14 : 2.5)  (15 : 3.5)  (16 : 3.0)  (17 : 2.5)  (18 : 1.0)  (19 : 1.0)  (21 : 1.5)  (22 : 0.5)  
+(1 : 19.5)  (2 : 19.5)  (3 : 21.5)  (4 : 10.0)  (5 : 6.5)  (6 : 7.5)  (7 : 9.5)  (8 : 8.0)  (9 : 4.0)  (10 : 6.0)  (11 : 4.5)  (12 : 1.5)  (13 : 1.5)  (14 : 1.0)  (15 : 2.5)  (16 : 3.5)  (17 : 2.0)  (18 : 1.0)  (19 : 1.5)  (22 : 0.5)  
 3-way for Gcc
 ###############################################
 ###############################################
-average cb num :62.0
+average cb num :86.5
 
 average cb num_r :34.5
 
-average cb num_i :27.5
+average cb num_i :52.5
 
 average cb recall :0.0
 
@@ -44,26 +44,26 @@ average cb f-measure :0.0
 
 average cb multi :1.0
 
-average cb time :238.5
+average cb time :385.0
 
-average cb time_r :91.0
+average cb time_r :74.5
 
-average cb time_i :114.5
+average cb time_i :288.5
 
-average cb t_cover :1371.0
+average cb t_cover :1505.0
 
 average cb all_cover :1536.0
 
 average cb CoverNUM
-(1 : 364.5)  (2 : 197.5)  (3 : 81.0)  (4 : 36.0)  (5 : 15.0)  (6 : 7.5)  (7 : 15.0)  (8 : 14.0)  (9 : 9.0)  (10 : 3.5)  (11 : 8.5)  (12 : 10.0)  (13 : 2.5)  (14 : 1.0)  (15 : 4.0)  (16 : 2.0)  (17 : 5.0)  (18 : 4.5)  (19 : 1.5)  
+(1 : 152.0)  (2 : 187.5)  (3 : 121.5)  (4 : 71.0)  (5 : 63.5)  (6 : 54.0)  (7 : 34.5)  (8 : 23.5)  (9 : 21.5)  (10 : 22.5)  (11 : 11.0)  (12 : 6.0)  (13 : 3.5)  (14 : 2.5)  (15 : 1.0)  (16 : 3.0)  (17 : 2.5)  (18 : 1.0)  (19 : 0.5)  (20 : 0.5)  
 4-way for Gcc
 ###############################################
 ###############################################
-average cb num :122.0
+average cb num :131.0
 
-average cb num_r :52.0
+average cb num_r :45.0
 
-average cb num_i :70.0
+average cb num_i :86.5
 
 average cb recall :0.0
 
@@ -71,17 +71,17 @@ average cb precise :0.0
 
 average cb f-measure :0.0
 
-average cb multi :1.5
+average cb multi :1.0
 
-average cb time :1837.0
+average cb time :2582.5
 
-average cb time_r :413.0
+average cb time_r :376.0
 
-average cb time_i :728.5
+average cb time_i :1244.0
 
-average cb t_cover :4889.5
+average cb t_cover :4870.5
 
 average cb all_cover :6048.0
 
 average cb CoverNUM
-(1 : 1547.5)  (2 : 537.0)  (3 : 306.0)  (4 : 192.5)  (5 : 101.5)  (6 : 72.5)  (7 : 47.5)  (8 : 40.0)  (9 : 32.5)  (10 : 21.0)  (11 : 23.5)  (12 : 17.5)  (13 : 14.5)  (14 : 16.5)  (15 : 10.0)  (16 : 9.5)  (17 : 7.5)  (18 : 5.5)  (19 : 6.0)  (20 : 4.0)  (21 : 4.5)  (22 : 6.0)  (23 : 2.5)  (24 : 1.5)  (25 : 3.0)  (26 : 2.0)  (27 : 1.0)  (28 : 1.0)  (29 : 1.0)  (30 : 0.5)  (31 : 0.5)  (33 : 0.5)  (34 : 1.0)  (39 : 0.5)  (42 : 0.5)  (49 : 0.5)  
+(1 : 1029.5)  (2 : 555.0)  (3 : 408.5)  (4 : 236.5)  (5 : 154.0)  (6 : 94.0)  (7 : 68.5)  (8 : 66.0)  (9 : 83.5)  (10 : 75.0)  (11 : 51.5)  (12 : 41.0)  (13 : 28.5)  (14 : 21.0)  (15 : 23.5)  (16 : 18.5)  (17 : 23.5)  (18 : 9.0)  (19 : 6.5)  (20 : 9.5)  (21 : 3.0)  (22 : 5.5)  (23 : 2.5)  (24 : 2.0)  (25 : 3.5)  (26 : 3.0)  (27 : 0.5)  (28 : 3.5)  (29 : 1.0)  (31 : 0.5)  

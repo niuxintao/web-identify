@@ -1,0 +1,87 @@
+2-way for Tomcat
+###############################################
+###############################################
+average tl num :26.5
+
+average tl num_r :2.5
+
+average tl num_i :24.0
+
+average tl recall :0.3333333333333333
+
+average tl precise :0.5
+
+average tl f-measure :0.4
+
+average tl multi :1.5
+
+average tl time :35.5
+
+average tl time_r :2.5
+
+average tl time_i :0.0
+
+average tl t_cover :66.0
+
+average tl all_cover :236.0
+
+average tl CoverNUM
+(1 : 118.5)  
+3-way for Tomcat
+###############################################
+###############################################
+average tl num :99.5
+
+average tl num_r :34.5
+
+average tl num_i :65.0
+
+average tl recall :1.0
+
+average tl precise :1.0
+
+average tl f-measure :1.0
+
+average tl multi :0.0
+
+average tl time :527.0
+
+average tl time_r :91.0
+
+average tl time_i :3.0
+
+average tl t_cover :1424.0
+
+average tl all_cover :1424.0
+
+average tl CoverNUM
+(1 : 205.5)  (2 : 146.0)  (3 : 121.0)  (4 : 82.5)  (5 : 56.0)  (6 : 33.0)  (7 : 21.5)  (8 : 12.5)  (9 : 12.0)  (10 : 8.0)  (11 : 4.5)  (12 : 4.5)  (13 : 5.5)  (14 : 1.5)  (15 : 2.5)  (16 : 1.0)  (17 : 0.5)  (18 : 2.5)  (19 : 0.5)  
+4-way for Tomcat
+###############################################
+###############################################
+average tl num :138.5
+
+average tl num_r :83.5
+
+average tl num_i :55.0
+
+average tl recall :0.6666666666666666
+
+average tl precise :0.625
+
+average tl f-measure :0.6285714285714286
+
+average tl multi :0.0
+
+average tl time :2281.5
+
+average tl time_r :444.5
+
+average tl time_i :3.0
+
+average tl t_cover :5033.5
+
+average tl all_cover :5600.0
+
+average tl CoverNUM
+(1 : 1146.5)  (2 : 341.5)  (3 : 338.5)  (4 : 258.5)  (5 : 176.0)  (6 : 145.0)  (7 : 101.0)  (8 : 70.0)  (9 : 62.0)  (10 : 44.0)  (11 : 27.0)  (12 : 20.0)  (13 : 18.0)  (14 : 11.5)  (15 : 8.0)  (16 : 11.0)  (17 : 7.0)  (18 : 3.5)  (19 : 2.5)  (20 : 7.0)  (21 : 3.5)  (22 : 1.0)  (23 : 2.5)  (24 : 3.0)  (25 : 1.5)  (26 : 2.0)  (27 : 1.0)  (28 : 0.5)  (30 : 0.5)  
