@@ -314,7 +314,7 @@ public class AETG_Constraints extends AETG {
 		return bestV;
 	}
 
-	public int[] getBestTestCase(Tuple part) {
+	public int[] getBestTestCase(Tuple part, TestCase original) {
 		int[] best = new int[dataCenter.param_num];
 
 		int bestUncovered = -1;
@@ -338,6 +338,30 @@ public class AETG_Constraints extends AETG {
 						dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 
 				tempFirst = first;
+				
+				//should not contain it
+				boolean tempSat = true;
+				for(int i = 0; i < first.getDegree(); i++){
+					TestCaseImplement testForTuple = new TestCaseImplement(original.getLength());
+					for(int k = 0; k < testForTuple.getLength(); k++){
+						testForTuple.set(k, 0);
+					}
+					
+					for(int k = 0; k < first.getParamIndex().length; k++){
+						testForTuple.set(first.getParamIndex()[k], first.getParamValue()[k]);
+					}
+					
+					Tuple tOne = new Tuple(1, testForTuple);
+					tOne.set(0, first.getParamIndex()[i]);
+					if(part.contains(tOne))
+						continue;
+					if(original.containsOf(tOne)){
+						tempSat =false;
+						break;
+					}
+				}
+				if(!tempSat)
+					continue;
 
 				// judege if it is satisified
 				isSat = !this.isInvoude(first.getParamIndex(),
@@ -380,6 +404,9 @@ public class AETG_Constraints extends AETG {
 						cannot2.add(tempValue);
 					bvalue = this.getBestValue(testCase, rmI, cannot2);
 					tempValue = bvalue;
+					
+					if(original.getAt(rmI) == tempValue)
+						continue;
 
 					// judege if it is satisified
 					List<Integer> indexes = new ArrayList<Integer>();

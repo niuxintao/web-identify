@@ -11,7 +11,6 @@ public class GetBestTestCaseAndConstraints {
 	
 	/*******************************************************/
 	/*****************************************************/
-	@SuppressWarnings("unused")
 	private TestCase original;
 
 	public GetBestTestCaseAndConstraints(AETG_Constraints ac, TestCase original) {
@@ -20,7 +19,7 @@ public class GetBestTestCaseAndConstraints {
 	}
 
 	public int[] getTestCase(Tuple partial) {
-		int[] testCase = ac.getBestTestCase(partial);
+		int[] testCase = ac.getBestTestCase(partial, original);
 
 		return testCase;
 	}
