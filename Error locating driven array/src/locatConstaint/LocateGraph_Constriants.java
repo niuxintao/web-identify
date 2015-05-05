@@ -1,5 +1,7 @@
 package locatConstaint;
 
+import interaction.DataCenter;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +14,8 @@ import com.fc.testObject.TestSuite;
 import com.fc.testObject.TestSuiteImplement;
 import com.fc.tuple.Tuple;
 
+import ct.AETG_Constraints;
+
 public class LocateGraph_Constriants {
 	private CaseRunner caseRunner;
 	private TestSuite addtionalTestSuite;
@@ -21,25 +25,32 @@ public class LocateGraph_Constriants {
 		addtionalTestSuite = new TestSuiteImplement();
 	}
 
-	public List<Tuple> locateErrorsInTest(TestCase safeTest,
+	public List<Tuple> locateErrorsInTest(AETG_Constraints ac,
 			TestCase wrongCase, Tuple tuple) {
+		GetBestTestCaseAndConstraints gtc = new GetBestTestCaseAndConstraints(ac, wrongCase);
+		
 		if (tuple.getDegree() == 1) {
 			List<Tuple> edge = new ArrayList<Tuple>();
 			edge.add(tuple);
 			return edge;
 		} else {
 			Tuple[] tuples = this.getSplit(tuple, wrongCase);
-			TestCase case1 = this.generateTestCase(safeTest, tuples[0]);
-			TestCase case2 = this.generateTestCase(safeTest, tuples[1]);
+			
+			int[] test1 =   gtc.getTestCase(tuples[0]);
+			TestCaseImplement case1 = new TestCaseImplement(test1);
+			
+			int[] test2 =   gtc.getTestCase(tuples[1]);
+			TestCaseImplement case2 = new TestCaseImplement(test2);
+			
 			List<Tuple> edge1 = new ArrayList<Tuple>();
 			List<Tuple> edge2 = new ArrayList<Tuple>();
 			if (!this.test(case1))
-				edge1 = this.locateErrorsInTest(safeTest, case1, tuples[0]);
+				edge1 = this.locateErrorsInTest(ac, case1, tuples[0]);
 			if (!this.test(case2))
-				edge2 = this.locateErrorsInTest(safeTest, case2, tuples[1]);
+				edge2 = this.locateErrorsInTest(ac, case2, tuples[1]);
 
 			List<Tuple> edge3 = new ArrayList<Tuple>();
-			edge3 = this.acrossLocate(safeTest, wrongCase, tuples[0],
+			edge3 = this.acrossLocate(ac, wrongCase, tuples[0],
 					tuples[1], edge1, edge2);
 
 			List<Tuple> list = new ArrayList<Tuple>();
@@ -51,8 +62,11 @@ public class LocateGraph_Constriants {
 
 	}
 
-	public List<Tuple> acrossLocate(TestCase safeTest, TestCase wrongCase,
+	public List<Tuple> acrossLocate(AETG_Constraints ac, TestCase wrongCase,
 			Tuple tuple1, Tuple tuple2, List<Tuple> edge1, List<Tuple> edge2) {
+		GetBestTestCaseAndConstraints gtc = new GetBestTestCaseAndConstraints(ac, wrongCase);
+		
+		
 		List<Tuple> result = new ArrayList<Tuple>();
 
 		Tuple B1 = this.getTupleByRemove(tuple1, edge1, wrongCase);
@@ -64,16 +78,19 @@ public class LocateGraph_Constriants {
 		for (Tuple c1 : C1)
 			for (Tuple c2 : C2) {
 				Tuple tuple = c1.catComm(c1, c2);
-				TestCase testCase = this.generateTestCase(safeTest, tuple);
+				
+				int[] test =   gtc.getTestCase(tuple);
+				TestCaseImplement testCase = new TestCaseImplement(test);
+				
 				if (!this.test(testCase))
-					result.addAll(this.acrosslocateAux(safeTest, testCase, c1,
+					result.addAll(this.acrosslocateAux(ac, testCase, c1,
 							c2));
 			}
 
 		return result;
 	}
 
-	public List<Tuple> acrosslocateAux(TestCase safeTest, TestCase testCase,
+	public List<Tuple> acrosslocateAux(AETG_Constraints ac, TestCase testCase,
 			Tuple c1, Tuple c2) {
 		if (c1.getDegree() == 1 && c2.getDegree() == 1) {
 
@@ -96,15 +113,15 @@ public class LocateGraph_Constriants {
 		List<Tuple> E1 = new ArrayList<Tuple>();
 		List<Tuple> E2 = new ArrayList<Tuple>();
 
-		TestCase case1 = this.generateTestCaseReverse(testCase, safeTest,
+		TestCase case1 = this.generateTestCaseReverse(testCase, ac,
 				tuples[1]);
 		if (!this.test(case1))
-			E1 = this.acrosslocateAux(safeTest, case1, remain, tuples[0]);
+			E1 = this.acrosslocateAux(ac, case1, remain, tuples[0]);
 
-		TestCase case2 = this.generateTestCaseReverse(testCase, safeTest,
+		TestCase case2 = this.generateTestCaseReverse(testCase, ac,
 				tuples[0]);
 		if (!this.test(case2))
-			E2 = this.acrosslocateAux(safeTest, case2, remain, tuples[1]);
+			E2 = this.acrosslocateAux(ac, case2, remain, tuples[1]);
 
 		List<Tuple> result = new ArrayList<Tuple>();
 		result.addAll(E1);
@@ -237,14 +254,20 @@ public class LocateGraph_Constriants {
 	}
 
 	public TestCase generateTestCaseReverse(TestCase wrongCase,
-			TestCase safeTest, Tuple tuple) {
-		TestCase result = new TestCaseImplement(wrongCase.getLength());
-		for (int i = 0; i < wrongCase.getLength(); i++)
-			result.set(i, wrongCase.getAt(i));
-		for (int i = 0; i < tuple.getDegree(); i++)
-			result.set(tuple.getParamIndex()[i],
-					safeTest.getAt(tuple.getParamIndex()[i]));
-		return result;
+			AETG_Constraints ac,  Tuple tuple) {
+		GetBestTestCaseAndConstraints gtc = new GetBestTestCaseAndConstraints(ac, wrongCase);
+		
+		Tuple tuplePartial = tuple.getReverseTuple();
+		
+		int[] test =   gtc.getTestCase(tuplePartial);
+		TestCaseImplement testCase = new TestCaseImplement(test);
+		
+//		for (int i = 0; i < wrongCase.getLength(); i++)
+//			result.set(i, wrongCase.getAt(i));
+//		for (int i = 0; i < tuple.getDegree(); i++)
+//			result.set(tuple.getParamIndex()[i],
+//					safeTest.getAt(tuple.getParamIndex()[i]));
+		return testCase;
 	}
 
 	public static void main(String[] args) {
@@ -271,8 +294,10 @@ public class LocateGraph_Constriants {
 
 		Tuple tuple = new Tuple(0, wrongCase);
 		tuple = tuple.getReverseTuple();
+		
+		AETG_Constraints ac = new  AETG_Constraints(new DataCenter(new int[] {3, 3, 3, 3, 3, 3,3, 3}, 2));
 
-		List<Tuple> bugs = lg.locateErrorsInTest(rightCase, wrongCase, tuple);
+		List<Tuple> bugs = lg.locateErrorsInTest(ac, wrongCase, tuple);
 		System.out.println("bugs:");
 		for (Tuple tu : bugs)
 			System.out.println(tu.toString());

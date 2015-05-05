@@ -5,6 +5,9 @@ import java.util.List;
 import com.fc.tuple.CorpTupleWithTestCase;
 import com.fc.tuple.Tuple;
 
+
+// aug suc complete one path , until one MFS is found
+
 public class ChainAug extends CharacterWM {
 	private List<Tuple> currentChain;
 	private Tuple currCandidate;

@@ -1,5 +1,7 @@
 package locatConstaint;
 
+import interaction.DataCenter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -280,9 +282,11 @@ public class FIC_Constraints {
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel);
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
+		
+		AETG_Constraints ac = new  AETG_Constraints(new DataCenter(param, 2));
 
 		FIC_Constraints fic = new FIC_Constraints(wrongCase, param, caseRunner,
-				null);
+				ac);
 		fic.FicNOP();
 
 		for (int i = 0; i < fic.getExecuted().size(); i++) {

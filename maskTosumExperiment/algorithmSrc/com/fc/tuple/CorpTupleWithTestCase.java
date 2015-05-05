@@ -20,6 +20,8 @@ public class CorpTupleWithTestCase {
 	// every tuple is responding to a testSuite
 	private List<Tuple> tuples;
 
+	
+	// re-validate do not generate the same test case 
 	private int iter;
 
 	public void addIter() {

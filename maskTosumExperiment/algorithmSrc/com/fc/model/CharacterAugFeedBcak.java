@@ -10,6 +10,8 @@ import com.fc.testObject.TestSuite;
 import com.fc.tuple.CorpTupleWithTestCase;
 import com.fc.tuple.Tuple;
 
+
+// validate the MFS is right after character
 public class CharacterAugFeedBcak {
 	public final static int VALIDATETIMES = 3;
 	HashSet<Tuple> bugs;
