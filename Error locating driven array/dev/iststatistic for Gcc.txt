@@ -1,0 +1,84 @@
+num ist deviration: 0.0
+
+num_r ist deviration: 0.0
+
+num_i ist deviration: 0.0
+
+recall ist deviration: 0.125
+
+precise ist deviration: 0.25
+
+f-measure ist deviration: 0.16666666666666666
+
+multi ist deviration: 0.0
+
+time ist deviration: 3.0
+
+time_r ist deviration: 0.5
+
+time_i ist deviration: 0.5
+
+t_cover ist deviration: 0.5
+
+all_cover ist deviration: 0.0
+
+deviration ist CoverNUM
+(1 : 1206.25)  (2 : 833.0)  (3 : 288.25)  (4 : 102.25)  (5 : 202.25)  (6 : 48.25)  (7 : 62.5)  (8 : 1.25)  (9 : 12.25)  (10 : 12.25)  
+deviration ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.125)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.125)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.125)  
+num ist deviration: 8.5
+
+num_r ist deviration: 1.5
+
+num_i ist deviration: 10.0
+
+recall ist deviration: 0.25
+
+precise ist deviration: 0.3333333333333333
+
+f-measure ist deviration: 0.28571428571428575
+
+multi ist deviration: 0.0
+
+time ist deviration: 36.0
+
+time_r ist deviration: 22.5
+
+time_i ist deviration: 0.0
+
+t_cover ist deviration: 82.0
+
+all_cover ist deviration: 0.0
+
+deviration ist CoverNUM
+(1 : 52600.25)  (2 : 26530.25)  (3 : 11955.25)  (4 : 3193.25)  (5 : 2556.5)  (6 : 2181.25)  (7 : 1652.5)  (8 : 1205.0)  (9 : 463.25)  (10 : 184.5)  (11 : 220.25)  (12 : 45.25)  (13 : 36.125)  (14 : 21.125)  (15 : 2.0)  (16 : 4.5)  (17 : 1.125)  
+deviration ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.125)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.125)  
+num ist deviration: 3.5
+
+num_r ist deviration: 3.5
+
+num_i ist deviration: 0.0
+
+recall ist deviration: 0.0
+
+precise ist deviration: 0.0
+
+f-measure ist deviration: 0.0
+
+multi ist deviration: 0.5
+
+time ist deviration: 10.0
+
+time_r ist deviration: 18.0
+
+time_i ist deviration: 0.5
+
+t_cover ist deviration: 27.0
+
+all_cover ist deviration: 0.0
+
+deviration ist CoverNUM
+(1 : 223239.25)  (2 : 625060.0)  (3 : 396106.25)  (4 : 86262.25)  (5 : 28950.5)  (6 : 25326.25)  (7 : 22976.5)  (8 : 13461.25)  (9 : 10541.25)  (10 : 4481.0)  (11 : 2064.5)  (12 : 858.25)  (13 : 582.25)  (14 : 288.5)  (15 : 28.125)  (16 : 12.5)  (17 : 0.5)  
+deviration ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.125)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.0)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.125)  

@@ -55,10 +55,18 @@ public class HsqlDBData implements ExperimentData {
 		bugModel2.set(2, 9);
 
 		realMFS.add(bugModel2);
+		
+		
+
+//		Tuple bugModel3 = new Tuple(3, wrongCase2);
+//		bugModel3.set(0, 2);
+//
+//		realMFS.add(bugModel3);
 
 		this.caseRunner = new CaseRunnerWithBugInject();
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
+//		((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
 	}
 
 	public void setDegree(int degree) {

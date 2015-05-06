@@ -1,0 +1,84 @@
+num sct deviration: 0.5
+
+num_r sct deviration: 0.5
+
+num_i sct deviration: 0.0
+
+recall sct deviration: 0.0
+
+precise sct deviration: 0.0
+
+f-measure sct deviration: 0.0
+
+multi sct deviration: 0.0
+
+time sct deviration: 0.0
+
+time_r sct deviration: 0.0
+
+time_i sct deviration: 0.0
+
+t_cover sct deviration: 0.0
+
+all_cover sct deviration: 0.0
+
+deviration sct CoverNUM
+(1 : 533.0)  (2 : 1697.0)  (3 : 1602.0)  (4 : 429.25)  (5 : 34.25)  (6 : 1.25)  (7 : 84.5)  (8 : 20.0)  (9 : 42.5)  (10 : 0.125)  (11 : 44.5)  (12 : 148.0)  (13 : 68.0)  (14 : 4.5)  (16 : 0.5)  (17 : 1.125)  (18 : 2.25)  (19 : 0.5)  
+deviration sct CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.0)  
+num sct deviration: 1.0
+
+num_r sct deviration: 1.0
+
+num_i sct deviration: 0.0
+
+recall sct deviration: 0.0
+
+precise sct deviration: 0.0
+
+f-measure sct deviration: 0.0
+
+multi sct deviration: 0.0
+
+time sct deviration: 6.0
+
+time_r sct deviration: 6.0
+
+time_i sct deviration: 0.0
+
+t_cover sct deviration: 1.5
+
+all_cover sct deviration: 0.0
+
+deviration sct CoverNUM
+(1 : 10012.25)  (2 : 41856.25)  (3 : 50448.25)  (4 : 31863.25)  (5 : 20905.0)  (6 : 12606.25)  (7 : 3732.5)  (8 : 1212.25)  (9 : 369.0)  (10 : 88.25)  (11 : 256.25)  (12 : 1017.25)  (13 : 2378.0)  (14 : 2413.25)  (15 : 1191.25)  (16 : 619.25)  (17 : 199.25)  (18 : 144.25)  (19 : 10.0)  (20 : 11.25)  (21 : 31.25)  (22 : 50.0)  (23 : 116.0)  (24 : 165.25)  (25 : 88.25)  (26 : 12.5)  (27 : 12.5)  (30 : 0.125)  (31 : 0.5)  (32 : 2.0)  (33 : 18.0)  (34 : 4.5)  (37 : 0.125)  
+deviration sct CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.0)  
+num sct deviration: 9.0
+
+num_r sct deviration: 3.0
+
+num_i sct deviration: 6.0
+
+recall sct deviration: 0.0
+
+precise sct deviration: 0.0
+
+f-measure sct deviration: 0.0
+
+multi sct deviration: 0.0
+
+time sct deviration: 15.0
+
+time_r sct deviration: 15.0
+
+time_i sct deviration: 0.0
+
+t_cover sct deviration: 6.0
+
+all_cover sct deviration: 0.0
+
+deviration sct CoverNUM
+(1 : 108378.5)  (2 : 598294.25)  (3 : 924964.0)  (4 : 736812.5)  (5 : 492522.5)  (6 : 300404.0)  (7 : 172152.25)  (8 : 84697.0)  (9 : 43065.25)  (10 : 30327.25)  (11 : 30812.5)  (12 : 35834.5)  (13 : 51747.25)  (14 : 48819.25)  (15 : 38233.0)  (16 : 23793.25)  (17 : 16020.0)  (18 : 8166.5)  (19 : 4521.25)  (20 : 4693.25)  (21 : 3154.5)  (22 : 3147.25)  (23 : 2198.5)  (24 : 1640.0)  (25 : 805.25)  (26 : 367.25)  (27 : 526.25)  (28 : 312.5)  (29 : 200.0)  (30 : 123.25)  (31 : 110.5)  (32 : 56.5)  (33 : 20.0)  (34 : 24.25)  (35 : 10.25)  (36 : 16.0)  (37 : 2.25)  (38 : 2.25)  (39 : 0.25)  (40 : 4.25)  (41 : 0.5)  (42 : 0.5)  (47 : 0.125)  
+deviration sct CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.0)  

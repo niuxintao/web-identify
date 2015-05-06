@@ -1,0 +1,84 @@
+num fd deviration: 2.5
+
+num_r fd deviration: 2.5
+
+num_i fd deviration: 0.0
+
+recall fd deviration: 0.0
+
+precise fd deviration: 0.0
+
+f-measure fd deviration: 0.0
+
+multi fd deviration: 0.0
+
+time fd deviration: 18.0
+
+time_r fd deviration: 13.5
+
+time_i fd deviration: 2.5
+
+t_cover fd deviration: 2.5
+
+all_cover fd deviration: 0.0
+
+deviration fd CoverNUM
+(1 : 1980.5)  (2 : 2462.5)  (3 : 1771.25)  (4 : 254.25)  (5 : 50.0)  (6 : 2.5)  (7 : 1.25)  (8 : 4.5)  (9 : 17.0)  (10 : 81.25)  (11 : 18.25)  
+deviration fd CoverNUM
+
+num fd deviration: 4.0
+
+num_r fd deviration: 4.0
+
+num_i fd deviration: 0.0
+
+recall fd deviration: 0.0
+
+precise fd deviration: 0.16666666666666669
+
+f-measure fd deviration: 0.09999999999999998
+
+multi fd deviration: 0.0
+
+time fd deviration: 19.0
+
+time_r fd deviration: 18.0
+
+time_i fd deviration: 0.5
+
+t_cover fd deviration: 0.5
+
+all_cover fd deviration: 0.0
+
+deviration fd CoverNUM
+(1 : 22891.25)  (2 : 74958.5)  (3 : 91023.25)  (4 : 48336.5)  (5 : 19231.25)  (6 : 10056.5)  (7 : 4491.25)  (8 : 1646.5)  (9 : 549.0)  (10 : 277.0)  (11 : 126.25)  (12 : 72.5)  (13 : 153.25)  (14 : 72.0)  (15 : 21.125)  (16 : 12.5)  (17 : 18.0)  (18 : 12.5)  (19 : 6.25)  (20 : 50.0)  (21 : 105.125)  (22 : 24.5)  (23 : 2.0)  (24 : 0.125)  
+deviration fd CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.0)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.0)  
+num fd deviration: 3.5
+
+num_r fd deviration: 3.5
+
+num_i fd deviration: 0.0
+
+recall fd deviration: 0.0
+
+precise fd deviration: 0.0
+
+f-measure fd deviration: 0.0
+
+multi fd deviration: 0.0
+
+time fd deviration: 45.0
+
+time_r fd deviration: 42.5
+
+time_i fd deviration: 0.5
+
+t_cover fd deviration: 0.0
+
+all_cover fd deviration: 0.0
+
+deviration fd CoverNUM
+(1 : 305371.25)  (2 : 1688632.25)  (3 : 2040658.25)  (4 : 1409125.25)  (5 : 744430.25)  (6 : 339577.25)  (7 : 146475.25)  (8 : 60319.25)  (9 : 23871.25)  (10 : 13657.25)  (11 : 12560.0)  (12 : 4632.5)  (13 : 1394.0)  (14 : 340.0)  (15 : 58.25)  (16 : 5.0)  (17 : 2.0)  (18 : 30.5)  (19 : 36.0)  (20 : 54.5)  (21 : 145.0)  (22 : 66.25)  (23 : 65.0)  (24 : 58.0)  (25 : 25.25)  (26 : 25.0)  (27 : 0.0)  (28 : 0.125)  
+deviration fd CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.0)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.0)  

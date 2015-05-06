@@ -61,6 +61,13 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 	private HashMap<Integer, Integer> coveredNums;
 
+	private HashMap<Tuple, Integer> realIdentify;
+
+	@Override
+	public HashMap<Tuple, Integer> getRealIdentify() {
+		return realIdentify;
+	}
+	
 	@Override
 	public HashMap<Integer, Integer> getCoveredNums() {
 		return coveredNums;
@@ -107,8 +114,11 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		cm = new CoveringManage(dataCenter);
 		MFS = new HashSet<Tuple>();
 		coveredNums = new HashMap<Integer, Integer>();
+		realIdentify = new HashMap<Tuple, Integer>();
 		this.dataCenter = dataCenter;
 	}
+
+
 
 	/*
 	 * (non-Javadoc)
@@ -140,14 +150,14 @@ public class ErrorLocatingDrivenArray implements CT_process {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
 			} else {
 				this.failTestCase.add(testCase);
-				
+
 				long ideTime = System.currentTimeMillis();
 
 				List<Tuple> mfs = getMFS(ac, testCase);
-				
+
 				ideTime = System.currentTimeMillis() - ideTime;
 				this.timeIden += ideTime;
-				
+
 				ac.addConstriants(mfs);
 				this.MFS.addAll(mfs);
 				// setCoverage(mfs);
@@ -161,10 +171,8 @@ public class ErrorLocatingDrivenArray implements CT_process {
 	}
 
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
-	
 
-		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter,
-				testCase, ac);
+		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter, testCase, ac);
 		// sc.process(testCase, DataCenter.param, caseRunner);
 
 		while (!sc.isEnd()) {
@@ -179,15 +187,14 @@ public class ErrorLocatingDrivenArray implements CT_process {
 				next[i] = nextTestCase.getAt(i);
 			}
 			if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
-				ac.unCovered = cm.setCover(ac.unCovered,
-						ac.coveredMark, next);
+				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, next);
 				nextTestCase.setTestState(TestCase.PASSED);
 			} else
 				nextTestCase.setTestState(TestCase.FAILED);
 		}
 
 		sc.analysis();
-		
+
 		List<Tuple> mfs = sc.getBugs();
 		return mfs;
 	}
@@ -237,8 +244,18 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		// computingTcove
 		computeT_cover(actualMFS);
 		
+		computeRealIdentify(actualMFS);
+
 		computeCoveredNum();
 
+	}
+
+	public void computeRealIdentify(List<Tuple> actualMFS) {
+		for (Tuple t : actualMFS) {
+			if (this.MFS.contains(t)) {
+				realIdentify.put(t, 1);
+			}
+		}
 	}
 
 	public void computeT_cover(List<Tuple> actualMFS) {
@@ -269,7 +286,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 	}
 
 	public void computeCoveredNum() {
-		
+
 		for (int i : coveredMark) {
 			Integer I = new Integer(i);
 			if (!this.coveredNums.containsKey(I)) {

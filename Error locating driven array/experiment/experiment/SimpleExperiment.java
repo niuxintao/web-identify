@@ -16,17 +16,23 @@ import experimentData.TcasData;
 import experimentData.TomcatData;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
+import gandi.ErrorLocatingDrivenArray_CB;
+import gandi.ErrorLocatingDrivenArray_TL;
+import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
 public class SimpleExperiment {
 
-	public final static int REP = 30;
+	public final static int REP = 5;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
 	public final static int ICT_CB = 2;
 	public final static int ICT_TL = 3;
 	public final static int FD = 4;
+
+	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL",
+			"fd" };
 
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
@@ -63,6 +69,14 @@ public class SimpleExperiment {
 		} else if (algorithm == SCT) {
 			ct_process = new TraditionalFGLI(data.getDataCenter(),
 					data.getCaseRunner());
+		} else if (algorithm == FD) {
+			ct_process = new FD_CIT(data.getDataCenter(), data.getCaseRunner());
+		} else if (algorithm == ICT_CB) {
+			ct_process = new ErrorLocatingDrivenArray_CB(data.getDataCenter(),
+					data.getCaseRunner());
+		} else if (algorithm == ICT_TL) {
+			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(),
+					data.getCaseRunner());
 		}
 
 		ct_process.run();
@@ -79,6 +93,8 @@ public class SimpleExperiment {
 		// schemas covered
 		edata.coveredSchemasNum = ct_process.getCoveredNums();
 		/******     ***************/
+
+		edata.realIdentify = ct_process.getRealIdentify();
 
 		edata.precise = ct_process.getPrecise();
 		edata.recall = ct_process.getRecall();
@@ -128,8 +144,16 @@ public class SimpleExperiment {
 		output.println("all-cover");
 		output.println("" + edata.allCover);
 
+		output.println("coveredNum");
 		for (Entry<Integer, Integer> da : edata.coveredSchemasNum.entrySet()) {
 			output.print("(" + da.getKey() + " : " + da.getValue() + ")  ");
+		}
+		output.println();
+
+		output.println("real Identify");
+		for (Entry<Tuple, Integer> da : edata.realIdentify.entrySet()) {
+			output.print("(" + da.getKey().toString() + " : " + da.getValue()
+					+ ")  ");
 		}
 		output.println();
 		// output.println("" + edata.);
@@ -152,12 +176,15 @@ public class SimpleExperiment {
 
 	public void test(int algorithm, String subject, ExperimentData data) {
 
-		String s = algorithm == ICT ? "elda" : "fglt";
+		String s = StringAl[algorithm];
 
-		OutPut statistic = new OutPut("avg/" +s + "statistic for " + subject + ".txt");
-		OutPut statisticDev = new OutPut("dev/" + s + "statistic for " + subject + ".txt");
+		OutPut statistic = new OutPut("avg/" + s + "statistic for " + subject
+				+ ".txt");
+		OutPut statisticDev = new OutPut("dev/" + s + "statistic for "
+				+ subject + ".txt");
 
-		OutPut out2 = new OutPut("specific/" +s + "2-way for " + subject + ".txt");
+		OutPut out2 = new OutPut("specific/" + s + "2-way for " + subject
+				+ ".txt");
 		EDATA[] data2 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
@@ -165,7 +192,8 @@ public class SimpleExperiment {
 		this.statistic(algorithm, data2, statistic, statisticDev);
 		out2.close();
 
-		OutPut out3 = new OutPut("specific/" +s + "3-way for " + subject + ".txt");
+		OutPut out3 = new OutPut("specific/" + s + "3-way for " + subject
+				+ ".txt");
 		EDATA[] data3 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data3[i] = execute(algorithm, data, 3, out3);
@@ -173,16 +201,85 @@ public class SimpleExperiment {
 		this.statistic(algorithm, data3, statistic, statisticDev);
 		out3.close();
 
-		OutPut out4 = new OutPut("specific/" +s + "4-way for " + subject + ".txt");
+		OutPut out4 = new OutPut("specific/" + s + "4-way for " + subject
+				+ ".txt");
 		EDATA[] data4 = new EDATA[REP];
 		for (int i = 0; i < REP; i++)
 			data4[i] = execute(algorithm, data, 4, out4);
 		statistic.println("4-way for " + subject);
-		this.statistic(algorithm, data4, statistic,statisticDev);
+		this.statistic(algorithm, data4, statistic, statisticDev);
 		out4.close();
 
 		statistic.close();
 		statisticDev.close();
+	}
+
+	public void statistic_realIdenti(int algorithm, EDATA[] data, OutPut out,
+			OutPut outDev) {
+
+		HashMap<Tuple, Integer> coverAll = new HashMap<Tuple, Integer>();
+
+		HashMap<Tuple, Double> coverAvg = new HashMap<Tuple, Double>();
+
+		HashMap<Tuple, Double> coverDev = new HashMap<Tuple, Double>();
+
+		for (EDATA daa : data) {
+			HashMap<Tuple, Integer> cover = daa.realIdentify;
+			for (Entry<Tuple, Integer> daen : cover.entrySet()) {
+				if (!coverAll.containsKey(daen.getKey())) {
+					coverAll.put(daen.getKey(), daen.getValue());
+				} else {
+					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey())
+							.intValue() + 1));
+				}
+			}
+		}
+
+		for (Entry<Tuple, Integer> cen : coverAll.entrySet()) {
+			coverAvg.put(cen.getKey(), cen.getValue().doubleValue()
+					/ (double) data.length);
+		}
+
+		// compute dev
+		for (EDATA daa : data) {
+			HashMap<Tuple, Integer> cover = daa.realIdentify;
+			for (Entry<Tuple, Integer> daen : cover.entrySet()) {
+				double dev = (daen.getValue().doubleValue() - coverAvg.get(
+						daen.getKey()).doubleValue())
+						* (daen.getValue().doubleValue() - coverAvg.get(
+								daen.getKey()).doubleValue());
+
+				if (!coverDev.containsKey(daen.getKey())) {
+					coverDev.put(daen.getKey(), dev);
+				} else {
+					coverDev.put(daen.getKey(), (coverDev.get(daen.getKey())
+							.doubleValue() + dev));
+				}
+			}
+		}
+
+		for (Entry<Tuple, Double> cen : coverDev.entrySet()) {
+			coverDev.put(cen.getKey(), cen.getValue().doubleValue()
+					/ (double) data.length);
+		}
+
+		String s = StringAl[algorithm];
+
+		out.println("average " + s + " " + "CoverNUM");
+
+		for (Entry<Tuple, Double> cen : coverAvg.entrySet()) {
+			out.print("(" + cen.getKey() + " : " + cen.getValue() + ")  ");
+		}
+
+		out.println();
+
+		outDev.println("deviration " + s + " " + "CoverNUM");
+		for (Entry<Tuple, Double> cen : coverDev.entrySet()) {
+			outDev.print("(" + cen.getKey() + " : " + cen.getValue() + ")  ");
+		}
+
+		outDev.println();
+
 	}
 
 	public void statistic_cover(int algorithm, EDATA[] data, OutPut out,
@@ -234,7 +331,7 @@ public class SimpleExperiment {
 					/ (double) data.length);
 		}
 
-		String s = algorithm == ICT ? "elda" : "fglt";
+		String s = StringAl[algorithm];
 
 		out.println("average " + s + " " + "CoverNUM");
 
@@ -349,7 +446,7 @@ public class SimpleExperiment {
 
 		da_dev = Math.sqrt(da_dev);
 
-		String s = algorithm == ICT ? "elda" : "fglt";
+		String s = StringAl[algorithm];
 
 		out.println("average " + s + " " + SHOW[state] + " :" + da);
 		out.println();
@@ -357,14 +454,16 @@ public class SimpleExperiment {
 		outDev.println();
 	}
 
-	public void statistic(int algorithm, EDATA[] edata, OutPut out,  OutPut outDev) {
+	public void statistic(int algorithm, EDATA[] edata, OutPut out,
+			OutPut outDev) {
 		out.println("###############################################");
 		out.println("###############################################");
 
 		for (int i = 0; i < SHOW.length; i++) {
-			this.statistic(algorithm, edata, out, outDev,  i);
+			this.statistic(algorithm, edata, out, outDev, i);
 		}
 		statistic_cover(algorithm, edata, out, outDev);
+		statistic_realIdenti(algorithm, edata, out, outDev);
 
 		// output.println("" + edata.);
 	}
@@ -381,8 +480,7 @@ public class SimpleExperiment {
 		HsqlDBData data = new HsqlDBData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
 	}
 
 	public void testJFlex() {
@@ -391,8 +489,7 @@ public class SimpleExperiment {
 		JFlexData data = new JFlexData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
 	}
 
 	public void testTcas() {
@@ -401,8 +498,7 @@ public class SimpleExperiment {
 		TcasData data = new TcasData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
 	}
 
 	public void testGcc() {
@@ -411,8 +507,7 @@ public class SimpleExperiment {
 		GccData data = new GccData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
 	}
 
 	public void testTomcat() {
@@ -421,8 +516,14 @@ public class SimpleExperiment {
 		TomcatData data = new TomcatData();
 		/******************************/
 
-		this.test(ICT, subject, data);
-		this.test(SCT, subject, data);
+		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+	}
+
+	public void testAlgorithm(String subject, ExperimentData data,
+			int[] algorithms) {
+		for (int i : algorithms) {
+			this.test(i, subject, data);
+		}
 	}
 
 	public static void main(String[] args) {
@@ -441,6 +542,8 @@ class EDATA {
 	public int numTestCases;
 
 	public HashMap<Integer, Integer> coveredSchemasNum;
+
+	public HashMap<Tuple, Integer> realIdentify;
 
 	public double precise;
 	public double recall;

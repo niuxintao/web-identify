@@ -43,4 +43,6 @@ public interface CT_process {
 
 	HashMap<Integer, Integer> getCoveredNums();
 
+	HashMap<Tuple, Integer> getRealIdentify();
+
 }

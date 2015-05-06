@@ -1,0 +1,93 @@
+2-way for Tomcat
+###############################################
+###############################################
+average fd num :22.0
+
+average fd num_r :22.0
+
+average fd num_i :0.0
+
+average fd recall :0.3333333333333333
+
+average fd precise :0.25
+
+average fd f-measure :0.28571428571428575
+
+average fd multi :0.0
+
+average fd time :76.0
+
+average fd time_r :65.0
+
+average fd time_i :2.0
+
+average fd t_cover :215.0
+
+average fd all_cover :236.0
+
+average fd CoverNUM
+(1 : 49.5)  (2 : 30.0)  (3 : 16.5)  (4 : 12.0)  (5 : 8.0)  (6 : 3.5)  (7 : 1.5)  (8 : 1.0)  (9 : 0.5)  
+average fd CoverNUM
+([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+3-way for Tomcat
+###############################################
+###############################################
+average fd num :67.5
+
+average fd num_r :67.5
+
+average fd num_i :0.0
+
+average fd recall :0.3333333333333333
+
+average fd precise :0.26666666666666666
+
+average fd f-measure :0.29166666666666663
+
+average fd multi :0.0
+
+average fd time :342.0
+
+average fd time_r :314.0
+
+average fd time_i :1.5
+
+average fd t_cover :1384.0
+
+average fd all_cover :1424.0
+
+average fd CoverNUM
+(1 : 202.5)  (2 : 150.5)  (3 : 118.0)  (4 : 77.0)  (5 : 55.0)  (6 : 41.5)  (7 : 23.5)  (8 : 14.0)  (9 : 10.0)  (10 : 6.0)  (11 : 7.5)  (12 : 3.0)  (13 : 4.0)  (14 : 3.5)  (15 : 2.0)  (16 : 2.0)  (17 : 1.5)  (18 : 1.0)  (19 : 1.5)  (20 : 0.5)  (21 : 0.5)  (22 : 0.5)  (23 : 0.5)  
+average fd CoverNUM
+([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+4-way for Tomcat
+###############################################
+###############################################
+average fd num :149.5
+
+average fd num_r :149.5
+
+average fd num_i :0.0
+
+average fd recall :0.3333333333333333
+
+average fd precise :0.3333333333333333
+
+average fd f-measure :0.3333333333333333
+
+average fd multi :0.0
+
+average fd time :1324.5
+
+average fd time_r :1239.5
+
+average fd time_i :1.5
+
+average fd t_cover :5378.0
+
+average fd all_cover :5600.0
+
+average fd CoverNUM
+(1 : 835.5)  (2 : 448.5)  (3 : 416.0)  (4 : 317.5)  (5 : 235.5)  (6 : 161.0)  (7 : 101.5)  (8 : 76.0)  (9 : 56.5)  (10 : 41.0)  (11 : 31.5)  (12 : 26.0)  (13 : 16.0)  (14 : 8.0)  (15 : 9.0)  (16 : 9.5)  (17 : 7.5)  (18 : 4.0)  (19 : 2.5)  (20 : 3.0)  (21 : 3.5)  (22 : 1.0)  (23 : 1.0)  (24 : 0.5)  
+average fd CoverNUM
+([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  

@@ -1,0 +1,93 @@
+2-way for Gcc
+###############################################
+###############################################
+average ist num :35.0
+
+average ist num_r :15.0
+
+average ist num_i :20.0
+
+average ist recall :0.375
+
+average ist precise :0.75
+
+average ist f-measure :0.5
+
+average ist multi :0.0
+
+average ist time :32.0
+
+average ist time_r :21.5
+
+average ist time_i :0.5
+
+average ist t_cover :251.5
+
+average ist all_cover :252.0
+
+average ist CoverNUM
+(1 : 31.5)  (2 : 36.0)  (3 : 13.5)  (4 : 9.5)  (5 : 12.5)  (6 : 10.5)  (7 : 6.0)  (8 : 2.5)  (9 : 4.5)  (10 : 4.5)  
+average ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.5)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.5)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.5)  
+3-way for Gcc
+###############################################
+###############################################
+average ist num :65.5
+
+average ist num_r :45.5
+
+average ist num_i :20.0
+
+average ist recall :0.25
+
+average ist precise :0.3333333333333333
+
+average ist f-measure :0.28571428571428575
+
+average ist multi :1.0
+
+average ist time :238.0
+
+average ist time_r :112.5
+
+average ist time_i :1.0
+
+average ist t_cover :1446.0
+
+average ist all_cover :1536.0
+
+average ist CoverNUM
+(1 : 125.5)  (2 : 191.5)  (3 : 136.5)  (4 : 56.5)  (5 : 54.0)  (6 : 61.5)  (7 : 57.0)  (8 : 50.0)  (9 : 21.5)  (10 : 13.0)  (11 : 5.5)  (12 : 1.5)  (13 : 8.5)  (14 : 6.5)  (15 : 2.0)  (16 : 3.0)  (17 : 1.5)  
+average ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.5)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.5)  
+4-way for Gcc
+###############################################
+###############################################
+average ist num :132.5
+
+average ist num_r :102.5
+
+average ist num_i :30.0
+
+average ist recall :0.5
+
+average ist precise :0.6666666666666666
+
+average ist f-measure :0.5714285714285715
+
+average ist multi :0.5
+
+average ist time :1588.0
+
+average ist time_r :700.0
+
+average ist time_i :1.5
+
+average ist t_cover :5909.0
+
+average ist all_cover :6048.0
+
+average ist CoverNUM
+(1 : 523.5)  (2 : 887.0)  (3 : 479.5)  (4 : 244.5)  (5 : 206.0)  (6 : 196.5)  (7 : 189.0)  (8 : 127.5)  (9 : 80.5)  (10 : 50.0)  (11 : 24.0)  (12 : 13.5)  (13 : 7.5)  (14 : 2.0)  (15 : 7.5)  (16 : 5.0)  (17 : 1.0)  
+average ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.5)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 1.0)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.5)  

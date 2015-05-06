@@ -1,0 +1,93 @@
+2-way for HSQLDB
+###############################################
+###############################################
+average ist num :33.5
+
+average ist num_r :15.5
+
+average ist num_i :18.0
+
+average ist recall :0.5
+
+average ist precise :0.5
+
+average ist f-measure :0.5
+
+average ist multi :0.0
+
+average ist time :33.5
+
+average ist time_r :19.0
+
+average ist time_i :0.5
+
+average ist t_cover :356.5
+
+average ist all_cover :357.0
+
+average ist CoverNUM
+(1 : 46.0)  (2 : 44.5)  (3 : 40.5)  (4 : 20.0)  (5 : 7.5)  (6 : 3.0)  (7 : 2.0)  (8 : 3.5)  (9 : 2.5)  (10 : 5.5)  (11 : 7.0)  (12 : 4.5)  
+average ist CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.5)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.5)  
+3-way for HSQLDB
+###############################################
+###############################################
+average ist num :59.0
+
+average ist num_r :47.0
+
+average ist num_i :12.0
+
+average ist recall :0.0
+
+average ist precise :0.0
+
+average ist f-measure :0.0
+
+average ist multi :0.0
+
+average ist time :363.5
+
+average ist time_r :192.0
+
+average ist time_i :0.5
+
+average ist t_cover :2720.0
+
+average ist all_cover :2742.0
+
+average ist CoverNUM
+(1 : 165.0)  (2 : 291.5)  (3 : 312.0)  (4 : 222.0)  (5 : 133.5)  (6 : 96.5)  (7 : 62.5)  (8 : 35.5)  (9 : 15.0)  (10 : 6.5)  (11 : 1.0)  (12 : 2.0)  (13 : 3.5)  (14 : 8.5)  (15 : 11.0)  (16 : 12.0)  (17 : 4.5)  (18 : 3.0)  (19 : 1.0)  
+average ist CoverNUM
+
+4-way for HSQLDB
+###############################################
+###############################################
+average ist num :145.5
+
+average ist num_r :127.5
+
+average ist num_i :18.0
+
+average ist recall :0.5
+
+average ist precise :0.5
+
+average ist f-measure :0.5
+
+average ist multi :0.0
+
+average ist time :2482.5
+
+average ist time_r :1545.0
+
+average ist time_i :2.0
+
+average ist t_cover :14027.5
+
+average ist all_cover :14136.0
+
+average ist CoverNUM
+(1 : 565.0)  (2 : 1180.0)  (3 : 1429.0)  (4 : 1182.5)  (5 : 882.0)  (6 : 584.5)  (7 : 424.0)  (8 : 245.5)  (9 : 190.0)  (10 : 127.5)  (11 : 93.5)  (12 : 57.0)  (13 : 30.5)  (14 : 18.0)  (15 : 9.0)  (16 : 12.0)  (17 : 5.0)  (18 : 10.5)  (19 : 12.0)  (20 : 11.5)  (21 : 3.0)  (22 : 4.0)  (23 : 6.5)  (24 : 2.5)  (25 : 1.5)  (26 : 2.0)  (27 : 2.0)  (28 : 2.0)  (29 : 0.5)  
+average ist CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.5)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.5)  

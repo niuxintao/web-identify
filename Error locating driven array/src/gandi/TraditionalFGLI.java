@@ -57,6 +57,14 @@ public class TraditionalFGLI implements CT_process {
 	private int t_tested_covered = 0;
 	
 	private HashMap<Integer, Integer> coveredNums;
+	
+	private HashMap<Tuple, Integer> realIdentify;
+
+	@Override
+	public HashMap<Tuple, Integer> getRealIdentify() {
+		return realIdentify;
+	}
+	
 
 	@Override
 	public HashMap<Integer, Integer> getCoveredNums() {
@@ -81,6 +89,7 @@ public class TraditionalFGLI implements CT_process {
 		failTestCase = new HashSet<TestCase>();
 		MFS = new HashSet<Tuple>();
 		coveredNums = new HashMap<Integer, Integer>();
+		realIdentify = new HashMap<Tuple, Integer>();
 	}
 
 	public void run() {
@@ -230,10 +239,19 @@ public class TraditionalFGLI implements CT_process {
 		}
 
 		computeT_cover(actualMFS, cm);
-		
+		computeRealIdentify(actualMFS);
+
 		computeCoveredNum();
+
 	}
 
+	public void computeRealIdentify(List<Tuple> actualMFS) {
+		for (Tuple t : actualMFS) {
+			if (this.MFS.contains(t)) {
+				realIdentify.put(t, 1);
+			}
+		}
+	}
 
 	public void computeT_cover(List<Tuple> actualMFS, CoveringManage cm) {
 		// computingTcove
