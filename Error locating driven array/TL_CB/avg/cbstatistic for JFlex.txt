@@ -1,0 +1,87 @@
+2-way for JFlex
+###############################################
+###############################################
+average cb num :29.5
+
+average cb num_r :15.5
+
+average cb num_i :14.0
+
+average cb recall :1.0
+
+average cb precise :1.0
+
+average cb f-measure :1.0
+
+average cb multi :0.0
+
+average cb time :226.0
+
+average cb time_r :101.0
+
+average cb time_i :39.0
+
+average cb t_cover :473.0
+
+average cb all_cover :473.0
+
+average cb CoverNUM
+(1 : 50.5)  (2 : 53.0)  (3 : 69.5)  (4 : 26.0)  (5 : 10.0)  (6 : 3.0)  (7 : 2.0)  (8 : 7.5)  (9 : 12.0)  (10 : 5.5)  (11 : 2.5)  
+3-way for JFlex
+###############################################
+###############################################
+average cb num :62.0
+
+average cb num_r :48.0
+
+average cb num_i :14.0
+
+average cb recall :1.0
+
+average cb precise :1.0
+
+average cb f-measure :1.0
+
+average cb multi :0.0
+
+average cb time :975.0
+
+average cb time_r :562.0
+
+average cb time_i :8.0
+
+average cb t_cover :4282.0
+
+average cb all_cover :4282.0
+
+average cb CoverNUM
+(1 : 212.5)  (2 : 386.5)  (3 : 469.0)  (4 : 347.0)  (5 : 249.5)  (6 : 196.5)  (7 : 95.0)  (8 : 42.0)  (9 : 30.0)  (10 : 20.5)  (11 : 14.0)  (12 : 3.5)  (13 : 7.0)  (14 : 13.0)  (15 : 21.0)  (16 : 19.0)  (17 : 12.0)  (18 : 5.5)  (19 : 4.0)  (20 : 1.5)  (21 : 0.5)  
+4-way for JFlex
+###############################################
+###############################################
+average cb num :152.5
+
+average cb num_r :138.5
+
+average cb num_i :14.0
+
+average cb recall :1.0
+
+average cb precise :1.0
+
+average cb f-measure :1.0
+
+average cb multi :0.0
+
+average cb time :5506.5
+
+average cb time_r :3697.0
+
+average cb time_i :7.5
+
+average cb t_cover :26532.0
+
+average cb all_cover :26532.0
+
+average cb CoverNUM
+(1 : 753.0)  (2 : 1639.5)  (3 : 2309.5)  (4 : 2173.0)  (5 : 1803.5)  (6 : 1296.0)  (7 : 928.0)  (8 : 647.5)  (9 : 444.5)  (10 : 292.0)  (11 : 244.5)  (12 : 203.5)  (13 : 156.0)  (14 : 83.0)  (15 : 65.5)  (16 : 40.0)  (17 : 20.5)  (18 : 9.0)  (19 : 8.0)  (20 : 5.5)  (21 : 6.0)  (22 : 13.0)  (23 : 11.5)  (24 : 14.5)  (25 : 14.5)  (26 : 17.0)  (27 : 18.0)  (28 : 23.0)  (29 : 13.5)  (30 : 12.0)  (31 : 7.5)  (32 : 5.0)  (33 : 3.5)  (34 : 1.0)  (35 : 0.5)  

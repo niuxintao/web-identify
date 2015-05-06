@@ -20,7 +20,7 @@ import gandi.TraditionalFGLI;
 
 public class SimpleExperiment {
 
-	public final static int REP = 2;
+	public final static int REP = 30;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;

@@ -9,12 +9,12 @@ public class SynexExperiment {
 		ex.testTomcat();
 		ex.testTcas();
 
-		SimpleExperiment_TLandCB ex2 = new SimpleExperiment_TLandCB();
-		ex2.testJFlex();
-		ex2.testGcc();
-		ex2.testHSQLDB();
-		ex2.testTomcat();
-		ex2.testTcas();
+//		SimpleExperiment_TLandCB ex2 = new SimpleExperiment_TLandCB();
+//		ex2.testJFlex();
+//		ex2.testGcc();
+//		ex2.testHSQLDB();
+//		ex2.testTomcat();
+//		ex2.testTcas();
 
 		SimpleExperiment_FD_CIT ex3 = new SimpleExperiment_FD_CIT();
 		ex3.testJFlex();

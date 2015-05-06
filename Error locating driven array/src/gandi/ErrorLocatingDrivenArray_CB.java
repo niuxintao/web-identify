@@ -7,15 +7,22 @@ import java.util.List;
 import locatConstaint.FIC_Constraints;
 import locatConstaint.LocateGraph_Constriants;
 import locatConstaint.SOFOT_Constriants;
+import location.CTA;
 import interaction.DataCenter;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.testObject.TestCase;
+import com.fc.testObject.TestSuite;
+import com.fc.testObject.TestSuiteImplement;
 import com.fc.tuple.Tuple;
 
 import ct.AETG_Constraints;
 //import com.fc.coveringArray.CoveringManage;
 public class ErrorLocatingDrivenArray_CB extends ErrorLocatingDrivenArray {
+	
+	
+	private SOFOT_Constriants ofot;
+	
 
 	public ErrorLocatingDrivenArray_CB(DataCenter dataCenter,
 			CaseRunner caseRunner) {
@@ -58,14 +65,49 @@ public class ErrorLocatingDrivenArray_CB extends ErrorLocatingDrivenArray {
 		
 	}
 	
+	public List<Tuple> cta (){
+
+		TestSuite suite = new TestSuiteImplement();
+		for (TestCase testCase : ofot.getExecuted())
+			suite.addTest(testCase);
+
+		// List<TestCase> executed = ofot.getExecuted();
+
+		String[] classes = new String[] { "pass", "fail" };
+		// classes[0] = "0";
+		// for (int j = 1; j < classes.length; j++)
+		// classes[j] = statistic.getBugCode().get(j - 1).intValue() + "";
+
+		CTA cta = new CTA();
+
+		String[] state = new String[suite.getTestCaseNum()];
+		for (int i = 0; i < state.length; i++) {
+			String runresult = caseRunner.runTestCase(suite.getAt(i)) == TestCase.FAILED ? "fail"
+					: "pass";
+			state[i] =  runresult;
+//			System.out.println(runresult);
+		}
+	
+		try {
+			cta.process(dataCenter.param, classes, suite, state);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		List<Tuple> tuples = cta.getBugs();
+		
+		return tuples;
+	}
+	
 
 	public List<Tuple> ofotMFS(AETG_Constraints ac, TestCase testCase) {
-		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter,
+		 ofot = new SOFOT_Constriants(dataCenter,
 				testCase, ac);
 		// sc.process(testCase, DataCenter.param, caseRunner);
 
-		while (!sc.isEnd()) {
-			TestCase nextTestCase = sc.generateNext();
+		while (!ofot.isEnd()) {
+			TestCase nextTestCase = ofot.generateNext();
 			identifyCases.add(nextTestCase);
 			overallTestCases.add(nextTestCase);
 			// System.out.println("ofot" +
@@ -83,9 +125,10 @@ public class ErrorLocatingDrivenArray_CB extends ErrorLocatingDrivenArray {
 				nextTestCase.setTestState(TestCase.FAILED);
 		}
 
-		sc.analysis();
+		ofot.analysis();
 		
-		List<Tuple> mfs = sc.getBugs();
+		List<Tuple> mfs = ofot.getBugs();
+		
 		return mfs;
 	}
 	
@@ -107,29 +150,37 @@ public class ErrorLocatingDrivenArray_CB extends ErrorLocatingDrivenArray {
 	
 	public  List<Tuple> Combine(AETG_Constraints ac, TestCase testCase) {
 		List<Tuple> bug1 = this.ofotMFS(ac, testCase);
-		List<Tuple> bug2 = this.lgMFS(ac, testCase);
-		List<Tuple> bug3 = this.lgMFS(ac, testCase);
+//		List<Tuple> bug2 = this.lgMFS(ac, testCase);
+//		List<Tuple> bug3 = this.lgMFS(ac, testCase);
+		
+		List<Tuple> bug4 = this.cta();
 		
 		HashSet<Tuple> rr = new HashSet<Tuple> ();
 		HashSet<Tuple> rr2 = new HashSet<Tuple> ();
 		for(Tuple t : bug1){
 			rr.add(t);
 		}
-		for(Tuple t : bug2){
-			if(rr.contains(t)){
-				rr2.add(t);
-			}else{
-				rr.add(t);
-			}
+//		for(Tuple t : bug2){
+//			if(rr.contains(t)){
+//				rr2.add(t);
+//			}else{
+//				rr.add(t);
+//			}
+//		}
+//		for(Tuple t : bug3){
+//			if(rr.contains(t)){
+//				rr2.add(t);
+//			}else{
+//				rr.add(t);
+//			}
+//		}
+		for(Tuple t : bug4){
+		if(rr.contains(t)){
+			rr2.add(t);
+		}else{
+			rr.add(t);
 		}
-		for(Tuple t : bug3){
-			if(rr.contains(t)){
-				rr2.add(t);
-			}else{
-				rr.add(t);
-			}
-		}
-		
+	}
 		List<Tuple> result = new ArrayList<Tuple> ();
 		for(Tuple t : rr2)
 			result.add(t);

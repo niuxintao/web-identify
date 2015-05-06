@@ -1,11 +1,11 @@
 2-way for HSQLDB
 ###############################################
 ###############################################
-average cb num :30.0
+average cb num :37.0
 
-average cb num_r :12.5
+average cb num_r :10.0
 
-average cb num_i :17.5
+average cb num_i :27.0
 
 average cb recall :0.0
 
@@ -15,26 +15,26 @@ average cb f-measure :0.0
 
 average cb multi :0.0
 
-average cb time :36.5
+average cb time :62.5
 
-average cb time_r :16.0
+average cb time_r :8.0
 
-average cb time_i :20.0
+average cb time_i :46.5
 
 average cb t_cover :357.0
 
 average cb all_cover :357.0
 
 average cb CoverNUM
-(1 : 52.0)  (2 : 46.5)  (3 : 31.0)  (4 : 22.0)  (5 : 7.5)  (6 : 2.5)  (7 : 2.5)  (8 : 3.0)  (9 : 4.5)  (10 : 4.5)  (11 : 7.5)  (12 : 1.0)  (13 : 2.0)  (14 : 0.5)  
+(1 : 17.0)  (2 : 31.0)  (3 : 29.0)  (4 : 26.5)  (5 : 24.5)  (6 : 23.0)  (7 : 10.5)  (8 : 4.5)  (9 : 7.0)  (10 : 5.0)  (11 : 3.5)  (12 : 2.0)  (13 : 0.5)  (14 : 0.5)  
 3-way for HSQLDB
 ###############################################
 ###############################################
-average cb num :89.0
+average cb num :66.0
 
-average cb num_r :34.0
+average cb num_r :38.5
 
-average cb num_i :55.0
+average cb num_i :27.5
 
 average cb recall :0.0
 
@@ -44,26 +44,26 @@ average cb f-measure :0.0
 
 average cb multi :0.0
 
-average cb time :546.0
+average cb time :382.0
 
-average cb time_r :149.5
+average cb time_r :140.5
 
-average cb time_i :384.5
+average cb time_i :164.0
 
-average cb t_cover :2724.5
+average cb t_cover :2730.0
 
 average cb all_cover :2742.0
 
 average cb CoverNUM
-(1 : 165.0)  (2 : 244.0)  (3 : 262.0)  (4 : 200.0)  (5 : 153.0)  (6 : 112.5)  (7 : 75.5)  (8 : 44.5)  (9 : 29.0)  (10 : 21.0)  (11 : 16.5)  (12 : 13.0)  (13 : 11.5)  (14 : 11.5)  (15 : 8.0)  (16 : 4.5)  (17 : 3.5)  (18 : 2.5)  (19 : 1.0)  (20 : 1.0)  (21 : 1.5)  
+(1 : 181.0)  (2 : 292.5)  (3 : 309.5)  (4 : 182.0)  (5 : 123.5)  (6 : 96.5)  (7 : 65.0)  (8 : 35.0)  (9 : 24.0)  (10 : 18.0)  (11 : 5.0)  (12 : 3.5)  (13 : 4.5)  (14 : 3.5)  (15 : 9.5)  (16 : 5.5)  (17 : 6.0)  (18 : 3.5)  (19 : 4.0)  (20 : 5.0)  (21 : 3.5)  (22 : 1.0)  
 4-way for HSQLDB
 ###############################################
 ###############################################
-average cb num :144.5
+average cb num :141.0
 
-average cb num_r :105.0
+average cb num_r :114.0
 
-average cb num_i :39.5
+average cb num_i :27.0
 
 average cb recall :0.0
 
@@ -73,15 +73,15 @@ average cb f-measure :0.0
 
 average cb multi :0.0
 
-average cb time :3124.5
+average cb time :2418.0
 
-average cb time_r :1465.5
+average cb time_r :1326.5
 
-average cb time_i :856.0
+average cb time_i :413.0
 
-average cb t_cover :14015.5
+average cb t_cover :13964.0
 
 average cb all_cover :14136.0
 
 average cb CoverNUM
-(1 : 581.0)  (2 : 1205.0)  (3 : 1463.0)  (4 : 1168.0)  (5 : 860.0)  (6 : 622.5)  (7 : 401.5)  (8 : 285.0)  (9 : 196.5)  (10 : 113.0)  (11 : 70.5)  (12 : 28.0)  (13 : 16.5)  (14 : 8.5)  (15 : 6.0)  (16 : 4.5)  (17 : 11.0)  (18 : 10.5)  (19 : 10.0)  (20 : 10.5)  (21 : 6.0)  (22 : 0.5)  (23 : 1.0)  (24 : 0.5)  
+(1 : 572.0)  (2 : 1177.5)  (3 : 1383.5)  (4 : 1158.0)  (5 : 915.5)  (6 : 594.5)  (7 : 403.5)  (8 : 278.5)  (9 : 191.5)  (10 : 146.5)  (11 : 100.5)  (12 : 51.0)  (13 : 24.0)  (14 : 10.0)  (15 : 6.0)  (16 : 7.0)  (17 : 7.5)  (18 : 8.0)  (19 : 11.0)  (20 : 14.5)  (21 : 6.0)  (22 : 6.5)  (23 : 6.0)  (24 : 2.5)  (25 : 1.0)  (26 : 1.0)  (27 : 0.5)  

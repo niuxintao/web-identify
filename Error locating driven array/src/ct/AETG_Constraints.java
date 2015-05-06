@@ -338,10 +338,14 @@ public class AETG_Constraints extends AETG {
 						dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 
 				tempFirst = first;
+				if(tempFirst == null)
+					continue;
+//				System.out.println(first.getDegree());
 				
-				//should not contain it
+//				//should not contain it
 				boolean tempSat = true;
 				for(int i = 0; i < first.getDegree(); i++){
+					
 					TestCaseImplement testForTuple = new TestCaseImplement(original.getLength());
 					for(int k = 0; k < testForTuple.getLength(); k++){
 						testForTuple.set(k, 0);
