@@ -33,6 +33,16 @@ public class HsqlDBData implements ExperimentData {
 		this.param = new int[] { 3, 2, 2, 2, 2, 2, 2, 2, 4, 3, 2, 2 };
 
 		realMFS = new ArrayList<Tuple>();
+		
+		/**
+		 * 
+		 * 1. [ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ]   
+
+		 * 2. [ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ]  
+		 * 
+		 * 
+		 * 3. [ - , - , 0 , - , - , - , - , - , - , - , - , - ]
+		 */
 
 		int[] wrong = new int[] { 0, 0, 0, 0, 0, 1, 0, 0, 2, 2, 0, 0 };
 		TestCase wrongCase = new TestCaseImplement();
@@ -58,16 +68,25 @@ public class HsqlDBData implements ExperimentData {
 		
 		
 
-//		Tuple bugModel3 = new Tuple(3, wrongCase2);
-//		bugModel3.set(0, 2);
-//
-//		realMFS.add(bugModel3);
+		Tuple bugModel3 = new Tuple(1, wrongCase2);
+		bugModel3.set(0, 2);
+
+		realMFS.add(bugModel3);
 
 		this.caseRunner = new CaseRunnerWithBugInject();
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
-//		((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
 	}
+	
+	public static void main(String[] str) {
+		HsqlDBData tcasData = new HsqlDBData();
+		tcasData.init();
+		System.out.println(tcasData.realMFS.size());
+		for (Tuple mfs : tcasData.realMFS)
+			System.out.println(mfs);
+	}
+
 
 	public void setDegree(int degree) {
 		this.dataCenter = new DataCenter(param, degree);

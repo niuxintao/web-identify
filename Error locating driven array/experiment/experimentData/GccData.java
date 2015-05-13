@@ -33,6 +33,17 @@ public class GccData implements ExperimentData {
 		realMFS = new ArrayList<Tuple>();
 
 		this.caseRunner = new CaseRunnerWithBugInject();
+		
+		
+		/**
+		 * 
+		 *  
+		 * 1. [ 2 , - , - , - , - , 1 , - , - , - , 0 ] 
+		 * 2. [ 2 , - , - , 1 , - , - , - , - , - , 0 ] 
+		 * 3. [ 3 , - , - , - , - , 1 , - , - , - , 0 ]
+		 * 4. [ 3 , - , - , 1 , - , - , - , - , - , 0 ]
+		 * 
+		 */
 
 		int[] wrong1 = new int[] { 2, 0, 0, 0, 0, 1, 0, 0, 0, 0 };// MFS
 		TestCase wrongCase1 = new TestCaseImplement();

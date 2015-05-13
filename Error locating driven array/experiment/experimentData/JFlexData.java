@@ -31,6 +31,13 @@ public class JFlexData implements ExperimentData {
 		this.param = new int[] { 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 3 };
 
 		realMFS = new ArrayList<Tuple>();
+		
+		/** 
+		 * 
+		 * [ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] 
+		 * 
+		 * 
+		 */
 
 		int[] wrong = new int[] { 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		TestCase wrongCase = new TestCaseImplement();

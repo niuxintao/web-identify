@@ -35,11 +35,19 @@ public class TomcatData implements ExperimentData {
 		this.param = new int[] {2,  2, 2, 4, 2, 2, 2, 2, 2, 3 };// parameters
 
 		realMFS = new ArrayList<Tuple>();
+		
+		
+		/** 1. [ 1 , - , - , 3 , - , - , - , - , - , - ] **/
+		
+		/** 2. [ 1 , - , - , 1 , - , - , - , - , - , - ] **/
+		
+		/** 3. [ - , - , - , - , - , - , - , - , - , - ] **/
 
 		int[] wrong = new int[] {1, 0, 0, 3, 0, 0, 0, 0, 0, 0 };// MFS
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
 
+		
 		Tuple bugModel1 = new Tuple(2, wrongCase);
 		bugModel1.set(0, 0);
 		bugModel1.set(1, 3);

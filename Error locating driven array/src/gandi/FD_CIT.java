@@ -32,7 +32,7 @@ public class FD_CIT implements CT_process {
 
 	private HashSet<TestCase> identifyCases;
 
-	private HashSet<TestCase> failTestCase;
+//	private HashSet<TestCase> failTestCase;
 
 	private HashSet<Tuple> MFS;
 
@@ -112,7 +112,7 @@ public class FD_CIT implements CT_process {
 		overallTestCases = new HashSet<TestCase>();
 		regularCTCases = new HashSet<TestCase>();
 		identifyCases = new HashSet<TestCase>();
-		failTestCase = new HashSet<TestCase>();
+//		failTestCase = new HashSet<TestCase>();
 		cm = new CoveringManage(dataCenter);
 		MFS = new HashSet<Tuple>();
 		coveredNums = new HashMap<Integer, Integer>();
@@ -244,7 +244,7 @@ public class FD_CIT implements CT_process {
 
 		// computing multiple
 
-		for (TestCase testCase : this.failTestCase) {
+		for (TestCase testCase : this.overallTestCases) {
 			int contain = 0;
 			for (Tuple acMFS : actualMFS) {
 				if (testCase.containsOf(acMFS))
