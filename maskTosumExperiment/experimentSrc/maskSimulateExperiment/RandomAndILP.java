@@ -5,13 +5,16 @@ import java.util.List;
 
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
-
+//测试random 和 ILP 的 中间值，如时间和测试用例的
 public class RandomAndILP {
 	private ExpriSetUp setup;
 
 	public static final int millions = 0;
-	public static final int replaceTime = 1;
-	public static final int replace = 2;
+	public static final int replaceTime = 1;  //每次 调用 替换， 需要的个数
+	public static final int replace = 2;  // 需要替换 的 数目
+	
+	
+	
 
 	private double[][] data;
 
@@ -41,7 +44,7 @@ public class RandomAndILP {
 			bench.addAll(setup.getBugsList().get(key));
 		}
 
-		// unit.setBugs(bench);
+//	    unit.setBugs(setup.getBugsList());
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import maskTool.EvaluateTuples;
 import newMaskAlgorithms.FIC_MASK_NEWLY;
 import newMaskAlgorithms.FIC_MASK_SOVLER;
 
@@ -11,17 +12,9 @@ import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
-public class UnitSimulateMiddleVariable {
+public class UnitSimulateMiddleVariable extends UnitSimulate {
 
-	public final static int IGNORE_FIC = 0;
-	public final static int IGNORE_OFOT = 1;
-	public final static int IGNORE_CTA = 2;
 
-	public final static int DISTIN_FIC = 3;
-	public final static int DISTIN_OFOT = 4;
-	public final static int DISTIN_CTA = 5;
-
-	public final static int MASK_FIC = 6;
 	public HashMap<Integer, List<Integer>> getReplacingTimes() {
 		return replacingTimes;
 	}
@@ -30,15 +23,6 @@ public class UnitSimulateMiddleVariable {
 	public HashMap<Integer, List<Long>> getTimeMillions() {
 		return timeMillions;
 	}
-
-	public final static int MASK_OFOT = 7;
-	public final static int MASK_CTA = 8;
-
-	public final static int NUM = 9;
-
-	public final static int MASK_FIC_OLD = 9;
-	public final static int MASK_OFOT_OLD = 10;
-	public final static int MASK_CTA_OLD = 11;
 
 	private HashMap<Integer, List<Integer>> replacingTimes;
 	private HashMap<Integer, List<Long>> timeMillions;
@@ -67,6 +51,13 @@ public class UnitSimulateMiddleVariable {
 				runner, code);
 		ficmasknew.FicNOP();
 
+		this.additionalTestCases.get(MASK_FIC).addAll(ficmasknew.getExecuted());
+		this.tuples.get(MASK_FIC).addAll(ficmasknew.getBugs());
+		EvaluateTuples eva = new EvaluateTuples();
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
+				code);
+		eva.evaluate(compareBugs, ficmasknew.getBugs());
+		this.evaluates.get(MASK_FIC).add(eva);
 		this.replacingTimes.get(MASK_FIC).addAll(ficmasknew.getTimes());
 		this.timeMillions.get(MASK_FIC).addAll(ficmasknew.getTimeMillions());
 
@@ -78,6 +69,17 @@ public class UnitSimulateMiddleVariable {
 		FIC_MASK_NEWLY ficmasknew = new FIC_MASK_NEWLY(wrongCase, param,
 				runner, code);
 		ficmasknew.FicNOP();
+
+		this.additionalTestCases.get(MASK_FIC_OLD).addAll(
+				ficmasknew.getExecuted());
+		this.tuples.get(MASK_FIC_OLD).addAll(ficmasknew.getBugs());
+
+		EvaluateTuples eva = new EvaluateTuples();
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
+				code);
+		eva.evaluate(compareBugs, ficmasknew.getBugs());
+		this.evaluates.get(MASK_FIC_OLD).add(eva);
+
 
 		this.replacingTimes.get(MASK_FIC_OLD).addAll(
 				ficmasknew.getTimes());

@@ -36,7 +36,7 @@ public class Experiment {
 		for (Integer key : setup.getBugsList().keySet())
 			bench.addAll(setup.getBugsList().get(key));
 
-		unit.setBugs(bench);
+		unit.setBugs(setup.getBugsList());
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
@@ -46,10 +46,10 @@ public class Experiment {
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
 				unit.testTraditional(setup.getParam(), testCase,
-						new DistinguishRunner(basicRunner, code));
+						new DistinguishRunner(basicRunner, code),code);
 				// System.out.println("ignore");
 				unit.testTraditional(setup.getParam(), testCase,
-						new IgnoreRunner(basicRunner));
+						new IgnoreRunner(basicRunner),code);
 
 				// System.out.println("mask");
 				unit.testSovler(setup.getParam(), testCase, basicRunner, code);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import newMaskAlgorithms.FIC_MASK_NEWLY;
 import newMaskAlgorithms.FIC_MASK_SOVLER;
@@ -20,6 +21,14 @@ import com.fc.testObject.TestCaseImplement;
 //import com.fc.testObject.TestSuite;
 //import com.fc.testObject.TestSuiteImplement;
 import com.fc.tuple.Tuple;
+
+//这里是 单个 unit 测试的配置
+// 需要改变， 单个test case 只比较 单个  测试用例中 bug 
+// 单个测试用例的单个  fault 只考虑这个fault对应的MFS
+// 单个测试时加上 方差, 加上吧。。。。。
+// 只需要 在 三 和 四 study 加上就行 t-valid 就行。
+
+// 图的话 第二个study 去掉  random， 只需要第 三个study 统一random 和 ILP 就行
 
 public class UnitSimulate {
 
@@ -56,16 +65,16 @@ public class UnitSimulate {
 	public final static int MASK_OFOT_OLD = 10;
 	public final static int MASK_CTA_OLD = 11;
 
-	private HashMap<Integer, HashSet<Tuple>> tuples;
-	private HashMap<Integer, List<TestCase>> additionalTestCases;
+	protected HashMap<Integer, HashSet<Tuple>> tuples;
+	protected HashMap<Integer, List<TestCase>> additionalTestCases;
 
-	private HashMap<Integer, List<EvaluateTuples>> evaluates;
+	protected HashMap<Integer, List<EvaluateTuples>> evaluates;
 
 	public HashMap<Integer, List<EvaluateTuples>> getEvaluates() {
 		return evaluates;
 	}
 
-	private List<Tuple> bugs;
+	private Map<Integer, List<Tuple>> bugs;
 
 	// public UnitSimulate(List<Tuple> bugs) {
 	// tuples = new HashMap<Integer, HashSet<Tuple>>();
@@ -99,12 +108,23 @@ public class UnitSimulate {
 		}
 	}
 
-	public void setBugs(List<Tuple> bugs) {
+	public void setBugs(Map<Integer, List<Tuple>> bugs) {
 		this.bugs = bugs;
 	}
 
+	public List<Tuple> getBugsFromAWrongTestCase(TestCase wrongCase,
+			int WrongCode) {
+		List<Tuple> bugsOfCode = this.bugs.get(WrongCode);
+		List<Tuple> result = new ArrayList<Tuple>();
+		for (Tuple tu : bugsOfCode) {
+			if (wrongCase.containsOf(tu))
+				result.add(tu);
+		}
+		return result;
+	}
+
 	public void testTraditional(int[] param, TestCase wrongCase,
-			CaseRunner runner) {
+			CaseRunner runner, int wrongCode) {
 		int added = runner instanceof DistinguishRunner ? 3 : 0;
 
 		FIC fic = new FIC(wrongCase, param, runner);
@@ -118,7 +138,9 @@ public class UnitSimulate {
 		this.tuples.get(IGNORE_FIC + added).addAll(fic.getBugs());
 
 		EvaluateTuples eva = new EvaluateTuples();
-		eva.evaluate(bugs, fic.getBugs());
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
+				wrongCode);
+		eva.evaluate(compareBugs, fic.getBugs());
 		this.evaluates.get(IGNORE_FIC + added).add(eva);
 
 		// System.out.println("non Mask runner");
@@ -171,7 +193,9 @@ public class UnitSimulate {
 		this.additionalTestCases.get(MASK_FIC).addAll(ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC).addAll(ficmasknew.getBugs());
 		EvaluateTuples eva = new EvaluateTuples();
-		eva.evaluate(bugs, ficmasknew.getBugs());
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
+				code);
+		eva.evaluate(compareBugs, ficmasknew.getBugs());
 		this.evaluates.get(MASK_FIC).add(eva);
 
 		// System.out.println("Mask fic");
@@ -227,7 +251,9 @@ public class UnitSimulate {
 		this.tuples.get(MASK_FIC_OLD).addAll(ficmasknew.getBugs());
 
 		EvaluateTuples eva = new EvaluateTuples();
-		eva.evaluate(bugs, ficmasknew.getBugs());
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
+				code);
+		eva.evaluate(compareBugs, ficmasknew.getBugs());
 		this.evaluates.get(MASK_FIC_OLD).add(eva);
 
 		// System.out.println("Mask fic");
@@ -326,7 +352,7 @@ public class UnitSimulate {
 		for (Integer key : bugs.keySet())
 			bench.addAll(bugs.get(key));
 
-		this.setBugs(bench);
+		this.setBugs(bugs);
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
@@ -336,10 +362,10 @@ public class UnitSimulate {
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
 				this.testTraditional(param, testCase, new DistinguishRunner(
-						basicRunner, code));
+						basicRunner, code),code);
 				// System.out.println("ignore");
 				this.testTraditional(param, testCase, new IgnoreRunner(
-						basicRunner));
+						basicRunner),code);
 
 				// System.out.println("mask");
 				this.testSovler(param, testCase, basicRunner, code);
@@ -382,7 +408,8 @@ public class UnitSimulate {
 				System.out.println("ignore: " + ignore / (double) allNum);
 				System.out.println("parent: " + parent / (double) allNum);
 				System.out.println("child: " + child / (double) allNum);
-				System.out.println("irrelevant: " + irrelevant / (double) allNum);
+				System.out.println("irrelevant: " + irrelevant
+						/ (double) allNum);
 				System.out.println("accuarte: " + accuarte / (double) allNum);
 			}
 

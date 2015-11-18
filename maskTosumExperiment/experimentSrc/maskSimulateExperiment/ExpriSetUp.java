@@ -8,6 +8,8 @@ import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
+
+//这里设置experiment的model
 public class ExpriSetUp {
 
 	private HashMap<Integer, List<Tuple>> bugsList;
@@ -189,11 +191,11 @@ public class ExpriSetUp {
 
 		// synthesiz 10
 		record = new DataRecord();
-		param = new int[] { 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4 };
-		wrongs = new int[][] { { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1 },
-				{ 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1 },
-				{ 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1 } };
-		bugs = new int[][] { { 0, 3, 4, 7 }, { 2, 3, 5 }, { 2, 3, 5 } };
+		param = new int[] { 2, 2, 2, 2, 2, 2  };
+		wrongs = new int[][] { { 1, 1, 1, 0, 1, 1 },
+				{ 1, 1, 0, 0, 1, 1 },
+				{ 1, 1, 0, 0, 1, 0 } };
+		bugs = new int[][] { { 0, 3, 4 }, { 2, 3, 5 }, { 2, 3, 5 } };
 		faults = new int[] { 1, 2, 2 };
 		priority = new int[][] { {}, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);

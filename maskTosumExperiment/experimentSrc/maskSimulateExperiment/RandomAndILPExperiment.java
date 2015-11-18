@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.RealMatrix;
+import org.apache.commons.math3.stat.descriptive.moment.Mean;
+import org.apache.commons.math3.stat.inference.TTest;
+
 import maskTool.EvaluateTuples;
 
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
-public class RandomExperiment {
+public class RandomAndILPExperiment {
 	private ExpriSetUp setup;
 
 	public static final int avgmetric = 0;
@@ -26,14 +31,27 @@ public class RandomExperiment {
 	public static final int irrlevant = 11;
 	public static final int testNum = 12;
 
-	private double[] data;
+	public static final int millions = 13;
+	public static final int replaceTime = 14; // 每次 调用 替换， 需要的个数
+	public static final int replace = 15; // 需要替换 的 数目
 
-	public RandomExperiment() {
+	// private double[] data_ilp;
+
+	public static final String[] stringofmetric = { "avgmetric", "avgaccuate",
+			"avgparent", "avgchild", "avgignore", "avgirrelevant", "metric",
+			"accuate", "parent", "child", "ignore", "irrelevant", "testNum",
+			"time millions", "needing replacement number",
+			"trial test cases for each replacement" };
+
+	private double[][] data;
+
+	public RandomAndILPExperiment() {
 		setup = new ExpriSetUp();
-		data = new double[13];
+		data = new double[2][16];
 	}
 
-	public void test(int index) {
+	public void test(int index, int algorithm) {
+		int di = (algorithm == UnitSimulate.MASK_FIC ? 0 : 1);
 		// System.out.println("the " + index + "th");
 		DataRecord record = setup.getRecords().get(index);
 		setup.set(record.param, record.wrongs, record.bugs, record.faults,
@@ -47,7 +65,7 @@ public class RandomExperiment {
 		exData.setHigherPriority(setup.getPriorityList());
 		exData.setBugs(setup.getBugsList());
 
-		UnitSimulate unit = new UnitSimulate();
+		UnitSimulateMiddleVariable unit = new UnitSimulateMiddleVariable();
 
 		List<Tuple> bench = new ArrayList<Tuple>();
 		for (Integer key : setup.getBugsList().keySet()) {
@@ -58,7 +76,7 @@ public class RandomExperiment {
 			// }
 		}
 
-		unit.setBugs(bench);
+		unit.setBugs(setup.getBugsList());
 
 		// for (Tuple tuple : bench)
 		// System.out.print(tuple.toString() + " ");
@@ -72,7 +90,12 @@ public class RandomExperiment {
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
 				// System.out.println("mask");
-				unit.testAugment(setup.getParam(), testCase, basicRunner, code);
+				if (di == 0)
+					unit.testSovler(setup.getParam(), testCase, basicRunner,
+							code);
+				else
+					unit.testAugment(setup.getParam(), testCase, basicRunner,
+							code);
 				// break;
 				allNum++;
 				// break;
@@ -82,19 +105,45 @@ public class RandomExperiment {
 		}
 
 		// System.out.println("test Cases");
-		for (int i : new int[] { 9 }) {
+		for (int i : new int[] { algorithm }) {
 			// System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
 			if (allNum > 0)
-				data[testNum] = unit.getAdditionalTestCases().get(i).size()
+				data[di][testNum] = unit.getAdditionalTestCases().get(i).size()
 						/ (double) allNum;
 
 			// System.out.println();
 
 		}
+		// System.out.println("replace time");
+		for (int i : new int[] { algorithm }) {
+			// System.out.println(i);
+
+			// for (TestCase testCase : this.additionalTestCases.get(i))
+			if (allNum > 0) {
+				data[di][replace] = unit.getReplacingTimes().get(i).size()
+						/ (double) allNum;
+
+				double avRpel = 0;
+				for (Integer it : unit.getReplacingTimes().get(i)) {
+					avRpel += it.intValue();
+				}
+				avRpel /= (double) (unit.getReplacingTimes().get(i).size());
+				data[di][replaceTime] = avRpel;
+
+				double avRpel2 = 0;
+				for (Long it : unit.getTimeMillions().get(i)) {
+					avRpel2 += it.longValue();
+				}
+				avRpel2 /= (double) (unit.getTimeMillions().get(i).size());
+				data[di][millions] = avRpel2;
+
+			}
+
+		}
 
 		// System.out.println("evaluates -- avg");
-		for (int i : new int[] { 9 }) {
+		for (int i : new int[] { algorithm }) {
 
 			// System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
@@ -114,12 +163,12 @@ public class RandomExperiment {
 
 			}
 			if (allNum > 0) {
-				data[avgmetric] = metric / (double) allNum;
-				data[avgaccuate] = accuarte / (double) allNum;
-				data[avgchild] = child / (double) allNum;
-				data[avgparent] = parent / (double) allNum;
-				data[avgirrlevant] = irrelevant / (double) allNum;
-				data[avgignore] = ignore / (double) allNum;
+				data[di][avgmetric] = metric / (double) allNum;
+				data[di][avgaccuate] = accuarte / (double) allNum;
+				data[di][avgchild] = child / (double) allNum;
+				data[di][avgparent] = parent / (double) allNum;
+				data[di][avgirrlevant] = irrelevant / (double) allNum;
+				data[di][avgignore] = ignore / (double) allNum;
 			}
 
 			// System.out.println(i);
@@ -149,7 +198,7 @@ public class RandomExperiment {
 		}
 
 		// System.out.println("evaluates -- all");
-		for (int i : new int[] { 9 }) {
+		for (int i : new int[] { algorithm }) {
 			// System.out.println(i);
 			HashSet<Tuple> tupl = unit.getTuples().get(i);
 			List<Tuple> tuples = new ArrayList<Tuple>();
@@ -166,143 +215,66 @@ public class RandomExperiment {
 			// }
 
 			eva.evaluate(bench, tuples);
-			data[metric] = eva.getMetric();
-			data[accuate] = eva.getAccurateTuples().size();
-			data[child] = eva.getChildTuples().size();
-			data[parent] = eva.getFatherTuples().size();
-			data[irrlevant] = eva.getRedundantTuples().size();
-			data[ignore] = eva.getMissTuples().size();
+			data[di][metric] = eva.getMetric();
+			data[di][accuate] = eva.getAccurateTuples().size();
+			data[di][child] = eva.getChildTuples().size();
+			data[di][parent] = eva.getFatherTuples().size();
+			data[di][irrlevant] = eva.getRedundantTuples().size();
+			data[di][ignore] = eva.getMissTuples().size();
 		}
 	}
 
+	public static void showresult(int metric, RandomAndILPExperiment ex,
+			double[][] datas) {
+
+		TTest ttest = new TTest();
+		Mean mean = new Mean();
+
+		RealMatrix matrix = new Array2DRowRealMatrix(datas);
+
+		System.out.print("ILP " + stringofmetric[metric] + " : ");
+		System.out.println(ex.data[0][metric] + " ");
+
+		System.out.print("Random " + stringofmetric[metric] + " : ");
+		for (int j = 0; j < 30; j++) {
+			System.out.print(datas[j][metric] + " ");
+		}
+
+		System.out.println();
+		System.out.println("avg ：" + mean.evaluate(matrix.getColumn(metric)));
+		System.out.println("t-test, p-value ："
+				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric))
+				+ "\n t-test: "
+				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric),
+						0.05));
+
+	}
+
 	public static void main(String[] args) {
-		for (int i = 0; i < 15; i++) {
+
+		for (int i = 14; i < 15; i++) {
 			System.out.println();
 			System.out.println("the " + i + " th");
+
+			RandomAndILPExperiment ex = new RandomAndILPExperiment();
+			ex.test(i, 6);
+
 			double[][] datas = new double[30][];
 			for (int j = 0; j < 30; j++) {
-				RandomExperiment ex = new RandomExperiment();
-				ex.test(i);
-				datas[j] = ex.data;
+				// RandomExperiment ex = new RandomExperiment();
+				ex.test(i, 9);
+				datas[j] = ex.data[1];
 			}
-			double avg = 0;
-			System.out.print("testNum :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][testNum] + " ");
-				avg += datas[j][testNum];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgmetric :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][avgmetric] + " ");
-				avg += datas[j][avgmetric];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgaccuate :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][avgaccuate] + " ");
-				avg += datas[j][avgaccuate];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgparent :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][avgparent] + " ");
-				avg += datas[j][avgparent];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgchild :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][avgchild] + " ");
-				avg += datas[j][avgchild];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgignore :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][avgignore] + " ");
-				avg += datas[j][avgignore];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgirrlevant :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][avgirrlevant] + " ");
-				avg += datas[j][avgirrlevant];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("metric :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][metric] + " ");
-				avg += datas[j][metric];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("accuate :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][accuate] + " ");
-				avg += datas[j][accuate];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("parent :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][parent] + " ");
-				avg += datas[j][parent];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgchild :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][child] + " ");
-				avg += datas[j][child];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgignore :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][ignore] + " ");
-				avg += datas[j][ignore];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
-			System.out.print("avgirrlevant :");
-			for (int j = 0; j < 30; j++) {
-				System.out.print(datas[j][irrlevant] + " ");
-				avg += datas[j][irrlevant];
-			}
-			avg /= 30;
-			System.out.println();
-			System.out.println("avg : " + avg);
-			avg = 0;
+
+			showresult(testNum, ex, datas);
+			showresult(replace, ex, datas);
+			showresult(replaceTime, ex, datas);
+			showresult(avgmetric, ex, datas);
+			showresult(avgparent, ex, datas);
+			showresult(avgchild, ex, datas);
+			showresult(avgignore, ex, datas);
+			showresult(avgirrlevant, ex, datas);
+			showresult(avgaccuate, ex, datas);
 		}
 		// ex.test(0);
 		// ex.test(2);

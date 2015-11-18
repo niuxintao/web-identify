@@ -8,6 +8,8 @@ import com.fc.tuple.Tuple;
 public class Experiment_FB_OUR {
 	private ExpriSetUp setup;
 
+	//mfb  是 ylimaz原始方法，  mfc 是我的方法， mfba 是 ylimaz 方法和我的方法结合， 这里主要涉及到覆盖表
+	
 	public static final int mfb = 0;
 	public static final int acfb = 1;
 	public static final int pafb = 2;
