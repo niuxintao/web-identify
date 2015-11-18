@@ -9,10 +9,10 @@ import maskTool.EvaluateTuples;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
-public class Experiment {
+public class TraditionalExperiment {
 	private ExpriSetUp setup;
 
-	public Experiment() {
+	public TraditionalExperiment() {
 		setup = new ExpriSetUp();
 	}
 
@@ -52,7 +52,7 @@ public class Experiment {
 						new IgnoreRunner(basicRunner),code);
 
 				// System.out.println("mask");
-				unit.testSovler(setup.getParam(), testCase, basicRunner, code);
+//				unit.testSovler(setup.getParam(), testCase, basicRunner, code);
 				// break;
 				allNum++;
 			}
@@ -61,7 +61,7 @@ public class Experiment {
 		}
 
 		System.out.println("test Cases");
-		for (int i : new int[] { 0, 3, 6 }) {
+		for (int i : new int[] { 0, 3}) {
 			System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
 			if (allNum > 0)
@@ -75,7 +75,7 @@ public class Experiment {
 		// System.out.println();
 
 		System.out.println("evaluates -- avg");
-		for (int i : new int[] { 0, 3, 6 }) {
+		for (int i : new int[] { 0, 3 }) {
 
 			System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
@@ -131,7 +131,7 @@ public class Experiment {
 		}
 
 		System.out.println("evaluates -- all");
-		for (int i : new int[] { 0, 3, 6 }) {
+		for (int i : new int[] { 0, 3 }) {
 			System.out.println(i);
 			HashSet<Tuple> tupl = unit.getTuples().get(i);
 			List<Tuple> tuples = new ArrayList<Tuple>();
@@ -159,7 +159,7 @@ public class Experiment {
 	}
 
 	public static void main(String[] args) {
-		Experiment ex = new Experiment();
+		TraditionalExperiment ex = new TraditionalExperiment();
 		for (int i = 4; i < 15; i++)
 			ex.test(i);
 		// ex.test(1);

@@ -13,9 +13,6 @@ import maskSimulateExperiment.BasicRunner;
 import maskSimulateExperiment.DataRecord;
 import maskSimulateExperiment.ExpriSetUp;
 
-
-
-
 //import com.fc.coveringArray.CoveringManagementInf;
 import com.fc.coveringArray.DataCenter;
 import com.fc.testObject.TestCase;
@@ -25,6 +22,7 @@ import com.fc.testObject.TestSuite;
 import com.fc.testObject.TestSuiteImplement;
 import com.fc.tuple.Tuple;
 
+//we let FDA-CIT contain the t+1 way covering array
 public class CoveringArrayGenFeedBack {
 	public double T;
 	public double decrement;
@@ -61,10 +59,26 @@ public class CoveringArrayGenFeedBack {
 	private int NewMaxUnCover;
 
 	public CoveringArrayGenFeedBack(double T, double decrement) {
-		rsTable = new ArrayList<int[]>();
-		currentTable = new ArrayList<int[]>();
+		clear();
+
+		NewMaxUnCover = this.coveringArray.length;
 
 		firstCoveringArray = new ArrayList<int[]>();
+		
+		this.T = T;
+		this.decrement = decrement;
+		
+		process();
+		
+		reset();
+	}
+	
+	public void clear(){
+		
+		OldMaxUnCover = 0;
+		
+		rsTable = new ArrayList<int[]>();
+		currentTable = new ArrayList<int[]>();
 
 		mfss = new HashSet<Tuple>();
 		currentNewlyMFS = new HashSet<Tuple>();
@@ -73,12 +87,20 @@ public class CoveringArrayGenFeedBack {
 		this.coveringArray = new int[DataCenter.coveringArrayNum];
 		unCovered = this.coveringArray.length;
 
-		OldMaxUnCover = 0;
+	}
 
-		NewMaxUnCover = this.coveringArray.length;
+	public void reset() {
+		DataCenter.init(DataCenter.param, DataCenter.degree + 1);
+		
+		clear();
 
-		this.T = T;
-		this.decrement = decrement;
+		CoveringManage cm = new CoveringManage();
+		for (int[] test : this.firstCoveringArray) {
+			unCovered = cm.setCover(unCovered, coveringArray, test);
+		}
+
+		NewMaxUnCover = unCovered;
+
 	}
 
 	public int getCoverLeft() {
@@ -100,8 +122,8 @@ public class CoveringArrayGenFeedBack {
 		Integer unc = unCovered;
 		int[] coveri = null;
 		// ���ַ����ҵ���С��N
-//		 System.out.println("uncover :" + unCovered + " covrRemained :"
-//		 + this.getCoverLeft());
+		// System.out.println("uncover :" + unCovered + " covrRemained :"
+		// + this.getCoverLeft());
 
 		int maxUncover = unCovered;
 		int times = 0;
@@ -118,7 +140,7 @@ public class CoveringArrayGenFeedBack {
 			middle = middle > 0 ? middle : 1;
 			AnnelProcessFeedBack al = new AnnelProcessFeedBack(mfss, middle, T,
 					coveringArray, unCovered, decrement);
-			if(!al.isGenerated()){
+			if (!al.isGenerated()) {
 				return false;
 			}
 			al.startAnneling();
@@ -193,7 +215,7 @@ public class CoveringArrayGenFeedBack {
 		this.unCovered = unc;
 
 		this.coveringArray = coveri;
-		
+
 		return true;
 
 	}
@@ -204,7 +226,7 @@ public class CoveringArrayGenFeedBack {
 			// generate
 			// System.out.println("handle");
 			boolean result = process();
-			if(!result){
+			if (!result) {
 				break;
 			}
 
@@ -222,11 +244,11 @@ public class CoveringArrayGenFeedBack {
 				if (key != 0) {
 					List<Tuple> curBugs = bugs.get(key);
 					for (Tuple bug : curBugs) {
-//						 if (!this.mfss.contains(bug)) {
-//						 System.out.println(bug.toString());
+						// if (!this.mfss.contains(bug)) {
+						// System.out.println(bug.toString());
 						mfss.add(bug);
 						this.currentNewlyMFS.add(bug);
-//						 }
+						// }
 					}
 				}
 			}
@@ -289,8 +311,8 @@ public class CoveringArrayGenFeedBack {
 		return cta.getBugs();
 
 	}
-	
-	public void test(){
+
+	public void test() {
 		ExpriSetUp setup = new ExpriSetUp();
 		DataRecord record = setup.getRecords().get(7);
 		setup.set(record.param, record.wrongs, record.bugs, record.faults,
@@ -303,11 +325,11 @@ public class CoveringArrayGenFeedBack {
 
 		BasicRunner basicRunner = new BasicRunner(setup.getPriorityList(),
 				setup.getBugsList());
-		
+
 		DataCenter.init(setup.getParam(), 2);
 		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
 		try {
-			
+
 			t.get(basicRunner);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -333,11 +355,11 @@ public class CoveringArrayGenFeedBack {
 	}
 
 	static public void main(String[] args) {
-		for(int i = 0; i < 30; i++){
-		CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
-		t.test();
+		for (int i = 0; i < 30; i++) {
+			CoveringArrayGenFeedBack t = new CoveringArrayGenFeedBack(2, 0.9998);
+			t.test();
 		}
-		
+
 	}
 
 	public static void testSimple() {

@@ -75,6 +75,20 @@ public class Unit_FB_OUR {
 		return evaluateFB_addtional;
 	}
 
+	public List<Tuple> getBugsFromAWrongTestCase(List<TestCase> wrongCases,
+			List<Tuple> bugs) {
+		HashSet<Tuple> result = new HashSet<Tuple>();
+		for (TestCase wrongCase : wrongCases)
+			for (Tuple tu : bugs) {
+				if (wrongCase.containsOf(tu))
+					result.add(tu);
+			}
+		List<Tuple> resultSet = new ArrayList<Tuple>();
+		resultSet.addAll(result);
+
+		return resultSet;
+	}
+
 	public void testFB_OUR(List<Tuple> bugs, BasicRunner basicRunner,
 			int[] param, int degree) throws Exception {
 		DataCenter.init(param, degree);
@@ -92,8 +106,12 @@ public class Unit_FB_OUR {
 		}
 
 		List<Tuple> tuples = new ArrayList<Tuple>();
+		
+		
 		tuples.addAll(bugsFB);
-		evaluateFB.evaluate(bugs, tuples);
+		List<Tuple> bugsInFailre = this.getBugsFromAWrongTestCase(additionalFB, bugs);
+		
+		evaluateFB.evaluate(bugsInFailre, tuples);
 
 		List<TestCase> firstTestCases = new ArrayList<TestCase>();
 		for (int[] test : firstTable) {
@@ -125,7 +143,11 @@ public class Unit_FB_OUR {
 
 		List<Tuple> tuples = new ArrayList<Tuple>();
 		tuples.addAll(bugsFIC);
-		evaluateFIC.evaluate(bugs, tuples);
+		
+		List<TestCase> everyTestCase = new ArrayList<TestCase> ();
+		everyTestCase.addAll(additionalFIC);
+		List<Tuple> bugsInFailure = this.getBugsFromAWrongTestCase(everyTestCase, bugs);
+		evaluateFIC.evaluate(bugsInFailure, tuples);
 
 	}
 
@@ -171,7 +193,12 @@ public class Unit_FB_OUR {
 
 		List<Tuple> tuples = new ArrayList<Tuple>();
 		tuples.addAll(mfs);
-		evaluateFB_addtional.evaluate(bench, tuples);
+		
+		List<TestCase> everyTestCase = new ArrayList<TestCase> ();
+		everyTestCase.addAll(additionalFIC);
+		List<Tuple> bugsInFailure = this.getBugsFromAWrongTestCase(everyTestCase, bench);
+		
+		evaluateFB_addtional.evaluate(bugsInFailure, tuples);
 
 	}
 
