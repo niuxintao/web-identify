@@ -249,6 +249,34 @@ public class RandomAndILPExperiment {
 						0.05));
 
 	}
+	
+	
+	public void conductTest(int start, int end){
+		for (int i = start; i < end; i++){
+			System.out.println();
+			System.out.println("the " + i + " th");
+
+			RandomAndILPExperiment ex = new RandomAndILPExperiment();
+			ex.test(i, 6);
+
+			double[][] datas = new double[30][];
+			for (int j = 0; j < 30; j++) {
+				// RandomExperiment ex = new RandomExperiment();
+				ex.test(i, 9);
+				datas[j] = ex.data[1];
+			}
+
+			showresult(testNum, ex, datas);
+			showresult(replace, ex, datas);
+			showresult(replaceTime, ex, datas);
+			showresult(avgmetric, ex, datas);
+			showresult(avgparent, ex, datas);
+			showresult(avgchild, ex, datas);
+			showresult(avgignore, ex, datas);
+			showresult(avgirrlevant, ex, datas);
+			showresult(avgaccuate, ex, datas);
+		}
+	}
 
 	public static void main(String[] args) {
 

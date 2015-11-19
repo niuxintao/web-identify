@@ -46,13 +46,14 @@ public class TraditionalExperiment {
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
 				unit.testTraditional(setup.getParam(), testCase,
-						new DistinguishRunner(basicRunner, code),code);
+						new DistinguishRunner(basicRunner, code), code);
 				// System.out.println("ignore");
 				unit.testTraditional(setup.getParam(), testCase,
-						new IgnoreRunner(basicRunner),code);
+						new IgnoreRunner(basicRunner), code);
 
 				// System.out.println("mask");
-//				unit.testSovler(setup.getParam(), testCase, basicRunner, code);
+				// unit.testSovler(setup.getParam(), testCase, basicRunner,
+				// code);
 				// break;
 				allNum++;
 			}
@@ -61,7 +62,7 @@ public class TraditionalExperiment {
 		}
 
 		System.out.println("test Cases");
-		for (int i : new int[] { 0, 3}) {
+		for (int i : new int[] { 0, 3 }) {
 			System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
 			if (allNum > 0)
@@ -156,6 +157,12 @@ public class TraditionalExperiment {
 			System.out.println("ignore " + eva.getMissTuples().size());
 
 		}
+	}
+
+	public void conductTest(int start, int end) {
+		TraditionalExperiment ex = new TraditionalExperiment();
+		for (int i = start; i < end; i++)
+			ex.test(i);
 	}
 
 	public static void main(String[] args) {
