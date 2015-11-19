@@ -8,6 +8,9 @@ import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
 //import org.apache.commons.math3.stat.inference.TTest;
 
+import org.apache.commons.math3.stat.inference.OneWayAnova;
+import org.apache.commons.math3.stat.inference.TTest;
+
 import com.fc.tuple.Tuple;
 
 public class Experiment_FB_OUR {
@@ -108,8 +111,12 @@ public class Experiment_FB_OUR {
 
 	public static void showresult(int metric, double[][] datas) {
 
-		// TTest ttest = new TTest();
+		//
 		Mean mean = new Mean();
+		OneWayAnova anova = new OneWayAnova();
+		TTest ttest = new TTest();
+
+		List<double[]> evaluate = new ArrayList<double[]>();
 
 		RealMatrix matrix = new Array2DRowRealMatrix(datas);
 
@@ -119,6 +126,7 @@ public class Experiment_FB_OUR {
 		}
 		System.out.println();
 		System.out.println("avg £º" + mean.evaluate(matrix.getColumn(metric)));
+		evaluate.add(matrix.getColumn(metric));
 
 		System.out.print(stringofmetric[metric + 7] + " : ");
 		for (int j = 0; j < 30; j++) {
@@ -127,6 +135,7 @@ public class Experiment_FB_OUR {
 		System.out.println();
 		System.out.println("avg £º"
 				+ mean.evaluate(matrix.getColumn(metric + 7)));
+		evaluate.add(matrix.getColumn(metric + 7));
 
 		System.out.print(stringofmetric[metric + 14] + " : ");
 		for (int j = 0; j < 30; j++) {
@@ -136,13 +145,22 @@ public class Experiment_FB_OUR {
 		System.out.println("avg £º"
 				+ mean.evaluate(matrix.getColumn(metric + 14)));
 
-		// System.out.println("t-test, p-value £º"
-		// + ttest.tTest(matrix.getColumn(arg0), matrix.getColumn(metric))
-		// + "\n t-test: "
-		// + ttest.tTest(ex.data[0][metric], matrix.getColumn(metric),
-		// 0.05));
-		//
-		// System.out.println("t-test, p-value £º"
+		if (metric != tmfb)
+			evaluate.add(matrix.getColumn(metric + 14));
+
+		System.out.println("anova , p-value £º" + anova.anovaPValue(evaluate));
+		
+		System.out.println("fb to  ilp  t-test, p-value £º"
+				+ ttest.tTest(matrix.getColumn(metric),
+						matrix.getColumn(metric + 7)));
+		
+		System.out.println("afb to  ilp  t-test, p-value £º"
+				+ ttest.tTest(matrix.getColumn(metric + 14),
+						matrix.getColumn(metric + 7)));
+		
+		System.out.println("fb to  afb  t-test, p-value £º"
+				+ ttest.tTest(matrix.getColumn(metric),
+						matrix.getColumn(metric + 14)));
 		// + ttest.tTest(ex.data[0][metric], matrix.getColumn(metric))
 		// + "\n t-test: "
 		// + ttest.tTest(ex.data[0][metric], matrix.getColumn(metric),
@@ -180,193 +198,193 @@ public class Experiment_FB_OUR {
 				ex.test(i, degree);
 				datas[j] = ex.data;
 			}
-			for(int k = 0; k < 7; k++)
+			for (int k = 0; k < 7; k++)
 				showresult(k, datas);
-//			double avg = 0;
-//			System.out.print("fb num :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][tmfb] + " ");
-//				avg += datas[j][tmfb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fb metric :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][mfb] + " ");
-//				avg += datas[j][mfb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fb accuate :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][acfb] + " ");
-//				avg += datas[j][acfb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fb parent :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][pafb] + " ");
-//				avg += datas[j][pafb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fb child :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][chfb] + " ");
-//				avg += datas[j][chfb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fb ignore :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][igfb] + " ");
-//				avg += datas[j][igfb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fb irrlevant :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][irfb] + " ");
-//				avg += datas[j][irfb];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//
-//			System.out.print("fic num :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][tmfc] + " ");
-//				avg += datas[j][tmfc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//
-//			System.out.print("fic metric :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][mfc] + " ");
-//				avg += datas[j][mfc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fic accuate :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][acfc] + " ");
-//				avg += datas[j][acfc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fic parent :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][pafc] + " ");
-//				avg += datas[j][pafc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fic child :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][chfc] + " ");
-//				avg += datas[j][chfc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fic ignore :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][igfc] + " ");
-//				avg += datas[j][igfc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fic irrlevant :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][irfc] + " ");
-//				avg += datas[j][irfc];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//
-//			avg = 0;
-//			System.out.print("fba metric :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][mfba] + " ");
-//				avg += datas[j][mfba];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fba accuate :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][acfba] + " ");
-//				avg += datas[j][acfba];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fba parent :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][pafba] + " ");
-//				avg += datas[j][pafba];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fba child :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][chfba] + " ");
-//				avg += datas[j][chfba];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fba ignore :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][igfba] + " ");
-//				avg += datas[j][igfba];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
-//			System.out.print("fba irrlevant :");
-//			for (int j = 0; j < 30; j++) {
-//				System.out.print(datas[j][irfba] + " ");
-//				avg += datas[j][irfba];
-//			}
-//			avg /= 30;
-//			System.out.println();
-//			System.out.println("avg : " + avg);
-//			avg = 0;
+			// double avg = 0;
+			// System.out.print("fb num :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][tmfb] + " ");
+			// avg += datas[j][tmfb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fb metric :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][mfb] + " ");
+			// avg += datas[j][mfb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fb accuate :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][acfb] + " ");
+			// avg += datas[j][acfb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fb parent :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][pafb] + " ");
+			// avg += datas[j][pafb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fb child :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][chfb] + " ");
+			// avg += datas[j][chfb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fb ignore :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][igfb] + " ");
+			// avg += datas[j][igfb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fb irrlevant :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][irfb] + " ");
+			// avg += datas[j][irfb];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			//
+			// System.out.print("fic num :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][tmfc] + " ");
+			// avg += datas[j][tmfc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			//
+			// System.out.print("fic metric :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][mfc] + " ");
+			// avg += datas[j][mfc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fic accuate :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][acfc] + " ");
+			// avg += datas[j][acfc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fic parent :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][pafc] + " ");
+			// avg += datas[j][pafc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fic child :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][chfc] + " ");
+			// avg += datas[j][chfc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fic ignore :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][igfc] + " ");
+			// avg += datas[j][igfc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fic irrlevant :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][irfc] + " ");
+			// avg += datas[j][irfc];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			//
+			// avg = 0;
+			// System.out.print("fba metric :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][mfba] + " ");
+			// avg += datas[j][mfba];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fba accuate :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][acfba] + " ");
+			// avg += datas[j][acfba];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fba parent :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][pafba] + " ");
+			// avg += datas[j][pafba];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fba child :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][chfba] + " ");
+			// avg += datas[j][chfba];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fba ignore :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][igfba] + " ");
+			// avg += datas[j][igfba];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
+			// System.out.print("fba irrlevant :");
+			// for (int j = 0; j < 30; j++) {
+			// System.out.print(datas[j][irfba] + " ");
+			// avg += datas[j][irfba];
+			// }
+			// avg /= 30;
+			// System.out.println();
+			// System.out.println("avg : " + avg);
+			// avg = 0;
 		}
 	}
 }

@@ -224,6 +224,8 @@ public class RandomAndILPExperiment {
 		}
 	}
 
+	
+	// p value 小于0.05 就拒绝 相等， 意味着 差异显著
 	public static void showresult(int metric, RandomAndILPExperiment ex,
 			double[][] datas) {
 
@@ -243,10 +245,7 @@ public class RandomAndILPExperiment {
 		System.out.println();
 		System.out.println("avg ：" + mean.evaluate(matrix.getColumn(metric)));
 		System.out.println("t-test, p-value ："
-				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric))
-				+ "\n t-test: "
-				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric),
-						0.05));
+				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric)));
 
 	}
 	
