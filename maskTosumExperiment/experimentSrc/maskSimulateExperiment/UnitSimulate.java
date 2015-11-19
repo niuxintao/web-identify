@@ -65,6 +65,10 @@ public class UnitSimulate {
 	public final static int MASK_OFOT_OLD = 10;
 	public final static int MASK_CTA_OLD = 11;
 
+	public final static String[] names = { "RegardOne_FIC", "egardOne_OFOT",
+			"egardOne_CTA", "ILP_FIC", "MILP_OFOT", "ILP_CTA", "NUM",
+			"Random_FIC", "Random_OFOT", "Random_CTA" };
+
 	protected HashMap<Integer, HashSet<Tuple>> tuples;
 	protected HashMap<Integer, List<TestCase>> additionalTestCases;
 
@@ -362,10 +366,10 @@ public class UnitSimulate {
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
 				this.testTraditional(param, testCase, new DistinguishRunner(
-						basicRunner, code),code);
+						basicRunner, code), code);
 				// System.out.println("ignore");
 				this.testTraditional(param, testCase, new IgnoreRunner(
-						basicRunner),code);
+						basicRunner), code);
 
 				// System.out.println("mask");
 				this.testSovler(param, testCase, basicRunner, code);

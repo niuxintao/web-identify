@@ -12,6 +12,8 @@ import com.fc.tuple.Tuple;
 public class TraditionalExperiment {
 	private ExpriSetUp setup;
 
+	public final static String[] names = { "regarded", "distin" };
+
 	public TraditionalExperiment() {
 		setup = new ExpriSetUp();
 	}
@@ -63,7 +65,7 @@ public class TraditionalExperiment {
 
 		System.out.println("test Cases");
 		for (int i : new int[] { 0, 3 }) {
-			System.out.println(i);
+			System.out.println(UnitSimulate.names[i]);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
 			if (allNum > 0)
 				System.out.println(unit.getAdditionalTestCases().get(i).size()
@@ -78,7 +80,7 @@ public class TraditionalExperiment {
 		System.out.println("evaluates -- avg");
 		for (int i : new int[] { 0, 3 }) {
 
-			System.out.println(i);
+			System.out.println(UnitSimulate.names[i]);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
 			double metric = 0;
 			double ignore = 0;
@@ -133,7 +135,7 @@ public class TraditionalExperiment {
 
 		System.out.println("evaluates -- all");
 		for (int i : new int[] { 0, 3 }) {
-			System.out.println(i);
+			System.out.println(UnitSimulate.names[i]);
 			HashSet<Tuple> tupl = unit.getTuples().get(i);
 			List<Tuple> tuples = new ArrayList<Tuple>();
 			tuples.addAll(tupl);
