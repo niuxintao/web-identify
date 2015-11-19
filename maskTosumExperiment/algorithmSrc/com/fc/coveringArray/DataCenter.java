@@ -41,7 +41,7 @@ public class DataCenter {
 				currentPoint++;
 			}
 		}
-		System.out.println(i);
+//		System.out.println(i);
 		DataCenter.coveringArrayNum = allNum;
 		DataCenter.maxFreeing = allNum;
 	}
