@@ -12,8 +12,6 @@ import com.fc.tuple.Tuple;
 public class TraditionalExperiment {
 	private ExpriSetUp setup;
 
-	public final static String[] names = { "regarded", "distin" };
-
 	public TraditionalExperiment() {
 		setup = new ExpriSetUp();
 	}

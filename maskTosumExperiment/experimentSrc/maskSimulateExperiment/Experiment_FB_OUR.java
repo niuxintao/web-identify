@@ -125,7 +125,7 @@ public class Experiment_FB_OUR {
 			System.out.print(datas[j][metric] + " ");
 		}
 		System.out.println();
-		System.out.println("avg £º" + mean.evaluate(matrix.getColumn(metric)));
+		System.out.println("avg : " + mean.evaluate(matrix.getColumn(metric)));
 		evaluate.add(matrix.getColumn(metric));
 
 		System.out.print(stringofmetric[metric + 7] + " : ");
@@ -133,7 +133,7 @@ public class Experiment_FB_OUR {
 			System.out.print(datas[j][metric + 7] + " ");
 		}
 		System.out.println();
-		System.out.println("avg £º"
+		System.out.println("avg : "
 				+ mean.evaluate(matrix.getColumn(metric + 7)));
 		evaluate.add(matrix.getColumn(metric + 7));
 
@@ -142,23 +142,23 @@ public class Experiment_FB_OUR {
 			System.out.print(datas[j][metric + 14] + " ");
 		}
 		System.out.println();
-		System.out.println("avg £º"
+		System.out.println("avg : "
 				+ mean.evaluate(matrix.getColumn(metric + 14)));
 
 		if (metric != tmfb)
 			evaluate.add(matrix.getColumn(metric + 14));
 
-		System.out.println("anova , p-value £º" + anova.anovaPValue(evaluate));
+		System.out.println("anova , p-value : " + anova.anovaPValue(evaluate));
 		
-		System.out.println("fb to  ilp  t-test, p-value £º"
+		System.out.println("fb to  ilp  t-test, p-value : "
 				+ ttest.tTest(matrix.getColumn(metric),
 						matrix.getColumn(metric + 7)));
 		
-		System.out.println("afb to  ilp  t-test, p-value £º"
+		System.out.println("afb to  ilp  t-test, p-value : "
 				+ ttest.tTest(matrix.getColumn(metric + 14),
 						matrix.getColumn(metric + 7)));
 		
-		System.out.println("fb to  afb  t-test, p-value £º"
+		System.out.println("fb to  afb  t-test, p-value : "
 				+ ttest.tTest(matrix.getColumn(metric),
 						matrix.getColumn(metric + 14)));
 		// + ttest.tTest(ex.data[0][metric], matrix.getColumn(metric))

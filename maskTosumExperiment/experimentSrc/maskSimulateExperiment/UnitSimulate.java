@@ -65,9 +65,8 @@ public class UnitSimulate {
 	public final static int MASK_OFOT_OLD = 10;
 	public final static int MASK_CTA_OLD = 11;
 
-	public final static String[] names = { "RegardOne_FIC", "egardOne_OFOT",
-			"egardOne_CTA", "ILP_FIC", "MILP_OFOT", "ILP_CTA", "NUM",
-			"Random_FIC", "Random_OFOT", "Random_CTA" };
+	public final static String[] names = { "RegardOne_FIC", "RegardOne_OFOT", "RegardOne_CTA", "Distin_FIC",
+			"Distin_OFOT", "Distin__CTA", "ILP_FIC", "ILP_OFOT", "ILP_CTA", "NUM", "Random_FIC", "Random_OFOT", "Random_CTA" };
 
 	protected HashMap<Integer, HashSet<Tuple>> tuples;
 	protected HashMap<Integer, List<TestCase>> additionalTestCases;
@@ -116,8 +115,7 @@ public class UnitSimulate {
 		this.bugs = bugs;
 	}
 
-	public List<Tuple> getBugsFromAWrongTestCase(TestCase wrongCase,
-			int WrongCode) {
+	public List<Tuple> getBugsFromAWrongTestCase(TestCase wrongCase, int WrongCode) {
 		List<Tuple> bugsOfCode = this.bugs.get(WrongCode);
 		List<Tuple> result = new ArrayList<Tuple>();
 		for (Tuple tu : bugsOfCode) {
@@ -127,23 +125,20 @@ public class UnitSimulate {
 		return result;
 	}
 
-	public void testTraditional(int[] param, TestCase wrongCase,
-			CaseRunner runner, int wrongCode) {
+	public void testTraditional(int[] param, TestCase wrongCase, CaseRunner runner, int wrongCode) {
 		int added = runner instanceof DistinguishRunner ? 3 : 0;
 
 		FIC fic = new FIC(wrongCase, param, runner);
 		fic.FicNOP();
 
-		this.additionalTestCases.get(IGNORE_FIC + added).addAll(
-				fic.getExecuted());
+		this.additionalTestCases.get(IGNORE_FIC + added).addAll(fic.getExecuted());
 		// for (int i = 0; i < fic.getExtraCases().getTestCaseNum(); i++)
 		// this.additionalTestCases.get(IGNORE_FIC + added).add(
 		// fic.getExtraCases().getAt(i));
 		this.tuples.get(IGNORE_FIC + added).addAll(fic.getBugs());
 
 		EvaluateTuples eva = new EvaluateTuples();
-		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
-				wrongCode);
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase, wrongCode);
 		eva.evaluate(compareBugs, fic.getBugs());
 		this.evaluates.get(IGNORE_FIC + added).add(eva);
 
@@ -187,18 +182,15 @@ public class UnitSimulate {
 		// return cta.getBugs(1);
 	}
 
-	public void testSovler(int[] param, TestCase wrongCase, BasicRunner runner,
-			int code) {
+	public void testSovler(int[] param, TestCase wrongCase, BasicRunner runner, int code) {
 
-		FIC_MASK_SOVLER ficmasknew = new FIC_MASK_SOVLER(wrongCase, param,
-				runner, code);
+		FIC_MASK_SOVLER ficmasknew = new FIC_MASK_SOVLER(wrongCase, param, runner, code);
 		ficmasknew.FicNOP();
 
 		this.additionalTestCases.get(MASK_FIC).addAll(ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC).addAll(ficmasknew.getBugs());
 		EvaluateTuples eva = new EvaluateTuples();
-		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
-				code);
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase, code);
 		eva.evaluate(compareBugs, ficmasknew.getBugs());
 		this.evaluates.get(MASK_FIC).add(eva);
 
@@ -243,20 +235,16 @@ public class UnitSimulate {
 		// // System.out.println(tuple.toString());
 	}
 
-	public void testAugment(int[] param, TestCase wrongCase,
-			BasicRunner runner, int code) {
+	public void testAugment(int[] param, TestCase wrongCase, BasicRunner runner, int code) {
 
-		FIC_MASK_NEWLY ficmasknew = new FIC_MASK_NEWLY(wrongCase, param,
-				runner, code);
+		FIC_MASK_NEWLY ficmasknew = new FIC_MASK_NEWLY(wrongCase, param, runner, code);
 		ficmasknew.FicNOP();
 
-		this.additionalTestCases.get(MASK_FIC_OLD).addAll(
-				ficmasknew.getExecuted());
+		this.additionalTestCases.get(MASK_FIC_OLD).addAll(ficmasknew.getExecuted());
 		this.tuples.get(MASK_FIC_OLD).addAll(ficmasknew.getBugs());
 
 		EvaluateTuples eva = new EvaluateTuples();
-		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,
-				code);
+		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase, code);
 		eva.evaluate(compareBugs, ficmasknew.getBugs());
 		this.evaluates.get(MASK_FIC_OLD).add(eva);
 
@@ -365,11 +353,9 @@ public class UnitSimulate {
 				// System.out.println("testCase: " +
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
-				this.testTraditional(param, testCase, new DistinguishRunner(
-						basicRunner, code), code);
+				this.testTraditional(param, testCase, new DistinguishRunner(basicRunner, code), code);
 				// System.out.println("ignore");
-				this.testTraditional(param, testCase, new IgnoreRunner(
-						basicRunner), code);
+				this.testTraditional(param, testCase, new IgnoreRunner(basicRunner), code);
 
 				// System.out.println("mask");
 				this.testSovler(param, testCase, basicRunner, code);
@@ -384,8 +370,7 @@ public class UnitSimulate {
 			System.out.println(i);
 			// for (TestCase testCase : this.additionalTestCases.get(i))
 			if (allNum > 0)
-				System.out.println(this.additionalTestCases.get(i).size()
-						/ (double) allNum);
+				System.out.println(this.additionalTestCases.get(i).size() / (double) allNum);
 
 		}
 
@@ -412,8 +397,7 @@ public class UnitSimulate {
 				System.out.println("ignore: " + ignore / (double) allNum);
 				System.out.println("parent: " + parent / (double) allNum);
 				System.out.println("child: " + child / (double) allNum);
-				System.out.println("irrelevant: " + irrelevant
-						/ (double) allNum);
+				System.out.println("irrelevant: " + irrelevant / (double) allNum);
 				System.out.println("accuarte: " + accuarte / (double) allNum);
 			}
 

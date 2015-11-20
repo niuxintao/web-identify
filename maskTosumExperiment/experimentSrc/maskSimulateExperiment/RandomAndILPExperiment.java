@@ -244,7 +244,7 @@ public class RandomAndILPExperiment {
 
 		System.out.println();
 		System.out.println("avg £º" + mean.evaluate(matrix.getColumn(metric)));
-		System.out.println("t-test, p-value £º"
+		System.out.println("t-test, p-value : "
 				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric)));
 
 	}

@@ -13,8 +13,10 @@ public class Test {
 		TraditionalExperiment te = new TraditionalExperiment();
 		RandomAndILPExperiment re = new RandomAndILPExperiment();
 		Experiment_FB_OUR ee = new Experiment_FB_OUR();
-		te.conductTest(14, 15);
-		re.conductTest(14, 15);
-		ee.conductTest(14, 15, 2);
+		te.conductTest(0, 3);
+		re.conductTest(0, 3);
+		ee.conductTest(0, 3, 2);
+		ee.conductTest(0, 3, 3);
+		ee.conductTest(0, 3, 4);
 	}
 }
