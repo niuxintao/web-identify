@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/3/simulateExperiment/src/com/fc/model
+END
+CTA.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/33/simulateExperiment/src/com/fc/model/CTA.java
+END
+FIC.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/29/simulateExperiment/src/com/fc/model/FIC.java
+END
+CharacterWM.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/simulateExperiment/src/com/fc/model/CharacterWM.java
+END
+CharacterFeedBack.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/29/simulateExperiment/src/com/fc/model/CharacterFeedBack.java
+END
+LocateGraphBinary.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/simulateExperiment/src/com/fc/model/LocateGraphBinary.java
+END
+LocateGraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/simulateExperiment/src/com/fc/model/LocateGraph.java
+END
+OFOT.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/31/simulateExperiment/src/com/fc/model/OFOT.java
+END
+RI.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/29/simulateExperiment/src/com/fc/model/RI.java
+END
+IterAIFL.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/3/simulateExperiment/src/com/fc/model/IterAIFL.java
+END
+TuplePool.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/25/simulateExperiment/src/com/fc/model/TuplePool.java
+END
+CharacterAugFeedBcak.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/32/simulateExperiment/src/com/fc/model/CharacterAugFeedBcak.java
+END
+SpectrumBased.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/40/simulateExperiment/src/com/fc/model/SpectrumBased.java
+END
+ChainAug.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/22/simulateExperiment/src/com/fc/model/ChainAug.java
+END
+Chain.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/24/simulateExperiment/src/com/fc/model/Chain.java
+END

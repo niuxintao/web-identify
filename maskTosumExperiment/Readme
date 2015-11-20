@@ -1,0 +1,16 @@
+ExpriSetUp.class 设置 input model, bug model, bug priority
+
+UnitSimulate.class 设置 单个测试model 下的所有 测试过程， ***********这个文件最为重要
+
+TraditionalExperiment.class （总的执行UnitSimulate, 使用ExperimentSetup里的subjects） 是第一个比较， distin, regard
+
+RandomAndILPExperiment 比较了ilp 和 random
+
+Experiment_FB_OUR 则比较了FD-CIT 和 ILP
+
+UnitSimulateMiddleVariable.class, 类似 UnitSimulate， 但是额外计算了  所用时间，替换次数，用户 ILP 和random
+
+TestTupleSuspiciousWithSolver 设置里 是 全部 大小， 没有说明次数， 只需要对这个文件进行一些测试就行
+
+
+First Table Experimet_FB_OUR 需要改变
