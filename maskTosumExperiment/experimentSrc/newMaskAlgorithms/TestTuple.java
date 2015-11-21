@@ -73,7 +73,7 @@ public class TestTuple {
 			// break;
 			// }
 
-		     System.out.println(testCase.getStringOfTest());
+//		     System.out.println(testCase.getStringOfTest());
 
 			int runresult = runner.runTestCase(testCase);
 			

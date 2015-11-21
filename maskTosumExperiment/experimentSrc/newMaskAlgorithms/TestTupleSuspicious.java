@@ -9,11 +9,11 @@ import maskSimulateExperiment.BasicRunner;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
-//it first indentify a fault, and then omit it in the later test cases
+//it first identify a fault, and then omit it in the later test cases
 
 //exactly, we cann't easily judge which one was masked by others, so in this paper,
 
-//we just think they are masked each other defaultly. 
+//we just think they are masked each other  by default. 
 
 //the no masked fault will not be masked.
 
@@ -23,13 +23,16 @@ import com.fc.tuple.Tuple;
 
 //this system is too weak and 
 
+
+
+// this class is too randomly generate CANDIDATENUM test cases and then choose the best one,
+
+// if the CANDIDATENUM is 1 it is equal to the random approach
+
 public class TestTupleSuspicious {
 
-	public static final int TRYNUMBER = 10; // if too many faults, we should
-											// redesign this program instead of
-											// repair it.
 
-	public static final int CANDIDATENUM = 1;
+	public static final int CANDIDATENUM = 100;
 
 	private BasicRunner runner;
 
@@ -132,7 +135,7 @@ public class TestTupleSuspicious {
 			// break;
 			// }
 			// System.out.println("executed");
-			// System.out.print(testCase.getStringOfTest() + " : ");
+//			System.out.println(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
 
 			// System.out.println(runresult);

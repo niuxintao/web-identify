@@ -260,9 +260,10 @@ public class RandomAndILPExperiment {
 
 			double[][] datas = new double[30][];
 			for (int j = 0; j < 30; j++) {
-				// RandomExperiment ex = new RandomExperiment();
+//				RandomAndILPExperiment ex2 = new RandomAndILPExperiment();
 				ex.test(i, 9);
 				datas[j] = ex.data[1];
+//				System.out.println("-----------------------------------------");
 			}
 
 			showresult(testNum, ex, datas);
@@ -274,38 +275,12 @@ public class RandomAndILPExperiment {
 			showresult(avgignore, ex, datas);
 			showresult(avgirrlevant, ex, datas);
 			showresult(avgaccuate, ex, datas);
+			showresult(millions, ex, datas);
 		}
 	}
 
 	public static void main(String[] args) {
-
-		for (int i = 14; i < 15; i++) {
-			System.out.println();
-			System.out.println("the " + i + " th");
-
-			RandomAndILPExperiment ex = new RandomAndILPExperiment();
-			ex.test(i, 6);
-
-			double[][] datas = new double[30][];
-			for (int j = 0; j < 30; j++) {
-				// RandomExperiment ex = new RandomExperiment();
-				ex.test(i, 9);
-				datas[j] = ex.data[1];
-			}
-
-			showresult(testNum, ex, datas);
-			showresult(replace, ex, datas);
-			showresult(replaceTime, ex, datas);
-			showresult(avgmetric, ex, datas);
-			showresult(avgparent, ex, datas);
-			showresult(avgchild, ex, datas);
-			showresult(avgignore, ex, datas);
-			showresult(avgirrlevant, ex, datas);
-			showresult(avgaccuate, ex, datas);
-		}
-		// ex.test(0);
-		// ex.test(2);
-		// // ex.test(3);
-		// ex.test(4);
+		RandomAndILPExperiment ex1 = new RandomAndILPExperiment();
+		ex1.conductTest(14, 15);
 	}
 }

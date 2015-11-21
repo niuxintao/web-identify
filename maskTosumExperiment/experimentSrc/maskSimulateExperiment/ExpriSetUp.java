@@ -191,13 +191,13 @@ public class ExpriSetUp {
 
 		// synthesiz 10
 		record = new DataRecord();
-		param = new int[] { 2, 2, 2, 2, 2, 2  };
+		param = new int[] { 3, 3, 3, 3, 3, 3  };
 		wrongs = new int[][] { { 1, 1, 1, 0, 1, 1 },
 				{ 1, 1, 0, 0, 1, 1 },
 				{ 1, 1, 0, 0, 1, 0 } };
 		bugs = new int[][] { { 0, 3, 4 }, { 2, 3, 5 }, { 2, 3, 4 } };
-		faults = new int[] { 1, 2, 2 };
-		priority = new int[][] { {}, { 1 } };
+		faults = new int[] { 1, 2, 3 };
+		priority = new int[][] { {}, { 1 } , {1,2 }};
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
