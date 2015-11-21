@@ -112,7 +112,9 @@ public class RandomAndILPExperiment {
 				data[di][testNum] = unit.getAdditionalTestCases().get(i).size()
 						/ (double) allNum;
 
-			// System.out.println();
+			// if (i == algorithm)
+			// System.out.println(unit.getAdditionalTestCases().get(i).size()
+			// / (double) allNum);
 
 		}
 		// System.out.println("replace time");
@@ -224,7 +226,6 @@ public class RandomAndILPExperiment {
 		}
 	}
 
-	
 	// p value 小于0.05 就拒绝 相等， 意味着 差异显著
 	public static void showresult(int metric, RandomAndILPExperiment ex,
 			double[][] datas) {
@@ -248,22 +249,22 @@ public class RandomAndILPExperiment {
 				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric)));
 
 	}
-	
-	
-	public void conductTest(int start, int end){
-		for (int i = start; i < end; i++){
+
+	public void conductTest(int start, int end) {
+		for (int i = start; i < end; i++) {
 			System.out.println();
 			System.out.println("the " + i + " th");
 
 			RandomAndILPExperiment ex = new RandomAndILPExperiment();
 			ex.test(i, 6);
 
-			double[][] datas = new double[30][];
+			double[][] datas = new double[30][stringofmetric.length];
 			for (int j = 0; j < 30; j++) {
-//				RandomAndILPExperiment ex2 = new RandomAndILPExperiment();
+				// RandomAndILPExperiment ex2 = new RandomAndILPExperiment();
 				ex.test(i, 9);
-				datas[j] = ex.data[1];
-//				System.out.println("-----------------------------------------");
+				for (int k = 0; k < ex.data[1].length; k++)
+					datas[j][k] = ex.data[1][k];
+				// System.out.println("-----------------------------------------");
 			}
 
 			showresult(testNum, ex, datas);

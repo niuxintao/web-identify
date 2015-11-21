@@ -23,16 +23,19 @@ import com.fc.tuple.Tuple;
 
 //this system is too weak and 
 
-
-
 // this class is too randomly generate CANDIDATENUM test cases and then choose the best one,
 
 // if the CANDIDATENUM is 1 it is equal to the random approach
 
 public class TestTupleSuspicious {
 
+	/**
+	 * this class is too randomly generate CANDIDATENUM test cases and then
+	 * choose the best one,if the CANDIDATENUM is 1 it is equal to the random
+	 * approach
+	 **/
+	public static final int CANDIDATENUM = 1;
 
-	public static final int CANDIDATENUM = 100;
 
 	private BasicRunner runner;
 
@@ -41,11 +44,10 @@ public class TestTupleSuspicious {
 	private List<TestCase> executed;
 
 	private HashMap<Integer, List<TestCase>> executedHash;
-	
-	
+
 	public int time;
 	public long millions;
-	
+
 	public TestTupleSuspicious(BasicRunner runner, int[] param,
 			TestCase wrongCase, int fault) {
 		this.runner = runner;
@@ -74,7 +76,7 @@ public class TestTupleSuspicious {
 				param, tuple);
 
 		while (true) {
-			 time++;
+			time++;
 			// if (time > TRYNUMBER) {
 			// result = true;
 			// break;
@@ -135,7 +137,7 @@ public class TestTupleSuspicious {
 			// break;
 			// }
 			// System.out.println("executed");
-//			System.out.println(testCase.getStringOfTest() + " : ");
+			// System.out.println(testCase.getStringOfTest() + " : ");
 			int runresult = runner.runTestCase(testCase);
 
 			// System.out.println(runresult);
@@ -159,7 +161,7 @@ public class TestTupleSuspicious {
 			}
 		}
 
-		this.millions = System.currentTimeMillis()- start;
+		this.millions = System.currentTimeMillis() - start;
 		return result;
 	}
 
