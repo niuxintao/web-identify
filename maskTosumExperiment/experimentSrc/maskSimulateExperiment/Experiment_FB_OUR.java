@@ -173,11 +173,12 @@ public class Experiment_FB_OUR {
 			System.out.println();
 			System.out.println("the " + i + " th");
 
-			double[][] datas = new double[30][];
+			double[][] datas = new double[30][stringofmetric.length];
 			for (int j = 0; j < 30; j++) {
 				Experiment_FB_OUR ex = new Experiment_FB_OUR();
 				ex.test(i, degree);
-				datas[j] = ex.data;
+				for(int k = 0; k < stringofmetric.length; k++)
+					datas[j][k] = ex.data[k];
 			}
 
 			for (int k = 0; k < 7; k++)
@@ -187,7 +188,7 @@ public class Experiment_FB_OUR {
 	}
 
 	public static void main(String[] args) {
-		int degree = 4;
+		int degree = 2;
 
 		for (int i = 14; i < 15; i++) {
 			System.out.println();

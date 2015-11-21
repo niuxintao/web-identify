@@ -267,6 +267,10 @@ public class RandomAndILPExperiment {
 				// System.out.println("-----------------------------------------");
 			}
 
+
+
+
+
 			showresult(testNum, ex, datas);
 			showresult(replace, ex, datas);
 			showresult(replaceTime, ex, datas);
