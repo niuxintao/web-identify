@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.trees.J48;
 //import weka.classifiers.trees.SimpleCart;
 import weka.core.Attribute;
@@ -111,87 +113,97 @@ public class CTA {
 		options[2] = "1";
 		classifier.setOptions(options);
 		classifier.setConfidenceFactor((float) 0.25);
-		classifier.buildClassifier(data);
+	
+
+		Evaluation eval = new Evaluation(data);
+		Random rand = new Random(1); // using seed = 1
+		int folds = 10;
+		eval.crossValidateModel(classifier, data, folds, rand);
+		System.out.println(eval.toSummaryString());
+		// CrossValidate.get(data);
+
 		// System.out.println(classifier.toString());
+		classifier.buildClassifier(data);
 		return classifier.toString();
 	}
 
-//	// <simple cart need>
-//	public String constructClassifierNew(Instances data) throws Exception {
-//		SimpleCart classifier = new SimpleCart();
-//		String[] options = new String[3];
-//		options[0] = "-U";
-//
-//		options[1] = "-M";
-//		options[2] = "1";
-//		classifier.setOptions(options);
-//		classifier.buildClassifier(data);
-//		System.out.println(classifier.toString());
-//		return classifier.toString();
-//	}
+	// // <simple cart need>
+	// public String constructClassifierNew(Instances data) throws Exception {
+	// SimpleCart classifier = new SimpleCart();
+	// String[] options = new String[3];
+	// options[0] = "-U";
+	//
+	// options[1] = "-M";
+	// options[2] = "1";
+	// classifier.setOptions(options);
+	// classifier.buildClassifier(data);
+	// System.out.println(classifier.toString());
+	// return classifier.toString();
+	// }
 
 	// </simple cart need>
-//	public void process(TestSuite suite, int[] parameters, CaseRunner runner)
-//			throws Exception {
-//		for (int i = 0; i < suite.getTestCaseNum(); i++) {
-//			this.executed.put(suite.getAt(i), suite.getAt(i).testDescription());
-//		}
-//		for (int i = 0; i < suite.getTestCaseNum(); i++) {
-//			if (suite.getAt(i).testDescription() == TestCase.FAILED)
-//				this.processOneTestCase(suite.getAt(i), parameters, runner);
-//		}
-//		TestSuite su = new TestSuiteImplement();
-//		String[] state = new String[this.executed.size()];
-//		int cur = 0;
-//		for (TestCase testCase : this.executed.keySet()) {
-//			su.addTest(testCase);
-//			state[cur] = testCase.testDescription() == TestCase.PASSED ? "pass"
-//					: "fail";
-//			// System.out.print(testCase.getStringOfTest());
-//			// System.out.println(" "+state[cur]);
-//			cur++;
-//		}
-//		String[] classes = { "pass", "fail" };
-//		this.process(parameters, classes, su, state);
-//	}
+	// public void process(TestSuite suite, int[] parameters, CaseRunner runner)
+	// throws Exception {
+	// for (int i = 0; i < suite.getTestCaseNum(); i++) {
+	// this.executed.put(suite.getAt(i), suite.getAt(i).testDescription());
+	// }
+	// for (int i = 0; i < suite.getTestCaseNum(); i++) {
+	// if (suite.getAt(i).testDescription() == TestCase.FAILED)
+	// this.processOneTestCase(suite.getAt(i), parameters, runner);
+	// }
+	// TestSuite su = new TestSuiteImplement();
+	// String[] state = new String[this.executed.size()];
+	// int cur = 0;
+	// for (TestCase testCase : this.executed.keySet()) {
+	// su.addTest(testCase);
+	// state[cur] = testCase.testDescription() == TestCase.PASSED ? "pass"
+	// : "fail";
+	// // System.out.print(testCase.getStringOfTest());
+	// // System.out.println(" "+state[cur]);
+	// cur++;
+	// }
+	// String[] classes = { "pass", "fail" };
+	// this.process(parameters, classes, su, state);
+	// }
 
-//	public void processOneTestCase(TestCase wrongCase, int[] parameters,
-//			CaseRunner runner) {
-//		List<List<TestCase>> array = this.generateSuiteArray(wrongCase,
-//				parameters);
-//		for (List<TestCase> list : array) {
-//			for (TestCase testCase : list) {
-//				if (executed.containsKey(testCase))
-//					testCase.setTestState(executed.get(testCase));
-//				else {
-//					testCase.setTestState(runner.runTestCase(testCase));
-//					executed.put(testCase, testCase.testDescription());
-//				}
-//			}
-//		}
-//	}
+	// public void processOneTestCase(TestCase wrongCase, int[] parameters,
+	// CaseRunner runner) {
+	// List<List<TestCase>> array = this.generateSuiteArray(wrongCase,
+	// parameters);
+	// for (List<TestCase> list : array) {
+	// for (TestCase testCase : list) {
+	// if (executed.containsKey(testCase))
+	// testCase.setTestState(executed.get(testCase));
+	// else {
+	// testCase.setTestState(runner.runTestCase(testCase));
+	// executed.put(testCase, testCase.testDescription());
+	// }
+	// }
+	// }
+	// }
 
-//	public List<List<TestCase>> generateSuiteArray(TestCase wrongCase,
-//			int[] parameters) {
-//		List<List<TestCase>> suite = new ArrayList<List<TestCase>>();
-//		// TestSuite suite = new TestSuiteImplement();
-//		for (int i = 0; i < wrongCase.getLength(); i++) {
-//			List<TestCase> temp = new ArrayList<TestCase>();
-//			TestCase lastCase = wrongCase;
-//			for (int k = 0; k < (parameters[i] - 1 > OFOT.ITERATNUMBER ? OFOT.ITERATNUMBER
-//					: parameters[i] - 1); k++) {
-//				TestCase casetemple = new TestCaseImplement(
-//						wrongCase.getLength());
-//				for (int j = 0; j < lastCase.getLength(); j++)
-//					casetemple.set(j, lastCase.getAt(j));
-//				casetemple.set(i, (casetemple.getAt(i) + 1) % parameters[i]);
-//				temp.add(casetemple);
-//				lastCase = casetemple;
-//			}
-//			suite.add(temp);
-//		}
-//		return suite;
-//	}
+	// public List<List<TestCase>> generateSuiteArray(TestCase wrongCase,
+	// int[] parameters) {
+	// List<List<TestCase>> suite = new ArrayList<List<TestCase>>();
+	// // TestSuite suite = new TestSuiteImplement();
+	// for (int i = 0; i < wrongCase.getLength(); i++) {
+	// List<TestCase> temp = new ArrayList<TestCase>();
+	// TestCase lastCase = wrongCase;
+	// for (int k = 0; k < (parameters[i] - 1 > OFOT.ITERATNUMBER ?
+	// OFOT.ITERATNUMBER
+	// : parameters[i] - 1); k++) {
+	// TestCase casetemple = new TestCaseImplement(
+	// wrongCase.getLength());
+	// for (int j = 0; j < lastCase.getLength(); j++)
+	// casetemple.set(j, lastCase.getAt(j));
+	// casetemple.set(i, (casetemple.getAt(i) + 1) % parameters[i]);
+	// temp.add(casetemple);
+	// lastCase = casetemple;
+	// }
+	// suite.add(temp);
+	// }
+	// return suite;
+	// }
 
 	public HashMap<Integer, List<Tuple>> getBugs(String tree, int length) {
 		HashMap<Integer, List<Tuple>> bugs = new HashMap<Integer, List<Tuple>>();
@@ -355,12 +367,14 @@ public class CTA {
 		int[] param = { 3, 3, 3 };
 		String[] classes = { "pass", "err1", "err2", "err3" };
 
-		int[][] suites = { { 0, 0, 0 }, { 0, 0, 1 }, { 0, 0, 2 }, { 0, 1, 0 },
-				{ 0, 1, 1 }, { 0, 1, 2 }, { 0, 2, 0 }, { 0, 2, 1 },
-				{ 0, 2, 2 }, { 1, 0, 0 }, { 1, 0, 1 }, { 1, 0, 2 },
-				{ 1, 1, 0 }, { 1, 1, 1 }, { 1, 1, 2 }, { 1, 2, 0 },
-				{ 1, 2, 1 }, { 1, 2, 2 }, { 2, 0, 0 }, { 2, 0, 1 },
-				{ 2, 0, 2 }, { 2, 1, 0 }, { 2, 1, 1 }, { 2, 1, 2 },
+		int[][] suites = { { 0, 0, 0 }, { 0, 0, 1 }, { 0, 0, 2 },
+				{ 0, 1, 0 }, { 0, 1, 1 }, { 0, 1, 2 },
+				{ 0, 2, 0 }, { 0, 2, 1 }, { 0, 2, 2 }, 
+				{ 1, 0, 0 }, { 1, 0, 1 }, { 1, 0, 2 },
+				{ 1, 1, 0 }, { 1, 1, 1 }, { 1, 1, 2 }, 
+				{ 1, 2, 0 }, { 1, 2, 1 }, { 1, 2, 2 }, 
+				{ 2, 0, 0 }, { 2, 0, 1 }, { 2, 0, 2 }, 
+				{ 2, 1, 0 }, { 2, 1, 1 }, { 2, 1, 2 },
 				{ 2, 2, 0 }, { 2, 2, 1 }, { 2, 2, 2 } };
 		TestSuite suite = new TestSuiteImplement();
 
@@ -370,10 +384,15 @@ public class CTA {
 			suite.addTest(testCase);
 		}
 
-		String[] state = { "pass", "pass", "err3", "pass", "pass", "pass",
-				"pass", "pass", "pass", "err1", "err1", "err1", "err3", "err1",
-				"err1", "err1", "err1", "err1", "err2", "err2", "err2", "err2",
-				"err2", "err2", "err3", "err2", "err2" };
+		String[] state = { "pass", "pass", "err3", 
+				           "pass", "pass", "pass",
+			 	           "pass", "pass", "pass", 
+			 	           "err1", "err1", "err1", 
+			 	           "err3", "err1", "err1", 
+			 	           "err1", "err1", "err1", 
+			 	           "err2", "err2", "err2", 
+			 	           "err2", "err2", "err2", 
+			 	           "err3", "err2", "err2" };
 
 		cta.process(param, classes, suite, state);
 		System.out.println(cta.tree);

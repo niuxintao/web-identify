@@ -106,11 +106,11 @@ public class Unit_FB_OUR {
 		}
 
 		List<Tuple> tuples = new ArrayList<Tuple>();
-		
-		
+
 		tuples.addAll(bugsFB);
-		List<Tuple> bugsInFailre = this.getBugsFromAWrongTestCase(additionalFB, bugs);
-		
+		List<Tuple> bugsInFailre = this.getBugsFromAWrongTestCase(additionalFB,
+				bugs);
+
 		evaluateFB.evaluate(bugsInFailre, tuples);
 
 		List<TestCase> firstTestCases = new ArrayList<TestCase>();
@@ -125,12 +125,30 @@ public class Unit_FB_OUR {
 
 	}
 
+	// just not test the test case
+	public boolean containBugs(TestCase testCase) {
+		for (Tuple tuple : this.bugsFIC)
+			if (testCase.containsOf(tuple))
+				return true;
+		return false;
+	}
+
+	// public TestCase mutatedTestCase(TestCase testCase, List<Tuple> bugs){
+	//
+	// }
+
 	public void testMASKFIC(List<Tuple> bugs, List<TestCase> testCases,
 			int[] param, BasicRunner runner) {
 
 		for (TestCase wrongCase : testCases) {
 			int code = runner.runTestCase(wrongCase);
 			if (code != 0) {
+
+				if (this.containBugs(wrongCase)) { // do not identify the test
+													// case contain existed bug
+					additionalFIC.add(wrongCase);
+					continue;
+				}
 				FIC_MASK_SOVLER ficmasknew = new FIC_MASK_SOVLER(wrongCase,
 						param, runner, code);
 				ficmasknew.FicNOP();
@@ -143,10 +161,11 @@ public class Unit_FB_OUR {
 
 		List<Tuple> tuples = new ArrayList<Tuple>();
 		tuples.addAll(bugsFIC);
-		
-		List<TestCase> everyTestCase = new ArrayList<TestCase> ();
+
+		List<TestCase> everyTestCase = new ArrayList<TestCase>();
 		everyTestCase.addAll(additionalFIC);
-		List<Tuple> bugsInFailure = this.getBugsFromAWrongTestCase(everyTestCase, bugs);
+		List<Tuple> bugsInFailure = this.getBugsFromAWrongTestCase(
+				everyTestCase, bugs);
 		evaluateFIC.evaluate(bugsInFailure, tuples);
 
 	}
@@ -193,11 +212,12 @@ public class Unit_FB_OUR {
 
 		List<Tuple> tuples = new ArrayList<Tuple>();
 		tuples.addAll(mfs);
-		
-		List<TestCase> everyTestCase = new ArrayList<TestCase> ();
+
+		List<TestCase> everyTestCase = new ArrayList<TestCase>();
 		everyTestCase.addAll(additionalFIC);
-		List<Tuple> bugsInFailure = this.getBugsFromAWrongTestCase(everyTestCase, bench);
-		
+		List<Tuple> bugsInFailure = this.getBugsFromAWrongTestCase(
+				everyTestCase, bench);
+
 		evaluateFB_addtional.evaluate(bugsInFailure, tuples);
 
 	}

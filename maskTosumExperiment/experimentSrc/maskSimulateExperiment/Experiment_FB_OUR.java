@@ -190,7 +190,7 @@ public class Experiment_FB_OUR {
 	public static void main(String[] args) {
 		int degree = 2;
 
-		for (int i = 14; i < 15; i++) {
+		for (int i = 1; i < 2; i++) {
 			System.out.println();
 			System.out.println("the " + i + " th");
 			double[][] datas = new double[30][];
