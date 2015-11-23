@@ -119,7 +119,7 @@ public class CTA {
 		Random rand = new Random(1); // using seed = 1
 		int folds = 10;
 		eval.crossValidateModel(classifier, data, folds, rand);
-		System.out.println(eval.toSummaryString());
+//		System.out.println(eval.toSummaryString());
 		// CrossValidate.get(data);
 
 		// System.out.println(classifier.toString());

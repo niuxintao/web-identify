@@ -1,7 +1,7 @@
 package maskSimulateExperiment;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.List;
 
 import maskTool.EvaluateTuples;
@@ -131,44 +131,45 @@ public class TraditionalExperiment {
 
 		}
 
-		System.out.println("evaluates -- all");
-		for (int i : new int[] { 0, 3 }) {
-			System.out.println(UnitSimulate.names[i]);
-			HashSet<Tuple> tupl = unit.getTuples().get(i);
-			List<Tuple> tuples = new ArrayList<Tuple>();
-			tuples.addAll(tupl);
-
-			// for (Tuple tuple : tuples)
-			// System.out.print(tuple.toString() + " ");
-			// System.out.println();
-			EvaluateTuples eva = new EvaluateTuples();
-
-			// for(Tuple tuple : tuples){
-			// System.out.println("degree : " + tuple.getDegree());
-			// System.out.println(tuple.toString());
-			// }
-
-			eva.evaluate(bench, tuples);
-			System.out.println(eva.getMetric());
-			System.out.println("accuate " + eva.getAccurateTuples().size());
-			System.out.println("child " + eva.getChildTuples().size());
-			System.out.println("parent " + eva.getFatherTuples().size());
-			System.out.println("irrelevant " + eva.getRedundantTuples().size());
-			System.out.println("ignore " + eva.getMissTuples().size());
-
-		}
+//		System.out.println("evaluates -- all");
+//		for (int i : new int[] { 0, 3 }) {
+//			System.out.println(UnitSimulate.names[i]);
+//			HashSet<Tuple> tupl = unit.getTuples().get(i);
+//			List<Tuple> tuples = new ArrayList<Tuple>();
+//			tuples.addAll(tupl);
+//
+//			// for (Tuple tuple : tuples)
+//			// System.out.print(tuple.toString() + " ");
+//			// System.out.println();
+//			EvaluateTuples eva = new EvaluateTuples();
+//
+//			// for(Tuple tuple : tuples){
+//			// System.out.println("degree : " + tuple.getDegree());
+//			// System.out.println(tuple.toString());
+//			// }
+//
+//			eva.evaluate(bench, tuples);
+//			System.out.println(eva.getMetric());
+//			System.out.println("accuate " + eva.getAccurateTuples().size());
+//			System.out.println("child " + eva.getChildTuples().size());
+//			System.out.println("parent " + eva.getFatherTuples().size());
+//			System.out.println("irrelevant " + eva.getRedundantTuples().size());
+//			System.out.println("ignore " + eva.getMissTuples().size());
+//
+//		}
 	}
 
 	public void conductTest(int start, int end) {
 		TraditionalExperiment ex = new TraditionalExperiment();
-		for (int i = start; i < end; i++)
+		for (int i = start; i < end; i++){
+			System.out.println();
 			ex.test(i);
+		}
 	}
 
 	public static void main(String[] args) {
 		TraditionalExperiment ex = new TraditionalExperiment();
-		for (int i = 4; i < 15; i++)
-			ex.test(i);
+		ex.conductTest(4, 15);
 		// ex.test(1);
 		// ex.test(2);
 		// // ex.test(3);

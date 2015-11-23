@@ -8,7 +8,6 @@ import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
-
 //这里设置experiment的model
 public class ExpriSetUp {
 
@@ -82,6 +81,7 @@ public class ExpriSetUp {
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
+		/**/
 		// the synthesizing 10 group
 		// synthesiz 1
 		record = new DataRecord();
@@ -140,64 +140,69 @@ public class ExpriSetUp {
 		priority = new int[][] { {}, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
+		/**/
 
+		// reomve the uppers
 		// synthesiz 6
 		record = new DataRecord();
-		param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3 };
-		wrongs = new int[][] { { 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 },
-				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-				{ 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1 },
-				{ 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1 },
-				{ 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1 } };
-		bugs = new int[][] { { 2, 7, 8 }, { 3, 5 }, { 4 }, { 3, 6, 7 },
-				{ 3, 6, 8 } };
+		param = new int[] { 2, 2, 2, 2, 2, 2, 2, 3, 3, 4 };
+		wrongs = new int[][] { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+				{ 1, 1, 1, 1, 0, 1, 1, 1, 1, 1 },
+				{ 1, 1, 1, 1, 1, 0, 0, 2, 2, 3 },
+				{ 1, 1, 1, 1, 1, 0, 1, 2, 2, 3 } };
+		bugs = new int[][] { { 2, 7 }, { 3, 5 }, { 4 }, { 6, 7 }, { 6, 8 } };
 		faults = new int[] { 1, 2, 2, 3, 4 };
-		priority = new int[][] { {}, { 1 }, { 1, 2 }, { 1, 2, 3 } };
+		priority = new int[][] { { 2, 3, 4 }, { 3, 4 }, { 4 }, {} };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
 		// synthesiz 7
 		record = new DataRecord();
-		param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 4 };
-		wrongs = new int[][] { { 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1 },
-				{ 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1 },
-				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1 } };
-		bugs = new int[][] { { 3, 4, 5 }, { 2, 4, 7, 9 }, { 6, 10, 11 } };
-		faults = new int[] { 1, 2, 3 };
-		priority = new int[][] { {}, { 1 }, { 1, 2 } };
+		param = new int[] { 3, 3, 3, 3, 4, 3, 3, 2, 2 };
+		wrongs = new int[][] { { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 1, 1, 0, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+				{ 1, 1, 1, 1, 3, 0, 0, 1, 1 }, { 2, 2, 2, 2, 3, 2, 2, 1, 1 } };
+		bugs = new int[][] { { 2, 3 }, { 2, 5 }, { 4, 6 }, { 3, 6 }, { 2, 4 } };
+		faults = new int[] { 1, 1, 2, 2, 3 };
+		priority = new int[][] { { 2, 3 }, { 3}, { }};
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
 		// synthesiz 8
 		record = new DataRecord();
-		param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 4 };
-		wrongs = new int[][] { { 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
-				{ 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1 } };
-		bugs = new int[][] { { 1, 3, 4, 7, 9, 12 }, { 0, 2, 3, 7, 10, 11 } };
-		faults = new int[] { 1, 2 };
-		priority = new int[][] { {}, { 1 } };
+		param = new int[] { 2, 2, 2, 2, 3, 3, 3, 4 };
+		wrongs = new int[][] { { 0, 0, 0, 0, 0, 0, 0, 0 },
+				{ 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1 },
+				{ 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 2, 2, 2, 3 } };
+		bugs = new int[][] { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 4, 7 }, { 5, 6 } };
+		faults = new int[] { 1, 2, 2, 3, 4 };
+		priority = new int[][] { { 2, 3, 4 }, { 3, 4 }, { 4 }, {} };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
 		// synthesiz 9
 		record = new DataRecord();
-		param = new int[] { 2, 2, 2, 2, 4, 4, 4 };
-		wrongs = new int[][] { { 1, 1, 1, 1, 1, 0, 1 }, { 1, 1, 1, 0, 1, 0, 1 } };
-		bugs = new int[][] { { 3, 5 }, { 5, 6 } };
-		faults = new int[] { 1, 2 };
-		priority = new int[][] { {}, { 1 } };
+		param = new int[] { 2, 3, 3, 3, 2, 3, 2 };
+		wrongs = new int[][] { { 0, 1, 1, 0, 1, 1, 1 },
+				{ 1, 1, 0, 0, 1, 1, 0 }, { 1, 1, 1, 1, 1, 0, 0 },
+				{ 0, 0, 0, 0, 0, 0, 1 }, { 1, 1, 0, 1, 1, 0, 0 } };
+		bugs = new int[][] { { 0 }, { 1, 3 }, { 2 }, { 4, 5 }, { 6 } };
+		faults = new int[] { 1, 2, 3, 4, 5 };
+		priority = new int[][] { { 2, 3, 4, 5 }, { 3, 4, 5 }, { 4, 5 }, { 5 },
+				{} };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
 		// synthesiz 10
 		record = new DataRecord();
-		param = new int[] { 3, 3, 3, 3, 3, 3  };
-		wrongs = new int[][] { { 1, 1, 1, 0, 1, 1 },
-				{ 1, 1, 0, 0, 1, 1 },
-				{ 1, 1, 0, 0, 1, 0 } };
-		bugs = new int[][] { { 0, 3, 4 }, { 2, 3, 5 }, { 2, 3, 4 } };
-		faults = new int[] { 1, 2, 3 };
-		priority = new int[][] { {}, { 1 } , {1,2 }};
+		param = new int[] { 3, 3, 3, 3, 3, 3, 3 };
+		wrongs = new int[][] { { 0, 1, 1, 0, 1, 1, 1 },
+				{ 1, 1, 0, 0, 1, 1, 0 }, { 1, 1, 1, 1, 1, 0, 0 },
+				{ 2, 2, 2, 2, 2, 0, 1 }, { 2, 1, 0, 2, 1, 0, 0 } };
+		bugs = new int[][] { { 0 }, { 2, 3 }, { 2, 4 }, { 1, 2 }, { 0, 6 } };
+		faults = new int[] { 1, 2, 2, 3, 4 };
+		priority = new int[][] { { 2, 3, 4 }, { 3, 4 }, { 4 }, {} };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
@@ -320,7 +325,7 @@ public class ExpriSetUp {
 				System.out.print(tuple.toString() + " ");
 			System.out.println();
 		}
-		
+
 		for (Integer key : ex.priorityList.keySet()) {
 			System.out.println(key);
 			List<Integer> higher = ex.priorityList.get(key);
