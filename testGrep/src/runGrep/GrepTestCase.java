@@ -58,11 +58,13 @@ public class GrepTestCase {
 	 * When accic word is enabled for the first grep ('\\<xxxä\\>' ), the next grep -w will not show anything so the second error will be masked.
 	 * 
 	
-	 * so, the MFS should be (non-assic)  which have higher priority than (-w  assic ) (\< \>  assic)
+	 * so, the MFS should be (non-assic)  which have higher priority than (-w  non-assic ) (\< \>  assic)
 	 * 
-	 * parameter   -V --help   assci        -w      assci      -E   -i
- 	 * 						   non-assic    <\ \>   non-assic 
-	 * 					                    --
+	 * parameter   -V         assci       sed    -w      assci       -E -i  
+ 	 * 			  --color  	  non-assic   grep   <\ \>   non-assic
+ 	 * 			  ---							 \b
+ 	 * 										      --
+	 * 					                         
 	 * 
 	 * @return
 	 */
@@ -135,10 +137,10 @@ public class GrepTestCase {
 	 * 
 	 * so, the MFS should be (-A, 5) (-C, 5), which have higher priority than (--only matching and --count)
 	 * 
-	 * parameter   -V --help  -A  1  --only-matching  --count  -E  -i
-	 *		      			  -C  2
-	 *						  -B  3
-	 * 							  5
+	 * parameter   --help  -A  1  --only-matching  --count  -E  -i
+	 *		       --color -C  2	 
+	 *			   --	   -B  3
+	 * 						   5
 	 * @return
 	 */
 	public String testBoth33080_28588() {

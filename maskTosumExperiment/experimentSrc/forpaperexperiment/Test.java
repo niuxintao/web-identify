@@ -1,6 +1,6 @@
 package forpaperexperiment;
 
-//import maskSimulateExperiment.Experiment_FB_OUR;
+import maskSimulateExperiment.Experiment_FB_OUR;
 import maskSimulateExperiment.RandomAndILPExperiment;
 import maskSimulateExperiment.TraditionalExperiment;
 
@@ -12,11 +12,11 @@ public class Test {
 	public static void main(String[] args){
 		TraditionalExperiment te = new TraditionalExperiment();
 		RandomAndILPExperiment re = new RandomAndILPExperiment();
-//		Experiment_FB_OUR ee = new Experiment_FB_OUR();
-		te.conductTest(11, 12);
-		re.conductTest(11, 12);
-//		ee.conductTest(12, 15, 2);
-//		ee.conductTest(0, 3, 3);
-//		ee.conductTest(0, 3, 4);
+		Experiment_FB_OUR ee = new Experiment_FB_OUR();
+		te.conductTest(6, 7);
+		re.conductTest(6, 7);
+		ee.conductTest(6, 7, 2);
+		ee.conductTest(6, 7, 3);
+		ee.conductTest(6, 7, 4);
 	}
 }
