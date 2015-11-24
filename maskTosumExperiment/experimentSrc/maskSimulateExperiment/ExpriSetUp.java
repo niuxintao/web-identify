@@ -105,47 +105,52 @@ public class ExpriSetUp {
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
-		/**
-		 * // the synthesizing 10 group // synthesiz 1 record = new
-		 * DataRecord(); param = new int[] { 2, 2, 2, 2, 2, 3, 3, 3, 4 }; wrongs
-		 * = new int[][] { { 1, 1, 1, 0, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1,
-		 * 1, 1 }, { 1, 0, 0, 0, 1, 1, 1, 1, 1 } }; bugs = new int[][] { { 2, 3
-		 * }, { 1, 2 }, { 1, 3 } }; faults = new int[] { 1, 2, 2 }; priority =
-		 * new int[][] { {}, { 1 } }; record.set(param, wrongs, bugs, faults,
-		 * priority); records.add(record);
-		 * 
-		 * // synthesiz 2 record = new DataRecord(); param = new int[] { 2, 2,
-		 * 2, 2, 2, 2, 3, 3, 4 }; wrongs = new int[][] { { 1, 1, 1, 0, 1, 1, 0,
-		 * 1, 0 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 1, 1, 1, 0, 1, 1 }
-		 * }; bugs = new int[][] { { 4, 6, 7, 8 }, { 1, 3, 5 }, { 2, 3, 6 } };
-		 * faults = new int[] { 1, 2, 3 }; priority = new int[][] { {}, { 1 }, {
-		 * 1, 2 } }; record.set(param, wrongs, bugs, faults, priority);
-		 * records.add(record);
-		 * 
-		 * // synthesiz 3 record = new DataRecord(); param = new int[] { 2, 2,
-		 * 2, 2, 2, 3, 3, 3 }; wrongs = new int[][] { { 1, 1, 1, 0, 1, 1, 1, 1
-		 * }, { 0, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1,
-		 * 1, 1, 1, 0, 0 } }; bugs = new int[][] { { 2, 3 }, { 1 }, { 4 }, { 6,
-		 * 7 } }; faults = new int[] { 1, 2, 2, 3 }; priority = new int[][] {
-		 * {}, { 1 }, { 1, 2 } }; record.set(param, wrongs, bugs, faults,
-		 * priority); records.add(record);
-		 * 
-		 * // synthesiz 4 record = new DataRecord(); param = new int[] { 2, 2,
-		 * 2, 2, 2, 2, 2, 3, 3, 4 }; wrongs = new int[][] { { 1, 1, 1, 1, 1, 0,
-		 * 1, 1, 1, 1 }, { 1, 1, 1, 1, 0, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1,
-		 * 1, 0, 1, 1 }, { 1, 1, 1, 0, 0, 0, 1, 1, 1, 1 } }; bugs = new int[][]
-		 * { { 0, 2, 5, 6 }, { 2, 4 }, { 6, 7 }, { 3, 4, 5 } }; faults = new
-		 * int[] { 1, 2, 2, 3 }; priority = new int[][] { {}, { 1 }, { 1, 2 } };
-		 * record.set(param, wrongs, bugs, faults, priority);
-		 * records.add(record);
-		 * 
-		 * // synthesiz 5 record = new DataRecord(); param = new int[] { 2, 2,
-		 * 2, 2, 3, 3, 3, 4, 4 }; wrongs = new int[][] { { 0, 1, 1, 0, 1, 1, 1,
-		 * 1, 0 }, { 1, 1, 0, 0, 1, 1, 1, 1, 1 } }; bugs = new int[][] { { 0, 1,
-		 * 3, 6, 8 }, { 2, 3, 4 } }; faults = new int[] { 1, 2 }; priority = new
-		 * int[][] { {}, { 1 } }; record.set(param, wrongs, bugs, faults,
-		 * priority); records.add(record);
-		 */
+		/**/
+		  // the synthesizing 10 group // synthesiz 1 
+		 record = new
+		  DataRecord(); param = new int[] { 2, 2, 2, 2, 2, 3, 3, 3, 4 }; wrongs
+		  = new int[][] { { 1, 1, 1, 0, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1,
+		  1, 1 }, { 1, 0, 0, 0, 1, 1, 1, 1, 1 } }; bugs = new int[][] { { 2, 3
+		  }, { 1, 2 }, { 1, 3 } }; faults = new int[] { 1, 2, 2 }; priority =
+		  new int[][] { {}, { 1 } }; record.set(param, wrongs, bugs, faults,
+		  priority); records.add(record);
+		  
+		  // synthesiz 2 
+		  record = new DataRecord(); param = new int[] { 2, 2,
+		  2, 2, 2, 2, 3, 3, 4 }; wrongs = new int[][] { { 1, 1, 1, 0, 1, 1, 0,
+		  1, 0 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 0, 1, 1, 1, 0, 1, 1 }
+		  }; bugs = new int[][] { { 4, 6, 7, 8 }, { 1, 3, 5 }, { 2, 3, 6 } };
+		  faults = new int[] { 1, 2, 3 }; priority = new int[][] { {}, { 1 }, {
+		  1, 2 } }; record.set(param, wrongs, bugs, faults, priority);
+		  records.add(record);
+		  
+		  // synthesiz 3 
+		  record = new DataRecord(); param = new int[] { 2, 2,
+		  2, 2, 2, 3, 3, 3 }; wrongs = new int[][] { { 1, 1, 1, 0, 1, 1, 1, 1
+		  }, { 0, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1,
+		  1, 1, 1, 0, 0 } }; bugs = new int[][] { { 2, 3 }, { 1 }, { 4 }, { 6,
+		  7 } }; faults = new int[] { 1, 2, 2, 3 }; priority = new int[][] {
+		  {}, { 1 }, { 1, 2 } }; record.set(param, wrongs, bugs, faults,
+		  priority); records.add(record);
+		  
+		  // synthesiz 4 
+		  record = new DataRecord(); param = new int[] { 2, 2,
+		  2, 2, 2, 2, 2, 3, 3, 4 }; wrongs = new int[][] { { 1, 1, 1, 1, 1, 0,
+		  1, 1, 1, 1 }, { 1, 1, 1, 1, 0, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1,
+		  1, 0, 1, 1 }, { 1, 1, 1, 0, 0, 0, 1, 1, 1, 1 } }; bugs = new int[][]
+		  { { 0, 2, 5, 6 }, { 2, 4 }, { 6, 7 }, { 3, 4, 5 } }; faults = new
+		  int[] { 1, 2, 2, 3 }; priority = new int[][] { {}, { 1 }, { 1, 2 } };
+		  record.set(param, wrongs, bugs, faults, priority);
+		  records.add(record);
+		  
+		  // synthesiz 5 
+		  record = new DataRecord(); param = new int[] { 2, 2,
+		  2, 2, 3, 3, 3, 4, 4 }; wrongs = new int[][] { { 0, 1, 1, 0, 1, 1, 1,
+		  1, 0 }, { 1, 1, 0, 0, 1, 1, 1, 1, 1 } }; bugs = new int[][] { { 0, 1,
+		  3, 6, 8 }, { 2, 3, 4 } }; faults = new int[] { 1, 2 }; priority = new
+		  int[][] { {}, { 1 } }; record.set(param, wrongs, bugs, faults,
+		  priority); records.add(record);
+		 /**/
 
 		// reomve the uppers
 		// synthesiz 6
