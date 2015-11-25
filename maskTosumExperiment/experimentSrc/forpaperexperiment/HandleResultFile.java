@@ -71,7 +71,7 @@ public class HandleResultFile {
 	public String path;
 	private BufferedReader br;
 
-	public HandleResultFile(String path, int subject) {
+	public HandleResultFile(String path, int subject) throws Exception {
 		this.path = path;
 		this.subject = subject;
 		for (int i = 0; i < listNum; i++) {
@@ -80,6 +80,8 @@ public class HandleResultFile {
 			datas3degree[i] = new Data();
 			datas4degree[i] = new Data();
 		}
+
+		read();
 	}
 
 	public void show(Data[] datas) {
@@ -688,31 +690,38 @@ public class HandleResultFile {
 		}
 	}
 
-	public void coduct() throws Exception {
+	public void coduct(int i) throws Exception {
 		// HandleResultFile handle = new HandleResultFile("the10_15.txt");
-		this.read();
-		System.out.println("case study 2  & 3");
-		System.out
-				.println("one" + " distin" + " ilp" + " radnom" + "  p-value");
-		this.show(this.datas);
 
-		System.out.println("case study 4 2-way");
-		System.out.println("fda-cit" + " ilp" + " afda-cit" + " avnoa"
-				+ " pvalue(1,2)" + " pvalue(2,3)" + " pvalue(1,3)");
+		if (i == 0) {
+			System.out.println("case study 2  & 3");
+			System.out.println("one" + " distin" + " ilp" + " radnom"
+					+ "  p-value");
+			this.show(this.datas);
+		} else if (i == 1) {
 
-		this.show(this.datas2degree);
-		System.out.println("case study 4 3-way");
-		this.show(this.datas3degree);
-		System.out.println("case study 4 4-way");
-		this.show(this.datas4degree);
+			System.out.println("case study 4 2-way");
+			System.out.println("fda-cit" + " ilp" + " afda-cit" + " avnoa"
+					+ " pvalue(1,2)" + " pvalue(2,3)" + " pvalue(1,3)");
 
+			this.show(this.datas2degree);
+		} else if (i == 2) {
+			System.out.println("case study 4 3-way");
+			this.show(this.datas3degree);
+		} else if (i == 3) {
+			System.out.println("case study 4 4-way");
+			this.show(this.datas4degree);
+		}
 	}
 
 	public static void main(String[] args) throws Exception {
 		HandleResultFile handle = new HandleResultFile("the10_15.txt", 5);
-		handle.coduct();
-		System.out.println("-----------------------------");
-		handle = new HandleResultFile("grep.txt", 2);
-		handle.coduct();
+		// handle.coduct();
+		HandleResultFile handle2 = new HandleResultFile("grep.txt", 2);
+		// handle2.coduct();
+		for (int i = 0; i < 4; i++) {
+			handle.coduct(i);
+			handle2.coduct(i);
+		}
 	}
 }
