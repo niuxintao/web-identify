@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.math3.stat.descriptive.moment.Mean;
+
 class Data {
 	public HashMap<String, List<Double>> entrys;
 
@@ -84,7 +86,27 @@ public class HandleResultFile {
 		read();
 	}
 
+	public void show(Data[] datas, int i) {
+		int subject = datas[0].entrys.keySet().size();
+		// for (int i = 0; i < listNum; i++) {
+		// System.out.println(stringofmetric[i]);
+		Data data = datas[i];
+		for (int j = 0; j < subject; j++) {
+			String key = j + " ";
+			if (data.entrys.containsKey(key)) {
+				System.out.print(key + " : ");
+				List<Double> da = data.entrys.get(key);
+				for (Double d : da)
+					System.out.print(d + "  ");
+				System.out.println();
+			}
+		}
+
+		// }
+	}
+
 	public void show(Data[] datas) {
+		int subject = datas[0].entrys.keySet().size();
 		for (int i = 0; i < listNum; i++) {
 			System.out.println(stringofmetric[i]);
 			Data data = datas[i];
@@ -690,38 +712,136 @@ public class HandleResultFile {
 		}
 	}
 
-	public void coduct(int i) throws Exception {
+	public void coduct() throws Exception {
 		// HandleResultFile handle = new HandleResultFile("the10_15.txt");
 
-		if (i == 0) {
-			System.out.println("case study 2  & 3");
-			System.out.println("one" + " distin" + " ilp" + " radnom"
-					+ "  p-value");
-			this.show(this.datas);
-		} else if (i == 1) {
+		System.out.println("case study 2  & 3");
+		System.out
+				.println("one" + " distin" + " ilp" + " radnom" + "  p-value");
+		this.show(this.datas);
 
-			System.out.println("case study 4 2-way");
-			System.out.println("fda-cit" + " ilp" + " afda-cit" + " avnoa"
-					+ " pvalue(1,2)" + " pvalue(2,3)" + " pvalue(1,3)");
+		System.out.println("case study 4 2-way");
+		System.out.println("fda-cit" + " ilp" + " afda-cit" + " avnoa"
+				+ " pvalue(1,2)" + " pvalue(2,3)" + " pvalue(1,3)");
 
-			this.show(this.datas2degree);
-		} else if (i == 2) {
-			System.out.println("case study 4 3-way");
-			this.show(this.datas3degree);
-		} else if (i == 3) {
-			System.out.println("case study 4 4-way");
-			this.show(this.datas4degree);
+		this.show(this.datas2degree);
+
+		System.out.println("case study 4 3-way");
+		this.show(this.datas3degree);
+
+		System.out.println("case study 4 4-way");
+		this.show(this.datas4degree);
+
+	}
+
+	public void show(List<Data[]> list) {
+		for (int i = 0; i < listNum; i++) {
+			System.out.println(stringofmetric[i]);
+			for (Data[] data : list) {
+				this.show(data, i);
+			}
+			// showAverage(list, i);
 		}
+
+		System.out.println("avg");
+		System.out.print("[");
+		for (int i = 0; i < listNum; i++) {
+			showAverage(list, i);
+		}
+		System.out.println("]");
+	}
+
+	public void showAverage(List<Data[]> list, int i) {
+		Mean mean = new Mean();
+		if (list == null || list.size() <= 0 || list.get(0).length == 0
+				|| list.get(0)[i].entrys == null
+				|| list.get(0)[i].entrys.keySet() == null
+				|| list.get(0)[i].entrys.get(0 + " ") == null)
+			return;
+
+		int size = list.get(0)[i].entrys.get(0 + " ").size();
+		double[] result = new double[size];
+
+		for (int j = 0; j < size; j++) {
+			List<Double> listDouble = new ArrayList<Double>();
+			for (Data[] data : list) {
+				for (int k = 0; k < data[i].entrys.keySet().size(); k++) {
+					String key = k + " ";
+					// if (data[i].entrys.containsKey(key)) {
+					// System.out.print(key + " : ");
+					List<Double> da = data[i].entrys.get(key);
+					listDouble.add(da.get(j));
+					// }
+				}
+			}
+			double[] temp = new double[listDouble.size()];
+			for (int k = 0; k < temp.length; k++)
+				temp[k] = listDouble.get(k);
+			result[j] = mean.evaluate(temp);
+		}
+
+//		System.out.println("avg: ");
+		int k = 0;
+		for (double r : result) {
+			k++;
+			if(k == 1)
+				System.out.print("[");
+			if (k < 3)
+				System.out.print(r + ",");
+			else {
+				System.out.print( r +"]" );
+				break;
+			}
+		}
+		System.out.println(",");
+	}
+
+	public void conduct(List<HandleResultFile> list) {
+		List<Data[]> first = new ArrayList<Data[]>();
+		List<Data[]> second = new ArrayList<Data[]>();
+		List<Data[]> third = new ArrayList<Data[]>();
+		List<Data[]> fourth = new ArrayList<Data[]>();
+		for (HandleResultFile hf : list) {
+			first.add(hf.datas);
+			second.add(hf.datas2degree);
+			third.add(hf.datas3degree);
+			fourth.add(hf.datas4degree);
+		}
+
+		System.out.println("case study 2  & 3");
+		System.out
+				.println("one" + " distin" + " ilp" + " radnom" + "  p-value");
+		this.show(first);
+
+		System.out.println("case study 4 2-way");
+		System.out.println("fda-cit" + " ilp" + " afda-cit" + " avnoa"
+				+ " pvalue(1,2)" + " pvalue(2,3)" + " pvalue(1,3)");
+
+		this.show(second);
+
+		System.out.println("case study 4 3-way");
+		this.show(third);
+
+		System.out.println("case study 4 4-way");
+		this.show(fourth);
+
 	}
 
 	public static void main(String[] args) throws Exception {
-		HandleResultFile handle = new HandleResultFile("the10_15.txt", 5);
+		HandleResultFile handle7_11 = new HandleResultFile("the10_15.txt", 5);
 		// handle.coduct();
-		HandleResultFile handle2 = new HandleResultFile("grep.txt", 2);
-		// handle2.coduct();
-		for (int i = 0; i < 4; i++) {
-			handle.coduct(i);
-			handle2.coduct(i);
-		}
+		HandleResultFile handle5_6 = new HandleResultFile("grep.txt", 2);
+		
+		HandleResultFile handle3_4 = new HandleResultFile("the3_4.txt", 2);
+
+		HandleResultFile handle0_2 = new HandleResultFile("the0_2.txt", 3);
+
+		List<HandleResultFile> list = new ArrayList<HandleResultFile>();
+		list.add(handle0_2);
+		list.add(handle3_4);
+		list.add(handle5_6);
+		list.add(handle7_11);
+
+		handle5_6.conduct(list);
 	}
 }
