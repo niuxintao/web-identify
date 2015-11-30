@@ -672,7 +672,7 @@ public class HandleResultFile {
 		}
 		System.out.println("]");
 	}
-	
+
 	public void showWithlist(List<Data[]> list) {
 		for (int i = 0; i < listNum; i++) {
 			System.out.println(stringofmetric[i]);
@@ -683,12 +683,13 @@ public class HandleResultFile {
 		}
 
 		System.out.println("list");
-		System.out.print("[");
+		// System.out.print("[");
 		for (int i = 0; i < listNum; i++) {
-			showList(list, i);
+			// showList(list, i); //original
+			showListForPaper(list, i);
 		}
-		System.out.println("]");
-		
+		// System.out.println("]");
+
 		System.out.println("avg");
 		System.out.print("[");
 		for (int i = 0; i < listNum; i++) {
@@ -768,7 +769,7 @@ public class HandleResultFile {
 
 		// System.out.println("avg: ");
 		int count = 4;
-		if(i >= millions)
+		if (i >= millions)
 			count = 3;
 		int k = 0;
 		for (double[] r : result) {
@@ -785,6 +786,50 @@ public class HandleResultFile {
 			}
 		}
 		System.out.println(",");
+	}
+
+	public void showListForPaper(List<Data[]> list, int i) {
+//		System.out.println(stringofmetric[i]);
+
+		if (list == null || list.size() <= 0 || list.get(0).length == 0 || list.get(0)[i].entrys == null
+				|| list.get(0)[i].entrys.keySet() == null || list.get(0)[i].entrys.get(0 + " ") == null)
+			return;
+
+		int size = list.get(0)[i].entrys.get(0 + " ").size();
+		double[][] result = new double[size][];
+
+		for (int j = 0; j < size; j++) {
+			List<Double> listDouble = new ArrayList<Double>();
+			for (Data[] data : list) {
+				for (int k = 0; k < data[i].entrys.keySet().size(); k++) {
+					String key = k + " ";
+					// if (data[i].entrys.containsKey(key)) {
+					// System.out.print(key + " : ");
+					List<Double> da = data[i].entrys.get(key);
+					listDouble.add(da.get(j));
+					// }
+				}
+			}
+			result[j] = new double[listDouble.size()];
+			for (int k = 0; k < result[j].length; k++)
+				result[j][k] = listDouble.get(k);
+			// result[j] = mean.evaluate(temp);
+		}
+
+		int k = 0;
+		for (double[] r : result) {
+			if (k == 0 || k == 1 || k == 4) {
+				showarray2(r);
+				System.out.println();
+			}
+			k++;
+		}
+//		System.out.println();
+	}
+
+	public void showarray2(double[] array) {
+		for (double a : array)
+			System.out.print(a + "\t");
 	}
 
 	public void showarray(double[] array) {
@@ -815,13 +860,13 @@ public class HandleResultFile {
 		System.out.println(
 				"fda-cit" + " ilp" + " afda-cit" + " avnoa" + " pvalue(1,2)" + " pvalue(2,3)" + " pvalue(1,3)");
 
-		this.show(second);
+		this.showWithlist(second);
 
 		System.out.println("case study 4 3-way");
-		this.show(third);
+		this.showWithlist(third);
 
 		System.out.println("case study 4 4-way");
-		this.show(fourth);
+		this.showWithlist(fourth);
 
 	}
 
