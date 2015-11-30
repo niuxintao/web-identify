@@ -688,6 +688,13 @@ public class HandleResultFile {
 			showList(list, i);
 		}
 		System.out.println("]");
+		
+		System.out.println("avg");
+		System.out.print("[");
+		for (int i = 0; i < listNum; i++) {
+			showAverage(list, i);
+		}
+		System.out.println("]");
 	}
 
 	public void showAverage(List<Data[]> list, int i) {
@@ -723,7 +730,7 @@ public class HandleResultFile {
 			k++;
 			if (k == 1)
 				System.out.print("[");
-			if (k < 3)
+			if (k < 4)
 				System.out.print(r + ",");
 			else {
 				System.out.print(r + "]");
