@@ -78,7 +78,61 @@ public class GrepTestCase {
 		return CMD.execute(cmd);
 	}
 
+	/**
+	 * so, the MFS should be (non-assic)  which have higher priority than (-w  non-assic ) (\< \>  assic)
+	 * 
+	 * parameter   -V         assci       sed    -w      assci       -E -i  
+	 * 			  --color  	  non-assic   grep   <\ \>   non-assic
+	 * 			  ---							 \b
+	 * 										      --
+	 * 					                         
+	 * 
+	 * @return
+	 */
 	
+	
+	public String testBoth7600_29537(int[] set){
+		
+		String[] help = {"-V", "--color", ""};
+		String[] firstAssic = { "", "ä" };
+		String[] secondAssic = { "aa", "Это просто текст" };
+		String[] sedorgrep = { "sed", "grep" };
+		String[] E = {" -E", ""};
+		String[] i = {" -i", ""};
+
+		String s = "echo ";
+		s += help[set[0]];
+				
+		s += " -e 'xxx\nxxx";
+
+		s += firstAssic[set[1]];
+
+		s += "\nxxxx";
+
+		s += secondAssic[set[4]];
+
+		s += "' |";
+
+		s += sedorgrep[set[2]];
+
+		s += " -B 3 '";
+
+		s += secondAssic[set[4]];
+
+		s += "' | grep ";
+		
+		s += E[set[5]];
+		s += i[set[6]];
+				
+	    if(set[3] == 0)
+			s  +=" -w xxx ";
+	    else if(set[3] == 1)
+	    	s += " '\\bxxx\\b' ";
+	    else if(set[3] == 2)
+	    	s += " '\\<xxx\\> ";		
+	
+		return CMD.execute(s);
+	}
 	
 	
 	
@@ -151,4 +205,45 @@ public class GrepTestCase {
 		// grep -m 1 -C 5 attention ";
 		return CMD.execute(cmd);
 	}
+	
+	/** 
+	 * parameter   --help  -A  1  --only-matching  --count  -E  -i
+	 *		       --color -C  2	 
+	 *			   --	   -B  3
+	 * 						   5
+	 * @return
+	 */
+	public String testBoth33080_28588(int[] set){
+		String[] help = {"-V", "--color", ""};
+		String[] AB = { " -A", " -C", " -B" };
+		String[] third = {" 1", " 2", " 3", " 5"};
+		
+		String[] only = {" --only-matching ", "" };
+		String[] count = {" --count ", ""};
+		
+		String[] E = {" -E", ""};
+		String[] i = {" -i", ""};
+
+		String s = "echo ";
+		s += help[set[0]];
+				
+		s += " -e 'attention true false \nthis is the first false true\nwhile this looks like the second false\nand this smells of third \nattention \nfourth true false true' | grep -m 1 ";
+
+		s += AB[set[1]];
+		
+		s += third[set[2]];
+
+		s += "attention | grep ";
+		s += E[set[5]];
+		s += i[set[6]];
+		
+	    s += only[set[3]];
+		s += count[set[4]];
+		
+		s += " true ";
+	
+		return CMD.execute(s);
+	}
+	
+	
 }

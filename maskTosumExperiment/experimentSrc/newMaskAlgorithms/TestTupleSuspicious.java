@@ -137,10 +137,10 @@ public class TestTupleSuspicious {
 			// break;
 			// }
 			// System.out.println("executed");
-			// System.out.println(testCase.getStringOfTest() + " : ");
+//			 System.out.println();
 			int runresult = runner.runTestCase(testCase);
 
-			// System.out.println(runresult);
+			 System.out.println(testCase.getStringOfTest() + " : "+ runresult);
 
 			if (!this.executedHash.containsKey(runresult)) {
 				List<TestCase> values = new ArrayList<TestCase>();

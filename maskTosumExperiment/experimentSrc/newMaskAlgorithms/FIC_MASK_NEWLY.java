@@ -134,7 +134,7 @@ public class FIC_MASK_NEWLY {
 			   this.timemillions.add(millions);
 		}
          
-		// System.out.println(tuple.toString()+": "+result);
+	   System.out.println(tuple.toString()+": "+result);
 
 		return result;
 	}

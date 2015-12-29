@@ -84,6 +84,8 @@ public class RandomAndILPExperiment {
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
+			if(code != 2)
+				continue;
 			List<TestCase> wrongCases = exData.getWrongCases().get(code);
 			for (TestCase testCase : wrongCases) {
 				// System.out.println("testCase: " +
@@ -98,9 +100,9 @@ public class RandomAndILPExperiment {
 							code);
 				// break;
 				allNum++;
-				// break;
+				 break;
 			}
-			// break;
+			 break;
 
 		}
 
@@ -259,7 +261,7 @@ public class RandomAndILPExperiment {
 			ex.test(i, 6);
 
 			double[][] datas = new double[30][stringofmetric.length];
-			for (int j = 0; j < 30; j++) {
+			for (int j = 0; j < 1; j++) {
 				// RandomAndILPExperiment ex2 = new RandomAndILPExperiment();
 				ex.test(i, 9);
 				for (int k = 0; k < ex.data[1].length; k++)
@@ -286,6 +288,6 @@ public class RandomAndILPExperiment {
 
 	public static void main(String[] args) {
 		RandomAndILPExperiment ex1 = new RandomAndILPExperiment();
-		ex1.conductTest(14, 15);
+		ex1.conductTest(0, 1);
 	}
 }
