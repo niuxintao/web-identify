@@ -8,6 +8,10 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 public class BenchExecute   {
+	
+	public BenchExecute(){
+		this.outputRecord = new OutputSet();
+	}
 
 
 	private OutputSet outputRecord;
@@ -51,6 +55,7 @@ public class BenchExecute   {
 				String str;
 				try {
 					str = test(partCur);
+					this.outputRecord.pendingStr(str);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					Writer writer = new StringWriter();

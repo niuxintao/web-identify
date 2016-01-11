@@ -3,6 +3,10 @@ package runGrep;
 import output.BenchExecute;
 
 public class BenchTestGrep2_6_3 extends BenchExecute {
+	public BenchTestGrep2_6_3(){
+		super();
+	}
+	
 	public String test(int[] set) {
 		GrepTestCase gt = new GrepTestCase();
 		return gt.testBoth7600_29537();
@@ -21,7 +25,7 @@ public class BenchTestGrep2_6_3 extends BenchExecute {
 	 */
 	
 	public static void main(String[] args){
-		BenchExecute tj = new BenchExecute();
+		BenchTestGrep2_6_3 tj = new BenchTestGrep2_6_3();
 		int[] param = new int[] { 3, 2, 2, 4, 2, 2, 2 };
 		tj.bench(param);
 		tj.showResult();
