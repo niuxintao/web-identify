@@ -1,5 +1,11 @@
 package runGrep;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+
+import output.OutputSet;
+
 public class GrepTestCase {
 	/**
 	 * -V will mask every thing. --help will mask everything except -V
@@ -29,12 +35,11 @@ public class GrepTestCase {
 	/**
 	 * for assic word there is no such error
 	 * 
-	 * should output 
+	 * should output
 	 * 
-	 * Это просто текст 
+	 * Это просто текст
 	 * 
-	 * but output nothing (no result)
-	 * (grep 2.6.3)
+	 * but output nothing (no result) (grep 2.6.3)
 	 * 
 	 * 
 	 * 
@@ -49,60 +54,58 @@ public class GrepTestCase {
 		return CMD.execute(cmd);
 	}
 
-	
-	
 	/**
 	 * 
-	 * this is the test case which can trigger both the two errors 7600 and 29537
+	 * this is the test case which can trigger both the two errors 7600 and
+	 * 29537
 	 * 
-	 * When accic word is enabled for the first grep ('\\<xxxä\\>' ), the next grep -w will not show anything so the second error will be masked.
+	 * When accic word is enabled for the first grep ('\\<xxxä\\>' ), the next
+	 * grep -w will not show anything so the second error will be masked.
 	 * 
-	
-	 * so, the MFS should be (non-assic)  which have higher priority than (-w  non-assic ) (\< \>  assic)
 	 * 
-	 * parameter   -V         assci       sed    -w      assci       -E -i  
- 	 * 			  --color  	  non-assic   grep   <\ \>   non-assic
- 	 * 			  ---							 \b
- 	 * 										      --
-	 * 					                         
+	 * so, the MFS should be (non-assic) which have higher priority than (-w
+	 * non-assic ) (\< \> assic)
+	 * 
+	 * parameter -V assci sed -w assci -E -i --color non-assic grep <\ \>
+	 * non-assic --- \b --
+	 * 
 	 * 
 	 * @return
 	 */
 	public String testBoth7600_29537() {
 		String cmd = "echo -e 'xxx\nxxxä\nxxxxЭто просто текст' | grep -B 3 'Это просто текст' |grep -w xxx ";
-		
-		// without non-assicia 1  word "echo -e 'xxx\nxxxä\nxxxxaa' | grep 'aa' |grep -w xxx ";
-		
-		// second assic is as "echo -e 'xxx\nxxx\nxxxxЭто просто текст' | grep 'Это просто текст' |grep -w xxx ";
-		
+
+		// without non-assicia 1 word "echo -e 'xxx\nxxxä\nxxxxaa' | grep 'aa'
+		// |grep -w xxx ";
+
+		// second assic is as "echo -e 'xxx\nxxx\nxxxxЭто просто текст' | grep
+		// 'Это просто текст' |grep -w xxx ";
+
 		return CMD.execute(cmd);
 	}
 
 	/**
-	 * so, the MFS should be (non-assic)  which have higher priority than (-w  non-assic ) (\< \>  assic)
+	 * so, the MFS should be (non-assic) which have higher priority than (-w
+	 * non-assic ) (\< \> assic)
 	 * 
-	 * parameter   -V         assci       sed    -w      assci       -E -i  
-	 * 			  --color  	  non-assic   grep   <\ \>   non-assic
-	 * 			  ---							 \b
-	 * 										      --
-	 * 					                         
+	 * parameter -V assci sed -w assci -E -i --color non-assic grep <\ \>
+	 * non-assic --- \b --
+	 * 
 	 * 
 	 * @return
 	 */
-	
-	
-	public String testBoth7600_29537(int[] set){
-		
-		String[] help = {"-V", "--color", ""};
+
+	public String testBoth7600_29537(int[] set) {
+
+		String[] help = { "-V ", "--color ", "" };
 		String[] firstAssic = { "", "ä" };
 		String[] secondAssic = { "aa", "Это просто текст" };
 		String[] sedorgrep = { "sed", "grep" };
-		String[] E = {" -E", ""};
-		String[] i = {" -i", ""};
+		String[] E = { " -E", "" };
+		String[] i = { " -i", "" };
 
 		String s = "echo ";
-		s += help[set[0]];
-				
+
 		s += " -e 'xxx\nxxx";
 
 		s += firstAssic[set[1]];
@@ -120,23 +123,22 @@ public class GrepTestCase {
 		s += secondAssic[set[4]];
 
 		s += "' | grep ";
-		
+
+		s += help[set[0]];
+
 		s += E[set[5]];
 		s += i[set[6]];
-				
-	    if(set[3] == 0)
-			s  +=" -w xxx ";
-	    else if(set[3] == 1)
-	    	s += " '\\bxxx\\b' ";
-	    else if(set[3] == 2)
-	    	s += " '\\<xxx\\> ";		
-	
+
+		if (set[3] == 0)
+			s += " -w xxx ";
+		else if (set[3] == 1)
+			s += " '\\bxxx\\b' ";
+		else if (set[3] == 2)
+			s += " '\\<xxx\\> ";
+
 		return CMD.execute(s);
 	}
-	
-	
-	
-	
+
 	/**
 	 * the only matching is true true true true true the count should be 5
 	 * 
@@ -158,7 +160,7 @@ public class GrepTestCase {
 	 * 
 	 * -A 1,2,3 is all right, but 5 is wrong
 	 * 
-	 * in effct -C 5 is also wrong
+	 * in effect -C 5 is also wrong
 	 * 
 	 * -B is correct "echo -e 'attention\nthis is the first\nwhile this looks
 	 * like the second \nand this smells of third\nattention \nfourth' | grep -m
@@ -185,65 +187,121 @@ public class GrepTestCase {
 	}
 
 	/**
-	 * this is the test case which can trigger both the two errors 33080 and 28588
+	 * this is the test case which can trigger both the two errors 33080 and
+	 * 28588
 	 * 
-	 * When -A 5 is enabled, the only-matching and counting is correct. in fact, it should be wrong, when only-matching and counting
+	 * When -A 5 is enabled, the only-matching and counting is correct. in fact,
+	 * it should be wrong, when only-matching and counting
 	 * 
-	 * so, the MFS should be (-A, 5) (-C, 5), which have higher priority than (--only matching and --count)
+	 * so, the MFS should be (-A, 5) (-C, 5), which have higher priority than
+	 * (--only matching and --count)
 	 * 
-	 * parameter   --help  -A  1  --only-matching  --count  -E  -i
-	 *		       --color -C  2	 
-	 *			   --	   -B  3
-	 * 						   5
+	 * parameter --help -A 1 --only-matching --count -E -i --color -C 2 -- -B 3
+	 * 5
+	 * 
 	 * @return
 	 */
 	public String testBoth33080_28588() {
-		String cmd = "echo -e 'attention true false \nthis is the first false true\nwhile this looks like the second false\nand this smells of third \nattention \nfourth true false true' | grep  -m 1 -A 5 attention | grep  --only-matching --count true " ;
+		String cmd = "echo -e 'attention true false \nthis is the first false true\nwhile this looks like the second false\nand this smells of third \nattention \nfourth true false true' | grep  -m 1 -A 5 attention | grep  --only-matching --count true ";
 
 		// String cmd = "echo -e 'attention\nthis is the first\nwhile this looks
 		// like the second \nand this smells of third\nattention \nfourth' |
 		// grep -m 1 -C 5 attention ";
 		return CMD.execute(cmd);
 	}
-	
-	/** 
-	 * parameter   --help  -A  1  --only-matching  --count  -E  -i
-	 *		       --color -C  2	 
-	 *			   --	   -B  3
-	 * 						   5
-	 * @return
-	 */
-	public String testBoth33080_28588(int[] set){
-		String[] help = {"-V", "--color", ""};
-		String[] AB = { " -A", " -C", " -B" };
-		String[] third = {" 1", " 2", " 3", " 5"};
-		
-		String[] only = {" --only-matching ", "" };
-		String[] count = {" --count ", ""};
-		
-		String[] E = {" -E", ""};
-		String[] i = {" -i", ""};
 
-		String s = "echo ";
+	/**
+	 * parameter --help -A 1 --only-matching --count -E -i --color -C 2 -- -B 3
+	 * 5
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String testBoth33080_28588(int[] set) throws Exception {
+		String[] help = { "-V", "--color", "" };
+		String[] AB = { " -A", " -C", " -B" };
+		String[] third = { " 1", " 2", " 3", " 5" };
+
+		String[] only = { " --only-matching ", "" };
+		String[] count = { " --count ", "" };
+
+		String[] E = { " -E", "" };
+		String[] i = { " -i", "" };
+
+		String s = "echo -e 'attention\nthis is the first\nwhile this looks like the second \nand this smells of third\nattention \nfourth' | grep ";
+
 		s += help[set[0]];
-				
-		s += " -e 'attention true false \nthis is the first false true\nwhile this looks like the second false\nand this smells of third \nattention \nfourth true false true' | grep -m 1 ";
+
+		s += " -m 1 ";
 
 		s += AB[set[1]];
-		
+
 		s += third[set[2]];
 
-		s += "attention | grep ";
-		s += E[set[5]];
-		s += i[set[6]];
-		
-	    s += only[set[3]];
-		s += count[set[4]];
-		
-		s += " true ";
-	
-		return CMD.execute(s);
+		s += " attention";
+
+		String first = CMD.execute(s);
+
+		if (!first.contains("attention"))
+			throw new Exception(first);
+
+		if (set[1] != 2) {
+			String[] str1 = first.split("\n");
+			if (set[2] == 0) {
+				if (str1.length != 2)
+					throw new Exception("NUMBER OF LINES ERROR");
+			} else if (set[2] == 1) {
+				if (str1.length != 3)
+					throw new Exception("NUMBER OF LINES ERROR");
+			} else if (set[2] == 2) {
+				if (str1.length != 4)
+					throw new Exception("NUMBER OF LINES ERROR");
+
+			} else if (set[2] == 3) {
+				if (str1.length != 6)
+					throw new Exception("NUMBER OF LINES ERROR");
+			}
+		}
+
+		String cmd = "echo -e 'true true false\nfalse true\nfalse\ntrue false true' | grep ";
+		cmd += E[set[5]];
+		cmd += i[set[6]];
+		cmd += only[set[3]];
+		cmd += count[set[4]];
+		cmd += " true ";
+		String second = CMD.execute(cmd);
+
+		if (set[4] == 0) {
+			if (set[3] == 0) {
+				if (!second.contains("5"))
+					throw new Exception("SHOULD BE 5 BUT " + second);
+			}else{
+				if (!second.contains("3"))
+					throw new Exception("SHOULD BE 3 BUT " + second);
+			}
+		}
+
+		// s += " | grep ";
+		//
+
+		// return CMD.execute(s);
+		return OutputSet.PASS;
 	}
-	
-	
+
+	public static void main(String[] args) {
+		GrepTestCase gtc = new GrepTestCase();
+		int[] test = new int[] { 0, 2, 3, 1, 1, 1, 1 };
+		String s;
+		try {
+			s = gtc.testBoth33080_28588(test);
+		} catch (Throwable t) {
+			// TODO Auto-generated catch block
+			Writer writer = new StringWriter();
+			PrintWriter printWriter = new PrintWriter(writer);
+			t.printStackTrace(printWriter);
+			s = writer.toString();
+		}
+		System.out.println(s);
+	}
+
 }
