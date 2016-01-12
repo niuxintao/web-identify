@@ -22,7 +22,7 @@ public class CMD {
 			}
 			result = sb.toString();
 
-			System.out.println(result);
+//			System.out.println(result);
 		} catch (Exception e) {
 			Writer writer = new StringWriter();
 			PrintWriter printWriter = new PrintWriter(writer);

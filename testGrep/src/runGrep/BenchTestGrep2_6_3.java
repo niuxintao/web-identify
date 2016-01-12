@@ -1,5 +1,9 @@
 package runGrep;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+
 import output.BenchExecute;
 
 public class BenchTestGrep2_6_3 extends BenchExecute {
@@ -9,7 +13,17 @@ public class BenchTestGrep2_6_3 extends BenchExecute {
 	
 	public String test(int[] set) {
 		GrepTestCase gt = new GrepTestCase();
-		return gt.testBoth7600_29537();
+		String s;
+		try {
+			s = gt.testBoth7600_29537(set);
+		} catch (Throwable t) {
+			// TODO Auto-generated catch block
+			Writer writer = new StringWriter();
+			PrintWriter printWriter = new PrintWriter(writer);
+			t.printStackTrace(printWriter);
+			s = writer.toString();
+		}
+		return s;
 	}
 	
 	/**

@@ -1,8 +1,5 @@
 package runGrep;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 
 import output.OutputSet;
 
@@ -93,14 +90,15 @@ public class GrepTestCase {
 	 * 
 	 * 
 	 * @return
+	 * @throws Exception
 	 */
 
-	public String testBoth7600_29537(int[] set) {
+	public String testBoth7600_29537(int[] set) throws Exception {
 
 		String[] help = { "-V ", "--color ", "" };
 		String[] firstAssic = { "", "ä" };
 		String[] secondAssic = { "aa", "Это просто текст" };
-		String[] sedorgrep = { "sed", "grep" };
+		String[] sedorgrep = { "sed s/", "grep " };
 		String[] E = { " -E", "" };
 		String[] i = { " -i", "" };
 
@@ -111,16 +109,6 @@ public class GrepTestCase {
 		s += firstAssic[set[1]];
 
 		s += "\nxxxx";
-
-		s += secondAssic[set[4]];
-
-		s += "' |";
-
-		s += sedorgrep[set[2]];
-
-		s += " -B 3 '";
-
-		s += secondAssic[set[4]];
 
 		s += "' | grep ";
 
@@ -136,7 +124,54 @@ public class GrepTestCase {
 		else if (set[3] == 2)
 			s += " '\\<xxx\\> ";
 
-		return CMD.execute(s);
+		String first = CMD.execute(s);
+
+		if (!first.contains("xxx"))
+			throw new Exception(first);
+		
+//		System.out.print(first);
+
+//		String[] str1 = first.split("\n");
+		if (first.contains("ä")) {
+			throw new Exception("SHOULD NOT PRINT THE NON-ASSIC CHARACTER ä");
+
+		}
+
+		String cmd = "echo '";
+
+		cmd += secondAssic[set[4]];
+
+		cmd += "' | ";
+
+		cmd += sedorgrep[set[2]];
+
+		cmd += "'\\<";
+
+		cmd += secondAssic[set[4]];
+
+		cmd += "\\>'";
+		
+		if(set[2] == 0){
+			cmd += "/'";
+			cmd += secondAssic[set[4]];
+			cmd += "'/";
+		}
+
+		String second = CMD.execute(cmd);
+
+		if (!second.contains(secondAssic[set[4]])) {
+//			if(set[2] == 0)
+//				System.out.println("second " + second );
+			throw new Exception("cannot " +sedorgrep[set[2]] + " word " + secondAssic[set[4]]);
+		}
+
+		return OutputSet.PASS;
+
+	}
+	
+	public static void main(String[] args) {
+		String s = "echo 'Это просто простой текст' | sed s/'\\<просто\\>'/'просто'/";
+		System.out.println(CMD.execute(s));
 	}
 
 	/**
@@ -275,7 +310,7 @@ public class GrepTestCase {
 			if (set[3] == 0) {
 				if (!second.contains("5"))
 					throw new Exception("SHOULD BE 5 BUT " + second);
-			}else{
+			} else {
 				if (!second.contains("3"))
 					throw new Exception("SHOULD BE 3 BUT " + second);
 			}
@@ -288,20 +323,6 @@ public class GrepTestCase {
 		return OutputSet.PASS;
 	}
 
-	public static void main(String[] args) {
-		GrepTestCase gtc = new GrepTestCase();
-		int[] test = new int[] { 0, 2, 3, 1, 1, 1, 1 };
-		String s;
-		try {
-			s = gtc.testBoth33080_28588(test);
-		} catch (Throwable t) {
-			// TODO Auto-generated catch block
-			Writer writer = new StringWriter();
-			PrintWriter printWriter = new PrintWriter(writer);
-			t.printStackTrace(printWriter);
-			s = writer.toString();
-		}
-		System.out.println(s);
-	}
+
 
 }
