@@ -116,22 +116,21 @@ public class GrepTestCase {
 
 		s += E[set[5]];
 		s += i[set[6]];
-
+		
 		if (set[3] == 0)
 			s += " -w xxx ";
 		else if (set[3] == 1)
 			s += " '\\bxxx\\b' ";
 		else if (set[3] == 2)
-			s += " '\\<xxx\\> ";
+			s += " '\\<xxx\\>' ";
+		else 
+			s += " xxx ";
 
 		String first = CMD.execute(s);
 
 		if (!first.contains("xxx"))
 			throw new Exception(first);
 		
-//		System.out.print(first);
-
-//		String[] str1 = first.split("\n");
 		if (first.contains("ä")) {
 			throw new Exception("SHOULD NOT PRINT THE NON-ASSIC CHARACTER ä");
 
@@ -316,10 +315,7 @@ public class GrepTestCase {
 			}
 		}
 
-		// s += " | grep ";
-		//
 
-		// return CMD.execute(s);
 		return OutputSet.PASS;
 	}
 
