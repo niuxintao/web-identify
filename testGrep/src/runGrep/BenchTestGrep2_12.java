@@ -6,8 +6,8 @@ import java.io.Writer;
 
 import output.BenchExecute;
 
-public class BenchTestGrep2_6_3 extends BenchExecute {
-	public BenchTestGrep2_6_3(){
+public class BenchTestGrep2_12 extends BenchExecute {
+	public BenchTestGrep2_12(){
 		super();
 	}
 	
@@ -39,7 +39,7 @@ public class BenchTestGrep2_6_3 extends BenchExecute {
 	 */
 	
 	public static void main(String[] args){
-		BenchTestGrep2_6_3 tj = new BenchTestGrep2_6_3();
+		BenchTestGrep2_12 tj = new BenchTestGrep2_12();
 		int[] param = new int[] { 3, 2, 2, 4, 2, 2, 2 };
 		tj.bench(param);
 		tj.showResult();
