@@ -474,7 +474,7 @@ public class TestSensityOfNumberOfOpitions {
 	public void testSyn() {
 		/********** only this two statement needs to revise */
 		String subject = "Syn";
-		DataForNumberOfOptions data = new DataForNumberOfOptions();
+		DataForNumberOfOptions data = new DataForNumberOfOptions(null);
 		/******************************/
 
 		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });

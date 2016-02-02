@@ -27,66 +27,55 @@ public class DataForNumberOfMFS implements ExperimentData {
 
 	public void init() {
 		// TODO Auto-generated method stub
-//	0	// 0 0
-		// 0 1
-//	1	// 1 0
-		// 1 1
-		
-		
-		
-		this.param = new int[] {2,  2, 2, 4, 2, 2, 2, 2, 2, 3 };// parameters
-
+		this.param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };// parameters
 		realMFS = new ArrayList<Tuple>();
-		
-		
-		/** 1. [ 1 , - , - , 3 , - , - , - , - , - , - ] **/
-		
-		/** 2. [ 1 , - , - , 1 , - , - , - , - , - , - ] **/
-		
-		/** 3. [ - , - , - , - , - , - , - , - , - , - ] **/
+		caseRunner = new CaseRunnerWithBugInject();
+	}
 
-		int[] wrong = new int[] {1, 0, 0, 3, 0, 0, 0, 0, 0, 0 };// MFS
-		TestCase wrongCase = new TestCaseImplement();
-		((TestCaseImplement) wrongCase).setTestCase(wrong);
+	/**
+	 * add n MFS
+	 * 
+	 * @param n
+	 */
 
-		
-		Tuple bugModel1 = new Tuple(2, wrongCase);
-		bugModel1.set(0, 0);
-		bugModel1.set(1, 3);
-//		bugModel1.set(2, 4);
-		// bugModel1.set(1, 2);
+	public void setMFS(int n) {
+		realMFS = new ArrayList<Tuple>();
+		caseRunner = new CaseRunnerWithBugInject();
 
-		int[] wrong2 = new int[] {1, 0, 0, 1, 0, 0, 0, 0, 0, 0};// MFS
-		TestCase wrongCase2 = new TestCaseImplement();
-		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
+		int count = 0;
 
-		Tuple bugModel2 = new Tuple(2, wrongCase2);
-		bugModel2.set(0, 0);
-		bugModel2.set(1, 3);
-//		bugModel2.set(2, 4);
+		int base = 0;
+		int[] wrong = new int[param.length];
+		for (int i = 0; i < param.length; i++)
+			wrong[i] = base;
 
-		
-		
-		int[] wrong3 = new int[] {1, 0, 0, 1, 0, 0, 0, 0, 0, 0};// MFS
-		TestCase wrongCase3 = new TestCaseImplement();
-		((TestCaseImplement) wrongCase3).setTestCase(wrong3);
+		count = onceLoop(n, count, wrong);
 
-		Tuple bugModel3 = new Tuple(1, wrongCase3);
-//		bugModel3.set(0, 0);
-//		bugModel3.set(1, 3);
-		bugModel3.set(0, 8);
-		
-		
-		
-		realMFS.add(bugModel1);
-		realMFS.add(bugModel2);
-		realMFS.add(bugModel3);
+		while (count < n) {
+			base++;
+			wrong = new int[param.length];
+			for (int i = 0; i < param.length; i++)
+				wrong[i] = base;
+			count = onceLoop(n, count, wrong);
+		}
+	}
 
-		this.caseRunner = new CaseRunnerWithBugInject();
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
-
+	public int onceLoop(int n, int count, int[] wrong) {
+		for (int i = 0; i < this.param.length; i++) {
+			for (int j = i + 1; j < this.param.length; j++) {
+				TestCase wrongCase = new TestCaseImplement();
+				((TestCaseImplement) wrongCase).setTestCase(wrong);
+				Tuple bugMode = new Tuple(2, wrongCase);
+				bugMode.set(0, i);
+				bugMode.set(1, j);
+				realMFS.add(bugMode);
+				((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
+				count++;
+				if (count >= n)
+					return count;
+			}
+		}
+		return count;
 	}
 
 	public void setDegree(int degree) {

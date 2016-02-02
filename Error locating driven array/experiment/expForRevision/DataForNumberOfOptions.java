@@ -14,79 +14,48 @@ import com.fc.tuple.Tuple;
 import experimentData.ExperimentData;
 
 public class DataForNumberOfOptions implements ExperimentData {
+	
+	
+	public static int[] NUM = {1, 2, 4, 8, 100};
 
 	private int[] param;
 	private CaseRunner caseRunner;
 	private List<Tuple> realMFS;
 	private DataCenter dataCenter;
 
-	public DataForNumberOfOptions() {
-		this.init();
+	public DataForNumberOfOptions(int[] param) {
+		this.init(param);
 
 	}
 
-	public void init() {
+	public void init(int[] param) {
 		// TODO Auto-generated method stub
-//	0	// 0 0
+		// 0 // 0 0
 		// 0 1
-//	1	// 1 0
+		// 1 // 1 0
 		// 1 1
-		
-		
-		
-		this.param = new int[] {2, 2, 2, 4, 2, 2, 2, 2, 2, 3 };// parameters
+
+		this.param = param;
 
 		realMFS = new ArrayList<Tuple>();
-		
-		
-		/** 1. [ 1 , - , - , 3 , - , - , - , - , - , - ] **/
-		
-		/** 2. [ 1 , - , - , 1 , - , - , - , - , - , - ] **/
-		
-		/** 3. [ - , - , - , - , - , - , - , - , - , - ] **/
 
-		int[] wrong = new int[] {1, 0, 0, 3, 0, 0, 0, 0, 0, 0 };// MFS
+		int[] wrong = new int[param.length]; // MFS
+		for (int i = 0; i < wrong.length; i++)
+			wrong[i] = 0;
+
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
 
-		
-		Tuple bugModel1 = new Tuple(2, wrongCase);
-		bugModel1.set(0, 0);
-		bugModel1.set(1, 3);
-//		bugModel1.set(2, 4);
+		Tuple bugModel = new Tuple(2, wrongCase);
+		bugModel.set(0, 0);
+		bugModel.set(1, 3);
+		// bugModel1.set(2, 4);
 		// bugModel1.set(1, 2);
 
-		int[] wrong2 = new int[] {1, 0, 0, 1, 0, 0, 0, 0, 0, 0};// MFS
-		TestCase wrongCase2 = new TestCaseImplement();
-		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
-
-		Tuple bugModel2 = new Tuple(2, wrongCase2);
-		bugModel2.set(0, 0);
-		bugModel2.set(1, 3);
-//		bugModel2.set(2, 4);
-
-		
-		
-		int[] wrong3 = new int[] {1, 0, 0, 1, 0, 0, 0, 0, 0, 0};// MFS
-		TestCase wrongCase3 = new TestCaseImplement();
-		((TestCaseImplement) wrongCase3).setTestCase(wrong3);
-
-		Tuple bugModel3 = new Tuple(1, wrongCase3);
-//		bugModel3.set(0, 0);
-//		bugModel3.set(1, 3);
-		bugModel3.set(0, 8);
-		
-		
-		
-		realMFS.add(bugModel1);
-		realMFS.add(bugModel2);
-		realMFS.add(bugModel3);
+		realMFS.add(bugModel);
 
 		this.caseRunner = new CaseRunnerWithBugInject();
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
-		((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
-
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel);
 	}
 
 	public void setDegree(int degree) {
@@ -114,6 +83,12 @@ public class DataForNumberOfOptions implements ExperimentData {
 		// TODO Auto-generated method stub
 		return dataCenter;
 
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
