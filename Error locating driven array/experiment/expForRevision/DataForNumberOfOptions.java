@@ -15,9 +15,6 @@ import experimentData.ExperimentData;
 
 public class DataForNumberOfOptions implements ExperimentData {
 	
-	
-	public static int[] NUM = {1, 2, 4, 8, 100};
-
 	private int[] param;
 	private CaseRunner caseRunner;
 	private List<Tuple> realMFS;

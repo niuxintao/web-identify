@@ -20,16 +20,16 @@ public class DataForNumberOfMFS implements ExperimentData {
 	private List<Tuple> realMFS;
 	private DataCenter dataCenter;
 
-	public DataForNumberOfMFS() {
-		this.init();
+	public DataForNumberOfMFS(int[] param, int num) {
+		this.init(param, num);
 
 	}
 
-	public void init() {
+	public void init(int[] param, int num) {
 		// TODO Auto-generated method stub
-		this.param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };// parameters
-		realMFS = new ArrayList<Tuple>();
-		caseRunner = new CaseRunnerWithBugInject();
+		this.param = param; // new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };//
+							// parameters
+		this.setMFS(num);
 	}
 
 	/**
@@ -102,6 +102,12 @@ public class DataForNumberOfMFS implements ExperimentData {
 	public DataCenter getDataCenter() {
 		// TODO Auto-generated method stub
 		return dataCenter;
+
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
 
 	}
 
