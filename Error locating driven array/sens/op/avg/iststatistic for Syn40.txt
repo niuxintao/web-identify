@@ -1,0 +1,31 @@
+2-way for Syn40
+###############################################
+###############################################
+average ist num :53.0
+
+average ist num_r :13.0
+
+average ist num_i :40.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :536.8
+
+average ist time_r :425.6
+
+average ist time_i :4.6
+
+average ist t_cover :3120.0
+
+average ist all_cover :3120.0
+
+average ist CoverNUM
+(1 : 61.4)  (2 : 160.8)  (3 : 162.4)  (4 : 86.4)  (5 : 42.6)  (6 : 51.2)  (7 : 48.4)  (8 : 16.6)  (9 : 1.4)  (10 : 0.2)  
+average ist CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

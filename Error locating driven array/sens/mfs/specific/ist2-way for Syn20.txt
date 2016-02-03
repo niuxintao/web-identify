@@ -1,0 +1,170 @@
+testCase Num: 11
+regaular Num: 1
+identify Num: 10
+0 0 0 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 0 0 1 0 
+MFS
+[ - , - , - , - , - , - , - , - , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+1
+time
+all 3 iden 0 gen 1
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 11
+regaular Num: 1
+identify Num: 10
+0 0 0 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 0 0 1 0 
+MFS
+[ - , - , - , - , - , - , - , - , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+1
+time
+all 3 iden 0 gen 1
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 11
+regaular Num: 1
+identify Num: 10
+0 0 0 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 0 0 1 0 
+MFS
+[ - , - , - , - , - , - , - , - , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+1
+time
+all 3 iden 1 gen 0
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 11
+regaular Num: 1
+identify Num: 10
+0 0 0 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 0 0 1 0 
+MFS
+[ - , - , - , - , - , - , - , - , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+1
+time
+all 3 iden 0 gen 1
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 11
+regaular Num: 1
+identify Num: 10
+0 0 0 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 0 0 1 0 
+MFS
+[ - , - , - , - , - , - , - , - , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+1
+time
+all 4 iden 0 gen 2
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+

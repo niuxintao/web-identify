@@ -1,0 +1,31 @@
+2-way for Syn70
+###############################################
+###############################################
+average fd num :20.4
+
+average fd num_r :20.4
+
+average fd num_i :0.0
+
+average fd recall :1.0
+
+average fd precise :1.0
+
+average fd f-measure :1.0
+
+average fd multi :0.0
+
+average fd time :5405.6
+
+average fd time_r :5369.8
+
+average fd time_i :0.8
+
+average fd t_cover :9660.0
+
+average fd all_cover :9660.0
+
+average fd CoverNUM
+(1 : 164.8)  (2 : 459.6)  (3 : 504.6)  (4 : 307.0)  (5 : 207.6)  (6 : 168.8)  (7 : 94.8)  (8 : 30.0)  (9 : 2.0)  (10 : 0.8)  
+average fd CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

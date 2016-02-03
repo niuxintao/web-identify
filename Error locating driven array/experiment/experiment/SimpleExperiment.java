@@ -21,9 +21,10 @@ import gandi.ErrorLocatingDrivenArray_TL;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
+
 public class SimpleExperiment {
 
-	public final static int REP = 5;
+//	public final static int REP = 5;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -185,8 +186,8 @@ public class SimpleExperiment {
 
 		OutPut out2 = new OutPut("specific/" + s + "2-way for " + subject
 				+ ".txt");
-		EDATA[] data2 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
+		EDATA[] data2 = new EDATA[REP.REP];
+		for (int i = 0; i < REP.REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
 		statistic.println("2-way for " + subject);
 		this.statistic(algorithm, data2, statistic, statisticDev);
@@ -194,8 +195,8 @@ public class SimpleExperiment {
 
 		OutPut out3 = new OutPut("specific/" + s + "3-way for " + subject
 				+ ".txt");
-		EDATA[] data3 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
+		EDATA[] data3 = new EDATA[REP.REP];
+		for (int i = 0; i < REP.REP; i++)
 			data3[i] = execute(algorithm, data, 3, out3);
 		statistic.println("3-way for " + subject);
 		this.statistic(algorithm, data3, statistic, statisticDev);
@@ -203,8 +204,8 @@ public class SimpleExperiment {
 
 		OutPut out4 = new OutPut("specific/" + s + "4-way for " + subject
 				+ ".txt");
-		EDATA[] data4 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
+		EDATA[] data4 = new EDATA[REP.REP];
+		for (int i = 0; i < REP.REP; i++)
 			data4[i] = execute(algorithm, data, 4, out4);
 		statistic.println("4-way for " + subject);
 		this.statistic(algorithm, data4, statistic, statisticDev);

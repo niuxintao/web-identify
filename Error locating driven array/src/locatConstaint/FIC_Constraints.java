@@ -227,15 +227,18 @@ public class FIC_Constraints {
 	public void FicNOP() {
 		List<Integer> CTabu = new ArrayList<Integer>();
 		while (true) {
+			
+			System.out.println("start then idenity then");
+			
 			if (CTabu.size() > 0 && testTuple(CTabu)) {
 				break;
 			}
-
+			
 			Tuple bug = Fic(CTabu);
 			if (bug.getDegree() == 0)
 				break;
 			this.bugs.add(bug);
-
+			
 			Tuple tuple = new Tuple(CTabu.size(), testCase);
 			int[] tabu = CovertTntegerToInt(CTabu);
 			tuple.setParamIndex(tabu);

@@ -1,0 +1,31 @@
+2-way for Syn9
+###############################################
+###############################################
+average sct num :32.6
+
+average sct num_r :8.6
+
+average sct num_i :25.2
+
+average sct recall :1.0
+
+average sct precise :1.0
+
+average sct f-measure :1.0
+
+average sct multi :0.0
+
+average sct time :2.8
+
+average sct time_r :2.6
+
+average sct time_i :0.2
+
+average sct t_cover :144.0
+
+average sct all_cover :144.0
+
+average sct CoverNUM
+(32 : 0.6)  (1 : 1.6)  (2 : 11.4)  (3 : 9.4)  (4 : 2.2)  (5 : 3.4)  (6 : 1.0)  (7 : 0.6)  (8 : 0.8)  (9 : 3.0)  (10 : 4.8)  (11 : 0.8)  (12 : 3.6)  (13 : 1.2)  (17 : 0.6)  (18 : 2.0)  (19 : 2.4)  (20 : 1.0)  (25 : 1.6)  (26 : 2.4)  
+average sct CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - ] : 1.0)  

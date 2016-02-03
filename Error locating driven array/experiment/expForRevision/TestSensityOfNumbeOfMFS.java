@@ -8,6 +8,7 @@ import output.OutPut;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
+import experiment.REP;
 import experimentData.ExperimentData;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
@@ -18,7 +19,6 @@ import gandi.TraditionalFGLI;
 
 public class TestSensityOfNumbeOfMFS {
 
-	public final static int REP = 5;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -26,7 +26,7 @@ public class TestSensityOfNumbeOfMFS {
 	public final static int ICT_TL = 3;
 	public final static int FD = 4;
 
-	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd" };
+	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd"};
 
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
@@ -168,8 +168,8 @@ public class TestSensityOfNumbeOfMFS {
 		OutPut statisticDev = new OutPut("sens/mfs/dev/" + s + "statistic for " + subject + ".txt");
 
 		OutPut out2 = new OutPut("sens/mfs/specific/" + s + "2-way for " + subject + ".txt");
-		EDATA[] data2 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
+		EDATA[] data2 = new EDATA[REP.REP];
+		for (int i = 0; i < REP.REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
 		statistic.println("2-way for " + subject);
 		this.statistic(algorithm, data2, statistic, statisticDev);
@@ -460,8 +460,8 @@ public class TestSensityOfNumbeOfMFS {
 
 	public static void main(String[] args) {
 		TestSensityOfNumbeOfMFS ex = new TestSensityOfNumbeOfMFS();
-		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };
-		int[] num = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
+		int[] num = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90 };
 		for (int nu : num){
 			System.out.println("start : the number of MFS is :" + nu);
 			ex.testSyn(nu, param);

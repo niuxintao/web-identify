@@ -3,7 +3,9 @@ package expForRevision;
 import interaction.DataCenter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
@@ -19,6 +21,7 @@ public class DataForNumberOfMFS implements ExperimentData {
 	private CaseRunner caseRunner;
 	private List<Tuple> realMFS;
 	private DataCenter dataCenter;
+	private List<Tuple> allMFS;
 
 	public DataForNumberOfMFS(int[] param, int num) {
 		this.init(param, num);
@@ -29,38 +32,85 @@ public class DataForNumberOfMFS implements ExperimentData {
 		// TODO Auto-generated method stub
 		this.param = param; // new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };//
 							// parameters
+
+		this.getAllMFS();
+
 		this.setMFS(num);
 	}
-
-	/**
-	 * add n MFS
-	 * 
-	 * @param n
-	 */
 
 	public void setMFS(int n) {
 		realMFS = new ArrayList<Tuple>();
 		caseRunner = new CaseRunnerWithBugInject();
 
-		int count = 0;
+		Random rng = new Random(); // Ideally just create one instance globally
+		// Note: use LinkedHashSet to maintain insertion order
+		HashSet<Integer> generated = new HashSet<Integer>();
+		while (generated.size() < n) {
+			Integer next = rng.nextInt(this.allMFS.size());
+			// As we're adding to a set, this will automatically do a
+			// containment check
+			generated.add(next);
+		}
 
-		int base = 0;
-		int[] wrong = new int[param.length];
-		for (int i = 0; i < param.length; i++)
-			wrong[i] = base;
-
-		count = onceLoop(n, count, wrong);
-
-		while (count < n) {
-			base++;
-			wrong = new int[param.length];
-			for (int i = 0; i < param.length; i++)
-				wrong[i] = base;
-			count = onceLoop(n, count, wrong);
+		for (Integer index : generated) {
+			Tuple bugMode = this.allMFS.get(index);
+			realMFS.add(bugMode);
+			((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
 		}
 	}
 
-	public int onceLoop(int n, int count, int[] wrong) {
+	// /**
+	// * add n MFS
+	// *
+	// * @param n
+	// */
+	//
+	// public void setMFS(int n) {
+	// realMFS = new ArrayList<Tuple>();
+	// caseRunner = new CaseRunnerWithBugInject();
+	//
+	// int count = 0;
+	//
+	// int base = 0;
+	// int[] wrong = new int[param.length];
+	// for (int i = 0; i < param.length; i++)
+	// wrong[i] = base;
+	//
+	// count = onceLoop(n, count, wrong);
+	//
+	// while (count < n) {
+	// base++;
+	// wrong = new int[param.length];
+	// for (int i = 0; i < param.length; i++)
+	// wrong[i] = base;
+	// count = onceLoop(n, count, wrong);
+	// // System.out.println(count + " + " + n);
+	// }
+	// }
+
+	// public int onceLoop(int n, int count, int[] wrong) {
+	// for (int i = 0; i < this.param.length; i++) {
+	// for (int j = i + 1; j < this.param.length; j++) {
+	// TestCase wrongCase = new TestCaseImplement();
+	// ((TestCaseImplement) wrongCase).setTestCase(wrong);
+	// Tuple bugMode = new Tuple(2, wrongCase);
+	// bugMode.set(0, i);
+	// bugMode.set(1, j);
+	// realMFS.add(bugMode);
+	// ((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
+	// count++;
+	// if (count >= n)
+	// return count;
+	// }
+	// }
+	// return count;
+	// }
+
+	public void getAllMFS() {
+		allMFS = new ArrayList<Tuple>();
+		int[] wrong = new int[param.length];
+		for (int i = 0; i < param.length; i++)
+			wrong[i] = 0;
 		for (int i = 0; i < this.param.length; i++) {
 			for (int j = i + 1; j < this.param.length; j++) {
 				TestCase wrongCase = new TestCaseImplement();
@@ -68,14 +118,23 @@ public class DataForNumberOfMFS implements ExperimentData {
 				Tuple bugMode = new Tuple(2, wrongCase);
 				bugMode.set(0, i);
 				bugMode.set(1, j);
-				realMFS.add(bugMode);
-				((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
-				count++;
-				if (count >= n)
-					return count;
+				allMFS.add(bugMode);
 			}
 		}
-		return count;
+
+		wrong = new int[param.length];
+		for (int i = 0; i < param.length; i++)
+			wrong[i] = 1;
+		for (int i = 0; i < this.param.length; i++) {
+			for (int j = i + 1; j < this.param.length; j++) {
+				TestCase wrongCase = new TestCaseImplement();
+				((TestCaseImplement) wrongCase).setTestCase(wrong);
+				Tuple bugMode = new Tuple(2, wrongCase);
+				bugMode.set(0, i);
+				bugMode.set(1, j);
+				allMFS.add(bugMode);
+			}
+		}
 	}
 
 	public void setDegree(int degree) {

@@ -1,0 +1,31 @@
+2-way for Syn60
+###############################################
+###############################################
+average ist num :74.4
+
+average ist num_r :14.4
+
+average ist num_i :60.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :2252.2
+
+average ist time_r :1943.2
+
+average ist time_i :18.8
+
+average ist t_cover :7080.0
+
+average ist all_cover :7080.0
+
+average ist CoverNUM
+(1 : 101.8)  (2 : 319.4)  (3 : 378.8)  (4 : 226.0)  (5 : 48.8)  (6 : 44.4)  (7 : 105.6)  (8 : 124.0)  (9 : 68.0)  (10 : 5.6)  (11 : 1.8)  
+average ist CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

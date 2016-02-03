@@ -1,0 +1,31 @@
+2-way for Syn8
+###############################################
+###############################################
+average ist num :16.0
+
+average ist num_r :8.0
+
+average ist num_i :8.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :32.0
+
+average ist time_r :17.4
+
+average ist time_i :0.4
+
+average ist t_cover :112.0
+
+average ist all_cover :112.0
+
+average ist CoverNUM
+(1 : 8.0)  (2 : 8.8)  (3 : 3.6)  (4 : 3.8)  (5 : 2.2)  
+average ist CoverNUM
+([ 0 , - , - , 0 , - , - , - , - ] : 1.0)  

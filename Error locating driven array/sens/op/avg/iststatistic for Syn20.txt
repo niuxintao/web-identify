@@ -1,0 +1,31 @@
+2-way for Syn20
+###############################################
+###############################################
+average ist num :31.0
+
+average ist num_r :11.0
+
+average ist num_i :20.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :74.4
+
+average ist time_r :43.6
+
+average ist time_i :0.6
+
+average ist t_cover :760.0
+
+average ist all_cover :760.0
+
+average ist CoverNUM
+(1 : 26.4)  (2 : 48.2)  (3 : 35.0)  (4 : 14.4)  (5 : 14.2)  (6 : 13.8)  (7 : 5.4)  (8 : 0.4)  
+average ist CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

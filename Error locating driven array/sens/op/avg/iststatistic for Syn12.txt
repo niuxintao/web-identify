@@ -1,0 +1,31 @@
+2-way for Syn12
+###############################################
+###############################################
+average ist num :21.4
+
+average ist num_r :9.4
+
+average ist num_i :12.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :34.2
+
+average ist time_r :18.2
+
+average ist time_i :1.0
+
+average ist t_cover :264.0
+
+average ist all_cover :264.0
+
+average ist CoverNUM
+(1 : 11.4)  (2 : 22.2)  (3 : 10.4)  (4 : 6.8)  (5 : 6.0)  (6 : 5.2)  (7 : 0.2)  
+average ist CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - ] : 1.0)  

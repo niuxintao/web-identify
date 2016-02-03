@@ -1,0 +1,31 @@
+2-way for Syn50
+###############################################
+###############################################
+average fd num :82.2
+
+average fd num_r :82.2
+
+average fd num_i :0.0
+
+average fd recall :0.004
+
+average fd precise :0.0038461538461538464
+
+average fd f-measure :0.00392156862745098
+
+average fd multi :65.4
+
+average fd time :359.0
+
+average fd time_r :301.0
+
+average fd time_i :2.0
+
+average fd t_cover :82.4
+
+average fd all_cover :405.0
+
+average fd CoverNUM
+(1 : 66.8)  (2 : 6.0)  (3 : 3.2)  (4 : 3.2)  (5 : 0.4)  (6 : 1.0)  (7 : 4.4)  (8 : 5.6)  (9 : 2.0)  
+average fd CoverNUM
+([ 1 , - , - , - , - , - , 1 , - , - , - ] : 0.2)  

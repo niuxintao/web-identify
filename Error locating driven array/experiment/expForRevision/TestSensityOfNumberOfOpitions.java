@@ -8,6 +8,7 @@ import output.OutPut;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
+import experiment.REP;
 import experimentData.ExperimentData;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
@@ -17,8 +18,6 @@ import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
 public class TestSensityOfNumberOfOpitions {
-
-	public final static int REP = 5;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -168,8 +167,8 @@ public class TestSensityOfNumberOfOpitions {
 		OutPut statisticDev = new OutPut("sens/op/dev/" + s + "statistic for " + subject + ".txt");
 
 		OutPut out2 = new OutPut("sens/op/specific/" + s + "2-way for " + subject + ".txt");
-		EDATA[] data2 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
+		EDATA[] data2 = new EDATA[REP.REP];
+		for (int i = 0; i < REP.REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
 		statistic.println("2-way for " + subject);
 		this.statistic(algorithm, data2, statistic, statisticDev);
@@ -463,6 +462,7 @@ public class TestSensityOfNumberOfOpitions {
 		int[] num = new int[] { 8, 9, 10, 12, 16, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
 		for (int nu : num) {
 			int[] param = getParam(nu);
+			System.out.println("start : the number of options is :" + nu);
 			ex.testSyn(param);
 		}
 	}

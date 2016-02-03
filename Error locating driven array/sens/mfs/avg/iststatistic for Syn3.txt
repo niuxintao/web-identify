@@ -1,0 +1,31 @@
+2-way for Syn3
+###############################################
+###############################################
+average ist num :29.2
+
+average ist num_r :19.2
+
+average ist num_i :10.0
+
+average ist recall :0.0
+
+average ist precise :0.0
+
+average ist f-measure :0.0
+
+average ist multi :1.0
+
+average ist time :28.8
+
+average ist time_r :13.6
+
+average ist time_i :0.0
+
+average ist t_cover :378.0
+
+average ist all_cover :405.0
+
+average ist CoverNUM
+(1 : 31.8)  (2 : 27.4)  (3 : 12.6)  (4 : 4.2)  (5 : 3.6)  (6 : 2.6)  (7 : 3.0)  (8 : 1.4)  (9 : 1.0)  (10 : 0.4)  
+average ist CoverNUM
+
