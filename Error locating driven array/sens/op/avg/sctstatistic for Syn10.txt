@@ -1,0 +1,31 @@
+2-way for Syn10
+###############################################
+###############################################
+average sct num :46.2
+
+average sct num_r :9.0
+
+average sct num_i :37.2
+
+average sct recall :1.0
+
+average sct precise :1.0
+
+average sct f-measure :1.0
+
+average sct multi :0.0
+
+average sct time :5.0
+
+average sct time_r :4.8
+
+average sct time_i :0.2
+
+average sct t_cover :180.0
+
+average sct all_cover :180.0
+
+average sct CoverNUM
+(1 : 0.8)  (2 : 1.4)  (3 : 4.4)  (4 : 3.4)  (5 : 4.4)  (6 : 2.6)  (7 : 0.2)  (9 : 0.2)  (10 : 1.6)  (11 : 4.0)  (12 : 4.2)  (13 : 5.2)  (14 : 1.2)  (18 : 2.4)  (19 : 1.6)  (20 : 2.0)  (21 : 1.0)  (23 : 0.4)  (24 : 1.8)  (25 : 2.0)  (26 : 1.4)  (27 : 2.0)  (28 : 0.6)  (29 : 0.2)  (31 : 0.4)  (32 : 1.8)  (33 : 0.4)  (34 : 0.4)  (35 : 0.2)  (39 : 0.2)  
+average sct CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - ] : 1.0)  
