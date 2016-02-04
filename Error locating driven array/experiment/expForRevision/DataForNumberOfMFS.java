@@ -3,9 +3,7 @@ package expForRevision;
 import interaction.DataCenter;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
@@ -33,78 +31,78 @@ public class DataForNumberOfMFS implements ExperimentData {
 		this.param = param; // new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };//
 							// parameters
 
-		this.getAllMFS();
+		// this.getAllMFS();
 
 		this.setMFS(num);
 	}
 
-	public void setMFS(int n) {
-		realMFS = new ArrayList<Tuple>();
-		caseRunner = new CaseRunnerWithBugInject();
-
-		Random rng = new Random(); // Ideally just create one instance globally
-		// Note: use LinkedHashSet to maintain insertion order
-		HashSet<Integer> generated = new HashSet<Integer>();
-		while (generated.size() < n) {
-			Integer next = rng.nextInt(this.allMFS.size());
-			// As we're adding to a set, this will automatically do a
-			// containment check
-			generated.add(next);
-		}
-
-		for (Integer index : generated) {
-			Tuple bugMode = this.allMFS.get(index);
-			realMFS.add(bugMode);
-			((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
-		}
-	}
-
-	// /**
-	// * add n MFS
-	// *
-	// * @param n
-	// */
-	//
 	// public void setMFS(int n) {
 	// realMFS = new ArrayList<Tuple>();
 	// caseRunner = new CaseRunnerWithBugInject();
 	//
-	// int count = 0;
+	// Random rng = new Random(); // Ideally just create one instance globally
+	// // Note: use LinkedHashSet to maintain insertion order
+	// HashSet<Integer> generated = new HashSet<Integer>();
+	// while (generated.size() < n) {
+	// Integer next = rng.nextInt(this.allMFS.size());
+	// // As we're adding to a set, this will automatically do a
+	// // containment check
+	// generated.add(next);
+	// }
 	//
-	// int base = 0;
-	// int[] wrong = new int[param.length];
-	// for (int i = 0; i < param.length; i++)
-	// wrong[i] = base;
-	//
-	// count = onceLoop(n, count, wrong);
-	//
-	// while (count < n) {
-	// base++;
-	// wrong = new int[param.length];
-	// for (int i = 0; i < param.length; i++)
-	// wrong[i] = base;
-	// count = onceLoop(n, count, wrong);
-	// // System.out.println(count + " + " + n);
+	// for (Integer index : generated) {
+	// Tuple bugMode = this.allMFS.get(index);
+	// realMFS.add(bugMode);
+	// ((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
 	// }
 	// }
 
-	// public int onceLoop(int n, int count, int[] wrong) {
-	// for (int i = 0; i < this.param.length; i++) {
-	// for (int j = i + 1; j < this.param.length; j++) {
-	// TestCase wrongCase = new TestCaseImplement();
-	// ((TestCaseImplement) wrongCase).setTestCase(wrong);
-	// Tuple bugMode = new Tuple(2, wrongCase);
-	// bugMode.set(0, i);
-	// bugMode.set(1, j);
-	// realMFS.add(bugMode);
-	// ((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
-	// count++;
-	// if (count >= n)
-	// return count;
-	// }
-	// }
-	// return count;
-	// }
+	// /**
+	/*
+	 * add n MFS
+	 *
+	 * @param n
+	 */
+	public void setMFS(int n) {
+		realMFS = new ArrayList<Tuple>();
+		caseRunner = new CaseRunnerWithBugInject();
+		//
+		int count = 0;
+		//
+		int base = 0;
+		int[] wrong = new int[param.length];
+		for (int i = 0; i < param.length; i++)
+			wrong[i] = base;
+
+		count = onceLoop(n, count, wrong);
+
+		while (count < n) {
+			base++;
+			wrong = new int[param.length];
+			for (int i = 0; i < param.length; i++)
+				wrong[i] = base;
+			count = onceLoop(n, count, wrong);
+			// System.out.println(count + " + " + n);
+		}
+	}
+
+	public int onceLoop(int n, int count, int[] wrong) {
+		for (int i = 0; i < this.param.length; i++) {
+			for (int j = i + 1; j < this.param.length; j++) {
+				TestCase wrongCase = new TestCaseImplement();
+				((TestCaseImplement) wrongCase).setTestCase(wrong);
+				Tuple bugMode = new Tuple(2, wrongCase);
+				bugMode.set(0, i);
+				bugMode.set(1, j);
+				realMFS.add(bugMode);
+				((CaseRunnerWithBugInject) caseRunner).inject(bugMode);
+				count++;
+				if (count >= n)
+					return count;
+			}
+		}
+		return count;
+	}
 
 	public void getAllMFS() {
 		allMFS = new ArrayList<Tuple>();
