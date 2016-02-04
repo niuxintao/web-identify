@@ -1,9 +1,9 @@
 2-way for Syn10
 ###############################################
 ###############################################
-average ist num :18.2
+average ist num :18.0
 
-average ist num_r :8.2
+average ist num_r :8.0
 
 average ist num_i :10.0
 
@@ -15,17 +15,17 @@ average ist f-measure :1.0
 
 average ist multi :0.0
 
-average ist time :19.2
+average ist time :25.0
 
-average ist time_r :15.0
+average ist time_r :12.6
 
-average ist time_i :0.4
+average ist time_i :0.0
 
 average ist t_cover :180.0
 
 average ist all_cover :180.0
 
 average ist CoverNUM
-(1 : 8.2)  (2 : 14.6)  (3 : 8.2)  (4 : 4.8)  (5 : 4.2)  (6 : 0.2)  
+(1 : 10.2)  (2 : 14.4)  (3 : 8.8)  (4 : 5.2)  (5 : 1.4)  (6 : 0.2)  
 average ist CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 1.0)  

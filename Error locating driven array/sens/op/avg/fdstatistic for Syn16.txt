@@ -15,17 +15,17 @@ average fd f-measure :1.0
 
 average fd multi :0.0
 
-average fd time :64.2
+average fd time :50.0
 
-average fd time_r :59.8
+average fd time_r :46.8
 
-average fd time_i :2.0
+average fd time_i :0.0
 
 average fd t_cover :480.0
 
 average fd all_cover :480.0
 
 average fd CoverNUM
-(1 : 22.4)  (2 : 38.0)  (3 : 29.4)  (4 : 9.4)  (5 : 4.8)  (6 : 0.2)  
+(1 : 24.4)  (2 : 37.0)  (3 : 26.2)  (4 : 10.8)  (5 : 1.2)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

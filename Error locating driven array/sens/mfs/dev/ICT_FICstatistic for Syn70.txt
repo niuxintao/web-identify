@@ -1,0 +1,28 @@
+num ICT_FIC deviration: 0.0
+
+num_r ICT_FIC deviration: 0.0
+
+num_i ICT_FIC deviration: 0.0
+
+recall ICT_FIC deviration: 0.0
+
+precise ICT_FIC deviration: 0.0
+
+f-measure ICT_FIC deviration: 0.0
+
+multi ICT_FIC deviration: 0.0
+
+time ICT_FIC deviration: 3.1240998703626612
+
+time_r ICT_FIC deviration: 5.706137047074842
+
+time_i ICT_FIC deviration: 6.675327707311454
+
+t_cover ICT_FIC deviration: 0.0
+
+all_cover ICT_FIC deviration: 0.0
+
+deviration ICT_FIC CoverNUM
+(1 : 104458.23999999999)  
+deviration ICT_FIC CoverNUM
+

@@ -1,0 +1,31 @@
+2-way for Syn6
+###############################################
+###############################################
+average ICT_FIC num :29.2
+
+average ICT_FIC num_r :15.2
+
+average ICT_FIC num_i :14.0
+
+average ICT_FIC recall :0.16666666666666666
+
+average ICT_FIC precise :0.5
+
+average ICT_FIC f-measure :0.25
+
+average ICT_FIC multi :2.0
+
+average ICT_FIC time :40.8
+
+average ICT_FIC time_r :15.8
+
+average ICT_FIC time_i :9.2
+
+average ICT_FIC t_cover :391.0
+
+average ICT_FIC all_cover :405.0
+
+average ICT_FIC CoverNUM
+(1 : 25.2)  (2 : 22.6)  (3 : 14.8)  (4 : 9.4)  (5 : 5.2)  (6 : 5.2)  (7 : 2.6)  (8 : 1.8)  (9 : 1.2)  (10 : 0.6)  (11 : 0.6)  (12 : 0.2)  
+average ICT_FIC CoverNUM
+([ 0 , - , - , - , - , - , 0 , - , - , - ] : 1.0)  

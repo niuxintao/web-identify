@@ -1,0 +1,31 @@
+2-way for Syn20
+###############################################
+###############################################
+average ICT_FIC num :35.0
+
+average ICT_FIC num_r :10.0
+
+average ICT_FIC num_i :25.0
+
+average ICT_FIC recall :0.05
+
+average ICT_FIC precise :0.2033333333333333
+
+average ICT_FIC f-measure :0.08005128205128206
+
+average ICT_FIC multi :4.2
+
+average ICT_FIC time :80.0
+
+average ICT_FIC time_r :18.4
+
+average ICT_FIC time_i :21.4
+
+average ICT_FIC t_cover :271.2
+
+average ICT_FIC all_cover :405.0
+
+average ICT_FIC CoverNUM
+(1 : 31.8)  (2 : 12.0)  (3 : 14.4)  (4 : 11.2)  (5 : 4.6)  (6 : 3.6)  (7 : 3.2)  (8 : 2.2)  (9 : 1.0)  (10 : 1.8)  (11 : 0.8)  (13 : 0.6)  (15 : 0.2)  
+average ICT_FIC CoverNUM
+([ - , - , 0 , - , - , 0 , - , - , - , - ] : 1.0)  

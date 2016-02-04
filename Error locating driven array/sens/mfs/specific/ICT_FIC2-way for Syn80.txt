@@ -1,0 +1,185 @@
+testCase Num: 12
+regaular Num: 3
+identify Num: 9
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 0 
+1 1 1 1 1 1 1 1 0 1 
+1 1 1 1 1 1 1 1 1 2 
+1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 1 
+1 1 1 1 1 1 1 1 0 2 
+MFS
+[ - , - , - , - , - , - , - , - , - , 0 ]
+[ - , - , - , - , - , - , - , - , - , 1 ]
+[ - , - , - , - , - , - , - , - , - , 2 ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+3
+time
+all 31 iden 0 gen 0
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 12
+regaular Num: 3
+identify Num: 9
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 0 
+1 1 1 1 1 1 1 1 0 1 
+1 1 1 1 1 1 1 1 1 2 
+1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 1 
+1 1 1 1 1 1 1 1 0 2 
+MFS
+[ - , - , - , - , - , - , - , - , - , 0 ]
+[ - , - , - , - , - , - , - , - , - , 1 ]
+[ - , - , - , - , - , - , - , - , - , 2 ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+3
+time
+all 47 iden 0 gen 16
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 12
+regaular Num: 3
+identify Num: 9
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 0 
+1 1 1 1 1 1 1 1 0 1 
+1 1 1 1 1 1 1 1 1 2 
+1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 1 
+1 1 1 1 1 1 1 1 0 2 
+MFS
+[ - , - , - , - , - , - , - , - , - , 0 ]
+[ - , - , - , - , - , - , - , - , - , 1 ]
+[ - , - , - , - , - , - , - , - , - , 2 ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+3
+time
+all 47 iden 16 gen 0
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 12
+regaular Num: 3
+identify Num: 9
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 0 
+1 1 1 1 1 1 1 1 0 1 
+1 1 1 1 1 1 1 1 1 2 
+1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 1 
+1 1 1 1 1 1 1 1 0 2 
+MFS
+[ - , - , - , - , - , - , - , - , - , 0 ]
+[ - , - , - , - , - , - , - , - , - , 1 ]
+[ - , - , - , - , - , - , - , - , - , 2 ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+3
+time
+all 47 iden 16 gen 0
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+
+testCase Num: 12
+regaular Num: 3
+identify Num: 9
+0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 0 
+1 1 1 1 1 1 1 1 0 1 
+1 1 1 1 1 1 1 1 1 2 
+1 1 1 1 1 1 1 1 0 0 
+1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 0 0 0 0 2 
+1 1 1 1 1 0 0 0 0 1 
+1 1 1 1 1 1 1 1 0 2 
+MFS
+[ - , - , - , - , - , - , - , - , - , 0 ]
+[ - , - , - , - , - , - , - , - , - , 1 ]
+[ - , - , - , - , - , - , - , - , - , 2 ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+3
+time
+all 47 iden 0 gen 0
+t-cover
+0
+all-cover
+405
+coveredNum
+(1 : 405)  
+real Identify
+

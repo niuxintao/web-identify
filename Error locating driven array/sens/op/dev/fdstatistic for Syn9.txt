@@ -1,28 +1,28 @@
-num fd deviration: 0.7483314773547882
+num fd deviration: 1.7204650534085253
 
-num_r fd deviration: 0.7483314773547882
+num_r fd deviration: 1.7204650534085253
 
 num_i fd deviration: 0.0
 
 recall fd deviration: 0.0
 
-precise fd deviration: 0.0
+precise fd deviration: 0.2
 
-f-measure fd deviration: 0.0
+f-measure fd deviration: 0.13333333333333336
 
 multi fd deviration: 0.0
 
-time fd deviration: 14.133647795243803
+time fd deviration: 16.492422502470642
 
-time_r fd deviration: 11.617228585166083
+time_r fd deviration: 17.10438540258024
 
-time_i fd deviration: 13.2
+time_i fd deviration: 6.06630035524124
 
-t_cover fd deviration: 0.0
+t_cover fd deviration: 0.4
 
 all_cover fd deviration: 0.0
 
 deviration fd CoverNUM
-(1 : 1300.2400000000002)  (2 : 1732.36)  (3 : 1162.16)  (4 : 0.5200000000000001)  
+(1 : 984.24)  (2 : 2019.7600000000002)  (3 : 889.5599999999998)  (4 : 89.04)  (5 : 1.2560000000000002)  (6 : 0.12800000000000003)  
 deviration fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - ] : 0.0)  

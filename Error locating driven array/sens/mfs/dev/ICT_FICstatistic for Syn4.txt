@@ -1,0 +1,28 @@
+num ICT_FIC deviration: 11.146299834474219
+
+num_r ICT_FIC deviration: 2.280350850198276
+
+num_i ICT_FIC deviration: 13.169662106523463
+
+recall ICT_FIC deviration: 0.29154759474226505
+
+precise ICT_FIC deviration: 0.12183777921664711
+
+f-measure ICT_FIC deviration: 0.21879442463635276
+
+multi ICT_FIC deviration: 1.0954451150103321
+
+time ICT_FIC deviration: 23.025203582161875
+
+time_r ICT_FIC deviration: 22.063544592834578
+
+time_i ICT_FIC deviration: 16.523922052587878
+
+t_cover ICT_FIC deviration: 5.2306787322488075
+
+all_cover ICT_FIC deviration: 0.0
+
+deviration ICT_FIC CoverNUM
+(1 : 7217.5199999999995)  (2 : 5453.2)  (3 : 2675.92)  (4 : 873.4)  (5 : 760.6)  (6 : 493.71999999999997)  (7 : 174.16)  (8 : 170.84)  (9 : 25.52)  (10 : 19.128000000000004)  (11 : 10.8)  (12 : 9.823999999999998)  (13 : 2.0)  (14 : 3.2)  (15 : 0.144)  (16 : 1.152)  (17 : 0.5120000000000001)  
+deviration ICT_FIC CoverNUM
+([ 0 , - , - , - , 0 , - , - , - , - , - ] : 0.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.144)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.12800000000000003)  

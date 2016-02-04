@@ -252,7 +252,7 @@ public class FIC_Constraints {
 			CTabu.clear();
 			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
 			
-			if(bug.getDegree() == testCase.getLength())
+//			if(bug.getDegree() == testCase.getLength())
 				break;
 		}
 	}

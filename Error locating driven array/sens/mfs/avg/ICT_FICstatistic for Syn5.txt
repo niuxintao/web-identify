@@ -1,0 +1,31 @@
+2-way for Syn5
+###############################################
+###############################################
+average ICT_FIC num :39.4
+
+average ICT_FIC num_r :14.0
+
+average ICT_FIC num_i :25.4
+
+average ICT_FIC recall :0.36
+
+average ICT_FIC precise :0.5000000000000001
+
+average ICT_FIC f-measure :0.3961038961038961
+
+average ICT_FIC multi :3.0
+
+average ICT_FIC time :50.4
+
+average ICT_FIC time_r :12.6
+
+average ICT_FIC time_i :6.2
+
+average ICT_FIC t_cover :396.4
+
+average ICT_FIC all_cover :405.0
+
+average ICT_FIC CoverNUM
+(1 : 12.6)  (2 : 11.6)  (3 : 11.8)  (4 : 9.2)  (5 : 10.2)  (6 : 7.4)  (7 : 7.0)  (8 : 3.2)  (9 : 2.2)  (10 : 2.8)  (11 : 2.4)  (12 : 1.4)  (13 : 1.4)  (14 : 1.2)  (15 : 1.2)  (16 : 1.2)  (17 : 0.6)  (18 : 0.6)  (19 : 0.2)  (20 : 0.2)  (22 : 0.4)  (23 : 0.2)  (27 : 0.2)  
+average ICT_FIC CoverNUM
+([ 0 , - , - , - , 0 , - , - , - , - , - ] : 0.2)  ([ 0 , - , - , - , - , 0 , - , - , - , - ] : 1.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.2)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.2)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.2)  

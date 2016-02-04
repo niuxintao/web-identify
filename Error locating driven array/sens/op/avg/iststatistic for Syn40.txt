@@ -15,17 +15,17 @@ average ist f-measure :1.0
 
 average ist multi :0.0
 
-average ist time :536.8
+average ist time :538.0
 
-average ist time_r :425.6
+average ist time_r :419.4
 
-average ist time_i :4.6
+average ist time_i :3.2
 
 average ist t_cover :3120.0
 
 average ist all_cover :3120.0
 
 average ist CoverNUM
-(1 : 61.4)  (2 : 160.8)  (3 : 162.4)  (4 : 86.4)  (5 : 42.6)  (6 : 51.2)  (7 : 48.4)  (8 : 16.6)  (9 : 1.4)  (10 : 0.2)  
+(1 : 61.8)  (2 : 146.0)  (3 : 159.8)  (4 : 103.6)  (5 : 53.8)  (6 : 54.0)  (7 : 40.0)  (8 : 10.2)  (9 : 2.0)  
 average ist CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

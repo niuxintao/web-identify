@@ -1,9 +1,9 @@
 2-way for Syn16
 ###############################################
 ###############################################
-average ist num :26.2
+average ist num :26.0
 
-average ist num_r :10.2
+average ist num_r :10.0
 
 average ist num_i :16.0
 
@@ -15,17 +15,17 @@ average ist f-measure :1.0
 
 average ist multi :0.0
 
-average ist time :69.6
+average ist time :53.2
 
-average ist time_r :58.0
+average ist time_r :34.4
 
-average ist time_i :0.2
+average ist time_i :0.0
 
 average ist t_cover :480.0
 
 average ist all_cover :480.0
 
 average ist CoverNUM
-(1 : 18.4)  (2 : 33.4)  (3 : 21.8)  (4 : 11.4)  (5 : 10.0)  (6 : 5.8)  (7 : 6.6)  
+(1 : 20.0)  (2 : 34.2)  (3 : 19.0)  (4 : 9.6)  (5 : 11.0)  (6 : 6.8)  (7 : 0.6)  (8 : 0.2)  
 average ist CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
