@@ -171,6 +171,9 @@ public class ErrorLocatingDrivenArray_FIC implements CT_process {
 	}
 
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
+		
+		
+//		System.out.println(" 0 0 0 00 0 0 0 0"  + (caseRunner.runTestCase(testCase) == TestCase.PASSED));
 
 		FIC_Constraints sc = new FIC_Constraints(testCase, dataCenter.getParam(), caseRunner, ac);
 

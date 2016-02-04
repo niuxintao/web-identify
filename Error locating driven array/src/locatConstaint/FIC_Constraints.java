@@ -122,13 +122,18 @@ public class FIC_Constraints {
 	}
 
 	protected boolean runTest(TestCase testCase) {
-		if (this.tested.containsKey(testCase))
+//		System.out.println(testCase.getStringOfTest());
+		if (this.tested.containsKey(testCase)){
+//			System.out.println(this.tested.get(testCase));
 			return this.tested.get(testCase);
+		}
 		else {
 			testCase.setTestState(caseRunner.runTestCase(testCase));
 			this.tested.put(testCase,
 					testCase.testDescription() == TestCase.PASSED);
 			executed.add(testCase);
+			
+//			System.out.println(testCase.testDescription() == TestCase.PASSED);
 			return testCase.testDescription() == TestCase.PASSED;
 		}
 	}
@@ -228,13 +233,13 @@ public class FIC_Constraints {
 		List<Integer> CTabu = new ArrayList<Integer>();
 		while (true) {
 			
-			System.out.println("start then idenity then");
-			
+//			System.out.println("start then idenity then");
 			if (CTabu.size() > 0 && testTuple(CTabu)) {
 				break;
 			}
 			
 			Tuple bug = Fic(CTabu);
+//			System.out.println("bug : " + bug.toString());
 			if (bug.getDegree() == 0)
 				break;
 			this.bugs.add(bug);
@@ -246,6 +251,9 @@ public class FIC_Constraints {
 			Tuple newCTabu = tuple.catComm(tuple, bug);
 			CTabu.clear();
 			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
+			
+			if(bug.getDegree() == testCase.getLength())
+				break;
 		}
 	}
 

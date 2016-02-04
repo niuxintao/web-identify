@@ -229,20 +229,29 @@ public class AETG {
 	}
 
 	public int[] randomSequnce(int[] firstIndex) {
-		int[] sequence = new int[dataCenter.param_num - 1];
+//		for(int i = 0; i < firstIndex.length; i++)
+//			System.out.print(firstIndex[]);
+		List<Integer> list = new ArrayList<Integer> ();
+	
 		// sequence[0] = firstIndex;
-		int cur = 0;
+//		int cur = 0;
 		for (int i = 0; i < dataCenter.param_num; i++) {
-			if (firstIndex[i] != 1) {
-				sequence[cur] = i;
-				cur++;
+			if (firstIndex[i] == 0) {
+				list.add(i);
+//				sequence[cur] = i;
+//				cur++;
 			}
 		}
+		
+		int[] sequence = new int[list.size()];
+		for(int i = 0; i < list.size(); i++)
+			sequence[i] = list.get(i);
+		
 		shuffleArray(sequence);
 		return sequence;
 	}
 
-	// Implementing Fisher¨CYates shuffle
+	// Implementing Fisherï¿½CYates shuffle
 	void shuffleArray(int[] ar) {
 		Random rnd = new Random();
 		for (int i = ar.length - 1; i > 0; i--) {

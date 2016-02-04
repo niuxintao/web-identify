@@ -19,7 +19,7 @@ public class DataForNumberOfMFS implements ExperimentData {
 	private CaseRunner caseRunner;
 	private List<Tuple> realMFS;
 	private DataCenter dataCenter;
-	private List<Tuple> allMFS;
+//	private List<Tuple> allMFS;
 
 	public DataForNumberOfMFS(int[] param, int num) {
 		this.init(param, num);
@@ -104,36 +104,36 @@ public class DataForNumberOfMFS implements ExperimentData {
 		return count;
 	}
 
-	public void getAllMFS() {
-		allMFS = new ArrayList<Tuple>();
-		int[] wrong = new int[param.length];
-		for (int i = 0; i < param.length; i++)
-			wrong[i] = 0;
-		for (int i = 0; i < this.param.length; i++) {
-			for (int j = i + 1; j < this.param.length; j++) {
-				TestCase wrongCase = new TestCaseImplement();
-				((TestCaseImplement) wrongCase).setTestCase(wrong);
-				Tuple bugMode = new Tuple(2, wrongCase);
-				bugMode.set(0, i);
-				bugMode.set(1, j);
-				allMFS.add(bugMode);
-			}
-		}
-
-		wrong = new int[param.length];
-		for (int i = 0; i < param.length; i++)
-			wrong[i] = 1;
-		for (int i = 0; i < this.param.length; i++) {
-			for (int j = i + 1; j < this.param.length; j++) {
-				TestCase wrongCase = new TestCaseImplement();
-				((TestCaseImplement) wrongCase).setTestCase(wrong);
-				Tuple bugMode = new Tuple(2, wrongCase);
-				bugMode.set(0, i);
-				bugMode.set(1, j);
-				allMFS.add(bugMode);
-			}
-		}
-	}
+//	public void getAllMFS() {
+//		allMFS = new ArrayList<Tuple>();
+//		int[] wrong = new int[param.length];
+//		for (int i = 0; i < param.length; i++)
+//			wrong[i] = 0;
+//		for (int i = 0; i < this.param.length; i++) {
+//			for (int j = i + 1; j < this.param.length; j++) {
+//				TestCase wrongCase = new TestCaseImplement();
+//				((TestCaseImplement) wrongCase).setTestCase(wrong);
+//				Tuple bugMode = new Tuple(2, wrongCase);
+//				bugMode.set(0, i);
+//				bugMode.set(1, j);
+//				allMFS.add(bugMode);
+//			}
+//		}
+//
+//		wrong = new int[param.length];
+//		for (int i = 0; i < param.length; i++)
+//			wrong[i] = 1;
+//		for (int i = 0; i < this.param.length; i++) {
+//			for (int j = i + 1; j < this.param.length; j++) {
+//				TestCase wrongCase = new TestCaseImplement();
+//				((TestCaseImplement) wrongCase).setTestCase(wrong);
+//				Tuple bugMode = new Tuple(2, wrongCase);
+//				bugMode.set(0, i);
+//				bugMode.set(1, j);
+//				allMFS.add(bugMode);
+//			}
+//		}
+//	}
 
 	public void setDegree(int degree) {
 		// TODO Auto-generated method stub

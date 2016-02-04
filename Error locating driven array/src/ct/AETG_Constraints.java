@@ -315,6 +315,7 @@ public class AETG_Constraints extends AETG {
 	}
 
 	public int[] getBestTestCase(Tuple part, TestCase original) {
+//		System.out.println("part :" + part.toString() + " original :" + original.getStringOfTest());
 		int[] best = new int[dataCenter.param_num];
 
 		int bestUncovered = -1;
@@ -373,6 +374,8 @@ public class AETG_Constraints extends AETG {
 						|| this.isSatisifed(first);
 			}
 		}
+		
+//		System.out.println("first : " + first.toString());
 
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.param_num];
@@ -393,6 +396,11 @@ public class AETG_Constraints extends AETG {
 
 			// random the remaining parameters
 			int[] remainingSequence = this.randomSequnce(firstSequnce);
+			
+//			for(int j = 0; j < remainingSequence.length; j++ )
+//				System.out.print(remainingSequence[j] +" ");
+//			
+//			System.out.println();
 
 			// ************************dit not add maxtries time
 			// *************************/
