@@ -1,0 +1,28 @@
+num ict_fb deviration: 10.248902380255165
+
+num_r ict_fb deviration: 0.4898979485566356
+
+num_i ict_fb deviration: 10.198039027185569
+
+recall ict_fb deviration: 0.1456862718169367
+
+precise ict_fb deviration: 0.27080128015453203
+
+f-measure ict_fb deviration: 0.18728656525427118
+
+multi ict_fb deviration: 0.0
+
+time ict_fb deviration: 37.94522367834983
+
+time_r ict_fb deviration: 15.53061492665374
+
+time_i ict_fb deviration: 0.9797958971132712
+
+t_cover ict_fb deviration: 5.748043145279966
+
+all_cover ict_fb deviration: 0.0
+
+deviration ict_fb CoverNUM
+(1 : 12622.920000000002)  (2 : 10421.36)  (3 : 3873.5600000000004)  (4 : 378.0)  (5 : 109.00000000000003)  (6 : 43.8)  (7 : 30.48)  (8 : 7.0)  (9 : 2.4)  (10 : 0.12800000000000003)  
+deviration ict_fb CoverNUM
+([ 0 , - , - , - , - , - , 0 , - , - , - ] : 0.144)  ([ 0 , - , - , - , - , - , - , 0 , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , 0 , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , - , 0 , - , - , - , - ] : 0.144)  ([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.12800000000000003)  

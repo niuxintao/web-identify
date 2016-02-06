@@ -1,0 +1,31 @@
+2-way for Syn8
+###############################################
+###############################################
+average ict_fb num :55.8
+
+average ict_fb num_r :17.8
+
+average ict_fb num_i :38.0
+
+average ict_fb recall :0.225
+
+average ict_fb precise :0.6333333333333332
+
+average ict_fb f-measure :0.33090909090909093
+
+average ict_fb multi :2.0
+
+average ict_fb time :116.2
+
+average ict_fb time_r :47.0
+
+average ict_fb time_i :0.8
+
+average ict_fb t_cover :396.0
+
+average ict_fb all_cover :405.0
+
+average ict_fb CoverNUM
+(1 : 32.8)  (2 : 27.0)  (3 : 14.8)  (4 : 7.2)  (5 : 2.2)  (6 : 1.4)  (7 : 0.8)  (8 : 0.4)  (9 : 1.2)  
+average ict_fb CoverNUM
+([ 0 , - , - , - , - , - , 0 , - , - , - ] : 0.4)  ([ 0 , - , - , - , - , - , - , 0 , - , - ] : 0.4)  ([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.2)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.2)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , - , - , - , - , - , - , - , 0 , - ] : 0.2)  
