@@ -473,7 +473,7 @@ public class TestSensityOfNumbeOfMFS {
 	public static void main(String[] args) {
 		TestSensityOfNumbeOfMFS ex = new TestSensityOfNumbeOfMFS();
 		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
-		int[] num = new int[] {30, 40, 50, 60, 70, 80, 90 };
+		int[] num = new int[] {50, 60, 70, 80, 90 };
 		for (int nu : num){
 			System.out.println("start : the number of MFS is :" + nu);
 			ex.testSyn(nu, param);

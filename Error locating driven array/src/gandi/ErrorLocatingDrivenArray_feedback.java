@@ -39,8 +39,8 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 			regularCTCases.add(testCase);
-//			System.out.println("aetg" + testCase.getStringOfTest() + " "
-//					+ ac.unCovered);
+			System.out.println("aetg" + testCase.getStringOfTest() + " "
+					+ ac.unCovered);
 
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
@@ -57,7 +57,10 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 
 					ac.addConstriants(mfs);
 					this.MFS.addAll(mfs);
+					for(Tuple tuple : mfs)
+						System.out.println("mfs ：" + tuple.toString());
 				} else {
+//					System.out.println("multiple");
 					Tuple tuple = new Tuple(testCase.getLength(), testCase);
 					for (int i = 0; i < tuple.getDegree(); i++)
 						tuple.set(i, i);
@@ -106,8 +109,19 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 
 		for (Tuple tuple : mfs)
 			if (tuple.getDegree() == 0) {
+				
+//				System.out.println("multiple");
+				
 				if (index == sc.getExecuted().size())
 					return null;
+				else{
+					Tuple tuple2 = new Tuple(testCase.getLength(), testCase);
+					for (int i = 0; i < tuple2.getDegree(); i++)
+						tuple2.set(i, i);
+					List<Tuple> tuples = new ArrayList<Tuple>();
+					tuples.add(tuple2);
+					ac.addConstriants(tuples);
+				}
 
 				return getMFS(ac, sc.getExecuted().get(index), index + 1);
 			} else if (isMFSWrong(tuple, testCase))
@@ -115,6 +129,10 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 
 		return mfs;
 	}
+	
+//	public void anayisIterati(TestCase testCase){
+//		
+//	}
 
 	boolean isMFSWrong(Tuple MFS, TestCase wrongCase) {
 		TestCaseImplement newCase = new TestCaseImplement();
