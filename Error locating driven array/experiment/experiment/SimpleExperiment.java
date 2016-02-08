@@ -18,13 +18,13 @@ import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
 import gandi.ErrorLocatingDrivenArray_TL;
+import gandi.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
 
 public class SimpleExperiment {
 
-//	public final static int REP = 5;
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -32,8 +32,13 @@ public class SimpleExperiment {
 	public final static int ICT_TL = 3;
 	public final static int FD = 4;
 
-	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL",
-			"fd" };
+	public final static int ICT_FIC = 5;
+	public final static int ICT_FB = 6;
+	public final static int ICT_FB_MUOFOT = 7;
+
+	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd", "ICT_FIC", "ict_fb",
+			"ICT_FB_MUOFOT" };
+
 
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
@@ -78,7 +83,10 @@ public class SimpleExperiment {
 		} else if (algorithm == ICT_TL) {
 			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(),
 					data.getCaseRunner());
+		} else if (algorithm == ICT_FB_MUOFOT) {
+			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
 		}
+
 
 		ct_process.run();
 		ct_process.evaluate(data.getRealMFS());
@@ -481,7 +489,7 @@ public class SimpleExperiment {
 		HsqlDBData data = new HsqlDBData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
 	}
 
 	public void testJFlex() {
@@ -490,7 +498,7 @@ public class SimpleExperiment {
 		JFlexData data = new JFlexData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
 	}
 
 	public void testTcas() {
@@ -499,7 +507,7 @@ public class SimpleExperiment {
 		TcasData data = new TcasData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
 	}
 
 	public void testGcc() {
@@ -508,7 +516,7 @@ public class SimpleExperiment {
 		GccData data = new GccData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT});
 	}
 
 	public void testTomcat() {
@@ -517,7 +525,7 @@ public class SimpleExperiment {
 		TomcatData data = new TomcatData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
 	}
 
 	public void testAlgorithm(String subject, ExperimentData data,

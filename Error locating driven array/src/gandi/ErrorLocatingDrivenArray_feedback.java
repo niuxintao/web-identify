@@ -32,7 +32,7 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 			long geTime = System.currentTimeMillis();
 
 			
-			System.out.println("get next ");
+//			System.out.println("get next ");
 			
 			int[] test = ac.getNextTestCase();
 
@@ -42,8 +42,8 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 			regularCTCases.add(testCase);
-			System.out.println("aetg" + testCase.getStringOfTest() + " "
-					+ ac.unCovered);
+//			System.out.println("aetg" + testCase.getStringOfTest() + " "
+//					+ ac.unCovered);
 
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
@@ -52,17 +52,17 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 
 				long ideTime = System.currentTimeMillis();
 
-				System.out.println("get MFS ");
+//				System.out.println("get MFS ");
 				List<Tuple> mfs = getMFS(ac, testCase, 0);
 
 				if (mfs != null) {
 					ideTime = System.currentTimeMillis() - ideTime;
 					this.timeIden += ideTime;
-					System.out.println("add constriants");
+//					System.out.println("add constriants");
 					ac.addConstriants(mfs);
 					this.MFS.addAll(mfs);
-					for(Tuple tuple : mfs)
-						System.out.println("mfs ：" + tuple.toString());
+//					for(Tuple tuple : mfs)
+//						System.out.println("mfs ：" + tuple.toString());
 				} else {
 					System.out.println("multiple");
 					Tuple tuple = new Tuple(testCase.getLength(), testCase);
@@ -75,7 +75,7 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 				// setCoverage(mfs);
 			}
 			
-			System.out.println("identify is over");
+//			System.out.println("identify is over");
 
 			allTime = System.currentTimeMillis() - allTime;
 			this.timeAll += allTime;
@@ -148,6 +148,8 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 		for (int i = 0; i < MFS.getDegree(); i++)
 			newC[MFS.getParamIndex()[i]] = MFS.getParamValue()[i];
 		newCase.setTestCase(newC);
+		identifyCases.add(newCase);
+		overallTestCases.add(newCase);
 		return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
 	}
 

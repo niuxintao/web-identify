@@ -1,0 +1,31 @@
+2-way for Syn90
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :105.6
+
+average ICT_FB_MUOFOT num_r :15.6
+
+average ICT_FB_MUOFOT num_i :90.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :0.0
+
+average ICT_FB_MUOFOT time :88888.8
+
+average ICT_FB_MUOFOT time_r :10506.0
+
+average ICT_FB_MUOFOT time_i :76673.2
+
+average ICT_FB_MUOFOT t_cover :16020.0
+
+average ICT_FB_MUOFOT all_cover :16020.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 187.8)  (2 : 589.8)  (3 : 799.4)  (4 : 578.2)  (5 : 244.0)  (6 : 127.8)  (7 : 191.2)  (8 : 252.8)  (9 : 181.2)  (10 : 54.4)  (11 : 5.2)  (12 : 1.4)  (13 : 0.2)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

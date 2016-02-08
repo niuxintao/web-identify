@@ -22,19 +22,18 @@ import gandi.TraditionalFGLI;
 
 public class TestSensityOfNumbeOfMFS {
 
-
 	public final static int ICT = 0;
 	public final static int SCT = 1;
 	public final static int ICT_CB = 2;
 	public final static int ICT_TL = 3;
 	public final static int FD = 4;
-	
+
 	public final static int ICT_FIC = 5;
 	public final static int ICT_FB = 6;
 	public final static int ICT_FB_MUOFOT = 7;
 
-	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd",
-			"ICT_FIC", "ict_fb", "ICT_FB_MUOFOT"};
+	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd", "ICT_FIC", "ict_fb",
+			"ICT_FB_MUOFOT" };
 
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
@@ -73,15 +72,13 @@ public class TestSensityOfNumbeOfMFS {
 			ct_process = new ErrorLocatingDrivenArray_CB(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_TL) {
 			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(), data.getCaseRunner());
-		}
-		else if (algorithm == ICT_FIC) {
+		} else if (algorithm == ICT_FIC) {
 			ct_process = new ErrorLocatingDrivenArray_FIC(data.getDataCenter(), data.getCaseRunner());
-		}else if (algorithm == ICT_FB) {
+		} else if (algorithm == ICT_FB) {
 			ct_process = new ErrorLocatingDrivenArray_feedback(data.getDataCenter(), data.getCaseRunner());
-		}else if (algorithm == ICT_FB_MUOFOT) {
+		} else if (algorithm == ICT_FB_MUOFOT) {
 			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
 		}
-
 
 		ct_process.run();
 		ct_process.evaluate(data.getRealMFS());
@@ -465,7 +462,7 @@ public class TestSensityOfNumbeOfMFS {
 		DataForNumberOfMFS data = new DataForNumberOfMFS(param, nm);
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] {ICT_FB_MUOFOT });
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
 	public void testAlgorithm(String subject, ExperimentData data, int[] algorithms) {
@@ -477,8 +474,8 @@ public class TestSensityOfNumbeOfMFS {
 	public static void main(String[] args) {
 		TestSensityOfNumbeOfMFS ex = new TestSensityOfNumbeOfMFS();
 		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
-		int[] num = new int[] {60, 70, 80, 90 };
-		for (int nu : num){
+		int[] num = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50,60, 70, 80, 90 };
+		for (int nu : num) {
 			System.out.println("start : the number of MFS is :" + nu);
 			ex.testSyn(nu, param);
 		}

@@ -1,0 +1,31 @@
+2-way for Syn40
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :53.0
+
+average ICT_FB_MUOFOT num_r :13.0
+
+average ICT_FB_MUOFOT num_i :40.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :0.0
+
+average ICT_FB_MUOFOT time :2195.6
+
+average ICT_FB_MUOFOT time_r :486.0
+
+average ICT_FB_MUOFOT time_i :1475.0
+
+average ICT_FB_MUOFOT t_cover :3120.0
+
+average ICT_FB_MUOFOT all_cover :3120.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 62.6)  (2 : 176.2)  (3 : 163.6)  (4 : 65.2)  (5 : 31.0)  (6 : 56.2)  (7 : 51.8)  (8 : 22.6)  (9 : 2.0)  (10 : 0.2)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

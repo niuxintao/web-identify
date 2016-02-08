@@ -1,31 +1,31 @@
 2-way for Syn4
 ###############################################
 ###############################################
-average fd num :53.2
+average fd num :37.0
 
-average fd num_r :53.2
+average fd num_r :37.0
 
 average fd num_i :0.0
 
-average fd recall :0.75
+average fd recall :0.8
 
-average fd precise :0.05814215912576568
+average fd precise :0.20117171717171717
 
-average fd f-measure :0.10760863080218905
+average fd f-measure :0.31742396744211626
 
-average fd multi :9.8
+average fd multi :9.0
 
-average fd time :199.4
+average fd time :152.6
 
-average fd time_r :181.8
+average fd time_r :135.6
 
-average fd time_i :8.2
+average fd time_i :4.6
 
-average fd t_cover :395.8
+average fd t_cover :399.8
 
 average fd all_cover :405.0
 
 average fd CoverNUM
-(1 : 22.4)  (2 : 26.0)  (3 : 17.8)  (4 : 8.2)  (5 : 5.6)  (6 : 3.6)  (7 : 2.8)  (8 : 0.8)  (9 : 0.4)  
+(1 : 21.6)  (2 : 28.0)  (3 : 19.2)  (4 : 7.4)  (5 : 3.8)  (6 : 2.4)  (7 : 2.2)  (8 : 1.8)  (9 : 1.2)  (10 : 0.4)  (11 : 0.6)  
 average fd CoverNUM
-([ - , 1 , - , - , - , - , 1 , - , - , - ] : 0.6)  ([ 1 , 1 , - , - , - , - , - , - , - , - ] : 0.6)  ([ - , - , - , - , - , 0 , - , - , - , 0 ] : 0.8)  ([ - , - , - , 0 , - , - , - , - , 0 , - ] : 1.0)  
+([ 0 , - , - , - , 0 , - , - , - , - , - ] : 1.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.6)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 1.0)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.6)  

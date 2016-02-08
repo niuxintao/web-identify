@@ -32,7 +32,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 			long geTime = System.currentTimeMillis();
 
 			
-			System.out.println("get next ");
+//			System.out.println("get next ");
 			
 			int[] test = ac.getNextTestCase();
 
@@ -42,8 +42,8 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 			regularCTCases.add(testCase);
-			System.out.println("aetg" + testCase.getStringOfTest() + " "
-					+ ac.unCovered);
+//			System.out.println("aetg" + testCase.getStringOfTest() + " "
+//					+ ac.unCovered);
 
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
@@ -52,19 +52,19 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 
 				long ideTime = System.currentTimeMillis();
 
-				System.out.println("get MFS ");
+//				System.out.println("get MFS ");
 				List<Tuple> mfs = getMFS(ac, testCase);
 
 				if (mfs != null) {
 					ideTime = System.currentTimeMillis() - ideTime;
 					this.timeIden += ideTime;
-					System.out.println("add constriants");
+//					System.out.println("add constriants");
 					ac.addConstriants(mfs);
 					this.MFS.addAll(mfs);
-					for(Tuple tuple : mfs)
-						System.out.println("mfs ：" + tuple.toString());
+//					for(Tuple tuple : mfs)
+//						System.out.println("mfs ：" + tuple.toString());
 				} else {
-					System.out.println("multiple");
+//					System.out.println("multiple");
 					Tuple tuple = new Tuple(testCase.getLength(), testCase);
 					for (int i = 0; i < tuple.getDegree(); i++)
 						tuple.set(i, i);
@@ -75,7 +75,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 				// setCoverage(mfs);
 			}
 			
-			System.out.println("identify is over");
+//			System.out.println("identify is over");
 
 			allTime = System.currentTimeMillis() - allTime;
 			this.timeAll += allTime;
@@ -89,7 +89,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		FIC_Constraints sc = new FIC_Constraints(testCase, dataCenter.getParam(), caseRunner, ac);
 
 		// sc.process(testCase, DataCenter.param, caseRunner);
-		sc.FicNOP();
+		sc.FicSingleMuOFOT();
 		List<Tuple> mfs = sc.getBugs();
 		List<TestCase> executed = sc.getExecuted();
 		
@@ -122,6 +122,12 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 //		
 //	}
 
+	/**
+	 * to test whether the MFS is correct
+	 * @param MFS
+	 * @param wrongCase
+	 * @return
+	 */
 	boolean isMFSWrong(Tuple MFS, TestCase wrongCase) {
 		TestCaseImplement newCase = new TestCaseImplement();
 		int[] newC = new int[wrongCase.getLength()];
@@ -130,6 +136,8 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		for (int i = 0; i < MFS.getDegree(); i++)
 			newC[MFS.getParamIndex()[i]] = MFS.getParamValue()[i];
 		newCase.setTestCase(newC);
+		identifyCases.add(newCase);
+		overallTestCases.add(newCase);
 		return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
 	}
 

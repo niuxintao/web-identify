@@ -36,8 +36,7 @@ public class FIC_Constraints {
 		return bugs;
 	}
 
-	public FIC_Constraints(TestCase testCase, int[] param,
-			CaseRunner caseRunner, AETG_Constraints ac) {
+	public FIC_Constraints(TestCase testCase, int[] param, CaseRunner caseRunner, AETG_Constraints ac) {
 		tested = new HashMap<TestCase, Boolean>();
 		this.testCase = testCase;
 		this.param = param;
@@ -84,6 +83,18 @@ public class FIC_Constraints {
 						break;
 					}
 				}
+			// System.out.println("temp : " + temp.size());
+			if (temp.size() == param.length) {
+				break;
+			}
+			if (temp.size() == param.length - 1) {
+				Tuple fixone = new Tuple(1, testCase);
+				fixone.setParamIndex(new int[] { para });
+				Pa pa = new Pa();
+				pa.CFree = U;
+				pa.fixdOne = fixone;
+				return pa;
+			}
 			if (testTuple(temp)) {
 				Tuple fixone = new Tuple(1, testCase);
 				fixone.setParamIndex(new int[] { para });
@@ -122,18 +133,17 @@ public class FIC_Constraints {
 	}
 
 	protected boolean runTest(TestCase testCase) {
-//		System.out.println(testCase.getStringOfTest());
-		if (this.tested.containsKey(testCase)){
-//			System.out.println(this.tested.get(testCase));
+		// System.out.println(testCase.getStringOfTest());
+		if (this.tested.containsKey(testCase)) {
+			// System.out.println(this.tested.get(testCase));
 			return this.tested.get(testCase);
-		}
-		else {
+		} else {
 			testCase.setTestState(caseRunner.runTestCase(testCase));
-			this.tested.put(testCase,
-					testCase.testDescription() == TestCase.PASSED);
+			this.tested.put(testCase, testCase.testDescription() == TestCase.PASSED);
 			executed.add(testCase);
-			
-//			System.out.println(testCase.testDescription() == TestCase.PASSED);
+
+			// System.out.println(testCase.testDescription() ==
+			// TestCase.PASSED);
 			return testCase.testDescription() == TestCase.PASSED;
 		}
 	}
@@ -148,12 +158,11 @@ public class FIC_Constraints {
 			location++;
 		}
 		tuple = tuple.getReverseTuple();
-		
-		
+
 		int[] test = this.gtc.getTestCase(tuple);
-		
+
 		TestCaseImplement newCase = new TestCaseImplement(test);
-		
+
 		// extraCases.addTest(newCase);
 		return newCase;
 	}
@@ -174,10 +183,8 @@ public class FIC_Constraints {
 		U.addAll(CFree);
 
 		Tuple determine = cand.catComm(cand, freeTuple);
-		if (Ccand == null
-				|| Ccand.length == 0
-				|| (partBug.getDegree() > 0 && !this
-						.testTuple(CovertTntToTnteger(determine.getParamIndex())))) {
+		if (Ccand == null || Ccand.length == 0
+				|| (partBug.getDegree() > 0 && !this.testTuple(CovertTntToTnteger(determine.getParamIndex())))) {
 			Tuple fixone = new Tuple(0, testCase);
 			Pa pa = new Pa();
 			pa.CFree = U;
@@ -190,8 +197,7 @@ public class FIC_Constraints {
 		int middle = (low + high) / 2;
 		List<Integer> candList = this.CovertTntToTnteger(Ccand);
 		while (low < high) {
-			int[] lower = this.CovertTntegerToInt(candList.subList(low,
-					middle + 1));
+			int[] lower = this.CovertTntegerToInt(candList.subList(low, middle + 1));
 			Tuple Low = new Tuple(lower.length, testCase);
 			Low.setParamIndex(lower);
 
@@ -220,6 +226,7 @@ public class FIC_Constraints {
 		while (true) {
 			Pa pa = this.LocateFixedParam(CFree, partBug);
 			CFree = pa.CFree;
+			// System.out.println("CFree : " + pa.toString());
 			Tuple newRelatedPartBug = pa.fixdOne;
 			if (newRelatedPartBug.getDegree() == 0) {
 				break;
@@ -228,8 +235,7 @@ public class FIC_Constraints {
 		}
 		return partBug;
 	}
-	
-	
+
 	public Tuple Fic_BS(List<Integer> CTabu) {
 		Tuple partBug = new Tuple(0, testCase);
 		List<Integer> CFree = new ArrayList<Integer>();
@@ -246,50 +252,51 @@ public class FIC_Constraints {
 		return partBug;
 	}
 
-	
 	public void FicSingleMuOFOT() {
 		List<Integer> CTabu = new ArrayList<Integer>();
 		while (true) {
-			
+
 //			System.out.println("start then idenity then");
 			if (CTabu.size() > 0 && testTuple(CTabu)) {
 				break;
 			}
-			
-			Tuple bug = Fic(CTabu);
-//			System.out.println("bug : " + bug.toString());
-			if (bug.getDegree() == 0)
-				break;
-			this.bugs.add(bug);
-			
-			Tuple tuple = new Tuple(CTabu.size(), testCase);
-			int[] tabu = CovertTntegerToInt(CTabu);
-			tuple.setParamIndex(tabu);
 
-			Tuple newCTabu = tuple.catComm(tuple, bug);
-			CTabu.clear();
-			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
-			
-//			if(bug.getDegree() == testCase.getLength())
-				break;
+			Tuple bug = Fic(CTabu);
+//			System.out.println("bug : " + bug.toString() + " bug degree : " + bug.getDegree());
+
+			this.bugs.add(bug);
+
+			// if (bug.getDegree() == 0)
+			// break;
+			//
+			// Tuple tuple = new Tuple(CTabu.size(), testCase);
+			// int[] tabu = CovertTntegerToInt(CTabu);
+			// tuple.setParamIndex(tabu);
+			//
+			// Tuple newCTabu = tuple.catComm(tuple, bug);
+			// CTabu.clear();
+			// CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
+
+			// if(bug.getDegree() == testCase.getLength())
+			break;
 		}
 	}
 
 	public void FicNOP() {
 		List<Integer> CTabu = new ArrayList<Integer>();
 		while (true) {
-			
-//			System.out.println("start then idenity then");
+
+			// System.out.println("start then idenity then");
 			if (CTabu.size() > 0 && testTuple(CTabu)) {
 				break;
 			}
-			
+
 			Tuple bug = Fic_BS(CTabu);
-//			System.out.println("bug : " + bug.toString());
+			// System.out.println("bug : " + bug.toString());
 			if (bug.getDegree() == 0)
 				break;
 			this.bugs.add(bug);
-			
+
 			Tuple tuple = new Tuple(CTabu.size(), testCase);
 			int[] tabu = CovertTntegerToInt(CTabu);
 			tuple.setParamIndex(tabu);
@@ -297,9 +304,9 @@ public class FIC_Constraints {
 			Tuple newCTabu = tuple.catComm(tuple, bug);
 			CTabu.clear();
 			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
-			
-//			if(bug.getDegree() == testCase.getLength())
-//				break;
+
+			// if(bug.getDegree() == testCase.getLength())
+			// break;
 		}
 	}
 
@@ -339,11 +346,10 @@ public class FIC_Constraints {
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel);
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 		// ((CaseRunnerWithBugInject) caseRunner).inject(bugModel3);
-		
-		AETG_Constraints ac = new  AETG_Constraints(new DataCenter(param, 2));
 
-		FIC_Constraints fic = new FIC_Constraints(wrongCase, param, caseRunner,
-				ac);
+		AETG_Constraints ac = new AETG_Constraints(new DataCenter(param, 2));
+
+		FIC_Constraints fic = new FIC_Constraints(wrongCase, param, caseRunner, ac);
 		fic.FicNOP();
 
 		for (int i = 0; i < fic.getExecuted().size(); i++) {

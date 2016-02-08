@@ -1,0 +1,31 @@
+2-way for Syn60
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :74.6
+
+average ICT_FB_MUOFOT num_r :14.6
+
+average ICT_FB_MUOFOT num_i :60.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :0.0
+
+average ICT_FB_MUOFOT time :12342.0
+
+average ICT_FB_MUOFOT time_r :2073.8
+
+average ICT_FB_MUOFOT time_i :9638.4
+
+average ICT_FB_MUOFOT t_cover :7080.0
+
+average ICT_FB_MUOFOT all_cover :7080.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 103.6)  (2 : 319.4)  (3 : 388.0)  (4 : 215.6)  (5 : 86.8)  (6 : 104.4)  (7 : 134.0)  (8 : 64.6)  (9 : 5.8)  (10 : 1.8)  (11 : 1.6)  (12 : 0.2)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

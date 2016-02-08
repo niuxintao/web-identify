@@ -14,6 +14,7 @@ import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
 import gandi.ErrorLocatingDrivenArray_TL;
+import gandi.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
@@ -25,8 +26,13 @@ public class TestSensityOfNumberOfOpitions {
 	public final static int ICT_TL = 3;
 	public final static int FD = 4;
 
-	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd" };
+	public final static int ICT_FIC = 5;
+	public final static int ICT_FB = 6;
+	public final static int ICT_FB_MUOFOT = 7;
 
+	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd", "ICT_FIC", "ict_fb",
+			"ICT_FB_MUOFOT" };
+	
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
 	public final static int NUM_I = 2;
@@ -64,7 +70,10 @@ public class TestSensityOfNumberOfOpitions {
 			ct_process = new ErrorLocatingDrivenArray_CB(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_TL) {
 			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(), data.getCaseRunner());
+		} else if (algorithm == ICT_FB_MUOFOT) {
+			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
 		}
+
 
 		ct_process.run();
 		ct_process.evaluate(data.getRealMFS());
@@ -448,7 +457,7 @@ public class TestSensityOfNumberOfOpitions {
 		DataForNumberOfOptions data = new DataForNumberOfOptions(param);
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT, SCT, FD });
+		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
 	}
 
 	public void testAlgorithm(String subject, ExperimentData data, int[] algorithms) {
