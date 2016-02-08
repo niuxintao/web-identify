@@ -3,7 +3,7 @@ package gandi;
 import java.util.ArrayList;
 import java.util.List;
 
-import locatConstaint.SOFOT_Constriants;
+import locatConstaint.FIC_Constraints;
 import interaction.DataCenter;
 
 import com.fc.caseRunner.CaseRunner;
@@ -14,9 +14,9 @@ import com.fc.tuple.Tuple;
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
-public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray {
+public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrivenArray {
 
-	public ErrorLocatingDrivenArray_feedback(DataCenter dataCenter,
+	public ErrorLocatingDrivenArray_feedback_MUOFOT(DataCenter dataCenter,
 			CaseRunner caseRunner) {
 		super(dataCenter, caseRunner);
 		// TODO Auto-generated constructor stub
@@ -53,7 +53,7 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 				long ideTime = System.currentTimeMillis();
 
 				System.out.println("get MFS ");
-				List<Tuple> mfs = getMFS(ac, testCase, 0);
+				List<Tuple> mfs = getMFS(ac, testCase);
 
 				if (mfs != null) {
 					ideTime = System.currentTimeMillis() - ideTime;
@@ -84,18 +84,18 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 		this.coveredMark = ac.coveredMark;
 	}
 
-	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase, int index) {
+	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
 
-		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter, testCase, ac);
+		FIC_Constraints sc = new FIC_Constraints(testCase, dataCenter.getParam(), caseRunner, ac);
+
 		// sc.process(testCase, DataCenter.param, caseRunner);
-//		 System.out.println("start : "+ testCase.getStringOfTest());
-		while (!sc.isEnd()) {
-			TestCase nextTestCase = sc.generateNext();
+		sc.FicNOP();
+		List<Tuple> mfs = sc.getBugs();
+		List<TestCase> executed = sc.getExecuted();
+		
+		for(TestCase nextTestCase : executed){
 			identifyCases.add(nextTestCase);
 			overallTestCases.add(nextTestCase);
-//			 System.out.println("ofot" +
-//			 nextTestCase.getStringOfTest());
-
 			int[] next = new int[nextTestCase.getLength()];
 			for (int i = 0; i < next.length; i++) {
 				next[i] = nextTestCase.getAt(i);
@@ -107,29 +107,11 @@ public class ErrorLocatingDrivenArray_feedback extends ErrorLocatingDrivenArray 
 				nextTestCase.setTestState(TestCase.FAILED);
 		}
 
-		sc.analysis();
-
-		List<Tuple> mfs = sc.getBugs();
-
-//		 System.out.println("end : "+ testCase.getStringOfTest());
 
 		for (Tuple tuple : mfs)
 			if (tuple.getDegree() == 0) {
-				
 //				System.out.println("multiple");
-				
-				if (index == sc.getExecuted().size())
 					return null;
-				else{
-					Tuple tuple2 = new Tuple(testCase.getLength(), testCase);
-					for (int i = 0; i < tuple2.getDegree(); i++)
-						tuple2.set(i, i);
-					List<Tuple> tuples = new ArrayList<Tuple>();
-					tuples.add(tuple2);
-					ac.addConstriants(tuples);
-				}
-
-				return getMFS(ac, sc.getExecuted().get(index), index + 1);
 			} else if (isMFSWrong(tuple, testCase))
 				return null;
 

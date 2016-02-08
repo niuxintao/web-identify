@@ -16,6 +16,7 @@ import gandi.ErrorLocatingDrivenArray_CB;
 import gandi.ErrorLocatingDrivenArray_FIC;
 import gandi.ErrorLocatingDrivenArray_TL;
 import gandi.ErrorLocatingDrivenArray_feedback;
+import gandi.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
@@ -30,9 +31,10 @@ public class TestSensityOfNumbeOfMFS {
 	
 	public final static int ICT_FIC = 5;
 	public final static int ICT_FB = 6;
+	public final static int ICT_FB_MUOFOT = 7;
 
 	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd",
-			"ICT_FIC", "ict_fb"};
+			"ICT_FIC", "ict_fb", "ICT_FB_MUOFOT"};
 
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
@@ -76,6 +78,8 @@ public class TestSensityOfNumbeOfMFS {
 			ct_process = new ErrorLocatingDrivenArray_FIC(data.getDataCenter(), data.getCaseRunner());
 		}else if (algorithm == ICT_FB) {
 			ct_process = new ErrorLocatingDrivenArray_feedback(data.getDataCenter(), data.getCaseRunner());
+		}else if (algorithm == ICT_FB_MUOFOT) {
+			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
 		}
 
 
@@ -461,7 +465,7 @@ public class TestSensityOfNumbeOfMFS {
 		DataForNumberOfMFS data = new DataForNumberOfMFS(param, nm);
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] {ICT_FB });
+		testAlgorithm(subject, data, new int[] {ICT_FB_MUOFOT });
 	}
 
 	public void testAlgorithm(String subject, ExperimentData data, int[] algorithms) {
@@ -473,7 +477,7 @@ public class TestSensityOfNumbeOfMFS {
 	public static void main(String[] args) {
 		TestSensityOfNumbeOfMFS ex = new TestSensityOfNumbeOfMFS();
 		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
-		int[] num = new int[] {50, 60, 70, 80, 90 };
+		int[] num = new int[] {60, 70, 80, 90 };
 		for (int nu : num){
 			System.out.println("start : the number of MFS is :" + nu);
 			ex.testSyn(nu, param);

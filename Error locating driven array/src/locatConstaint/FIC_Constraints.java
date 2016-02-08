@@ -218,6 +218,23 @@ public class FIC_Constraints {
 		List<Integer> CFree = new ArrayList<Integer>();
 		CFree.addAll(CTabu);
 		while (true) {
+			Pa pa = this.LocateFixedParam(CFree, partBug);
+			CFree = pa.CFree;
+			Tuple newRelatedPartBug = pa.fixdOne;
+			if (newRelatedPartBug.getDegree() == 0) {
+				break;
+			}
+			partBug = partBug.catComm(partBug, newRelatedPartBug);
+		}
+		return partBug;
+	}
+	
+	
+	public Tuple Fic_BS(List<Integer> CTabu) {
+		Tuple partBug = new Tuple(0, testCase);
+		List<Integer> CFree = new ArrayList<Integer>();
+		CFree.addAll(CTabu);
+		while (true) {
 			Pa pa = this.LocateFixeedParamBS(CFree, partBug);
 			CFree = pa.CFree;
 			Tuple newRelatedPartBug = pa.fixdOne;
@@ -229,7 +246,8 @@ public class FIC_Constraints {
 		return partBug;
 	}
 
-	public void FicNOP() {
+	
+	public void FicSingleMuOFOT() {
 		List<Integer> CTabu = new ArrayList<Integer>();
 		while (true) {
 			
@@ -254,6 +272,34 @@ public class FIC_Constraints {
 			
 //			if(bug.getDegree() == testCase.getLength())
 				break;
+		}
+	}
+
+	public void FicNOP() {
+		List<Integer> CTabu = new ArrayList<Integer>();
+		while (true) {
+			
+//			System.out.println("start then idenity then");
+			if (CTabu.size() > 0 && testTuple(CTabu)) {
+				break;
+			}
+			
+			Tuple bug = Fic_BS(CTabu);
+//			System.out.println("bug : " + bug.toString());
+			if (bug.getDegree() == 0)
+				break;
+			this.bugs.add(bug);
+			
+			Tuple tuple = new Tuple(CTabu.size(), testCase);
+			int[] tabu = CovertTntegerToInt(CTabu);
+			tuple.setParamIndex(tabu);
+
+			Tuple newCTabu = tuple.catComm(tuple, bug);
+			CTabu.clear();
+			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
+			
+//			if(bug.getDegree() == testCase.getLength())
+//				break;
 		}
 	}
 
