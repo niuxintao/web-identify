@@ -12,17 +12,17 @@ f-measure ICT_FB_MUOFOT deviration: 0.0
 
 multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 16.835676404587968
+time ICT_FB_MUOFOT deviration: 9.562426470305535
 
-time_r ICT_FB_MUOFOT deviration: 15.551205741035002
+time_r ICT_FB_MUOFOT deviration: 15.152557539900648
 
-time_i ICT_FB_MUOFOT deviration: 7.014271166700073
+time_i ICT_FB_MUOFOT deviration: 5.71314274283428
 
 t_cover ICT_FB_MUOFOT deviration: 0.0
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 29722.28)  (2 : 171842.4)  (3 : 114962.44000000002)  (4 : 20492.2)  (5 : 9076.92)  (6 : 17922.28)  (7 : 7302.359999999999)  (8 : 68.88000000000001)  
+(1 : 30254.8)  (2 : 172278.43999999997)  (3 : 117538.00000000003)  (4 : 17781.2)  (5 : 7977.0)  (6 : 20546.8)  (7 : 7296.879999999999)  (8 : 19.880000000000003)  (9 : 0.12800000000000003)  
 deviration ICT_FB_MUOFOT CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.0)  

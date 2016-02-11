@@ -1,9 +1,9 @@
 2-way for Syn8
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :15.4
+average ICT_FB_MUOFOT num :15.2
 
-average ICT_FB_MUOFOT num_r :7.4
+average ICT_FB_MUOFOT num_r :7.2
 
 average ICT_FB_MUOFOT num_i :8.0
 
@@ -15,17 +15,17 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :73.0
+average ICT_FB_MUOFOT time :56.4
 
-average ICT_FB_MUOFOT time_r :35.4
+average ICT_FB_MUOFOT time_r :25.2
 
-average ICT_FB_MUOFOT time_i :10.8
+average ICT_FB_MUOFOT time_i :6.2
 
 average ICT_FB_MUOFOT t_cover :112.0
 
 average ICT_FB_MUOFOT all_cover :112.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 8.4)  (2 : 8.8)  (3 : 6.8)  (4 : 1.4)  (5 : 0.8)  (6 : 0.2)  
+(1 : 8.4)  (2 : 8.8)  (3 : 6.8)  (4 : 1.4)  (5 : 0.6)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - ] : 1.0)  
