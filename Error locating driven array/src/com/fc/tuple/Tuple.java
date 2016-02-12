@@ -61,8 +61,7 @@ public class Tuple {
 		if (this.degree == ((Tuple) tuple).getDegree()) {
 			for (int i = 0; i < degree; i++) {
 				if (paramIndex[i] != ((Tuple) tuple).getParamIndex()[i]
-						|| this.getParamValue()[i] != ((Tuple) tuple)
-								.getParamValue()[i])
+						|| this.getParamValue()[i] != ((Tuple) tuple).getParamValue()[i])
 					return false;
 			}
 			return true;
@@ -84,7 +83,7 @@ public class Tuple {
 	}
 
 	public Tuple copy() {
-		Tuple tuple = new Tuple(this.degree, this.testCase);
+		Tuple tuple = new Tuple(this.degree, this.testCase.copy());
 		for (int i = 0; i < this.degree; i++) {
 			tuple.set(i, this.paramIndex[i]);
 		}
@@ -93,6 +92,12 @@ public class Tuple {
 
 	public void set(int location, int index) {
 		paramIndex[location] = index;
+	}
+
+	public void setValue(int location, int value) {
+
+		testCase.set(paramIndex[location], value);
+
 	}
 
 	public int[] getParamIndex() {
@@ -176,25 +181,21 @@ public class Tuple {
 			if (stack.isFull()) {
 				result.add(stack.generateTuple(this.paramIndex, this.testCase));
 				stack.pop();
-			} 
-//			else if (currentIndex == this.degree) {
-//				if (stack.isEmpty()){
-//					System.out.println("end1");
-//					break;
-//				}
-//				currentIndex = stack.pop() + 1;
-//				System.out.println("pop and plus 1");
-//			} 
+			}
+			// else if (currentIndex == this.degree) {
+			// if (stack.isEmpty()){
+			// System.out.println("end1");
+			// break;
+			// }
+			// currentIndex = stack.pop() + 1;
+			// System.out.println("pop and plus 1");
+			// }
 			else {
-				if(stack.isEmpty() && degree > this.degree
-						- currentIndex){
+				if (stack.isEmpty() && degree > this.degree - currentIndex) {
 					break;
-				}
-				else if (degree > stack.stackSize + this.degree
-						- currentIndex){
+				} else if (degree > stack.stackSize + this.degree - currentIndex) {
 					currentIndex = stack.pop() + 1;
-				}
-				else {
+				} else {
 					stack.push(currentIndex);
 					currentIndex++;
 				}
@@ -204,17 +205,64 @@ public class Tuple {
 		return result;
 	}
 
+	/**
+	 * Get all the father by Degree can only 1 - - to be 1 1 -
+	 * 
+	 * @param degree
+	 * @return
+	 */
 	public List<Tuple> getFatherTuplesByDegree(int degree) {
 		List<Tuple> result = new ArrayList<Tuple>();
 		// get the reverse tuple of the current tuple
 		Tuple reverseTuple = this.getReverseTuple();
 		// get the degree - current_tuple_degree child tuple of the reverse
 		// tuple
-		List<Tuple> reverseChildren = reverseTuple
-				.getChildTuplesByDegree(degree - this.degree);
+		List<Tuple> reverseChildren = reverseTuple.getChildTuplesByDegree(degree - this.degree);
 		// cat the getted child tuple and the current tuple
 		for (Tuple reverseChild : reverseChildren) {
 			result.add(this.cat(this, reverseChild));
+		}
+		return result;
+	}
+
+	/**
+	 * Get all the father by degree
+	 * 
+	 * 1 - - can be 1 1 - and 1 0 -
+	 * 
+	 * @param degree
+	 * @param param
+	 * @return
+	 */
+	public List<Tuple> getFatherTuplesByDegree(int degree, int[] param) {
+		List<Tuple> result = new ArrayList<Tuple>();
+		// get the reverse tuple of the current tuple
+		Tuple reverseTuple = this.getReverseTuple();
+		// get the degree - current_tuple_degree child tuple of the reverse
+		// tuple
+		List<Tuple> reverseChildren = reverseTuple.getChildTuplesByDegree(degree - this.degree);
+		// cat the getted child tuple and the current tuple
+		for (Tuple reverseChild : reverseChildren) {
+
+			List<Tuple> childs = getTuple(reverseChild, param, 0);
+			for (Tuple child : childs) {
+				result.add(child.cat(child, this));
+			}
+		}
+		return result;
+	}
+
+	public List<Tuple> getTuple(Tuple part, int[] param, int locate) {
+
+		int indexNow = part.getParamIndex()[locate];
+		List<Tuple> result = new ArrayList<Tuple>();
+		for (int i = 0; i < param[indexNow]; i++) {
+			Tuple child_cp = part.copy();
+			child_cp.setValue(locate, i);
+			if (locate >= part.degree - 1)
+				result.add(child_cp);
+			else
+				result.addAll(getTuple(child_cp, param, locate + 1));
 		}
 		return result;
 	}
@@ -245,8 +293,7 @@ public class Tuple {
 		int tupleIndex = 0;
 		for (int i = 0; i < testCase.getLength(); i++) {
 			// filter the element in the tuple
-			if (tupleIndex == this.degree
-					|| i != this.getParamIndex()[tupleIndex]) {
+			if (tupleIndex == this.degree || i != this.getParamIndex()[tupleIndex]) {
 				result.set(currentIndex, i);
 				currentIndex++;
 			} else {

@@ -1,9 +1,9 @@
 2-way for Syn90
 ###############################################
 ###############################################
-average fd num :103.2
+average fd num :313.4
 
-average fd num_r :103.2
+average fd num_r :313.4
 
 average fd num_i :0.0
 
@@ -13,19 +13,19 @@ average fd precise :0.0
 
 average fd f-measure :0.0
 
-average fd multi :87.8
+average fd multi :284.2
 
-average fd time :528.2
+average fd time :896.6
 
-average fd time_r :402.8
+average fd time_r :590.6
 
-average fd time_i :1.2
+average fd time_i :15.6
 
-average fd t_cover :80.8
+average fd t_cover :79.4
 
 average fd all_cover :405.0
 
 average fd CoverNUM
-(1 : 66.8)  (2 : 6.0)  (3 : 3.6)  (4 : 2.8)  (5 : 4.4)  (7 : 4.4)  
+(1 : 73.0)  (2 : 4.0)  (3 : 6.2)  (4 : 1.4)  (5 : 2.6)  (6 : 1.4)  (7 : 3.0)  (8 : 4.2)  
 average fd CoverNUM
 

@@ -302,6 +302,21 @@ public class AETG_Constraints extends AETG {
 		return bestV;
 	}
 
+	
+	
+	
+	/**
+	 * 
+	 * part must be kept
+	 * 
+	 * 
+	 * the remaining should be different than the original.
+	 * 
+	 * 
+	 * the best one is computed for the most covered (AETG)
+	 * 
+	 * 
+	 * */
 	public int[] getBestTestCase(Tuple part, TestCase original) {
 //		System.out.println("part :" + part.toString() + " original :" + original.getStringOfTest());
 		int[] best = new int[dataCenter.param_num];
@@ -323,15 +338,16 @@ public class AETG_Constraints extends AETG {
 				if (tempFirst != null)
 					cannot.add(tempFirst);
 
+//				System.out.println("first paramter start selection " );
 				if (part.getDegree() == 0)
 					first = gpv.selectFirst(cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
-				first = gpv.selectFirst(part, cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+				first = gpv.selectFirst(part, cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1, dataCenter.param);
 
 				tempFirst = first;
 				if (tempFirst == null)
 					continue;
-				 System.out.println(first.toString());
-
+//				 System.out.println("first paramter:" + first.toString());
+//
 				// //should not contain it
 				boolean tempSat = true;
 				for (int i = 0; i < first.getDegree(); i++) {
@@ -364,7 +380,7 @@ public class AETG_Constraints extends AETG {
 			}
 		}
 
-//		 System.out.println("first : " + first.toString());
+//		 System.out.println("first final : " + first.toString());
 
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.param_num];

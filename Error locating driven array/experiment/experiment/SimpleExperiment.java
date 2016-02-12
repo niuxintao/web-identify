@@ -187,6 +187,7 @@ public class SimpleExperiment {
 
 		String s = StringAl[algorithm];
 
+		System.out.println("two way start :  ");
 		OutPut statistic = new OutPut("avg/" + s + "statistic for " + subject
 				+ ".txt");
 		OutPut statisticDev = new OutPut("dev/" + s + "statistic for "
@@ -201,6 +202,7 @@ public class SimpleExperiment {
 		this.statistic(algorithm, data2, statistic, statisticDev);
 		out2.close();
 
+		System.out.println("three way start :  ");
 		OutPut out3 = new OutPut("specific/" + s + "3-way for " + subject
 				+ ".txt");
 		EDATA[] data3 = new EDATA[REP.REP];
@@ -210,6 +212,8 @@ public class SimpleExperiment {
 		this.statistic(algorithm, data3, statistic, statisticDev);
 		out3.close();
 
+
+		System.out.println("four way start :  ");
 		OutPut out4 = new OutPut("specific/" + s + "4-way for " + subject
 				+ ".txt");
 		EDATA[] data4 = new EDATA[REP.REP];
@@ -537,10 +541,10 @@ public class SimpleExperiment {
 
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-//		ex.testJFlex();
+		ex.testJFlex();
 //		ex.testGcc();
 //		ex.testHSQLDB();
-		ex.testTomcat();
+//		ex.testTomcat();
 //		ex.testTcas();
 	}
 }

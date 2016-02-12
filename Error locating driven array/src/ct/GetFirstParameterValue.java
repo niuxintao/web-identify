@@ -83,9 +83,19 @@ public class GetFirstParameterValue {
 
 	}
 
+	/**
+	 * 
+	 * @param part   should be kept
+	 * @param cannot   should not contain 
+	 * @param coveredMark   the covered pairs array.
+	 * @param t_1pairs    the number of all the  t-1 degree schemas
+ 	 * @param DOI           get Tuple from index (t)
+	 * @param DOIminus1    get Tuple from index (t - 1)
+	 * @return
+	 */
 	public Tuple selectFirst(Tuple part, HashSet<Tuple> cannot,
 			int[] coveredMark, int t_1pairs, DealTupleOfIndex DOI,
-			DealTupleOfIndex DOIminus1) {
+			DealTupleOfIndex DOIminus1 , int[] param) {
 		// long current = System.currentTimeMillis();
 
 		int[] paramStatic = new int[t_1pairs];
@@ -107,7 +117,7 @@ public class GetFirstParameterValue {
 		}
 
 		List<Tuple> fathersOfPart = part.getFatherTuplesByDegree(DOIminus1
-				.getDegree());
+				.getDegree(), param );
 		for (Tuple father : fathersOfPart) {
 			if (cannot.contains(father))
 				continue;

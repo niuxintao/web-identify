@@ -1,31 +1,31 @@
 2-way for Syn7
 ###############################################
 ###############################################
-average fd num :30.0
+average fd num :32.0
 
-average fd num_r :30.0
+average fd num_r :32.0
 
 average fd num_i :0.0
 
-average fd recall :0.14285714285714285
+average fd recall :0.05714285714285714
 
-average fd precise :0.05
+average fd precise :0.01818181818181818
 
-average fd f-measure :0.07407407407407407
+average fd f-measure :0.027586206896551724
 
-average fd multi :8.4
+average fd multi :10.0
 
-average fd time :128.4
+average fd time :50.0
 
-average fd time_r :112.0
+average fd time_r :47.0
 
-average fd time_i :1.8
+average fd time_i :0.0
 
-average fd t_cover :381.4
+average fd t_cover :381.2
 
 average fd all_cover :405.0
 
 average fd CoverNUM
-(1 : 33.4)  (2 : 28.2)  (3 : 15.8)  (4 : 5.2)  (5 : 2.0)  (6 : 1.2)  (7 : 0.8)  (8 : 0.8)  (9 : 0.4)  (10 : 0.2)  
+(1 : 33.4)  (2 : 21.2)  (3 : 15.8)  (4 : 7.0)  (5 : 3.4)  (6 : 2.8)  (7 : 1.8)  (8 : 1.0)  (9 : 1.0)  (10 : 0.8)  (11 : 0.6)  (12 : 0.4)  
 average fd CoverNUM
-([ 0 , - , - , - , - , - , 0 , - , - , - ] : 0.2)  ([ 0 , - , - , - , - , - , - , 0 , - , - ] : 0.2)  ([ 0 , - , - , - , 0 , - , - , - , - , - ] : 0.2)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.2)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.2)  
+([ 0 , - , - , - , - , - , 0 , - , - , - ] : 0.2)  ([ 0 , - , - , - , - , 0 , - , - , - , - ] : 0.2)  

@@ -1,28 +1,28 @@
-num ICT_FB_MUOFOT deviration: 5.0039984012787215
+num ICT_FB_MUOFOT deviration: 6.343500610861483
 
-num_r ICT_FB_MUOFOT deviration: 0.7483314773547882
+num_r ICT_FB_MUOFOT deviration: 0.0
 
-num_i ICT_FB_MUOFOT deviration: 5.15363949069005
+num_i ICT_FB_MUOFOT deviration: 6.343500610861483
 
-recall ICT_FB_MUOFOT deviration: 0.019999999999999997
+recall ICT_FB_MUOFOT deviration: 0.02449489742783177
 
-precise ICT_FB_MUOFOT deviration: 0.01777777777777776
+precise ICT_FB_MUOFOT deviration: 0.04477653706579973
 
-f-measure ICT_FB_MUOFOT deviration: 0.022068965517241378
+f-measure ICT_FB_MUOFOT deviration: 0.031067670632691793
 
-multi ICT_FB_MUOFOT deviration: 1.0954451150103321
+multi ICT_FB_MUOFOT deviration: 0.6324555320336759
 
-time ICT_FB_MUOFOT deviration: 67.1309168714386
+time ICT_FB_MUOFOT deviration: 17.2673101553195
 
-time_r ICT_FB_MUOFOT deviration: 42.71299568047177
+time_r ICT_FB_MUOFOT deviration: 7.37563556583431
 
-time_i ICT_FB_MUOFOT deviration: 69.25200358112393
+time_i ICT_FB_MUOFOT deviration: 24.61381725779242
 
-t_cover ICT_FB_MUOFOT deviration: 4.66476151587624
+t_cover ICT_FB_MUOFOT deviration: 4.882622246293481
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 14993.119999999999)  (2 : 9719.48)  (3 : 3324.4)  (4 : 628.2)  (5 : 84.44)  (6 : 38.68000000000001)  (7 : 1.6)  (8 : 0.9760000000000002)  (9 : 0.12800000000000003)  (10 : 0.12800000000000003)  (12 : 0.12800000000000003)  
+(1 : 16210.480000000005)  (2 : 9033.8)  (3 : 2703.2)  (4 : 729.96)  (5 : 148.32)  (6 : 13.720000000000002)  (7 : 11.512)  (8 : 0.144)  (10 : 0.144)  
 deviration ICT_FB_MUOFOT CoverNUM
-([ - , - , 0 , - , - , 0 , - , - , - , - ] : 0.0)  ([ - , 0 , - , - , 0 , - , - , - , - , - ] : 0.12800000000000003)  ([ - , - , 0 , - , 0 , - , - , - , - , - ] : 0.0)  ([ - , - , 0 , 0 , - , - , - , - , - , - ] : 0.0)  ([ 0 , - , - , - , - , - , - , - , - , 0 ] : 0.0)  ([ - , 0 , - , - , - , - , - , - , - , 0 ] : 0.0)  
+([ 0 , - , - , - , - , 0 , - , - , - , - ] : 0.12800000000000003)  ([ - , 0 , - , - , 0 , - , - , - , - , - ] : 0.12800000000000003)  ([ - , - , 0 , - , - , 0 , - , - , - , - ] : 0.0)  ([ - , - , 0 , - , 0 , - , - , - , - , - ] : 0.0)  ([ - , - , 0 , 0 , - , - , - , - , - , - ] : 0.0)  ([ 0 , - , - , - , - , - , - , - , - , 0 ] : 0.0)  ([ - , 0 , - , - , - , - , - , - , - , 0 ] : 0.0)  

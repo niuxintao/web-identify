@@ -1,31 +1,31 @@
 2-way for Syn40
 ###############################################
 ###############################################
-average fd num :85.0
+average fd num :83.6
 
-average fd num_r :85.0
+average fd num_r :83.6
 
 average fd num_i :0.0
 
-average fd recall :0.01
+average fd recall :0.005
 
-average fd precise :0.005627705627705628
+average fd precise :0.0038461538461538464
 
-average fd f-measure :0.007192388324463797
+average fd f-measure :0.004347826086956522
 
-average fd multi :49.0
+average fd multi :46.4
 
-average fd time :1922.0
+average fd time :309.4
 
-average fd time_r :1860.0
+average fd time_r :268.8
 
-average fd time_i :3.6
+average fd time_i :6.2
 
-average fd t_cover :246.6
+average fd t_cover :227.6
 
 average fd all_cover :405.0
 
 average fd CoverNUM
-(1 : 47.4)  (2 : 13.8)  (3 : 9.4)  (4 : 6.8)  (5 : 3.4)  (6 : 2.8)  (7 : 1.6)  (8 : 1.2)  (9 : 1.6)  (10 : 0.8)  (11 : 0.4)  (12 : 0.2)  (14 : 0.2)  
+(1 : 39.8)  (2 : 13.0)  (3 : 10.8)  (4 : 7.0)  (5 : 3.8)  (6 : 6.0)  (7 : 2.2)  (8 : 2.4)  (9 : 2.0)  (10 : 1.2)  (11 : 0.6)  (12 : 1.0)  (13 : 0.6)  (14 : 0.6)  (15 : 0.2)  (16 : 0.2)  
 average fd CoverNUM
-([ - , - , - , - , - , 0 , 0 , - , - , - ] : 0.2)  ([ - , - , - , 0 , - , - , - , - , 0 , - ] : 0.2)  
+([ - , - , 0 , - , 0 , - , - , - , - , - ] : 0.2)  
