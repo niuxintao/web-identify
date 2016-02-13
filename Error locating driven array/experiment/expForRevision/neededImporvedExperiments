@@ -1,9 +1,21 @@
-1. Sensitigy of number of MFS
+1. Sensitigy of number of MFS   yes
+  
+2. Sensittgy of number of options  yes
 
-2. Sensittgy of number of options
+3. Time    yes
 
-3. Time
+4. Number of test cases that are masked     直接用 passing?
 
-4. Number of test cases that are masked
+5. F-masure for FDA-CIT     （Do not needed, I just explain) so it is also yes
 
-5. F-masure for FDA-CIT
+
+(说明它的方法的目的并不是 为了定位，而是为了覆盖， 所以test-t 要好， 然后它对于定位没有花代价因此稍差，不过可以改善，而且在多个很多时差不多，好过我们没改进的方法)
+
+
+
+need to execute:
+
+Simple experiment (experiment/experiment/SimpleExperiment )
+
+expforReverion (experiment/expForRevision/TestSensityOfNumberOfMFS  
+			    experiment/expForRevision/TestSensityOfNumberOfOptions)

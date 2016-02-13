@@ -457,7 +457,7 @@ public class TestSensityOfNumberOfOpitions {
 		DataForNumberOfOptions data = new DataForNumberOfOptions(param);
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
+		testAlgorithm(subject, data,  REP.ALG);
 	}
 
 	public void testAlgorithm(String subject, ExperimentData data, int[] algorithms) {
