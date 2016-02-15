@@ -12,11 +12,11 @@ f-measure ICT_FB_MUOFOT deviration: 0.0
 
 multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 0.4
+time ICT_FB_MUOFOT deviration: 26.865591376331174
 
-time_r ICT_FB_MUOFOT deviration: 13.870832707519762
+time_r ICT_FB_MUOFOT deviration: 13.332666649999167
 
-time_i ICT_FB_MUOFOT deviration: 18.87432117984644
+time_i ICT_FB_MUOFOT deviration: 14.38888459888396
 
 t_cover ICT_FB_MUOFOT deviration: 0.0
 

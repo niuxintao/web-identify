@@ -1,31 +1,31 @@
 2-way for Syn40
 ###############################################
 ###############################################
-average fd num :16.8
+average fd num :17.6
 
-average fd num_r :16.8
+average fd num_r :17.6
 
 average fd num_i :0.0
 
 average fd recall :1.0
 
-average fd precise :1.0
+average fd precise :0.9
 
-average fd f-measure :1.0
+average fd f-measure :0.9333333333333332
 
 average fd multi :0.0
 
-average fd time :700.0
+average fd time :1060.8
 
-average fd time_r :692.6
+average fd time_r :1046.4
 
-average fd time_i :1.2
+average fd time_i :0.6
 
-average fd t_cover :3120.0
+average fd t_cover :3119.8
 
 average fd all_cover :3120.0
 
 average fd CoverNUM
-(1 : 70.2)  (2 : 170.0)  (3 : 164.2)  (4 : 86.8)  (5 : 61.0)  (6 : 49.6)  (7 : 24.4)  (8 : 4.2)  (9 : 0.4)  
+(1 : 76.8)  (2 : 158.0)  (3 : 162.0)  (4 : 95.6)  (5 : 61.0)  (6 : 50.2)  (7 : 24.8)  (8 : 1.4)  (9 : 0.4)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

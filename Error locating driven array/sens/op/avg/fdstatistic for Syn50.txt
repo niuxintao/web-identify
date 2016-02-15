@@ -1,9 +1,9 @@
 2-way for Syn50
 ###############################################
 ###############################################
-average fd num :19.2
+average fd num :18.8
 
-average fd num_r :19.2
+average fd num_r :18.8
 
 average fd num_i :0.0
 
@@ -15,17 +15,17 @@ average fd f-measure :1.0
 
 average fd multi :0.0
 
-average fd time :1607.8
+average fd time :2227.6
 
-average fd time_r :1593.2
+average fd time_r :2214.8
 
-average fd time_i :1.2
+average fd time_i :0.2
 
 average fd t_cover :4900.0
 
 average fd all_cover :4900.0
 
 average fd CoverNUM
-(1 : 93.2)  (2 : 229.4)  (3 : 277.6)  (4 : 197.2)  (5 : 112.8)  (6 : 59.6)  (7 : 14.2)  (8 : 2.2)  (9 : 0.6)  
+(1 : 96.6)  (2 : 229.0)  (3 : 247.6)  (4 : 161.8)  (5 : 92.4)  (6 : 80.2)  (7 : 60.6)  (8 : 16.8)  (9 : 1.4)  (10 : 0.2)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

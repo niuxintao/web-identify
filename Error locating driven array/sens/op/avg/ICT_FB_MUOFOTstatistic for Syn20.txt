@@ -1,9 +1,9 @@
 2-way for Syn20
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :30.6
+average ICT_FB_MUOFOT num :30.4
 
-average ICT_FB_MUOFOT num_r :10.6
+average ICT_FB_MUOFOT num_r :10.4
 
 average ICT_FB_MUOFOT num_i :20.0
 
@@ -15,17 +15,17 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :141.8
+average ICT_FB_MUOFOT time :180.0
 
-average ICT_FB_MUOFOT time_r :38.6
+average ICT_FB_MUOFOT time_r :46.0
 
-average ICT_FB_MUOFOT time_i :65.8
+average ICT_FB_MUOFOT time_i :83.2
 
 average ICT_FB_MUOFOT t_cover :760.0
 
 average ICT_FB_MUOFOT all_cover :760.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 24.4)  (2 : 52.0)  (3 : 37.8)  (4 : 23.6)  (5 : 15.4)  (6 : 3.4)  (7 : 0.8)  
+(1 : 22.2)  (2 : 47.8)  (3 : 38.0)  (4 : 19.2)  (5 : 16.2)  (6 : 10.4)  (7 : 3.4)  (8 : 0.8)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

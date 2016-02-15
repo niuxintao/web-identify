@@ -15,11 +15,11 @@ average ICT_FB_MUOFOT f-measure :0.025316455696202528
 
 average ICT_FB_MUOFOT multi :9.0
 
-average ICT_FB_MUOFOT time :198.4
+average ICT_FB_MUOFOT time :388.0
 
-average ICT_FB_MUOFOT time_r :6.4
+average ICT_FB_MUOFOT time_r :15.4
 
-average ICT_FB_MUOFOT time_i :50.8
+average ICT_FB_MUOFOT time_i :73.4
 
 average ICT_FB_MUOFOT t_cover :1.0
 

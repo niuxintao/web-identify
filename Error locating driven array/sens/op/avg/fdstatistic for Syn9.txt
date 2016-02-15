@@ -1,31 +1,31 @@
 2-way for Syn9
 ###############################################
 ###############################################
-average fd num :11.8
+average fd num :10.6
 
-average fd num_r :11.8
+average fd num_r :10.6
 
 average fd num_i :0.0
 
 average fd recall :1.0
 
-average fd precise :0.9
+average fd precise :1.0
 
-average fd f-measure :0.9333333333333333
+average fd f-measure :1.0
 
 average fd multi :0.0
 
-average fd time :30.0
+average fd time :36.0
 
-average fd time_r :25.8
+average fd time_r :31.6
 
-average fd time_i :4.0
+average fd time_i :2.2
 
-average fd t_cover :143.8
+average fd t_cover :144.0
 
 average fd all_cover :144.0
 
 average fd CoverNUM
-(1 : 8.8)  (2 : 9.8)  (3 : 9.6)  (4 : 3.2)  (5 : 0.8)  (6 : 0.2)  
+(1 : 10.6)  (2 : 10.2)  (3 : 10.0)  (4 : 0.8)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - ] : 1.0)  

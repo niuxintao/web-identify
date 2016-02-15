@@ -1,31 +1,31 @@
 2-way for Syn60
 ###############################################
 ###############################################
-average fd num :80.2
+average fd num :77.6
 
-average fd num_r :80.2
+average fd num_r :77.6
 
 average fd num_i :0.0
 
-average fd recall :0.0
+average fd recall :0.006666666666666666
 
-average fd precise :0.0
+average fd precise :0.010533515731874145
 
-average fd f-measure :0.0
+average fd f-measure :0.008138814294567238
 
-average fd multi :49.4
+average fd multi :43.8
 
-average fd time :256.4
+average fd time :469.2
 
-average fd time_r :228.0
+average fd time_r :420.2
 
-average fd time_i :0.0
+average fd time_i :0.8
 
-average fd t_cover :156.8
+average fd t_cover :168.8
 
 average fd all_cover :405.0
 
 average fd CoverNUM
-(1 : 61.2)  (2 : 10.0)  (3 : 5.6)  (4 : 3.2)  (5 : 4.8)  (6 : 2.0)  (7 : 2.4)  (8 : 1.2)  (9 : 1.6)  (10 : 1.6)  (11 : 2.2)  (14 : 0.6)  (16 : 1.2)  
+(1 : 53.8)  (2 : 10.0)  (3 : 5.4)  (4 : 4.2)  (5 : 3.6)  (6 : 5.0)  (7 : 1.2)  (8 : 2.4)  (9 : 0.4)  (10 : 2.4)  (11 : 0.8)  (13 : 1.4)  (14 : 1.2)  (15 : 0.2)  (16 : 1.2)  
 average fd CoverNUM
-
+([ - , 1 , - , - , - , - , - , 1 , - , - ] : 0.2)  ([ 1 , - , - , - , 1 , - , - , - , - , - ] : 0.2)  

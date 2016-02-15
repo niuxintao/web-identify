@@ -446,6 +446,12 @@ public class AETG_Constraints extends AETG {
 				testCase[rmI] = bvalue;
 			}
 
+			//test cases can be set be -1, needs to reset to value different than original
+			for(int k = 0; k < testCase.length; k++){
+				if(testCase[k] == -1){
+					testCase[k] = (original.getAt(k) +1 ) % this.dataCenter.param[k];
+				}
+			}
 			int thisUncovered = this.getUncovered(testCase);
 			// System.out.println(thisUncovered);
 

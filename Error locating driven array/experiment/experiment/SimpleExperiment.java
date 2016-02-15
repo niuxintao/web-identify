@@ -493,7 +493,7 @@ public class SimpleExperiment {
 		HsqlDBData data = new HsqlDBData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
 	public void testJFlex() {
@@ -502,7 +502,7 @@ public class SimpleExperiment {
 		JFlexData data = new JFlexData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
 	public void testTcas() {
@@ -511,7 +511,7 @@ public class SimpleExperiment {
 		TcasData data = new TcasData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
 	public void testGcc() {
@@ -520,7 +520,7 @@ public class SimpleExperiment {
 		GccData data = new GccData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT});
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
 	public void testTomcat() {
@@ -529,7 +529,7 @@ public class SimpleExperiment {
 		TomcatData data = new TomcatData();
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] { ICT_FB_MUOFOT });
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
 	public void testAlgorithm(String subject, ExperimentData data,
