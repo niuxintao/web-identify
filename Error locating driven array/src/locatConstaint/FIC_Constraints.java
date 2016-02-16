@@ -87,14 +87,14 @@ public class FIC_Constraints {
 			if (temp.size() == param.length) {
 				break;
 			}
-			if (temp.size() == param.length - 1) {
-				Tuple fixone = new Tuple(1, testCase);
-				fixone.setParamIndex(new int[] { para });
-				Pa pa = new Pa();
-				pa.CFree = U;
-				pa.fixdOne = fixone;
-				return pa;
-			}
+//			if (temp.size() == param.length - 1) {
+//				Tuple fixone = new Tuple(1, testCase);
+//				fixone.setParamIndex(new int[] { para });
+//				Pa pa = new Pa();
+//				pa.CFree = U;
+//				pa.fixdOne = fixone;
+//				return pa;
+//			}
 			if (testTuple(temp)) {
 				Tuple fixone = new Tuple(1, testCase);
 				fixone.setParamIndex(new int[] { para });

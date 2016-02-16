@@ -37,7 +37,8 @@ public class AETG_Constraints extends AETG {
 		this.MFS.addAll(MFS);
 
 		for (Tuple mfs : MFS) {
-			int[] clause = ic.combinationToClause(mfs.getParamIndex(), mfs.getParamValue());
+			int[] clause = ic.combinationToClause(mfs.getParamIndex(),
+					mfs.getParamValue());
 			for (int i = 0; i < clause.length; i++)
 				clause[i] = -clause[i];
 			clauses.add(clause);
@@ -50,7 +51,8 @@ public class AETG_Constraints extends AETG {
 		this.MFS.addAll(MFS);
 
 		for (Tuple mfs : MFS) {
-			int[] clause = ic.combinationToClause(mfs.getParamIndex(), mfs.getParamValue());
+			int[] clause = ic.combinationToClause(mfs.getParamIndex(),
+					mfs.getParamValue());
 			for (int i = 0; i < clause.length; i++)
 				clause[i] = -clause[i];
 			clauses.add(clause);
@@ -66,7 +68,8 @@ public class AETG_Constraints extends AETG {
 				setCoverage(mfs);
 			} else if (mfs.getDegree() < dataCenter.degree) {
 				// the parent
-				List<Tuple> parentT = mfs.getFatherTuplesByDegree(dataCenter.degree);
+				List<Tuple> parentT = mfs
+						.getFatherTuplesByDegree(dataCenter.degree);
 				for (Tuple parent : parentT) {
 					setCoverage(parent);
 				}
@@ -101,7 +104,8 @@ public class AETG_Constraints extends AETG {
 				setCoverage(mfs);
 			} else if (mfs.getDegree() < dataCenter.degree) {
 				// the parent
-				List<Tuple> parentT = mfs.getFatherTuplesByDegree(dataCenter.degree);
+				List<Tuple> parentT = mfs
+						.getFatherTuplesByDegree(dataCenter.degree);
 				for (Tuple parent : parentT) {
 					setCoverage(parent);
 				}
@@ -144,7 +148,8 @@ public class AETG_Constraints extends AETG {
 	}
 
 	public boolean isSatisifed(Tuple tuple) {
-		int[] clause = ic.combinationToClause(tuple.getParamIndex(), tuple.getParamValue());
+		int[] clause = ic.combinationToClause(tuple.getParamIndex(),
+				tuple.getParamValue());
 
 		int[][] clauses = new int[this.clauses.size()][];
 		for (int i = 0; i < clauses.length; i++) {
@@ -169,12 +174,15 @@ public class AETG_Constraints extends AETG {
 			if (tempFirst != null)
 				cannot.add(tempFirst);
 
-			first = gpv.selectFirst(cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+			first = gpv.selectFirst(cannot, coveredMark,
+					dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
 
 			tempFirst = first;
 
 			// judege if it is satisified
-			isSat = !this.isInvoude(first.getParamIndex(), first.getParamValue()) || this.isSatisifed(first);
+			isSat = !this.isInvoude(first.getParamIndex(),
+					first.getParamValue())
+					|| this.isSatisifed(first);
 		}
 
 		for (int i = 0; i < M; i++) {
@@ -214,7 +222,8 @@ public class AETG_Constraints extends AETG {
 
 					// judege if it is satisified
 					List<Integer> indexes = new ArrayList<Integer>();
-					TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
+					TestCase testCaseForTuple = new TestCaseImplement(
+							dataCenter.param_num);
 					for (int j = 0; j < testCase.length; j++) {
 						if (j == rmI) {
 							testCaseForTuple.set(j, bvalue);
@@ -228,7 +237,8 @@ public class AETG_Constraints extends AETG {
 					tuple.setParamIndex(convertIntegers(indexes));
 					;
 
-					isSat = !this.isInvoude(rmI, bvalue) || this.isSatisifed(tuple);
+					isSat = !this.isInvoude(rmI, bvalue)
+							|| this.isSatisifed(tuple);
 				}
 				testCase[rmI] = bvalue;
 			}
@@ -275,7 +285,8 @@ public class AETG_Constraints extends AETG {
 			int[] givenIndex = convertIntegers(index);
 			int[] givenValue = convertIntegers(value);
 
-			TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
+			TestCase testCaseForTuple = new TestCaseImplement(
+					dataCenter.param_num);
 			for (int i = 0; i < givenIndex.length; i++)
 				testCaseForTuple.set(givenIndex[i], givenValue[i]);
 
@@ -302,9 +313,6 @@ public class AETG_Constraints extends AETG {
 		return bestV;
 	}
 
-	
-	
-	
 	/**
 	 * 
 	 * part must be kept
@@ -318,7 +326,8 @@ public class AETG_Constraints extends AETG {
 	 * 
 	 * */
 	public int[] getBestTestCase(Tuple part, TestCase original) {
-//		System.out.println("part :" + part.toString() + " original :" + original.getStringOfTest());
+		// System.out.println("part :" + part.toString() + " original :" +
+		// original.getStringOfTest());
 		int[] best = new int[dataCenter.param_num];
 
 		int bestUncovered = -1;
@@ -338,32 +347,37 @@ public class AETG_Constraints extends AETG {
 				if (tempFirst != null)
 					cannot.add(tempFirst);
 
-//				System.out.println("first paramter start selection " );
+				// System.out.println("first paramter start selection " );
 				if (part.getDegree() == 0)
-					first = gpv.selectFirst(cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
-				first = gpv.selectFirst(part, cannot, coveredMark, dataCenterTminus1.coveringArrayNum, DOI, DOIminus1, dataCenter.param);
+					first = gpv.selectFirst(cannot, coveredMark,
+							dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+				first = gpv.selectFirst(part, cannot, coveredMark,
+						dataCenterTminus1.coveringArrayNum, DOI, DOIminus1,
+						dataCenter.param);
 
 				tempFirst = first;
 				if (tempFirst == null)
 					continue;
-//				 System.out.println("first paramter:" + first.toString());
-//
+				// System.out.println("first paramter:" + first.toString());
+				//
 				// //should not contain it
 				boolean tempSat = true;
 				for (int i = 0; i < first.getDegree(); i++) {
 
-					TestCaseImplement testForTuple = new TestCaseImplement(original.getLength());
+					TestCaseImplement testForTuple = new TestCaseImplement(
+							original.getLength());
 					for (int k = 0; k < testForTuple.getLength(); k++) {
 						testForTuple.set(k, 0);
 					}
 
 					for (int k = 0; k < first.getParamIndex().length; k++) {
-						testForTuple.set(first.getParamIndex()[k], first.getParamValue()[k]);
+						testForTuple.set(first.getParamIndex()[k],
+								first.getParamValue()[k]);
 					}
 
 					Tuple tOne = new Tuple(1, testForTuple);
 					tOne.set(0, first.getParamIndex()[i]);
-//					System.out.println("tOne" + tOne.toString());
+					// System.out.println("tOne" + tOne.toString());
 					if (part.contains(tOne))
 						continue;
 					if (original.containsOf(tOne)) {
@@ -375,12 +389,14 @@ public class AETG_Constraints extends AETG {
 					continue;
 
 				// judege if it is satisified
-				isSat = !this.isInvoude(first.getParamIndex(), first.getParamValue()) || this.isSatisifed(first);
-//				System.out.println(isSat);
+				isSat = !this.isInvoude(first.getParamIndex(),
+						first.getParamValue())
+						|| this.isSatisifed(first);
+				// System.out.println(isSat);
 			}
 		}
 
-//		 System.out.println("first final : " + first.toString());
+		// System.out.println("first final : " + first.toString());
 
 		for (int i = 0; i < M; i++) {
 			int[] testCase = new int[dataCenter.param_num];
@@ -427,7 +443,8 @@ public class AETG_Constraints extends AETG {
 
 					// judege if it is satisified
 					List<Integer> indexes = new ArrayList<Integer>();
-					TestCase testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
+					TestCase testCaseForTuple = new TestCaseImplement(
+							dataCenter.param_num);
 					for (int j = 0; j < testCase.length; j++) {
 						if (j == rmI) {
 							testCaseForTuple.set(j, bvalue);
@@ -441,15 +458,21 @@ public class AETG_Constraints extends AETG {
 					tuple.setParamIndex(convertIntegers(indexes));
 					;
 
-					isSat = !this.isInvoude(rmI, bvalue) || this.isSatisifed(tuple);
+					isSat = !this.isInvoude(rmI, bvalue)
+							|| this.isSatisifed(tuple);
 				}
 				testCase[rmI] = bvalue;
 			}
 
-			//test cases can be set be -1, needs to reset to value different than original
-			for(int k = 0; k < testCase.length; k++){
-				if(testCase[k] == -1){
-					testCase[k] = (original.getAt(k) +1 ) % this.dataCenter.param[k];
+			// test cases can be set be -1 (cannot set the different value as it
+			// is mfs), needs to reset to value the same as original
+			/**
+			 * this is the most important bug
+			 */
+			for (int k = 0; k < testCase.length; k++) {
+				if (testCase[k] == -1) {
+					testCase[k] = (original.getAt(k))
+							% this.dataCenter.param[k];
 				}
 			}
 			int thisUncovered = this.getUncovered(testCase);
@@ -472,7 +495,8 @@ public class AETG_Constraints extends AETG {
 		AETG_Constraints aetg = new AETG_Constraints(dataCenter);
 
 		// next implicat (- , -, 1, 1,- , -, -, - )
-		TestCaseImplement testCaseForTuple = new TestCaseImplement(dataCenter.param_num);
+		TestCaseImplement testCaseForTuple = new TestCaseImplement(
+				dataCenter.param_num);
 		int[] test = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 		testCaseForTuple.setTestCase(test);
 
@@ -480,7 +504,8 @@ public class AETG_Constraints extends AETG {
 		tuple.set(0, 1);
 		tuple.set(1, 2);
 
-		TestCaseImplement testCaseForTupl2e = new TestCaseImplement(dataCenter.param_num);
+		TestCaseImplement testCaseForTupl2e = new TestCaseImplement(
+				dataCenter.param_num);
 		int[] test2 = new int[] { 1, 0, 1, 1, 1, 1, 1, 1, 1 };
 		testCaseForTupl2e.setTestCase(test2);
 		Tuple tuple2 = new Tuple(2, testCaseForTupl2e);
