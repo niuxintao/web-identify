@@ -18,6 +18,11 @@ import com.fc.tuple.Tuple;
 
 import ct.AETG_Constraints;
 //import com.fc.coveringArray.CoveringManage;
+/**
+ * combine multiple methods
+ * @author xintao
+ *
+ */
 public class ErrorLocatingDrivenArray_CB extends ErrorLocatingDrivenArray {
 	
 	

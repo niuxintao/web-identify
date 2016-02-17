@@ -541,11 +541,11 @@ public class SimpleExperiment {
 
 	public static void main(String[] args) {
 		SimpleExperiment ex = new SimpleExperiment();
-		ex.testJFlex();
+//		ex.testJFlex();
 		ex.testGcc();
 		ex.testHSQLDB();
 		ex.testTomcat();
-		ex.testTcas();
+//		ex.testTcas();
 	}
 }
 

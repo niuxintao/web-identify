@@ -20,6 +20,12 @@ import com.fc.tuple.Tuple;
 import ct.AETG_Constraints;
 import experiment.SimilarityMFS;
 
+
+/**
+ * using fic_bs method
+ * @author xintao
+ *
+ */
 public class ErrorLocatingDrivenArray_FIC implements CT_process {
 
 	protected CaseRunner caseRunner;

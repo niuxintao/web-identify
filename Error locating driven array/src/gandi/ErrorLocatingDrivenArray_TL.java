@@ -14,6 +14,11 @@ import com.fc.tuple.Tuple;
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
+/**
+ * the error can also getting back to the failing test cases
+ * @author xintao
+ *
+ */
 public class ErrorLocatingDrivenArray_TL extends ErrorLocatingDrivenArray {
 
 	public ErrorLocatingDrivenArray_TL(DataCenter dataCenter,

@@ -1,31 +1,31 @@
 2-way for Syn30
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :70.8
+average ICT_FB_MUOFOT num :77.5
 
-average ICT_FB_MUOFOT num_r :14.8
+average ICT_FB_MUOFOT num_r :14.5
 
-average ICT_FB_MUOFOT num_i :56.0
+average ICT_FB_MUOFOT num_i :63.0
 
-average ICT_FB_MUOFOT recall :0.039999999999999994
+average ICT_FB_MUOFOT recall :0.07999999999999999
 
-average ICT_FB_MUOFOT precise :0.22666666666666666
+average ICT_FB_MUOFOT precise :0.35285714285714287
 
-average ICT_FB_MUOFOT f-measure :0.06793650793650793
+average ICT_FB_MUOFOT f-measure :0.12962538015169595
 
-average ICT_FB_MUOFOT multi :4.6
+average ICT_FB_MUOFOT multi :6.0
 
-average ICT_FB_MUOFOT time :163.8
+average ICT_FB_MUOFOT time :103.7
 
-average ICT_FB_MUOFOT time_r :20.6
+average ICT_FB_MUOFOT time_r :15.3
 
-average ICT_FB_MUOFOT time_i :58.2
+average ICT_FB_MUOFOT time_i :44.8
 
-average ICT_FB_MUOFOT t_cover :314.2
+average ICT_FB_MUOFOT t_cover :322.1
 
 average ICT_FB_MUOFOT all_cover :405.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 42.8)  (2 : 20.4)  (3 : 10.6)  (4 : 5.2)  (5 : 2.2)  (6 : 2.0)  (7 : 2.2)  (8 : 1.4)  (9 : 0.8)  (10 : 0.8)  
+(1 : 21.6)  (2 : 10.8)  (3 : 5.9)  (4 : 3.7)  (5 : 1.7)  (6 : 1.0)  (7 : 1.4)  (8 : 1.2)  (9 : 0.9)  (10 : 0.3)  (11 : 0.1)  (15 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , 0 , - , 0 , - , - , - , - ] : 0.2)  ([ - , - , - , 0 , - , - , - , - , - , 0 ] : 1.0)  
+([ - , 0 , - , - , - , - , - , 0 , - , - ] : 0.1)  ([ - , - , 0 , - , - , - , 0 , - , - , - ] : 0.1)  ([ - , - , - , 0 , - , - , 0 , - , - , - ] : 0.2)  ([ - , - , 0 , - , - , 0 , - , - , - , - ] : 0.1)  ([ - , - , 0 , - , 0 , - , - , - , - , - ] : 0.2)  ([ - , - , - , 0 , - , 0 , - , - , - , - ] : 0.2)  ([ - , - , - , 0 , 0 , - , - , - , - , - ] : 0.1)  ([ - , - , - , 0 , - , - , - , 0 , - , - ] : 0.1)  ([ - , - , - , 0 , - , - , - , - , 0 , - ] : 0.1)  ([ - , - , - , 0 , - , - , - , - , - , 0 ] : 1.0)  ([ - , 0 , - , - , - , - , - , - , - , 0 ] : 0.2)  

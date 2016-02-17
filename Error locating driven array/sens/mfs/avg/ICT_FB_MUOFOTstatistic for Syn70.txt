@@ -1,11 +1,11 @@
 2-way for Syn70
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :248.6
+average ICT_FB_MUOFOT num :251.3
 
 average ICT_FB_MUOFOT num_r :36.0
 
-average ICT_FB_MUOFOT num_i :217.6
+average ICT_FB_MUOFOT num_i :218.9
 
 average ICT_FB_MUOFOT recall :0.0
 
@@ -15,9 +15,9 @@ average ICT_FB_MUOFOT f-measure :0.0
 
 average ICT_FB_MUOFOT multi :36.0
 
-average ICT_FB_MUOFOT time :3187.0
+average ICT_FB_MUOFOT time :1460.3
 
-average ICT_FB_MUOFOT time_r :345.0
+average ICT_FB_MUOFOT time_r :169.2
 
 average ICT_FB_MUOFOT time_i :0.0
 
@@ -26,6 +26,6 @@ average ICT_FB_MUOFOT t_cover :0.0
 average ICT_FB_MUOFOT all_cover :405.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 81.8)  
+(1 : 41.4)  
 average ICT_FB_MUOFOT CoverNUM
 

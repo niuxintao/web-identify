@@ -14,13 +14,11 @@ import com.fc.tuple.Tuple;
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
-public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
-		ErrorLocatingDrivenArray {
+public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrivenArray {
 
 	public static final int CHANGENUM = 10;
 
-	public ErrorLocatingDrivenArray_feedback_MUOFOT(DataCenter dataCenter,
-			CaseRunner caseRunner) {
+	public ErrorLocatingDrivenArray_feedback_MUOFOT(DataCenter dataCenter, CaseRunner caseRunner) {
 		super(dataCenter, caseRunner);
 		// TODO Auto-generated constructor stub
 	}
@@ -55,8 +53,8 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 			regularCTCases.add(testCase);
-//			System.out.println("aetg" + testCase.getStringOfTest() + " "
-//					+ ac.unCovered);
+			// System.out.println("aetg" + testCase.getStringOfTest() + " "
+			// + ac.unCovered);
 
 			if (caseRunner.runTestCase(testCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
@@ -109,8 +107,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
 
-		FIC_Constraints sc = new FIC_Constraints(testCase,
-				dataCenter.getParam(), caseRunner, ac);
+		FIC_Constraints sc = new FIC_Constraints(testCase, dataCenter.getParam(), caseRunner, ac);
 
 		// sc.process(testCase, DataCenter.param, caseRunner);
 		sc.FicSingleMuOFOT();
@@ -131,14 +128,16 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 				nextTestCase.setTestState(TestCase.FAILED);
 		}
 
-//		System.out.println("failing test Case : " + testCase.getStringOfTest());
+		// System.out.println("failing test Case : " +
+		// testCase.getStringOfTest());
 		for (Tuple tuple : mfs) {
-//			System.out.println("obtained MFS : " + tuple.toString());
+			// System.out.println("obtained MFS : " + tuple.toString());
 			if (tuple.getDegree() == 0) {
 				// System.out.println("multiple");
 				return null;
-			} else if (isMFSWrong(tuple, testCase))
-				return null;
+			} 
+//			else if (isMFSWrong( ac, tuple, testCase, executed))
+//				return null;
 		}
 
 		return mfs;
@@ -155,17 +154,63 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 	 * @param wrongCase
 	 * @return
 	 */
-	boolean isMFSWrong(Tuple MFS, TestCase wrongCase) {
+	boolean isMFSWrong(AETG_Constraints ac, Tuple MFS, TestCase wrongCase,List<TestCase> executed) {
+		
+		TestCase last = executed.get(executed.size() - 1);
+		
 		TestCaseImplement newCase = new TestCaseImplement();
 		int[] newC = new int[wrongCase.getLength()];
 		for (int i = 0; i < newC.length; i++)
-			newC[i] = (wrongCase.getAt(i) + 1) % dataCenter.param[i];
-		for (int i = 0; i < MFS.getDegree(); i++)
-			newC[MFS.getParamIndex()[i]] = MFS.getParamValue()[i];
+			newC[i] =last.getAt(i);
+//		for (int i = 0; i < MFS.getDegree(); i++)
+//			newC[MFS.getParamIndex()[i]] = MFS.getParamValue()[i];
 		newCase.setTestCase(newC);
+		
+		for(int i = 0; i < newC.length; i++){
+			if(!MFScontainIndex(MFS, i)){
+				int original = newCase.getAt(i);
+				if(this.dataCenter.param[i] > 2){
+					for(int j = 0; j < dataCenter.param[i]; j ++)
+						if(j != wrongCase.getAt(i) && j != last.getAt(i)){
+							newCase.set(i, j);
+							break;
+						}
+//					newCase.set(i, dataCenter.param[i]);
+				}
+				if(containExistedMFS(newCase)){
+					newCase.set(i, original);
+					continue;
+				}
+			}
+		}
+			
+		
 		identifyCases.add(newCase);
 		overallTestCases.add(newCase);
-		return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
+		
+		if(this.caseRunner.runTestCase(newCase) == TestCase.PASSED){
+			ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, newCase.getTestCase());
+			return true;
+		}else
+			return false;
+//		return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
+		
+	}
+
+	public boolean containExistedMFS(TestCase testCase) {
+		for (Tuple tuple : MFS) {
+			if (testCase.containsOf(tuple))
+				return true;
+		}
+		return false;
+	}
+
+	public boolean MFScontainIndex(Tuple tuple, int index) {
+		for (int i : tuple.getParamIndex())
+			if (i == index)
+				return true;
+		return false;
+
 	}
 
 }

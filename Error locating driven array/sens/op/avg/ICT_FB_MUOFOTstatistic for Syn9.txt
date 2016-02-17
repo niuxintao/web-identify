@@ -15,17 +15,17 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :29.8
+average ICT_FB_MUOFOT time :16.2
 
-average ICT_FB_MUOFOT time_r :14.8
+average ICT_FB_MUOFOT time_r :8.0
 
-average ICT_FB_MUOFOT time_i :6.8
+average ICT_FB_MUOFOT time_i :3.1
 
 average ICT_FB_MUOFOT t_cover :144.0
 
 average ICT_FB_MUOFOT all_cover :144.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 9.4)  (2 : 11.8)  (3 : 4.6)  (4 : 4.8)  (5 : 2.2)  
+(1 : 4.9)  (2 : 6.7)  (3 : 2.9)  (4 : 3.0)  (5 : 1.4)  (6 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - ] : 1.0)  

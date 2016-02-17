@@ -1,11 +1,42 @@
 2-way for Tomcat
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :62.2
+average ICT_FB_MUOFOT num :59.2
 
-average ICT_FB_MUOFOT num_r :16.2
+average ICT_FB_MUOFOT num_r :15.3
 
-average ICT_FB_MUOFOT num_i :46.0
+average ICT_FB_MUOFOT num_i :44.1
+
+average ICT_FB_MUOFOT recall :0.6
+
+average ICT_FB_MUOFOT precise :0.635
+
+average ICT_FB_MUOFOT f-measure :0.6007142857142858
+
+average ICT_FB_MUOFOT multi :0.6
+
+average ICT_FB_MUOFOT time :133.3
+
+average ICT_FB_MUOFOT time_r :43.8
+
+average ICT_FB_MUOFOT time_i :37.0
+
+average ICT_FB_MUOFOT t_cover :224.0
+
+average ICT_FB_MUOFOT all_cover :236.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 7.8)  (2 : 5.1)  (3 : 6.3)  (4 : 3.8)  (5 : 1.5)  (6 : 2.0)  (7 : 1.6)  (8 : 1.3)  (9 : 1.0)  (10 : 0.9)  (11 : 0.4)  (12 : 0.5)  (13 : 0.2)  (16 : 0.1)  
+average ICT_FB_MUOFOT CoverNUM
+([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.4)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.4)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+3-way for Tomcat
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :102.3
+
+average ICT_FB_MUOFOT num_r :41.6
+
+average ICT_FB_MUOFOT num_i :60.8
 
 average ICT_FB_MUOFOT recall :0.7333333333333333
 
@@ -13,81 +44,50 @@ average ICT_FB_MUOFOT precise :0.8
 
 average ICT_FB_MUOFOT f-measure :0.76
 
-average ICT_FB_MUOFOT multi :0.2
-
-average ICT_FB_MUOFOT time :295.2
-
-average ICT_FB_MUOFOT time_r :102.2
-
-average ICT_FB_MUOFOT time_i :72.4
-
-average ICT_FB_MUOFOT t_cover :231.0
-
-average ICT_FB_MUOFOT all_cover :236.0
-
-average ICT_FB_MUOFOT CoverNUM
-(1 : 18.0)  (2 : 11.2)  (3 : 8.8)  (4 : 4.0)  (5 : 3.8)  (6 : 1.8)  (7 : 1.6)  (8 : 1.8)  (9 : 2.8)  (10 : 1.2)  (11 : 0.4)  (12 : 0.2)  (14 : 0.2)  
-average ICT_FB_MUOFOT CoverNUM
-([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.6)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.6)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
-3-way for Tomcat
-###############################################
-###############################################
-average ICT_FB_MUOFOT num :81.8
-
-average ICT_FB_MUOFOT num_r :38.6
-
-average ICT_FB_MUOFOT num_i :43.2
-
-average ICT_FB_MUOFOT recall :0.6
-
-average ICT_FB_MUOFOT precise :0.7
-
-average ICT_FB_MUOFOT f-measure :0.6399999999999999
-
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :848.2
+average ICT_FB_MUOFOT time :663.8
 
-average ICT_FB_MUOFOT time_r :226.6
+average ICT_FB_MUOFOT time_r :161.1
 
-average ICT_FB_MUOFOT time_i :77.6
+average ICT_FB_MUOFOT time_i :57.8
 
-average ICT_FB_MUOFOT t_cover :1346.6
+average ICT_FB_MUOFOT t_cover :1368.4
 
 average ICT_FB_MUOFOT all_cover :1424.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 104.4)  (2 : 45.8)  (3 : 44.6)  (4 : 25.4)  (5 : 24.8)  (6 : 13.2)  (7 : 7.4)  (8 : 10.4)  (9 : 5.2)  (10 : 2.8)  (11 : 1.4)  (12 : 3.2)  (13 : 2.4)  (14 : 2.8)  (15 : 1.8)  (16 : 1.0)  (17 : 1.0)  (18 : 0.4)  (19 : 0.8)  (20 : 0.8)  (21 : 0.6)  (22 : 0.4)  (23 : 0.4)  
+(1 : 41.4)  (2 : 28.7)  (3 : 25.3)  (4 : 17.2)  (5 : 11.2)  (6 : 8.6)  (7 : 5.3)  (8 : 3.5)  (9 : 3.5)  (10 : 2.7)  (11 : 2.0)  (12 : 1.7)  (13 : 1.4)  (14 : 1.4)  (15 : 1.3)  (16 : 1.0)  (17 : 0.7)  (18 : 0.7)  (19 : 0.7)  (20 : 0.7)  (21 : 0.4)  (22 : 0.3)  (23 : 0.1)  (24 : 0.1)  (25 : 0.2)  
 average ICT_FB_MUOFOT CoverNUM
-([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.4)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.4)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.6)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.6)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
 4-way for Tomcat
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :138.2
+average ICT_FB_MUOFOT num :133.1
 
-average ICT_FB_MUOFOT num_r :84.6
+average ICT_FB_MUOFOT num_r :86.9
 
-average ICT_FB_MUOFOT num_i :53.6
+average ICT_FB_MUOFOT num_i :46.2
 
-average ICT_FB_MUOFOT recall :1.0
+average ICT_FB_MUOFOT recall :0.8666666666666666
 
-average ICT_FB_MUOFOT precise :1.0
+average ICT_FB_MUOFOT precise :0.875
 
-average ICT_FB_MUOFOT f-measure :1.0
+average ICT_FB_MUOFOT f-measure :0.8685714285714285
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :3579.8
+average ICT_FB_MUOFOT time :1642.7
 
-average ICT_FB_MUOFOT time_r :688.4
+average ICT_FB_MUOFOT time_r :403.3
 
-average ICT_FB_MUOFOT time_i :178.4
+average ICT_FB_MUOFOT time_i :125.3
 
-average ICT_FB_MUOFOT t_cover :5600.0
+average ICT_FB_MUOFOT t_cover :5467.8
 
 average ICT_FB_MUOFOT all_cover :5600.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 355.2)  (2 : 197.6)  (3 : 174.0)  (4 : 121.4)  (5 : 87.8)  (6 : 58.6)  (7 : 35.2)  (8 : 28.6)  (9 : 20.8)  (10 : 12.8)  (11 : 10.8)  (12 : 9.0)  (13 : 4.6)  (14 : 4.6)  (15 : 4.0)  (16 : 2.4)  (17 : 2.8)  (18 : 2.2)  (19 : 1.4)  (20 : 1.6)  (21 : 1.0)  (22 : 0.4)  (25 : 0.2)  
+(1 : 225.2)  (2 : 83.8)  (3 : 69.5)  (4 : 51.3)  (5 : 38.8)  (6 : 27.1)  (7 : 19.5)  (8 : 15.7)  (9 : 8.9)  (10 : 7.0)  (11 : 6.5)  (12 : 5.9)  (13 : 4.4)  (14 : 2.6)  (15 : 2.2)  (16 : 1.5)  (17 : 1.6)  (18 : 1.7)  (19 : 1.8)  (20 : 1.3)  (21 : 1.1)  (22 : 1.4)  (23 : 1.1)  (24 : 0.8)  (25 : 0.6)  (26 : 0.4)  (27 : 0.3)  (29 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
-([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.8)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.8)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
