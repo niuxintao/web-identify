@@ -1,93 +1,93 @@
 2-way for HSQLDB
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :32.4
+average ICT_FB_MUOFOT num :38.8
 
-average ICT_FB_MUOFOT num_r :15.6
+average ICT_FB_MUOFOT num_r :14.8
 
-average ICT_FB_MUOFOT num_i :16.8
+average ICT_FB_MUOFOT num_i :24.0
 
-average ICT_FB_MUOFOT recall :0.4666666666666667
+average ICT_FB_MUOFOT recall :0.6666666666666667
 
 average ICT_FB_MUOFOT precise :1.0
 
-average ICT_FB_MUOFOT f-measure :0.62
+average ICT_FB_MUOFOT f-measure :0.78
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :181.6
+average ICT_FB_MUOFOT time :73.0
 
-average ICT_FB_MUOFOT time_r :53.8
+average ICT_FB_MUOFOT time_r :19.8
 
-average ICT_FB_MUOFOT time_i :50.8
+average ICT_FB_MUOFOT time_i :24.0
 
 average ICT_FB_MUOFOT t_cover :357.0
 
 average ICT_FB_MUOFOT all_cover :357.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 20.4)  (2 : 17.2)  (3 : 14.4)  (4 : 9.0)  (5 : 4.2)  (6 : 3.4)  (7 : 2.0)  (8 : 2.2)  (9 : 2.4)  (10 : 2.2)  (11 : 1.6)  (12 : 1.4)  (13 : 1.0)  (14 : 1.2)  (15 : 0.4)  
+(1 : 21.4)  (2 : 14.8)  (3 : 13.0)  (4 : 9.0)  (5 : 5.8)  (6 : 3.8)  (7 : 1.8)  (8 : 2.4)  (9 : 2.0)  (10 : 2.6)  (11 : 1.8)  (12 : 1.4)  (13 : 0.4)  (14 : 0.2)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.4)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.6)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.4)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
 3-way for HSQLDB
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :80.6
+average ICT_FB_MUOFOT num :81.6
 
-average ICT_FB_MUOFOT num_r :44.6
+average ICT_FB_MUOFOT num_r :45.6
 
 average ICT_FB_MUOFOT num_i :36.0
 
-average ICT_FB_MUOFOT recall :0.8666666666666666
+average ICT_FB_MUOFOT recall :0.8666666666666668
 
-average ICT_FB_MUOFOT precise :0.85
+average ICT_FB_MUOFOT precise :0.8666666666666668
 
-average ICT_FB_MUOFOT f-measure :0.8514285714285714
+average ICT_FB_MUOFOT f-measure :0.8666666666666668
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :825.4
+average ICT_FB_MUOFOT time :644.8
 
-average ICT_FB_MUOFOT time_r :233.4
+average ICT_FB_MUOFOT time_r :183.6
 
-average ICT_FB_MUOFOT time_i :158.2
+average ICT_FB_MUOFOT time_i :125.8
 
-average ICT_FB_MUOFOT t_cover :2737.8
+average ICT_FB_MUOFOT t_cover :2740.4
 
 average ICT_FB_MUOFOT all_cover :2742.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 125.0)  (2 : 101.6)  (3 : 98.6)  (4 : 67.0)  (5 : 45.4)  (6 : 35.2)  (7 : 28.4)  (8 : 13.0)  (9 : 10.6)  (10 : 8.4)  (11 : 7.2)  (12 : 5.2)  (13 : 5.2)  (14 : 1.8)  (15 : 1.6)  (16 : 1.2)  (17 : 2.4)  (18 : 2.4)  (19 : 1.8)  (20 : 1.6)  (21 : 1.4)  (22 : 1.0)  (23 : 0.8)  (24 : 0.6)  (25 : 0.8)  (26 : 0.2)  
+(1 : 113.8)  (2 : 96.2)  (3 : 98.6)  (4 : 72.6)  (5 : 50.8)  (6 : 32.6)  (7 : 26.4)  (8 : 18.6)  (9 : 11.6)  (10 : 10.4)  (11 : 6.2)  (12 : 3.8)  (13 : 3.0)  (14 : 2.4)  (15 : 3.0)  (16 : 2.8)  (17 : 2.4)  (18 : 2.8)  (19 : 1.6)  (20 : 1.4)  (21 : 1.8)  (22 : 1.8)  (23 : 1.8)  (24 : 1.2)  (25 : 0.8)  (26 : 0.4)  
 average ICT_FB_MUOFOT CoverNUM
 ([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.8)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.8)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
 4-way for HSQLDB
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :153.0
+average ICT_FB_MUOFOT num :152.6
 
-average ICT_FB_MUOFOT num_r :117.4
+average ICT_FB_MUOFOT num_r :116.8
 
-average ICT_FB_MUOFOT num_i :35.6
+average ICT_FB_MUOFOT num_i :35.8
 
-average ICT_FB_MUOFOT recall :0.8666666666666666
+average ICT_FB_MUOFOT recall :0.7333333333333333
 
-average ICT_FB_MUOFOT precise :0.85
+average ICT_FB_MUOFOT precise :0.75
 
-average ICT_FB_MUOFOT f-measure :0.8514285714285714
+average ICT_FB_MUOFOT f-measure :0.7371428571428572
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :3764.0
+average ICT_FB_MUOFOT time :3762.0
 
-average ICT_FB_MUOFOT time_r :1185.8
+average ICT_FB_MUOFOT time_r :1181.6
 
-average ICT_FB_MUOFOT time_i :328.8
+average ICT_FB_MUOFOT time_i :325.2
 
-average ICT_FB_MUOFOT t_cover :14109.2
+average ICT_FB_MUOFOT t_cover :14074.6
 
 average ICT_FB_MUOFOT all_cover :14136.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 622.0)  (2 : 390.6)  (3 : 434.8)  (4 : 374.0)  (5 : 268.0)  (6 : 198.8)  (7 : 146.4)  (8 : 103.0)  (9 : 74.4)  (10 : 53.4)  (11 : 41.0)  (12 : 35.8)  (13 : 21.8)  (14 : 19.2)  (15 : 17.6)  (16 : 12.4)  (17 : 6.8)  (18 : 7.6)  (19 : 3.2)  (20 : 1.8)  (21 : 1.6)  (22 : 3.0)  (23 : 2.6)  (24 : 2.4)  (25 : 2.6)  (26 : 2.0)  (27 : 1.2)  (28 : 1.0)  (29 : 1.2)  (30 : 1.0)  (31 : 0.8)  (32 : 0.6)  (33 : 0.4)  (34 : 0.2)  (35 : 0.4)  
+(1 : 606.4)  (2 : 400.6)  (3 : 444.8)  (4 : 373.6)  (5 : 270.4)  (6 : 196.6)  (7 : 131.0)  (8 : 106.0)  (9 : 83.8)  (10 : 55.2)  (11 : 37.0)  (12 : 23.8)  (13 : 29.2)  (14 : 21.4)  (15 : 15.2)  (16 : 10.0)  (17 : 11.4)  (18 : 6.4)  (19 : 4.0)  (20 : 3.6)  (21 : 2.2)  (22 : 1.6)  (23 : 1.6)  (24 : 2.6)  (25 : 2.2)  (26 : 2.6)  (27 : 2.2)  (28 : 1.6)  (29 : 2.8)  (30 : 1.2)  (31 : 0.8)  (32 : 1.2)  (33 : 0.4)  (34 : 0.6)  (36 : 0.2)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.8)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.8)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.6)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.6)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  

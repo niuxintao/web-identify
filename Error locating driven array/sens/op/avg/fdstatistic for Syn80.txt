@@ -1,31 +1,31 @@
 2-way for Syn80
 ###############################################
 ###############################################
-average fd num :21.0
+average fd num :24.0
 
-average fd num_r :21.0
+average fd num_r :24.0
 
 average fd num_i :0.0
 
 average fd recall :1.0
 
-average fd precise :1.0
+average fd precise :0.8
 
-average fd f-measure :1.0
+average fd f-measure :0.8666666666666666
 
 average fd multi :0.0
 
-average fd time :12806.4
+average fd time :13142.2
 
-average fd time_r :12715.8
+average fd time_r :13054.2
 
-average fd time_i :1.0
+average fd time_i :0.4
 
-average fd t_cover :12640.0
+average fd t_cover :12639.6
 
 average fd all_cover :12640.0
 
 average fd CoverNUM
-(1 : 160.4)  (2 : 566.8)  (3 : 740.4)  (4 : 441.0)  (5 : 294.4)  (6 : 209.6)  (7 : 106.2)  (8 : 15.6)  (9 : 1.8)  (10 : 22.6)  
+(1 : 169.6)  (2 : 506.0)  (3 : 667.0)  (4 : 459.0)  (5 : 260.8)  (6 : 211.8)  (7 : 177.0)  (8 : 72.2)  (9 : 11.4)  (10 : 0.6)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

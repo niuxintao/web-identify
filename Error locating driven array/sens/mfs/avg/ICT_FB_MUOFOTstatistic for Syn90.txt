@@ -1,31 +1,31 @@
 2-way for Syn90
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :81.0
+average ICT_FB_MUOFOT num :246.2
 
-average ICT_FB_MUOFOT num_r :9.0
+average ICT_FB_MUOFOT num_r :36.0
 
-average ICT_FB_MUOFOT num_i :72.0
+average ICT_FB_MUOFOT num_i :213.4
 
-average ICT_FB_MUOFOT recall :0.022222222222222223
+average ICT_FB_MUOFOT recall :0.0
 
-average ICT_FB_MUOFOT precise :0.22222222222222224
+average ICT_FB_MUOFOT precise :0.0
 
-average ICT_FB_MUOFOT f-measure :0.04040404040404041
+average ICT_FB_MUOFOT f-measure :0.0
 
-average ICT_FB_MUOFOT multi :9.0
+average ICT_FB_MUOFOT multi :36.0
 
-average ICT_FB_MUOFOT time :360.0
+average ICT_FB_MUOFOT time :3091.4
 
-average ICT_FB_MUOFOT time_r :14.0
+average ICT_FB_MUOFOT time_r :358.6
 
-average ICT_FB_MUOFOT time_i :66.0
+average ICT_FB_MUOFOT time_i :0.0
 
-average ICT_FB_MUOFOT t_cover :2.0
+average ICT_FB_MUOFOT t_cover :0.0
 
 average ICT_FB_MUOFOT all_cover :405.0
 
 average ICT_FB_MUOFOT CoverNUM
 (1 : 81.8)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , - , - , - , - , - , 0 , 0 ] : 1.0)  ([ - , - , - , - , - , - , - , - , 1 , 1 ] : 1.0)  
+

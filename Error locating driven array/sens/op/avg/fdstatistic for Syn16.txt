@@ -1,31 +1,31 @@
 2-way for Syn16
 ###############################################
 ###############################################
-average fd num :13.6
+average fd num :13.0
 
-average fd num_r :13.6
+average fd num_r :13.0
 
 average fd num_i :0.0
 
 average fd recall :1.0
 
-average fd precise :1.0
+average fd precise :0.9
 
-average fd f-measure :1.0
+average fd f-measure :0.9333333333333332
 
 average fd multi :0.0
 
-average fd time :92.6
+average fd time :106.6
 
-average fd time_r :80.0
+average fd time_r :97.2
 
-average fd time_i :0.0
+average fd time_i :3.2
 
-average fd t_cover :480.0
+average fd t_cover :479.8
 
 average fd all_cover :480.0
 
 average fd CoverNUM
-(1 : 21.2)  (2 : 29.6)  (3 : 30.8)  (4 : 12.6)  (5 : 5.6)  (6 : 0.2)  
+(1 : 18.4)  (2 : 31.6)  (3 : 32.6)  (4 : 14.0)  (5 : 2.8)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

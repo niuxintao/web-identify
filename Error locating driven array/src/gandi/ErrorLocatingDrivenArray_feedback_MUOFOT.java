@@ -14,7 +14,10 @@ import com.fc.tuple.Tuple;
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
-public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrivenArray {
+public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
+		ErrorLocatingDrivenArray {
+
+	public static final int CHANGENUM = 10;
 
 	public ErrorLocatingDrivenArray_feedback_MUOFOT(DataCenter dataCenter,
 			CaseRunner caseRunner) {
@@ -27,13 +30,23 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		AETG_Constraints ac = new AETG_Constraints(dataCenter);
 
 		// coverage is equal to 0 is ending
+		int numChange = 0;
+		int lastUnCovered = 0;
+
 		while (ac.unCovered > 0) {
 			long allTime = System.currentTimeMillis();
 			long geTime = System.currentTimeMillis();
 
-			
-//			System.out.println("get next ");
-			
+			// must jump out of the loop
+			if (ac.unCovered.intValue() == lastUnCovered)
+				numChange++;
+			else {
+				numChange = 0;
+				lastUnCovered = ac.unCovered.intValue();
+			}
+
+			// System.out.println("get next ");
+
 			int[] test = ac.getNextTestCase();
 
 			geTime = System.currentTimeMillis() - geTime;
@@ -52,30 +65,40 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 
 				long ideTime = System.currentTimeMillis();
 
-//				System.out.println("get MFS ");
+				// System.out.println("get MFS ");
 				List<Tuple> mfs = getMFS(ac, testCase);
 
 				if (mfs != null) {
 					ideTime = System.currentTimeMillis() - ideTime;
 					this.timeIden += ideTime;
-//					System.out.println("add constriants");
+					// System.out.println("add constriants");
 					ac.addConstriants(mfs);
 					this.MFS.addAll(mfs);
-//					for(Tuple tuple : mfs)
-//						System.out.println("mfs ：" + tuple.toString());
+					// for(Tuple tuple : mfs)
+					// System.out.println("mfs ：" + tuple.toString());
 				} else {
-//					System.out.println("multiple");
+					// System.out.println("multiple");
 					Tuple tuple = new Tuple(testCase.getLength(), testCase);
 					for (int i = 0; i < tuple.getDegree(); i++)
 						tuple.set(i, i);
 					List<Tuple> tuples = new ArrayList<Tuple>();
 					tuples.add(tuple);
 					ac.addConstriants(tuples);
+
+					if (numChange > CHANGENUM) {
+						numChange = 0;
+						Tuple tuplet = new Tuple(1, testCase);
+						tuplet.set(0, testCase.getLength() - 1);
+						List<Tuple> tuplesr = new ArrayList<Tuple>();
+						tuplesr.add(tuplet);
+						ac.addConstriants(tuplesr);
+						this.MFS.addAll(tuplesr);
+					}
 				}
 				// setCoverage(mfs);
 			}
-			
-//			System.out.println("identify is over");
+
+			// System.out.println("identify is over");
 
 			allTime = System.currentTimeMillis() - allTime;
 			this.timeAll += allTime;
@@ -86,14 +109,15 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
 
-		FIC_Constraints sc = new FIC_Constraints(testCase, dataCenter.getParam(), caseRunner, ac);
+		FIC_Constraints sc = new FIC_Constraints(testCase,
+				dataCenter.getParam(), caseRunner, ac);
 
 		// sc.process(testCase, DataCenter.param, caseRunner);
 		sc.FicSingleMuOFOT();
 		List<Tuple> mfs = sc.getBugs();
 		List<TestCase> executed = sc.getExecuted();
-		
-		for(TestCase nextTestCase : executed){
+
+		for (TestCase nextTestCase : executed) {
 			identifyCases.add(nextTestCase);
 			overallTestCases.add(nextTestCase);
 			int[] next = new int[nextTestCase.getLength()];
@@ -107,23 +131,26 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 				nextTestCase.setTestState(TestCase.FAILED);
 		}
 
-
-		for (Tuple tuple : mfs)
+//		System.out.println("failing test Case : " + testCase.getStringOfTest());
+		for (Tuple tuple : mfs) {
+//			System.out.println("obtained MFS : " + tuple.toString());
 			if (tuple.getDegree() == 0) {
-//				System.out.println("multiple");
-					return null;
+				// System.out.println("multiple");
+				return null;
 			} else if (isMFSWrong(tuple, testCase))
 				return null;
+		}
 
 		return mfs;
 	}
-	
-//	public void anayisIterati(TestCase testCase){
-//		
-//	}
+
+	// public void anayisIterati(TestCase testCase){
+	//
+	// }
 
 	/**
 	 * to test whether the MFS is correct
+	 * 
 	 * @param MFS
 	 * @param wrongCase
 	 * @return

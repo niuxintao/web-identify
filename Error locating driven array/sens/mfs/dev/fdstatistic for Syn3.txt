@@ -1,28 +1,28 @@
-num fd deviration: 5.706137047074842
+num fd deviration: 2.33238075793812
 
-num_r fd deviration: 5.706137047074842
+num_r fd deviration: 2.33238075793812
 
 num_i fd deviration: 0.0
 
-recall fd deviration: 0.16329931618554522
+recall fd deviration: 0.36514837167011077
 
-precise fd deviration: 0.07725548273336758
+precise fd deviration: 0.1381564904873189
 
-f-measure fd deviration: 0.10336184838626242
+f-measure fd deviration: 0.1939358427705181
 
-multi fd deviration: 2.3151673805580453
+multi fd deviration: 0.8944271909999159
 
-time fd deviration: 22.93817778290159
+time fd deviration: 46.030424721047275
 
-time_r fd deviration: 17.55448660599335
+time_r fd deviration: 43.82967031589446
 
-time_i fd deviration: 5.817215828899594
+time_i fd deviration: 9.042123644365853
 
-t_cover fd deviration: 3.40587727318528
+t_cover fd deviration: 10.229369482035539
 
 all_cover fd deviration: 0.0
 
 deviration fd CoverNUM
-(1 : 8671.44)  (2 : 10522.639999999998)  (3 : 5192.4400000000005)  (4 : 740.2)  (5 : 72.60000000000001)  (6 : 68.2)  (7 : 42.08)  (8 : 18.183999999999997)  (9 : 5.864000000000001)  (10 : 2.0480000000000005)  
+(1 : 12447.239999999998)  (2 : 10879.84)  (3 : 3957.8)  (4 : 655.6)  (5 : 81.76)  (6 : 58.0)  (7 : 6.856)  (8 : 1.264)  (9 : 0.144)  
 deviration fd CoverNUM
-([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.0)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.0)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.09600000000000002)  
+([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.144)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.03199999999999999)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.03199999999999999)  

@@ -1,31 +1,31 @@
 2-way for Syn20
 ###############################################
 ###############################################
-average fd num :15.4
+average fd num :15.2
 
-average fd num_r :15.4
+average fd num_r :15.2
 
 average fd num_i :0.0
 
 average fd recall :1.0
 
-average fd precise :1.0
+average fd precise :0.9
 
-average fd f-measure :1.0
+average fd f-measure :0.9333333333333332
 
 average fd multi :0.0
 
-average fd time :168.0
+average fd time :160.4
 
-average fd time_r :161.6
+average fd time_r :150.0
 
-average fd time_i :3.2
+average fd time_i :3.4
 
-average fd t_cover :760.0
+average fd t_cover :759.8
 
 average fd all_cover :760.0
 
 average fd CoverNUM
-(1 : 27.8)  (2 : 46.8)  (3 : 41.0)  (4 : 22.2)  (5 : 12.2)  (6 : 6.6)  
+(1 : 26.8)  (2 : 46.6)  (3 : 42.0)  (4 : 22.6)  (5 : 14.2)  (6 : 4.4)  
 average fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
