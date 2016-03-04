@@ -311,7 +311,7 @@ public class SimpleExperiment {
 					coverAll.put(daen.getKey(), daen.getValue());
 				} else {
 					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey())
-							.intValue() + 1));
+							.intValue() + daen.getValue()));
 				}
 			}
 		}

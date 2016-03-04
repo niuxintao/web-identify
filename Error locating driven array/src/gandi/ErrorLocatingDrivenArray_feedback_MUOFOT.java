@@ -7,6 +7,7 @@ import locatConstaint.FIC_Constraints;
 import interaction.DataCenter;
 
 import com.fc.caseRunner.CaseRunner;
+import com.fc.caseRunner.CaseRunnerWithBugInject;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -212,5 +213,44 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		return false;
 
 	}
+	
+	public static void main(String[] args) {
+		int[] wrong = new int[] { 1, 1, 0, 1 };
+		TestCase wrongCase = new TestCaseImplement();
+		((TestCaseImplement) wrongCase).setTestCase(wrong);
+
+		int[] wrong2 = new int[] { 0, 0, 0, 0 };
+		TestCase wrongCase2 = new TestCaseImplement();
+		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
+
+		int[] param = new int[] { 3, 3, 2, 2};
+
+		DataCenter dataCenter = new DataCenter(param, 2);
+
+		Tuple bugModel1 = new Tuple(2, wrongCase);
+		bugModel1.set(0, 2);
+		bugModel1.set(1, 3);
+
+		Tuple bugModel2 = new Tuple(1, wrongCase2);
+		bugModel2.set(0, 1);
+
+		CaseRunner caseRunner = new CaseRunnerWithBugInject();
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
+
+		CT_process elda = new ErrorLocatingDrivenArray_feedback_MUOFOT(dataCenter, caseRunner);
+		elda.run();
+
+		System.out
+				.println("testCase Num: " + elda.getOverallTestCases().size());
+		for (TestCase testCase : elda.getOverallTestCases()) {
+			System.out.println(testCase.getStringOfTest());
+		}
+		System.out.println("MFS");
+		for (Tuple mfs : elda.getMFS())
+			System.out.println(mfs.toString());
+
+	}
+
 
 }
