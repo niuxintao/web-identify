@@ -1,0 +1,31 @@
+0 : PASS
+1 : java.lang.Exception: time millions is not correct!
+	at jodatest.TestDateTime.test(TestDateTime.java:97)
+	at jodatest.BenchTestJoda.test(BenchTestJoda.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at jodatest.BenchTestJoda.main(BenchTestJoda.java:47)
+
+2 : java.lang.Exception: date format is not correct !
+	at jodatest.TestDateTime.test(TestDateTime.java:93)
+	at jodatest.BenchTestJoda.test(BenchTestJoda.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at jodatest.BenchTestJoda.main(BenchTestJoda.java:47)
+
