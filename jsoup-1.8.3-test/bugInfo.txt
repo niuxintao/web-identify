@@ -1,0 +1,31 @@
+0 : PASS
+1 : java.lang.Exception: set cannot find the element as expected !
+	at jsouptest.Jstest.test(Jstest.java:145)
+	at jsouptest.BenchTestJoup.test(BenchTestJoup.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at jsouptest.BenchTestJoup.main(BenchTestJoup.java:46)
+
+2 : java.lang.Exception: div sequences is not as expected !
+	at jsouptest.Jstest.test(Jstest.java:140)
+	at jsouptest.BenchTestJoup.test(BenchTestJoup.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at jsouptest.BenchTestJoup.main(BenchTestJoup.java:46)
+
