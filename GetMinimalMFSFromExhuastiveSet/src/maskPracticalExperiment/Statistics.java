@@ -432,10 +432,10 @@ public class Statistics {
 	// }
 	// }
 
-	public static void main(String[] args) {
+	public void run(String folder) {
 		Statistics statistic = new Statistics();
-		statistic.readTestCases("./result_of_testCase.txt");
-		statistic.readBugCodeAndLowePriority("./FaultLevel.txt");
+		statistic.readTestCases("." + folder + "/result_of_testCase.txt");
+		statistic.readBugCodeAndLowePriority("." + folder + "/FaultLevel.txt");
 
 		for (int i = 0; i < statistic.getBugCode().size(); i++) {
 			int wrongCode = statistic.getBugCode().get(i);
@@ -472,12 +472,16 @@ public class Statistics {
 			e.printStackTrace();
 		}
 
-		//
-		// int wrongCode = 3;
-		// List<Integer> lowerpriority = new ArrayList<Integer>();
-		// // lowerpriority.add(2);
-		// // lowerpriority.add(3);
-		// testAndRecord(statistic, wrongCode, lowerpriority);
+	}
+
+	public static void main(String[] args) {
+		String[] folders = { "jcli-1.2", "jcli-1.3", "jlan3.3", "jlan3.4",
+				"joda-2.3", "joda-2.8", "joda-2.9", "jsoup1.8", "jsoup1.9" };
+		for (String folder : folders) {
+			Statistics statistic = new Statistics();
+			statistic.run(folder);
+		}
+
 	}
 
 	private static void testAndRecord(Statistics statistic, int wrongCode,
