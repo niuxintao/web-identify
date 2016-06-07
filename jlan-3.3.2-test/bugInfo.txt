@@ -1,0 +1,31 @@
+0 : PASS
+1 : java.lang.Exception: the mark of negative and postive is error
+	at lantest.LanTest.testCreateNumber(LanTest.java:122)
+	at lantest.LanTest.test(LanTest.java:164)
+	at lantest.BenchTestLan.test(BenchTestLan.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at lantest.BenchTestLan.main(BenchTestLan.java:46)
+
+2 : java.lang.Exception: This fails because did append(String, Object, object) did an "l == r" check but did not do an "l.equals(r)" check after determining the inputs were not arrays.
+	at lantest.LanTest.testappendError(LanTest.java:153)
+	at lantest.LanTest.test(LanTest.java:161)
+	at lantest.BenchTestLan.test(BenchTestLan.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at lantest.BenchTestLan.main(BenchTestLan.java:46)
+
