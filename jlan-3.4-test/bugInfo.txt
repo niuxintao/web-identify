@@ -1,0 +1,29 @@
+0 : PASS
+1 : java.lang.Exception: it cause a createNumber exception, which is determiend to be a number
+	at lantest.LanTest.testTrail(LanTest.java:64)
+	at lantest.LanTest.test(LanTest.java:92)
+	at lantest.BenchTestLan.test(BenchTestLan.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at lantest.BenchTestLan.main(BenchTestLan.java:44)
+
+2 : java.lang.Exception: number created has accurancy loss
+	at lantest.LanTest.testAccurancyLoss(LanTest.java:85)
+	at lantest.LanTest.test(LanTest.java:94)
+	at lantest.BenchTestLan.test(BenchTestLan.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at lantest.BenchTestLan.main(BenchTestLan.java:44)
+
