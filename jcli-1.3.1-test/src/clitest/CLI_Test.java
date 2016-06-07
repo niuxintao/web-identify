@@ -5,12 +5,42 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.Option;
+import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import output.OutputSet;
+
 @SuppressWarnings("deprecation")
 public class CLI_Test {
-	public void test(boolean DefaultPareseOrNot, boolean withoutLast) {
+
+	@SuppressWarnings("static-access")
+	public void nonsenseParamters(boolean argMutiple, boolean optionMutiple,
+			boolean getArgOrNot) {
+
+		String[] args = null;
+		if (argMutiple)
+			args = new String[] { "--a" };
+		else
+			args = new String[] { "--a", "--a" };
+
+		Options options = new Options();
+		if (optionMutiple)
+			options.addOption(OptionBuilder.withLongOpt("ab").create());
+		options.addOption(OptionBuilder.withLongOpt("a").create());
+		CommandLineParser parser = new GnuParser();
+		try {
+			CommandLine cl = parser.parse(options, args);
+			if (getArgOrNot)
+				cl.getArgList();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void test(boolean DefaultPareseOrNot, boolean withoutLast)
+			throws Exception {
 		Option TYPE1 = Option.builder("t1").hasArg().numberOfArgs(1)
 				.optionalArg(true).argName("t1_path").build();
 		Option TYPE2 = Option.builder("t2").hasArg().numberOfArgs(1)
@@ -37,10 +67,9 @@ public class CLI_Test {
 		try {
 			CommandLine cl = parser.parse(options, args);
 			if (!withoutLast)
-				if (cl.hasOption("last"))
-					System.out.println("correct");
-				else
-					System.out.println("incorrect");
+				if (!cl.hasOption("last"))
+					throw new Exception(
+							"incorrect, cannot find the option which is last");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,25 +116,43 @@ public class CLI_Test {
 		CommandLine cl = parser.parse(options, args);
 
 		if (cl.hasOption(first)) {
-			System.out.println("Confirm " + firstReal + " is set");
-		}
-		if (cl.getOptionValues(first).length == 2) {
-			System.out.println("number of arg for " + firstReal + " is 2");
+			if (cl.getOptionValues(first).length != 2) {
+				throw new Exception("number of arg for " + firstReal
+						+ " should be 2");
+			}
 		}
 
 		if (cl.hasOption(second)) {
-			System.out.println("Confirm " + secondReal + " is set");
+			if (cl.getOptionValues(second).length != 1) {
+				throw new Exception("number of arg for " + secondReal
+						+ " should be 1");
+			}
 		}
-		if (cl.getOptionValues(second).length == 1) {
-			System.out.println("number of arg for " + secondReal + " is 1");
-		}
+
+	}
+
+	public String test(int[] set) throws Exception {
+		nonsenseParamters(set[0] == 0 ? false : true, set[1] == 0 ? false
+				: true, set[2] == 0 ? false : true);
+
+		test(set[3] == 0 ? false : true, set[4] == 0 ? false : true);
+
+		testUnlimitedArgs(set[5] == 0 ? false : true, set[6] == 0 ? false
+				: true, set[7] == 0 ? false : true);
+
+		return OutputSet.PASS;
 	}
 
 	public static void main(String[] args) {
 		CLI_Test cli = new CLI_Test();
-		cli.test(false, false);
 		try {
-			cli.testUnlimitedArgs(false, false, true);
+			cli.test(true, false);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			cli.testUnlimitedArgs(false, false, false);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
