@@ -1,0 +1,30 @@
+0 : PASS
+1 : java.lang.Exception: Quoted string parsing Error
+	at clitest.CLI_Test.test(CLI_Test.java:130)
+	at clitest.BenchTestCLI.test(BenchTestCLI.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at clitest.BenchTestCLI.main(BenchTestCLI.java:45)
+
+2 : java.lang.Exception: an exception is expected, but actually not triggered
+	at clitest.CLI_Test.testMissingRequired(CLI_Test.java:64)
+	at clitest.CLI_Test.test(CLI_Test.java:125)
+	at clitest.BenchTestCLI.test(BenchTestCLI.java:18)
+	at output.BenchExecute.testBench(BenchExecute.java:57)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.testBench(BenchExecute.java:81)
+	at output.BenchExecute.bench(BenchExecute.java:34)
+	at clitest.BenchTestCLI.main(BenchTestCLI.java:45)
+

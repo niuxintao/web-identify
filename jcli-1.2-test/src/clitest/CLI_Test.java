@@ -1,21 +1,77 @@
 package clitest;
 
-import java.util.List;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
-import org.apache.commons.cli.MissingOptionException;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionBuilder;
-import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import output.OutputSet;
+
 public class CLI_Test {
 
-	public void test(boolean BasicPareseOrNot, boolean addtionalSpace,
+	@SuppressWarnings("static-access")
+	public void nonsenseParamters(boolean argMutiple, boolean optionMutiple,
+			boolean getArgOrNot) {
+
+		String[] args = null;
+		if (argMutiple)
+			args = new String[] { "--a" };
+		else
+			args = new String[] { "--a", "--a" };
+
+		Options options = new Options();
+		if (optionMutiple)
+			options.addOption(OptionBuilder.withLongOpt("ab").create());
+		options.addOption(OptionBuilder.withLongOpt("a").create());
+		CommandLineParser parser = new GnuParser();
+		try {
+			CommandLine cl = parser.parse(options, args);
+			if (getArgOrNot)
+				cl.getArgList();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void testMissingRequired(boolean isRequired, boolean supplyOrNot)
+			throws Exception {
+
+		String[] args = null;
+
+		if (supplyOrNot)
+			args = new String[] {};
+		else
+			args = new String[] { "-f" };
+
+		Options options = new Options();
+		options.addOption("f", "foo", false, "");
+
+		if (isRequired)
+			options.getOption("f").setRequired(true);
+		else
+			options.getOption("f").setRequired(false);
+
+		GnuParser parser = new GnuParser();
+		try {
+			parser.parse(options, args);
+			if (isRequired && !supplyOrNot)
+				throw new Exception(
+						"an exception is expected, but actually not triggered");
+
+		} catch (ParseException e) {
+			// expected to get MissingOptionException here
+			e.printStackTrace();
+		}
+	}
+
+	@SuppressWarnings("static-access")
+	public boolean testQuotes(boolean BasicPareseOrNot, boolean addtionalSpace,
 			boolean doubleQuotes) {
 
 		String[] args = null;
@@ -56,60 +112,35 @@ public class CLI_Test {
 			e.printStackTrace();
 		}
 		if (doubleQuotes)
-			System.out.println(cl.getOptionValue("e").contains("\"dhawani\""));
+			return cl.getOptionValue("e").contains("\"dhawani\"");
 		else
-			System.out.println(cl.getOptionValue("e").contains("\'dhawani\'"));
+			return cl.getOptionValue("e").contains("\'dhawani\'");
 
 	}
 
-	public void test2(String[] argv) {
-		Option opt_foo = OptionBuilder.hasArg(false).isRequired(true)
-				.withDescription("option foo").create("foo");
+	public String test(int[] set) throws Exception {
+		nonsenseParamters(set[0] == 0 ? false : true, set[1] == 0 ? false
+				: true, set[2] == 0 ? false : true);
 
-		Option opt_bar = OptionBuilder.hasArg(false).isRequired(false)
-				.withDescription("option bar").create("bar");
+		testMissingRequired(set[3] == 0 ? false : true, set[4] == 0 ? false
+				: true);
 
-		Option opt_baz = OptionBuilder.hasArg(false).isRequired(false)
-				.withDescription("option baz").create("baz");
-
-		OptionGroup optgrp = new OptionGroup();
-		optgrp.setRequired(true);
-		optgrp.addOption(opt_bar).addOption(opt_baz);
-
-		Options optsdef = new Options();
-		optsdef.addOption(opt_foo).addOptionGroup(optgrp);
-
-		try {
-			CommandLineParser parser = new GnuParser();
-			CommandLine cmdline = parser.parse(optsdef, argv);
+		if (testQuotes(set[5] == 0 ? false : true, set[6] == 0 ? false : true,
+				set[7] == 0 ? false : true)) {
+			throw new Exception("Quoted string parsing Error");
 		}
 
-		/**
-		 * 
-		 * this is where the exception happens
-		 * */
-		catch (MissingOptionException ex) {
-			List opts = ex.getMissingOptions();
-
-			for (Object option : opts) {
-				System.out.println("OPT: " + option.getClass().getName());
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.exit(1);
-		}
+		return OutputSet.PASS;
 	}
 
-	public static void main(String[] argv) {
+	public static void main(String[] argv) throws Exception {
 		CLI_Test ct = new CLI_Test();
-		
-		
-		
-		ct.test2(argv);
-		
-		//only (-, false, true) will print the false
-		ct.test(false, false, true);
-		
-	
+
+		ct.nonsenseParamters(true, true, true);
+
+		ct.testMissingRequired(true, false);
+		// only (-, false, true) will print the false
+		ct.testQuotes(false, false, false);
+
 	}
 }
