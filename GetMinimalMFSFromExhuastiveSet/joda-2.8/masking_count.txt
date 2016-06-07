@@ -1,0 +1,3 @@
+all : 1440
+wrong : 720
+masking : 120

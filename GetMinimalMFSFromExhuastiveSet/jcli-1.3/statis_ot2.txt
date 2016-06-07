@@ -1,0 +1,4 @@
+mutilple:
+24 / 48
+overlapped:
+24 / 24

@@ -1,0 +1,4 @@
+mutilple:
+240 / 336
+overlapped:
+240 / 240

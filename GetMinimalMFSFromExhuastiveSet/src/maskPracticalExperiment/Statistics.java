@@ -434,20 +434,20 @@ public class Statistics {
 
 	public void run(String folder) {
 		Statistics statistic = new Statistics();
-		statistic.readTestCases("." + folder + "/result_of_testCase.txt");
-		statistic.readBugCodeAndLowePriority("." + folder + "/FaultLevel.txt");
+		statistic.readTestCases("./" + folder + "/result_of_testCase.txt");
+		statistic.readBugCodeAndLowePriority("./" + folder + "/FaultLevel.txt");
 
 		for (int i = 0; i < statistic.getBugCode().size(); i++) {
 			int wrongCode = statistic.getBugCode().get(i);
 			List<Integer> lowerpriority = statistic.getLowerPriority().get(
 					wrongCode);
-			testAndRecord(statistic, wrongCode, lowerpriority);
+			testAndRecord(statistic, wrongCode, lowerpriority, folder);
 		}
 
 		int masking = statistic.countMasking();
 		int allTestCase = statistic.allCases.size();
 		int wrongCases = allTestCase - statistic.rightCases.size();
-		String file = "./masking_count" + ".txt";
+		String file = "./" + folder + "/masking_count" + ".txt";
 
 		try {
 			BufferedWriter outSta = null;
@@ -478,6 +478,7 @@ public class Statistics {
 		String[] folders = { "jcli-1.2", "jcli-1.3", "jlan3.3", "jlan3.4",
 				"joda-2.3", "joda-2.8", "joda-2.9", "jsoup1.8", "jsoup1.9" };
 		for (String folder : folders) {
+			System.out.println(folder);
 			Statistics statistic = new Statistics();
 			statistic.run(folder);
 		}
@@ -485,7 +486,7 @@ public class Statistics {
 	}
 
 	private static void testAndRecord(Statistics statistic, int wrongCode,
-			List<Integer> lowerpriority) {
+			List<Integer> lowerpriority, String folder) {
 		BufferedWriter outBug = null;
 		BufferedWriter outSta = null;
 
@@ -493,8 +494,8 @@ public class Statistics {
 		// lowerpriority.add(2);
 		statistic.readResults(wrongCode);
 
-		String fileBug = "./bug_ot" + wrongCode + ".txt";
-		String fileSta = "./statis_ot" + wrongCode + ".txt";
+		String fileBug = "./" + folder + "/bug_ot" + wrongCode + ".txt";
+		String fileSta = "./" + folder + "/statis_ot" + wrongCode + ".txt";
 
 		try {
 			outBug = new BufferedWriter(new OutputStreamWriter(

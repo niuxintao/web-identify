@@ -16,7 +16,7 @@ public class ReadInput {
 	int[] param;
 
 	List<Integer> bugCode;
-	HashMap<Integer,List<Integer>> lowerpriority;
+	HashMap<Integer, List<Integer>> lowerpriority;
 
 	public ReadInput() {
 	}
@@ -132,7 +132,7 @@ public class ReadInput {
 	}
 
 	public void readBugCodeAndLowerPriority(String path) {
-		lowerpriority = new HashMap<Integer,List<Integer>>();
+		lowerpriority = new HashMap<Integer, List<Integer>>();
 		bugCode = new ArrayList<Integer>();
 		try {
 			// Open the file that is the first
@@ -154,11 +154,13 @@ public class ReadInput {
 
 						for (int i = 0; i < tokensCase.length; i++) {
 							String num = tokensCase[i];
+							if (num.equals(""))
+								continue;
 							Integer value = Integer.parseInt(num);
 							lower.add(value);
 						}
 					}
-				
+
 					String[] tokensResult = tokensAll[0].split(" ");
 					Integer result = Integer.parseInt(tokensResult[0]);
 					this.bugCode.add(result);
