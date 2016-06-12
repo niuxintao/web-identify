@@ -1,4 +1,4 @@
 mutilple:
-112 / 192
+0 / 192
 overlapped:
-64 / 112
+0 / 0
