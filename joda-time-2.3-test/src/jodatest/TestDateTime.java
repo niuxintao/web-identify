@@ -73,7 +73,7 @@ public class TestDateTime {
 			// 10
 			// also) (case 2) error
 
-			if (plusLocation == 3)
+			if (plusLocation == 2)
 				result = DateTimeFormat.forPattern("MMyyyydd")
 						.parseDateTime("01+201301").toString();
 			// 20130-01-01T00:00:00.000+05:30 (??? At least month is fine this
