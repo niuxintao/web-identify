@@ -1,0 +1,992 @@
+
+the 0 th
+Distin testNum : 11.0 
+Ignore testNum : 9.0 
+Random testNum : 12.0 11.0 9.0 9.0 10.0 12.0 9.0 11.0 13.0 9.0 10.0 13.0 9.0 9.0 9.0 11.0 10.0 10.0 10.0 13.0 14.0 9.0 9.0 13.0 9.0 14.0 11.0 13.0 10.0 10.0 
+avg : 10.7
+t-test, p-value between random and distin: 0.34313649073392505
+t-test, p-value between random and ignore: 7.043650727140685E-6
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 2.0 1.0 0.0 0.0 0.0 1.0 0.0 1.0 1.0 0.0 1.0 1.0 0.0 0.0 0.0 1.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0 1.0 0.0 1.0 2.0 1.0 1.0 1.0 
+avg : 0.6666666666666667
+t-test, p-value between random and distin: 1.504477006197394E-6
+t-test, p-value between random and ignore: 1.504477006197394E-6
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.0 1.0 NaN NaN NaN 2.0 NaN 1.0 1.0 NaN 1.0 1.0 NaN NaN NaN 1.0 NaN 1.0 1.0 1.0 2.0 NaN NaN 1.0 NaN 2.0 1.0 1.0 1.0 1.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 0.6666666666666666 
+Random avgmetric : 0.0 0.0 0.6666666666666666 0.6666666666666666 0.0 0.0 0.6666666666666666 0.0 0.0 0.6666666666666666 0.6666666666666666 1.0 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.0 0.0 0.6666666666666666 0.6666666666666666 0.0 1.0 0.6666666666666666 0.6666666666666666 1.0 0.6666666666666666 1.0 0.6666666666666666 1.0 0.6666666666666666 0.6666666666666666 
+avg : 0.5222222222222221
+t-test, p-value between random and distin: 8.020136556219597E-8
+t-test, p-value between random and ignore: 0.0400935123749519
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 1.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 1.0 0.0 1.0 1.0 1.0 0.0 0.0 1.0 1.0 0.0 0.0 1.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 1.0 
+avg : 0.5333333333333333
+t-test, p-value between random and distin: 3.108541189104728E-6
+t-test, p-value between random and ignore: 2.2864082295381423E-5
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 1.0 1.0 0.0 0.0 1.0 1.0 0.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.30000000000000004
+t-test, p-value between random and distin: 0.001425827417902547
+t-test, p-value between random and ignore: 0.001425827417902547
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 1.0 1.0 0.0 0.0 1.0 1.0 0.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.30000000000000004
+t-test, p-value between random and distin: 0.001425827417902547
+t-test, p-value between random and ignore: 0.001425827417902547
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 0.0 
+avg : 0.16666666666666666
+t-test, p-value between random and distin: 8.329793980692499E-13
+t-test, p-value between random and ignore: 0.022608379396792482
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 NaN NaN NaN 0.0 NaN 0.0 0.0 NaN 0.0 0.0 NaN NaN NaN 0.0 NaN 15.0 0.0 0.0 0.0 NaN NaN 0.0 NaN 0.0 0.0 0.0 0.0 0.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 1 th
+Distin testNum : 5.0 
+Ignore testNum : 5.0 
+Random testNum : 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 
+avg : 6.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 2 th
+Distin testNum : 17.0 
+Ignore testNum : 5.0 
+Random testNum : 16.0 20.0 22.0 17.0 16.0 17.0 15.0 21.0 13.0 17.0 15.0 16.0 19.0 23.0 14.0 18.0 18.0 16.0 14.0 16.0 18.0 21.0 19.0 17.0 22.0 17.0 14.0 13.0 21.0 16.0 
+avg : 17.366666666666667
+t-test, p-value between random and distin: 0.47469228792660223
+t-test, p-value between random and ignore: 6.818524201704258E-21
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 4.0 4.0 5.0 6.0 3.0 5.0 4.0 5.0 3.0 4.0 4.0 3.0 4.0 5.0 3.0 4.0 5.0 3.0 4.0 4.0 4.0 5.0 6.0 6.0 6.0 4.0 2.0 3.0 5.0 3.0 
+avg : 4.2
+t-test, p-value between random and distin: 1.9417171218526918E-19
+t-test, p-value between random and ignore: 1.9417171218526918E-19
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.5 2.5 2.4 1.1666666666666667 2.0 1.4 1.25 2.2 1.0 1.75 1.25 2.0 2.25 2.6 1.3333333333333333 2.0 1.6 2.0 1.0 1.5 2.0 2.2 1.5 1.1666666666666667 2.0 1.75 2.0 1.0 2.2 2.0 
+avg : 1.7505555555555556
+t-test, p-value between random and distin: 1.0281923964927708E-18
+t-test, p-value between random and ignore: 1.0281923964927708E-18
+Distin avgmetric : 0.75 
+Ignore avgmetric : 0.3333333333333333 
+Random avgmetric : 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 
+avg : 0.6666666666666666
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin avgparent : 1.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 0.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 3 th
+Distin testNum : 6.0 
+Ignore testNum : 6.0 
+Random testNum : 9.0 9.0 12.0 9.0 10.0 9.0 10.0 15.0 12.0 9.0 11.0 9.0 10.0 9.0 14.0 10.0 8.0 10.0 8.0 10.0 10.0 11.0 7.0 10.0 9.0 10.0 7.0 10.0 11.0 9.0 
+avg : 9.9
+t-test, p-value between random and distin: 4.4547866612260424E-13
+t-test, p-value between random and ignore: 4.4547866612260424E-13
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 2.0 2.0 4.0 1.0 3.0 2.0 3.0 5.0 4.0 2.0 3.0 2.0 3.0 2.0 3.0 3.0 1.0 3.0 1.0 2.0 3.0 4.0 0.0 3.0 2.0 3.0 0.0 3.0 4.0 2.0 
+avg : 2.5
+t-test, p-value between random and distin: 1.5627409232821244E-12
+t-test, p-value between random and ignore: 1.5627409232821244E-12
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.0 1.0 1.25 2.0 1.0 1.0 1.0 1.6 1.25 1.0 1.3333333333333333 1.0 1.0 1.0 2.3333333333333335 1.0 1.0 1.0 1.0 1.5 1.0 1.0 NaN 1.0 1.0 1.0 NaN 1.0 1.0 1.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 NaN 0.0 0.0 0.0 NaN 0.0 0.0 0.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 4 th
+Distin testNum : 5.0 
+Ignore testNum : 5.0 
+Random testNum : 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 
+avg : 7.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 5 th
+Distin testNum : 9.0 
+Ignore testNum : 5.0 
+Random testNum : 18.0 16.0 22.0 18.0 19.0 11.0 18.0 17.0 22.0 19.0 18.0 20.0 25.0 16.0 19.0 21.0 18.0 20.0 19.0 19.0 14.0 20.0 20.0 16.0 19.0 20.0 22.0 18.0 13.0 24.0 
+avg : 18.7
+t-test, p-value between random and distin: 3.384707487528308E-17
+t-test, p-value between random and ignore: 2.7505493878690654E-21
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 5.0 4.0 5.0 5.0 6.0 1.0 4.0 5.0 7.0 3.0 4.0 4.0 6.0 2.0 3.0 4.0 5.0 4.0 5.0 4.0 4.0 3.0 4.0 5.0 6.0 5.0 6.0 4.0 3.0 5.0 
+avg : 4.366666666666666
+t-test, p-value between random and distin: 8.798853234102251E-18
+t-test, p-value between random and ignore: 8.798853234102251E-18
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.6 1.5 2.4 1.6 1.5 1.0 2.0 1.4 1.7142857142857142 3.0 2.0 2.5 2.5 3.0 3.0 2.75 1.6 2.5 1.8 2.25 1.0 3.3333333333333335 2.5 1.2 1.5 2.0 2.0 2.0 1.0 2.8 
+avg : 2.0315873015873014
+t-test, p-value between random and distin: 1.4182926372052568E-16
+t-test, p-value between random and ignore: 1.4182926372052568E-16
+Distin avgmetric : 1.0 
+Ignore avgmetric : 0.5 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 6 th
+Distin testNum : 5.0 
+Ignore testNum : 12.0 
+Random testNum : 26.0 21.0 19.0 24.0 24.0 28.0 22.0 24.0 25.0 20.0 23.0 29.0 23.0 22.0 30.0 26.0 22.0 23.0 25.0 31.0 31.0 20.0 20.0 20.0 22.0 27.0 28.0 25.0 25.0 23.0 
+avg : 24.266666666666666
+t-test, p-value between random and distin: 6.167696282247165E-24
+t-test, p-value between random and ignore: 1.682526820025224E-18
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 5.0 2.0 2.0 3.0 3.0 6.0 5.0 4.0 4.0 3.0 4.0 4.0 4.0 5.0 7.0 5.0 4.0 4.0 5.0 7.0 8.0 3.0 3.0 3.0 4.0 5.0 6.0 5.0 3.0 4.0 
+avg : 4.333333333333333
+t-test, p-value between random and distin: 3.2382553650142766E-16
+t-test, p-value between random and ignore: 3.2382553650142766E-16
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 3.8 6.5 7.5 5.333333333333333 6.666666666666667 3.3333333333333335 3.6 4.25 5.25 5.333333333333333 4.75 5.0 4.75 3.6 3.2857142857142856 4.0 4.5 4.75 3.4 3.142857142857143 2.75 5.333333333333333 5.333333333333333 5.333333333333333 4.5 3.8 3.5 3.6 5.333333333333333 4.75 
+avg : 4.565952380952381
+t-test, p-value between random and distin: 8.399846363396158E-20
+t-test, p-value between random and ignore: 8.399846363396158E-20
+Distin avgmetric : 0.5 
+Ignore avgmetric : 0.25 
+Random avgmetric : 0.0 0.0 0.5 0.0 0.5 0.0 0.5 0.0 0.5 0.5 0.5 0.0 0.5 0.5 0.0 0.0 0.5 0.5 0.0 0.0 0.0 0.5 0.5 0.5 0.5 0.0 0.0 0.0 0.0 0.5 
+avg : 0.25
+t-test, p-value between random and distin: 8.699475448390477E-6
+t-test, p-value between random and ignore: 1.0
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 1.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 1.0 1.0 0.0 1.0 1.0 0.0 0.0 1.0 1.0 0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 1.0 
+avg : 0.5
+t-test, p-value between random and distin: 8.699475448390477E-6
+t-test, p-value between random and ignore: 8.699475448390477E-6
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 1.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 1.0 0.0 0.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0 
+avg : 0.5
+t-test, p-value between random and distin: 8.699475448390477E-6
+t-test, p-value between random and ignore: 8.699475448390477E-6
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 1.0 
+Random avgirrelevant : 1.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 1.0 0.0 0.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0 
+avg : 0.5
+t-test, p-value between random and distin: 8.699475448390477E-6
+t-test, p-value between random and ignore: 8.699475448390477E-6
+Distin avgaccuate : 0.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 5.333333333333333 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.17777777777777778
+t-test, p-value between random and distin: 0.32558198801619376
+t-test, p-value between random and ignore: 0.32558198801619376
+
+the 7 th
+Distin testNum : 11.0 
+Ignore testNum : 5.0 
+Random testNum : 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 12.0 
+avg : 12.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 
+avg : 5.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin avgmetric : 0.5 
+Ignore avgmetric : 0.5 
+Random avgmetric : 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 
+avg : 0.5
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 1.0 
+Ignore avgparent : 0.0 
+Random avgparent : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 0.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 8 th
+Distin testNum : 5.0 
+Ignore testNum : 5.0 
+Random testNum : 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 
+avg : 6.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 9 th
+Distin testNum : 8.0 
+Ignore testNum : 8.0 
+Random testNum : 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 9.0 
+avg : 9.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 10 th
+Distin testNum : 8.0 
+Ignore testNum : 8.0 
+Random testNum : 10.0 11.0 13.0 9.0 9.0 10.0 10.0 10.0 11.0 10.0 9.0 10.0 10.0 10.0 11.0 11.0 10.0 9.0 9.0 10.0 10.0 10.0 10.0 11.0 10.0 10.0 9.0 9.0 12.0 10.0 
+avg : 10.1
+t-test, p-value between random and distin: 3.5904486671977615E-13
+t-test, p-value between random and ignore: 3.5904486671977615E-13
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 1.0 2.0 2.0 0.0 0.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 1.0 1.0 1.0 2.0 1.0 0.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 0.0 1.0 1.0 
+avg : 0.8666666666666667
+t-test, p-value between random and distin: 3.695153217886437E-9
+t-test, p-value between random and ignore: 3.695153217886437E-9
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.0 1.0 2.0 NaN NaN 1.0 1.0 1.0 2.0 1.0 NaN 1.0 1.0 1.0 2.0 1.0 1.0 NaN NaN 1.0 1.0 1.0 1.0 2.0 1.0 1.0 NaN NaN 3.0 1.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 NaN NaN 0.0 0.0 0.0 0.0 0.0 NaN 0.0 0.0 0.0 0.0 0.0 0.0 NaN NaN 0.0 0.0 0.0 0.0 0.0 0.0 0.0 NaN NaN 0.0 0.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 11 th
+Distin testNum : 7.0 
+Ignore testNum : 7.0 
+Random testNum : 8.0 8.0 8.0 8.0 8.0 9.0 9.0 9.0 9.0 9.0 8.0 9.0 8.0 8.0 10.0 10.0 10.0 10.0 8.0 8.0 9.0 10.0 8.0 10.0 10.0 8.0 9.0 8.0 8.0 8.0 
+avg : 8.733333333333333
+t-test, p-value between random and distin: 2.6904916953677938E-12
+t-test, p-value between random and ignore: 2.6904916953677938E-12
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 0.0 0.0 0.0 0.0 0.0 1.0 1.0 1.0 1.0 1.0 0.0 1.0 0.0 0.0 2.0 2.0 1.0 1.0 0.0 0.0 1.0 1.0 0.0 1.0 1.0 0.0 1.0 0.0 0.0 0.0 
+avg : 0.5666666666666667
+t-test, p-value between random and distin: 2.853982644985659E-5
+t-test, p-value between random and ignore: 2.853982644985659E-5
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : NaN NaN NaN NaN NaN 1.0 1.0 1.0 1.0 1.0 NaN 1.0 NaN NaN 1.0 1.0 2.0 2.0 NaN NaN 1.0 2.0 NaN 2.0 2.0 NaN 1.0 NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 1.0 
+Ignore avgmetric : 1.0 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : NaN NaN NaN NaN NaN 0.0 0.0 0.0 0.0 0.0 NaN 0.0 NaN NaN 0.0 0.0 0.0 0.0 NaN NaN 0.0 0.0 NaN 0.0 0.0 NaN 0.0 NaN NaN NaN 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 12 th
+Distin testNum : 9.0 
+Ignore testNum : 5.0 
+Random testNum : 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 16.0 
+avg : 16.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 
+avg : 2.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 
+avg : 4.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin avgmetric : 0.6666666666666666 
+Ignore avgmetric : 0.5 
+Random avgmetric : 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 0.6666666666666666 
+avg : 0.6666666666666666
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgparent : 1.0 
+Ignore avgparent : 0.0 
+Random avgparent : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 0.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 13 th
+Distin testNum : 5.0 
+Ignore testNum : 9.0 
+Random testNum : 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 6.0 
+avg : 6.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin avgmetric : 1.0 
+Ignore avgmetric : 0.5 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 0.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 1.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 1.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 14 th
+Distin testNum : 14.0 
+Ignore testNum : 5.0 
+Random testNum : 12.0 11.0 13.0 12.0 11.0 12.0 12.0 12.0 13.0 11.0 12.0 12.0 11.0 12.0 11.0 11.0 10.0 10.0 11.0 12.0 10.0 11.0 12.0 12.0 13.0 11.0 12.0 11.0 10.0 11.0 
+avg : 11.466666666666667
+t-test, p-value between random and distin: 5.104930121616641E-16
+t-test, p-value between random and ignore: 2.7937967667492703E-27
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 2.0 1.0 3.0 2.0 1.0 2.0 2.0 2.0 3.0 1.0 2.0 2.0 1.0 2.0 1.0 1.0 0.0 0.0 1.0 2.0 0.0 1.0 2.0 2.0 3.0 1.0 2.0 1.0 0.0 1.0 
+avg : 1.4666666666666666
+t-test, p-value between random and distin: 3.0560826399998715E-10
+t-test, p-value between random and ignore: 3.0560826399998715E-10
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 NaN NaN 1.0 1.0 NaN 1.0 1.0 1.0 1.0 1.0 1.0 1.0 NaN 1.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgmetric : 0.4 
+Ignore avgmetric : 0.5 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin avgparent : 1.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 0.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 NaN NaN 0.0 0.0 NaN 0.0 0.0 0.0 0.0 0.0 0.0 0.0 NaN 0.0 
+avg : NaN
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+
+the 15 th
+Distin testNum : 5.0 
+Ignore testNum : 3.0 
+Random testNum : 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 14.0 
+avg : 14.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin trial test cases for each replacement : 0.0 
+Ignore trial test cases for each replacement : 0.0 
+Random trial test cases for each replacement : 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 2.0 
+avg : 2.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin needing replacement number : 0.0 
+Ignore needing replacement number : 0.0 
+Random needing replacement number : 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 
+avg : 5.0
+t-test, p-value between random and distin: 0.0
+t-test, p-value between random and ignore: 0.0
+Distin avgmetric : 1.0 
+Ignore avgmetric : 0.5 
+Random avgmetric : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgparent : 0.0 
+Ignore avgparent : 0.0 
+Random avgparent : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgchild : 0.0 
+Ignore avgchild : 1.0 
+Random avgchild : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin avgignore : 0.0 
+Ignore avgignore : 0.0 
+Random avgignore : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgirrelevant : 0.0 
+Ignore avgirrelevant : 0.0 
+Random avgirrelevant : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN
+Distin avgaccuate : 1.0 
+Ignore avgaccuate : 0.0 
+Random avgaccuate : 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+avg : 1.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: 0.0
+Distin time millions : 0.0 
+Ignore time millions : 0.0 
+Random time millions : 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+avg : 0.0
+t-test, p-value between random and distin: NaN
+t-test, p-value between random and ignore: NaN

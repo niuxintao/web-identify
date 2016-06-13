@@ -75,10 +75,10 @@ public class UnitSimulateMiddleVariable extends UnitSimulate {
 		this.tuples.get(MASK_FIC_OLD).addAll(ficmasknew.getBugs());
 		
 ////		System.out.pritnt();
-		for(Tuple tu: ficmasknew.getBugs()){
-			System.out.print(tu.toString() + " ");
-		}
-		System.out.println();
+//		for(Tuple tu: ficmasknew.getBugs()){
+//			System.out.print(tu.toString() + " ");
+//		}
+//		System.out.println();
 
 		EvaluateTuples eva = new EvaluateTuples();
 		List<Tuple> compareBugs = this.getBugsFromAWrongTestCase(wrongCase,

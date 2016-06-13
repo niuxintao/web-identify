@@ -140,7 +140,7 @@ public class TestTupleSuspicious {
 //			 System.out.println();
 			int runresult = runner.runTestCase(testCase);
 
-			 System.out.println(testCase.getStringOfTest() + " : "+ runresult);
+//			 System.out.println(testCase.getStringOfTest() + " : "+ runresult);
 
 			if (!this.executedHash.containsKey(runresult)) {
 				List<TestCase> values = new ArrayList<TestCase>();

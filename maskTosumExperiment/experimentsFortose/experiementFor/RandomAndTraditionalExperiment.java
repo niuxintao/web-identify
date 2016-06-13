@@ -1,4 +1,4 @@
-package maskSimulateExperiment;
+package experiementFor;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,12 +9,20 @@ import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
 import org.apache.commons.math3.stat.inference.TTest;
 
+import maskSimulateExperiment.BasicRunner;
+import maskSimulateExperiment.DataRecord;
+import maskSimulateExperiment.DistinguishRunner;
+import maskSimulateExperiment.ExperiementData;
+import maskSimulateExperiment.ExpriSetUp;
+import maskSimulateExperiment.IgnoreRunner;
+import maskSimulateExperiment.UnitSimulate;
+import maskSimulateExperiment.UnitSimulateMiddleVariable;
 import maskTool.EvaluateTuples;
 
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
-public class RandomAndILPExperiment {
+public class RandomAndTraditionalExperiment {
 	private ExpriSetUp setup;
 
 	public static final int avgmetric = 0;
@@ -45,13 +53,19 @@ public class RandomAndILPExperiment {
 
 	private double[][] data;
 
-	public RandomAndILPExperiment() {
+	public RandomAndTraditionalExperiment() {
 		setup = new ExpriSetUp();
-		data = new double[2][16];
+		data = new double[3][16];
 	}
 
 	public void test(int index, int algorithm) {
-		int di = (algorithm == UnitSimulate.MASK_FIC ? 0 : 1);
+		int di = 0;
+		if (algorithm == UnitSimulate.MASK_FIC_OLD)
+			di = 0;
+		else if (algorithm == UnitSimulate.DISTIN_FIC)
+			di = 1;
+		else if (algorithm == UnitSimulate.IGNORE_FIC)
+			di = 2;
 		// System.out.println("the " + index + "th");
 		DataRecord record = setup.getRecords().get(index);
 		setup.set(record.param, record.wrongs, record.bugs, record.faults,
@@ -84,7 +98,7 @@ public class RandomAndILPExperiment {
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
-			if(code != 2)
+			if (code != 2)
 				continue;
 			List<TestCase> wrongCases = exData.getWrongCases().get(code);
 			for (TestCase testCase : wrongCases) {
@@ -92,17 +106,20 @@ public class RandomAndILPExperiment {
 				// testCase.getStringOfTest());
 				// System.out.println("distinguish");
 				// System.out.println("mask");
-				if (di == 0)
-					unit.testSovler(setup.getParam(), testCase, basicRunner,
-							code);
-				else
+				if (algorithm == UnitSimulate.MASK_FIC_OLD)
 					unit.testAugment(setup.getParam(), testCase, basicRunner,
 							code);
+				else if (algorithm == UnitSimulate.DISTIN_FIC)
+					unit.testTraditional(setup.getParam(), testCase,
+							new DistinguishRunner(basicRunner, code), code);
+				else if (algorithm == UnitSimulate.IGNORE_FIC)
+					unit.testTraditional(setup.getParam(), testCase,
+							new IgnoreRunner(basicRunner), code);
 				// break;
 				allNum++;
-				 break;
+				break;
 			}
-			 break;
+			break;
 
 		}
 
@@ -120,31 +137,32 @@ public class RandomAndILPExperiment {
 
 		}
 		// System.out.println("replace time");
-		for (int i : new int[] { algorithm }) {
-			// System.out.println(i);
+		if (unit.getReplacingTimes().get(algorithm) != null)
+			for (int i : new int[] { algorithm }) {
+				// System.out.println(i);
 
-			// for (TestCase testCase : this.additionalTestCases.get(i))
-			if (allNum > 0) {
-				data[di][replace] = unit.getReplacingTimes().get(i).size()
-						/ (double) allNum;
+				// for (TestCase testCase : this.additionalTestCases.get(i))
+				if (allNum > 0) {
+					data[di][replace] = unit.getReplacingTimes().get(i).size()
+							/ (double) allNum;
 
-				double avRpel = 0;
-				for (Integer it : unit.getReplacingTimes().get(i)) {
-					avRpel += it.intValue();
+					double avRpel = 0;
+					for (Integer it : unit.getReplacingTimes().get(i)) {
+						avRpel += it.intValue();
+					}
+					avRpel /= (double) (unit.getReplacingTimes().get(i).size());
+					data[di][replaceTime] = avRpel;
+
+					double avRpel2 = 0;
+					for (Long it : unit.getTimeMillions().get(i)) {
+						avRpel2 += it.longValue();
+					}
+					avRpel2 /= (double) (unit.getTimeMillions().get(i).size());
+					data[di][millions] = avRpel2;
+
 				}
-				avRpel /= (double) (unit.getReplacingTimes().get(i).size());
-				data[di][replaceTime] = avRpel;
-
-				double avRpel2 = 0;
-				for (Long it : unit.getTimeMillions().get(i)) {
-					avRpel2 += it.longValue();
-				}
-				avRpel2 /= (double) (unit.getTimeMillions().get(i).size());
-				data[di][millions] = avRpel2;
 
 			}
-
-		}
 
 		// System.out.println("evaluates -- avg");
 		for (int i : new int[] { algorithm }) {
@@ -229,16 +247,20 @@ public class RandomAndILPExperiment {
 	}
 
 	// p value 小于0.05 就拒绝 相等， 意味着 差异显著
-	public static void showresult(int metric, RandomAndILPExperiment ex,
-			double[][] datas) {
+	public static void showresult(int metric,
+			RandomAndTraditionalExperiment ex, double[][] datas) {
 
 		TTest ttest = new TTest();
 		Mean mean = new Mean();
 
 		RealMatrix matrix = new Array2DRowRealMatrix(datas);
 
-		System.out.print("ILP " + stringofmetric[metric] + " : ");
-		System.out.println(ex.data[0][metric] + " ");
+		System.out.print("Distin " + stringofmetric[metric] + " : ");
+		System.out.println(ex.data[1][metric] + " ");
+		
+		System.out.print("Ignore " + stringofmetric[metric] + " : ");
+		System.out.println(ex.data[2][metric] + " ");
+		
 
 		System.out.print("Random " + stringofmetric[metric] + " : ");
 		for (int j = 0; j < 30; j++) {
@@ -247,8 +269,10 @@ public class RandomAndILPExperiment {
 
 		System.out.println();
 		System.out.println("avg : " + mean.evaluate(matrix.getColumn(metric)));
-		System.out.println("t-test, p-value : "
-				+ ttest.tTest(ex.data[0][metric], matrix.getColumn(metric)));
+		System.out.println("t-test, p-value between random and distin: "
+				+ ttest.tTest(ex.data[1][metric], matrix.getColumn(metric)));
+		System.out.println("t-test, p-value between random and ignore: "
+				+ ttest.tTest(ex.data[2][metric], matrix.getColumn(metric)));
 
 	}
 
@@ -257,21 +281,18 @@ public class RandomAndILPExperiment {
 			System.out.println();
 			System.out.println("the " + i + " th");
 
-			RandomAndILPExperiment ex = new RandomAndILPExperiment();
-			ex.test(i, 6);
+			RandomAndTraditionalExperiment ex = new RandomAndTraditionalExperiment();
+			ex.test(i, UnitSimulate.DISTIN_FIC);
+			ex.test(i, UnitSimulate.IGNORE_FIC);
 
 			double[][] datas = new double[30][stringofmetric.length];
-			for (int j = 0; j < 1; j++) {
+			for (int j = 0; j < 30; j++) {
 				// RandomAndILPExperiment ex2 = new RandomAndILPExperiment();
-				ex.test(i, 9);
-				for (int k = 0; k < ex.data[1].length; k++)
-					datas[j][k] = ex.data[1][k];
+				ex.test(i, UnitSimulate.MASK_FIC_OLD);
+				for (int k = 0; k < ex.data[0].length; k++)
+					datas[j][k] = ex.data[0][k];
 				// System.out.println("-----------------------------------------");
 			}
-
-
-
-
 
 			showresult(testNum, ex, datas);
 			showresult(replace, ex, datas);
@@ -287,8 +308,8 @@ public class RandomAndILPExperiment {
 	}
 
 	public static void main(String[] args) {
-		RandomAndILPExperiment ex1 = new RandomAndILPExperiment();
-		
-		ex1.conductTest(0, ex1.setup.getRecords().size());
+		RandomAndTraditionalExperiment ex = new RandomAndTraditionalExperiment();
+
+		ex.conductTest(0, ex.setup.getRecords().size());
 	}
 }

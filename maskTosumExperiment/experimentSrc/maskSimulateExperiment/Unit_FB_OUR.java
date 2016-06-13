@@ -16,7 +16,7 @@ import com.fc.tuple.Tuple;
 import maskAlogrithms.CTA;
 import maskTool.CoveringArrayGenFeedBack;
 import maskTool.EvaluateTuples;
-import newMaskAlgorithms.FIC_MASK_SOVLER;
+import newMaskAlgorithms.FIC_MASK_NEWLY;
 
 public class Unit_FB_OUR {
 	// first generate a covering array, Using the feedback the first time!
@@ -149,8 +149,8 @@ public class Unit_FB_OUR {
 					additionalFIC.add(wrongCase);
 					continue;
 				}
-				FIC_MASK_SOVLER ficmasknew = new FIC_MASK_SOVLER(wrongCase,
-						param, runner, code);
+				FIC_MASK_NEWLY ficmasknew = new FIC_MASK_NEWLY(wrongCase, param,
+						runner, code);
 				ficmasknew.FicNOP();
 
 				this.additionalFIC.addAll(ficmasknew.getExecuted());

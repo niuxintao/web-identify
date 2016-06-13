@@ -169,7 +169,7 @@ public class TraditionalExperiment {
 
 	public static void main(String[] args) {
 		TraditionalExperiment ex = new TraditionalExperiment();
-		ex.conductTest(4, 15);
+		ex.conductTest(0, ex.setup.getRecords().size());
 		// ex.test(1);
 		// ex.test(2);
 		// // ex.test(3);
