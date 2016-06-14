@@ -47,9 +47,9 @@ public class RandomAndTraditionalExperiment {
 
 	public static final String[] stringofmetric = { "avgmetric", "avgaccuate",
 			"avgparent", "avgchild", "avgignore", "avgirrelevant", "metric",
-			"accuate", "parent", "child", "ignore", "irrelevant", "testNum",
-			"time millions", "needing replacement number",
-			"trial test cases for each replacement" };
+			"accuate", "parent", "child", "ignore", "irrelevant", "test Num",
+			"time millions", "replace_hap",
+			"replace_numb" };
 
 	private double[][] data;
 
@@ -247,7 +247,7 @@ public class RandomAndTraditionalExperiment {
 	}
 
 	// p value 小于0.05 就拒绝 相等， 意味着 差异显著
-	public static void showresult(int metric,
+	public static void storeResult(DATA result_temp, int metric,
 			RandomAndTraditionalExperiment ex, double[][] datas) {
 
 		TTest ttest = new TTest();
@@ -255,28 +255,29 @@ public class RandomAndTraditionalExperiment {
 
 		RealMatrix matrix = new Array2DRowRealMatrix(datas);
 
-		System.out.print("Distin " + stringofmetric[metric] + " : ");
-		System.out.println(ex.data[1][metric] + " ");
-		
-		System.out.print("Ignore " + stringofmetric[metric] + " : ");
-		System.out.println(ex.data[2][metric] + " ");
-		
+		double[] result = result_temp.getValues(metric);
 
-		System.out.print("Random " + stringofmetric[metric] + " : ");
-		for (int j = 0; j < 30; j++) {
-			System.out.print(datas[j][metric] + " ");
-		}
+		// System.out.print("Distin " + stringofmetric[metric] + " : ");
+		result[1] = ex.data[1][metric];
 
-		System.out.println();
-		System.out.println("avg : " + mean.evaluate(matrix.getColumn(metric)));
-		System.out.println("t-test, p-value between random and distin: "
-				+ ttest.tTest(ex.data[1][metric], matrix.getColumn(metric)));
-		System.out.println("t-test, p-value between random and ignore: "
-				+ ttest.tTest(ex.data[2][metric], matrix.getColumn(metric)));
+		// System.out.print("Ignore " + stringofmetric[metric] + " : ");
+		result[2] = ex.data[2][metric];
+
+		// System.out.print("Random " + stringofmetric[metric] + " : ");
+		// for (int j = 0; j < 30; j++) {
+		// System.out.print(datas[j][metric] + " ");
+		// }
+
+		result[0] = mean.evaluate(matrix.getColumn(metric));
+		// System.out.println();
+		// System.out.println("avg : " + );
+		result[3] = ttest.tTest(ex.data[1][metric], matrix.getColumn(metric));
+		result[4] = ttest.tTest(ex.data[2][metric], matrix.getColumn(metric));
 
 	}
 
 	public void conductTest(int start, int end) {
+		DATA[] results = new DATA[end - start];
 		for (int i = start; i < end; i++) {
 			System.out.println();
 			System.out.println("the " + i + " th");
@@ -294,22 +295,139 @@ public class RandomAndTraditionalExperiment {
 				// System.out.println("-----------------------------------------");
 			}
 
-			showresult(testNum, ex, datas);
-			showresult(replace, ex, datas);
-			showresult(replaceTime, ex, datas);
-			showresult(avgmetric, ex, datas);
-			showresult(avgparent, ex, datas);
-			showresult(avgchild, ex, datas);
-			showresult(avgignore, ex, datas);
-			showresult(avgirrlevant, ex, datas);
-			showresult(avgaccuate, ex, datas);
-			showresult(millions, ex, datas);
+			DATA result_temp = new DATA();
+
+			storeResult(result_temp, testNum, ex, datas);
+			storeResult(result_temp, replace, ex, datas);
+			storeResult(result_temp, replaceTime, ex, datas);
+			storeResult(result_temp, avgmetric, ex, datas);
+			storeResult(result_temp, avgparent, ex, datas);
+			storeResult(result_temp, avgchild, ex, datas);
+			storeResult(result_temp, avgignore, ex, datas);
+			storeResult(result_temp, avgirrlevant, ex, datas);
+			storeResult(result_temp, avgaccuate, ex, datas);
+			storeResult(result_temp, millions, ex, datas);
+
+			results[i - start] = result_temp;
+		}
+
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+		int[] metricss = { avgmetric, avgaccuate, avgparent, avgchild,
+				avgignore, avgirrlevant, testNum, replace, replaceTime};
+		System.out.print("[");
+		for (int met : metricss) {
+			show(results, met);
+		}
+		System.out.println("]");
+		
+		
+		showPaper1(results,metricss);
+		
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		
+		
+		showPaper2(results,metricss);
+	}
+
+	public void show(DATA[] result, int metric) {
+		System.out.print("[");
+		for (int i = 0; i < 3; i++) {
+			System.out.print("[");
+			for (DATA d : result) {
+				double[] metr = d.getValues(metric);
+				System.out.print(metr[i] + ", ");
+			}
+			System.out.print("], ");
+		}
+		System.out.println("],");
+	}
+
+	public void showPaper1(DATA[] result, int[] metrics) {
+		for (int metric : metrics)
+			System.out.print(stringofmetric[metric] + "\t");
+		System.out.println();
+
+		for (DATA d : result) {
+			for (int metric : metrics) {
+				for (int i = 1; i < 3; i++) {
+					double[] metr = d.getValues(metric);
+					System.out.print(metr[i] + ", ");
+				}
+				System.out.print("\t");
+			}
+			System.out.println();
+		}
+	}
+
+	public void showPaper2(DATA[] result, int[] metrics) {
+		for (int metric : metrics)
+			System.out.print(stringofmetric[metric] + "\t");
+		System.out.println();
+
+		for (DATA d : result) {
+			for (int metric : metrics) {
+				for (int i : new int[] { 0, 3, 4 }) {
+					double[] metr = d.getValues(metric);
+					System.out.print(metr[i] + ", ");
+				}
+				System.out.print("\t");
+			}
+			System.out.println();
 		}
 	}
 
 	public static void main(String[] args) {
+
 		RandomAndTraditionalExperiment ex = new RandomAndTraditionalExperiment();
 
 		ex.conductTest(0, ex.setup.getRecords().size());
 	}
+}
+
+/**
+ * 
+ * 0 for random 1 for distin 2 for ignore 3 for p-value between random and
+ * distin 4 for p-value between random and ignore
+ * 
+ * 
+ * @author xintao
+ *
+ */
+class DATA {
+	double[][] DA = new double[10][5];
+
+	public double[] getValues(int index) {
+		if (index == RandomAndTraditionalExperiment.testNum)
+			return DA[0];
+		else if (index == RandomAndTraditionalExperiment.replace)
+			return DA[1];
+		else if (index == RandomAndTraditionalExperiment.replaceTime)
+			return DA[2];
+		else if (index == RandomAndTraditionalExperiment.avgaccuate)
+			return DA[3];
+		else if (index == RandomAndTraditionalExperiment.avgchild)
+			return DA[4];
+		else if (index == RandomAndTraditionalExperiment.avgparent)
+			return DA[5];
+		else if (index == RandomAndTraditionalExperiment.avgignore)
+			return DA[6];
+		else if (index == RandomAndTraditionalExperiment.avgirrlevant)
+			return DA[7];
+		else if (index == RandomAndTraditionalExperiment.avgmetric)
+			return DA[8];
+		else
+			return DA[9];
+
+	}
+	// double[] testNum;
+	// double[] replace;
+	// double[] replaceTime;
+	// double[] avgparent;
+	// double[] avgchild;
+	// double[] avgignore;
+	// double[] avgirrlevant;
+	// double[] avgaccuate;
+	// double[] avgmetric;
+	// double[] millions;
 }
