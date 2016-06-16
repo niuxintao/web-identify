@@ -3,12 +3,12 @@ package forpaperexperiment;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.math3.stat.inference.OneWayAnova;
+//import org.apache.commons.math3.stat.inference.OneWayAnova;
 import org.apache.commons.math3.stat.inference.TTest;
 
 public class GetSamePvalue {
 	public static void main(String[] str){
-		OneWayAnova anova = new OneWayAnova();
+//		OneWayAnova anova = new OneWayAnova();
 		TTest ttest = new TTest();
 		double[] a = {1, 1 ,1 ,1 ,1 ,1, 1};
 		double b = 0;

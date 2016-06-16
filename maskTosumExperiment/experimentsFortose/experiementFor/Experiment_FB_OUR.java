@@ -6,7 +6,6 @@ import java.util.List;
 import maskSimulateExperiment.BasicRunner;
 import maskSimulateExperiment.DataRecord;
 import maskSimulateExperiment.ExpriSetUp;
-import maskSimulateExperiment.UnitSimulate;
 import maskSimulateExperiment.Unit_FB_OUR;
 
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
@@ -14,7 +13,7 @@ import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
 //import org.apache.commons.math3.stat.inference.TTest;
 
-import org.apache.commons.math3.stat.inference.OneWayAnova;
+//import org.apache.commons.math3.stat.inference.OneWayAnova;
 import org.apache.commons.math3.stat.inference.TTest;
 
 import com.fc.tuple.Tuple;
@@ -53,10 +52,9 @@ public class Experiment_FB_OUR {
 			"fd-cit ignore", "fd-cit irrelevant", "fd-cit test num",
 			"ilp metric", "ilp accurate", "ilp parent", "ilp child",
 			"ilp ignore", "ilp irrelevant", "ilp test num",
-			"additional fd-cit metric", "additional fd-cit accurate",
-			"additional fd-cit parent", "additional fd-cit child",
-			"additional fd-cit ignore", "additional fd-cit irrelevant",
-			"additional fd-cit test num" };
+			"add fd-cit metric", "add fd-cit accurate", "add fd-cit parent",
+			"add fd-cit child", "add fd-cit ignore", "add fd-cit irrelevant",
+			"add fd-cit test num" };
 
 	private double[] data;
 
@@ -174,101 +172,47 @@ public class Experiment_FB_OUR {
 //
 //	}
 
-	public void conductTest(int start, int end, int degree) {
-		for (int i = start; i < end; i++) {
-			System.out.println();
-			System.out.println("the " + i + " th");
-
-			double[][] datas = new double[30][stringofmetric.length];
-			for (int j = 0; j < 30; j++) {
-				Experiment_FB_OUR ex = new Experiment_FB_OUR();
-				ex.test(i, degree);
-				for (int k = 0; k < stringofmetric.length; k++)
-					datas[j][k] = ex.data[k];
-			}
-
-			for (int k = 0; k < 7; k++)
-				showresult(k, datas);
-
-		}
-	}
-
+	/**
+	 * DATA 1 for random 2 for fda 3 for p-value
+	 * 
+	 * @param result_temp
+	 * @param metric
+	 * @param ex
+	 * @param datas
+	 */
 	public static void storeResult(DATA result_temp, int metric,
-			RandomAndTraditionalExperiment ex, double[][] datas) {
-		
+			double[][] datas) {
+
 		Mean mean = new Mean();
-		OneWayAnova anova = new OneWayAnova();
+		// OneWayAnova anova = new OneWayAnova();
 		TTest ttest = new TTest();
 
 		List<double[]> evaluate = new ArrayList<double[]>();
 
 		RealMatrix matrix = new Array2DRowRealMatrix(datas);
 
-		System.out.print(stringofmetric[metric] + " : ");
-		for (int j = 0; j < 30; j++) {
-			System.out.print(datas[j][metric] + " ");
-		}
-		System.out.println();
-		System.out.println("avg : " + mean.evaluate(matrix.getColumn(metric)));
 		evaluate.add(matrix.getColumn(metric));
 
-		System.out.print(stringofmetric[metric + 7] + " : ");
-		for (int j = 0; j < 30; j++) {
-			System.out.print(datas[j][metric + 7] + " ");
-		}
-		System.out.println();
-		System.out.println("avg : "
-				+ mean.evaluate(matrix.getColumn(metric + 7)));
 		evaluate.add(matrix.getColumn(metric + 7));
-
-		System.out.print(stringofmetric[metric + 14] + " : ");
-		for (int j = 0; j < 30; j++) {
-			System.out.print(datas[j][metric + 14] + " ");
-		}
-		System.out.println();
-		System.out.println("avg : "
-				+ mean.evaluate(matrix.getColumn(metric + 14)));
 
 		if (metric != tmfb)
 			evaluate.add(matrix.getColumn(metric + 14));
 
-		System.out.println("anova , p-value : " + anova.anovaPValue(evaluate));
+		double[] result = result_temp.getValues2(metric);
 
-		System.out.println("fb to  ilp  t-test, p-value : "
-				+ ttest.tTest(matrix.getColumn(metric),
-						matrix.getColumn(metric + 7)));
+		// System.out.print("FDA " + stringofmetric[metric] + " : ");
+		result[1] = mean.evaluate(matrix.getColumn(metric));
 
-		System.out.println("afb to  ilp  t-test, p-value : "
-				+ ttest.tTest(matrix.getColumn(metric + 14),
-						matrix.getColumn(metric + 7)));
+		result[0] = mean.evaluate(matrix.getColumn(metric + 7));
 
-		System.out.println("fb to  afb  t-test, p-value : "
-				+ ttest.tTest(matrix.getColumn(metric),
-						matrix.getColumn(metric + 14)));
+		// System.out.print("ADD FDA " + stringofmetric[metric] + " : ");
+		// result[2] = mean.evaluate(matrix.getColumn(metric + 14));
 
-		TTest ttest = new TTest();
-		Mean mean = new Mean();
-
-		RealMatrix matrix = new Array2DRowRealMatrix(datas);
-
-		double[] result = result_temp.getValues(metric);
-
-		// System.out.print("Distin " + stringofmetric[metric] + " : ");
-		result[1] = ex.data[1][metric];
-
-		// System.out.print("Ignore " + stringofmetric[metric] + " : ");
-		result[2] = ex.data[2][metric];
-
-		// System.out.print("Random " + stringofmetric[metric] + " : ");
-		// for (int j = 0; j < 30; j++) {
-		// System.out.print(datas[j][metric] + " ");
-		// }
-
-		result[0] = mean.evaluate(matrix.getColumn(metric));
-		// System.out.println();
 		// System.out.println("avg : " + );
-		result[3] = ttest.tTest(ex.data[1][metric], matrix.getColumn(metric));
-		result[4] = ttest.tTest(ex.data[2][metric], matrix.getColumn(metric));
+		result[2] = ttest.tTest(matrix.getColumn(metric),
+				matrix.getColumn(metric + 7));
+		// result[4] = ttest.tTest(matrix.getColumn(metric + 14),
+		// matrix.getColumn(metric + 7));
 
 	}
 
@@ -286,74 +230,45 @@ public class Experiment_FB_OUR {
 					datas[j][k] = ex.data[k];
 			}
 
-			// RandomAndTraditionalExperiment ex = new
-			// RandomAndTraditionalExperiment();
-			// ex.test(i, UnitSimulate.DISTIN_FIC);
-			// ex.test(i, UnitSimulate.IGNORE_FIC);
-			//
-			// double[][] datas = new double[30][stringofmetric.length];
-			// for (int j = 0; j < 30; j++) {
-			// // RandomAndILPExperiment ex2 = new RandomAndILPExperiment();
-			// ex.test(i, UnitSimulate.MASK_FIC_OLD);
-			// for (int k = 0; k < ex.data[0].length; k++)
-			// datas[j][k] = ex.data[0][k];
-			// //
-			// System.out.println("-----------------------------------------");
-			// }
-
 			DATA result_temp = new DATA();
 
-			storeResult(result_temp, RandomAndTraditionalExperiment.testNum,
-					ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.replace,
-					ex, datas);
-			storeResult(result_temp,
-					RandomAndTraditionalExperiment.replaceTime, ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.avgmetric,
-					ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.avgparent,
-					ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.avgchild,
-					ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.avgignore,
-					ex, datas);
-			storeResult(result_temp,
-					RandomAndTraditionalExperiment.avgirrlevant, ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.avgaccuate,
-					ex, datas);
-			storeResult(result_temp, RandomAndTraditionalExperiment.millions,
-					ex, datas);
+			for (int met = 0; met < 7; met++) {
+
+				storeResult(result_temp, met, datas);
+			}
 
 			results[i - start] = result_temp;
 		}
 
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
-		int[] metricss = { RandomAndTraditionalExperiment.avgmetric,
-				RandomAndTraditionalExperiment.avgaccuate,
-				RandomAndTraditionalExperiment.avgparent,
-				RandomAndTraditionalExperiment.avgchild,
-				RandomAndTraditionalExperiment.avgignore,
-				RandomAndTraditionalExperiment.avgirrlevant,
-				RandomAndTraditionalExperiment.testNum,
-				RandomAndTraditionalExperiment.replace,
-				RandomAndTraditionalExperiment.replaceTime };
+		int[] metricss = { 0, 1, 2, 3, 4, 5, 6 };
 		System.out.print("[");
 		for (int met : metricss) {
 			show(results, met);
 		}
 		System.out.println("]");
-
+		
+		
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$ Average, for, print");
+		
+		showAverage(results, metricss);
+		
+		
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$ show For paper");
 		showPaper1(results, metricss);
 
 	}
 
+	// i= 0 our
+	// i= 2 fda-cit
+	// i = 3 p-value
 	public void show(DATA[] result, int metric) {
 		System.out.print("[");
 		for (int i = 0; i < 3; i++) {
 			System.out.print("[");
 			for (DATA d : result) {
-				double[] metr = d.getValues(metric);
+				double[] metr = d.getValues2(metric);
 				System.out.print(metr[i] + ", ");
 			}
 			System.out.print("], ");
@@ -361,6 +276,28 @@ public class Experiment_FB_OUR {
 		System.out.println("],");
 	}
 
+	public void showAverage(DATA[] result, int[] metrics) {
+		System.out.print("[");
+		for (int metric : metrics) {
+			System.out.print("[");
+			for (int i = 0; i < 3; i++) {
+				Mean mean = new Mean();
+				double[] temp_re = new double[result.length];
+				for (int j = 0; j < temp_re.length; j++) {
+					double[] metr = result[j].getValues2(metric);
+					temp_re[j] = metr[i];
+				}
+				System.out.print(mean.evaluate(temp_re) + ", ");
+			}
+			System.out.println("],");
+		}
+		System.out.println("]");
+	}
+	
+
+	//0 random 
+	//1 fda-cit
+	//2 p-value
 	public void showPaper1(DATA[] result, int[] metrics) {
 		for (int metric : metrics)
 			System.out.print(stringofmetric[metric] + "\t");
@@ -368,8 +305,8 @@ public class Experiment_FB_OUR {
 
 		for (DATA d : result) {
 			for (int metric : metrics) {
-				for (int i = 1; i < 3; i++) {
-					double[] metr = d.getValues(metric);
+				for (int i = 0; i < 3; i++) {
+					double[] metr = d.getValues2(metric);
 					System.out.print(metr[i] + ", ");
 				}
 				System.out.print("\t");
@@ -380,19 +317,20 @@ public class Experiment_FB_OUR {
 
 	public static void main(String[] args) {
 		int degree = 2;
+		Experiment_FB_OUR ex = new Experiment_FB_OUR();
+		ex.conductTest(0, 16, degree);
 
-		for (int i = 0; i < 16; i++) {
-			System.out.println();
-			System.out.println("the " + i + " th");
-			double[][] datas = new double[30][];
-			for (int j = 0; j < 30; j++) {
-				Experiment_FB_OUR ex = new Experiment_FB_OUR();
-				ex.test(i, degree);
-				datas[j] = ex.data;
-			}
-			for (int k = 0; k < 7; k++)
-				showresult(k, datas);
-
-		}
+//		for (int i = 0; i < 16; i++) {
+//			System.out.println();
+//			System.out.println("the " + i + " th");
+//			double[][] datas = new double[30][];
+//			for (int j = 0; j < 30; j++) {
+//				Experiment_FB_OUR ex = new Experiment_FB_OUR();
+//				ex.test(i, degree);
+//				datas[j] = ex.data;
+//			}
+//			for (int k = 0; k < 7; k++)
+//				showresult(k, datas);
+//		}
 	}
 }

@@ -48,8 +48,7 @@ public class RandomAndTraditionalExperiment {
 	public static final String[] stringofmetric = { "avgmetric", "avgaccuate",
 			"avgparent", "avgchild", "avgignore", "avgirrelevant", "metric",
 			"accuate", "parent", "child", "ignore", "irrelevant", "test Num",
-			"time millions", "replace_hap",
-			"replace_numb" };
+			"time millions", "replace_hap", "replace_numb" };
 
 	private double[][] data;
 
@@ -314,20 +313,18 @@ public class RandomAndTraditionalExperiment {
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
 		int[] metricss = { avgmetric, avgaccuate, avgparent, avgchild,
-				avgignore, avgirrlevant, testNum, replace, replaceTime};
+				avgignore, avgirrlevant, testNum, replace, replaceTime };
 		System.out.print("[");
 		for (int met : metricss) {
 			show(results, met);
 		}
 		System.out.println("]");
-		
-		
-		showPaper1(results,metricss);
-		
+
+		showPaper1(results, metricss);
+
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		
-		
-		showPaper2(results,metricss);
+
+		showPaper2(results, metricss);
 	}
 
 	public void show(DATA[] result, int metric) {
@@ -420,14 +417,10 @@ class DATA {
 			return DA[9];
 
 	}
-	// double[] testNum;
-	// double[] replace;
-	// double[] replaceTime;
-	// double[] avgparent;
-	// double[] avgchild;
-	// double[] avgignore;
-	// double[] avgirrlevant;
-	// double[] avgaccuate;
-	// double[] avgmetric;
-	// double[] millions;
+
+
+	public double[] getValues2(int metric) {
+		// TODO Auto-generated method stub
+		return DA[metric];
+	}
 }
