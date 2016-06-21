@@ -84,8 +84,8 @@ public class RandomAndILPExperiment {
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
-			if(code != 2)
-				continue;
+//			if(code != 2)
+//				continue;
 			List<TestCase> wrongCases = exData.getWrongCases().get(code);
 			for (TestCase testCase : wrongCases) {
 				// System.out.println("testCase: " +
@@ -100,9 +100,9 @@ public class RandomAndILPExperiment {
 							code);
 				// break;
 				allNum++;
-				 break;
+//				 break;
 			}
-			 break;
+//			 break;
 
 		}
 

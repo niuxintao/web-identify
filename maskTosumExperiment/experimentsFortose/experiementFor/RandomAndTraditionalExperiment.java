@@ -65,7 +65,7 @@ public class RandomAndTraditionalExperiment {
 			di = 1;
 		else if (algorithm == UnitSimulate.IGNORE_FIC)
 			di = 2;
-		// System.out.println("the " + index + "th");
+		System.out.println("the " + index + "th");
 		DataRecord record = setup.getRecords().get(index);
 		setup.set(record.param, record.wrongs, record.bugs, record.faults,
 				record.priority);
@@ -97,12 +97,10 @@ public class RandomAndTraditionalExperiment {
 
 		int allNum = 0;
 		for (Integer code : exData.getWrongCases().keySet()) {
-			if (code != 2)
-				continue;
 			List<TestCase> wrongCases = exData.getWrongCases().get(code);
 			for (TestCase testCase : wrongCases) {
-				// System.out.println("testCase: " +
-				// testCase.getStringOfTest());
+//				 System.out.println("testCase: " +
+//				 testCase.getStringOfTest() + "error code : " + code );
 				// System.out.println("distinguish");
 				// System.out.println("mask");
 				if (algorithm == UnitSimulate.MASK_FIC_OLD)
@@ -116,9 +114,9 @@ public class RandomAndTraditionalExperiment {
 							new IgnoreRunner(basicRunner), code);
 				// break;
 				allNum++;
-				break;
+//				break;
 			}
-			break;
+//			break;
 
 		}
 
@@ -278,8 +276,8 @@ public class RandomAndTraditionalExperiment {
 	public void conductTest(int start, int end) {
 		DATA[] results = new DATA[end - start];
 		for (int i = start; i < end; i++) {
-			System.out.println();
-			System.out.println("the " + i + " th");
+			// System.out.println();
+			// System.out.println("the " + i + " th");
 
 			RandomAndTraditionalExperiment ex = new RandomAndTraditionalExperiment();
 			ex.test(i, UnitSimulate.DISTIN_FIC);
@@ -316,6 +314,8 @@ public class RandomAndTraditionalExperiment {
 				avgignore, avgirrlevant, testNum, replace, replaceTime };
 		System.out.print("[");
 		for (int met : metricss) {
+			if (met == replace)
+				break;
 			show(results, met);
 		}
 		System.out.println("]");
@@ -417,7 +417,6 @@ class DATA {
 			return DA[9];
 
 	}
-
 
 	public double[] getValues2(int metric) {
 		// TODO Auto-generated method stub

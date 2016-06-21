@@ -316,7 +316,7 @@ public class Experiment_FB_OUR {
 	}
 
 	public static void main(String[] args) {
-		int degree = 2;
+		int degree = 4;
 		Experiment_FB_OUR ex = new Experiment_FB_OUR();
 		ex.conductTest(0, 16, degree);
 
