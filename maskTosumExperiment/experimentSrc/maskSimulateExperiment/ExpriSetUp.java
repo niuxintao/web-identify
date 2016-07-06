@@ -31,6 +31,7 @@ public class ExpriSetUp {
 		int[][] bugs = new int[][] { { 5, 6, 7 }, { 5, 8, 9 }, { 5, 8, 9 },
 				{ 5, 8, 9 }, { 5, 8, 9 } };
 		int[] faults = new int[] { 1, 2, 2, 3, 3 };
+		// prioirty : non bigger than 1,  1 masked 2, 1 masked 3.
 		int[][] priority = new int[][] { {}, { 1 }, { 1 } };
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
