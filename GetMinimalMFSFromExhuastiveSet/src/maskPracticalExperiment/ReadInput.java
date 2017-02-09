@@ -170,8 +170,12 @@ public class ReadInput {
 			// Close the input stream
 			in.close();
 		} catch (Exception e) {// Catch exception if any
-			e.printStackTrace();
-			System.err.println("Error: " + e.getMessage());
+			//e.printStackTrace();
+//			System.err.println("Error: " + e.getMessage());
+			Integer result = Integer.parseInt("1");
+			List<Integer> lower = new ArrayList<Integer>();
+			this.bugCode.add(result);
+			this.lowerpriority.put(result, lower);
 		}
 	}
 

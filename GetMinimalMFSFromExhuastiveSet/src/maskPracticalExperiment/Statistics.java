@@ -103,14 +103,14 @@ public class Statistics {
 	}
 
 	public void readBugCodeAndLowePriority(String levelPath) {
-		in.readBugCodeAndLowerPriority(levelPath);
-		this.BugCode = in.getBugCode();
-		this.lowerPriority = in.getLowerPriority();
+			in.readBugCodeAndLowerPriority(levelPath);
+			this.BugCode = in.getBugCode();
+			this.lowerPriority = in.getLowerPriority();
 
-		for (Integer wrongCode : BugCode) {
-			List<Tuple> bugs = new ArrayList<Tuple>();
-			bugsTable.put(wrongCode, bugs);
-		}
+			for (Integer wrongCode : BugCode) {
+				List<Tuple> bugs = new ArrayList<Tuple>();
+				bugsTable.put(wrongCode, bugs);
+			}
 	}
 
 	public void readResults(int wrongCode) {
@@ -475,8 +475,7 @@ public class Statistics {
 	}
 
 	public static void main(String[] args) {
-		String[] folders = { "jcli-1.2", "jcli-1.3", "jlan3.3", "jlan3.4",
-				"joda-2.3", "joda-2.8", "joda-2.9", "jsoup1.8", "jsoup1.9" };
+		String[] folders = args;
 		for (String folder : folders) {
 			System.out.println(folder);
 			Statistics statistic = new Statistics();
