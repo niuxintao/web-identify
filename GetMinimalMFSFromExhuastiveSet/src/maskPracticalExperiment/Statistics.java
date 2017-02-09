@@ -103,14 +103,14 @@ public class Statistics {
 	}
 
 	public void readBugCodeAndLowePriority(String levelPath) {
-			in.readBugCodeAndLowerPriority(levelPath);
-			this.BugCode = in.getBugCode();
-			this.lowerPriority = in.getLowerPriority();
+		in.readBugCodeAndLowerPriority(levelPath);
+		this.BugCode = in.getBugCode();
+		this.lowerPriority = in.getLowerPriority();
 
-			for (Integer wrongCode : BugCode) {
-				List<Tuple> bugs = new ArrayList<Tuple>();
-				bugsTable.put(wrongCode, bugs);
-			}
+		for (Integer wrongCode : BugCode) {
+			List<Tuple> bugs = new ArrayList<Tuple>();
+			bugsTable.put(wrongCode, bugs);
+		}
 	}
 
 	public void readResults(int wrongCode) {
@@ -165,18 +165,20 @@ public class Statistics {
 			Integer res = result.get(i);
 			if (res != 0) {
 				// find the lower bug tuples to see if it masking any one
-				List<Integer> lower = this.lowerPriority.get(res);
-				for (Integer bugCode : lower) {
-					List<Tuple> modes = this.bugsTable.get(bugCode);
-					boolean find = false;
-					for (Tuple mode : modes) {
-						if (testCase.containsOf(mode)) {
-							find = true;
-							break;
+				if (this.lowerPriority.containsKey(res)) {
+					List<Integer> lower = this.lowerPriority.get(res);
+					for (Integer bugCode : lower) {
+						List<Tuple> modes = this.bugsTable.get(bugCode);
+						boolean find = false;
+						for (Tuple mode : modes) {
+							if (testCase.containsOf(mode)) {
+								find = true;
+								break;
+							}
 						}
+						if (find == true)
+							masking++;
 					}
-					if (find == true)
-						masking++;
 				}
 			}
 		}
