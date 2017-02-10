@@ -13,6 +13,7 @@ public class ReadInput {
 	List<TestCase> testCases;
 	List<Integer> result;
 	List<Tuple> bugs;
+	List<HashMap<String, Integer>> paramterToString;
 	int[] param;
 
 	List<Integer> bugCode;
@@ -39,6 +40,10 @@ public class ReadInput {
 
 	public List<Integer> getBugCode() {
 		return this.bugCode;
+	}
+
+	public List<HashMap<String, Integer>> getParamterToString() {
+		return this.paramterToString;
 	}
 
 	public HashMap<Integer, List<Integer>> getLowerPriority() {
@@ -90,6 +95,8 @@ public class ReadInput {
 	public void readTestCases(String path) {
 		testCases = new ArrayList<TestCase>();
 		result = new ArrayList<Integer>();
+		paramterToString = new ArrayList<HashMap<String, Integer>>();
+		boolean start = true;
 		try {
 			// Open the file that is the first
 			// command line parameter
@@ -103,14 +110,40 @@ public class ReadInput {
 			while ((strLine = br.readLine()) != null) {
 				// Print the content on the console
 				if (strLine.length() > 0) {
+
 					String[] tokensAll = strLine.split(":");
 					// test case
 					String[] tokensCase = tokensAll[0].split(" ");
+
+					if (start == true) {
+						// the first paramter value
+						for (int i = 0; i < tokensCase.length; i++) {
+							HashMap<String, Integer> factor = new HashMap<String, Integer>();
+							factor.put(tokensCase[i], 0);
+							paramterToString.add(factor);
+						}
+						start = false;
+					}
 					TestCase testCase = new TestCaseImplement(tokensCase.length);
 					for (int i = 0; i < tokensCase.length; i++) {
 						String num = tokensCase[i];
-						Integer value = Integer.parseInt(num);
-						testCase.set(i, value);
+						if (paramterToString.get(i).containsKey(num)) {
+							Integer value = paramterToString.get(i).get(num);
+							// Integer.parseInt(num);
+							testCase.set(i, value);
+						} else {
+							// HashMap<String, Integer> factor = new
+							// HashMap<String, Integer>();
+							int max = -1;
+							for (Integer v : paramterToString.get(i).values()) {
+								if (max < v)
+									max = v;
+							}
+							max += 1;
+							paramterToString.get(i).put(tokensCase[i], max);
+							testCase.set(i, max);
+							// paramterToString.add(factor);
+						}
 					}
 					this.testCases.add(testCase);
 					last = ((TestCaseImplement) testCase).getTestCase();
@@ -170,8 +203,8 @@ public class ReadInput {
 			// Close the input stream
 			in.close();
 		} catch (Exception e) {// Catch exception if any
-			//e.printStackTrace();
-//			System.err.println("Error: " + e.getMessage());
+			// e.printStackTrace();
+			// System.err.println("Error: " + e.getMessage());
 			Integer result = Integer.parseInt("1");
 			List<Integer> lower = new ArrayList<Integer>();
 			this.bugCode.add(result);

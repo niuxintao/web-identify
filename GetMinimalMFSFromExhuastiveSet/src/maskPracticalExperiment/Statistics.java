@@ -198,7 +198,7 @@ public class Statistics {
 
 		for (TestCase testCase : this.wrongCases) {
 
-			System.out.println("one test case");
+			System.out.println("one test case £º " + testCase.getStringOfTest());
 
 			List<Tuple> tuples = cp.analysis(testCase);
 
@@ -239,6 +239,8 @@ public class Statistics {
 	}
 
 	public String toStringTuple(Tuple tuple) {
+		List<HashMap<String, Integer>> paramterToString = in
+				.getParamterToString();
 		int len = tuple.getCaseLen();
 		int[] data = new int[len];
 		for (int i = 0; i < len; i++) {
@@ -252,8 +254,15 @@ public class Statistics {
 		for (int i = 0; i < len; i++) {
 			if (data[i] == -1)
 				rs += "-";
-			else
-				rs += data[i];
+			else {
+				for(String key : paramterToString.get(i).keySet()){
+					if(paramterToString.get(i).get(key).intValue() == data[i]){
+						rs += key;
+						break;
+					}
+				}
+//				rs += data[i];
+			}
 			if (i != len - 1)
 				rs += " ";
 		}
