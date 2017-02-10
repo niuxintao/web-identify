@@ -8,7 +8,8 @@ import com.fc.tuple.Tuple;
 public class GetTheStrongGuannteedCodeOfSchema {
 
 	// weak - all the biggest child weak
-	public int[] sgc(Tuple tuple, int[] param, int[][] CoveredLinesOfTestCase) {
+	public int[] sgc(Tuple tuple, int[] param,
+			List<List<Integer>> CoveredLinesOfTestCase) {
 		GetTheWeakGuannteedCodeOfSchema gwgc = new GetTheWeakGuannteedCodeOfSchema();
 		int[] wgc = gwgc.wgc(tuple, param, CoveredLinesOfTestCase);
 		List<Tuple> childs = tuple
@@ -22,10 +23,16 @@ public class GetTheStrongGuannteedCodeOfSchema {
 		return wgc;
 	}
 
+	public HashSet<Integer> getHSfint(int[] r) {
+		HashSet<Integer> a = new HashSet<Integer>();
+		for (int i : r)
+			a.add(i);
+		return a;
+	}
+
 	public int[] remove(int[] wgc, int[] wgcc) {
-		GetTheWeakGuannteedCodeOfSchema gwcs = new GetTheWeakGuannteedCodeOfSchema();
-		HashSet<Integer> wgch = gwcs.getHSfint(wgc);
-		HashSet<Integer> wgcch = gwcs.getHSfint(wgcc);
+		HashSet<Integer> wgch = getHSfint(wgc);
+		HashSet<Integer> wgcch = getHSfint(wgcc);
 		wgch.removeAll(wgcch);
 		int[] result = new int[wgch.size()];
 		int k = 0;

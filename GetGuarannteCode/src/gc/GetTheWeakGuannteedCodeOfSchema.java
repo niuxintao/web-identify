@@ -8,7 +8,7 @@ import com.fc.tuple.Tuple;
 
 public class GetTheWeakGuannteedCodeOfSchema {
 
-	public int[] wgc(Tuple tuple, int[] param, int[][] CoveredLinesOfTestCase) {
+	public int[] wgc(Tuple tuple, int[] param, List<List<Integer>> CoveredLinesOfTestCase) {
 		GetAllTheTestCasesContainTheSchema gtcs = new GetAllTheTestCasesContainTheSchema();
 		List<TestCase> r = gtcs
 				.getAllTheTestCasesContainTheSchema(tuple, param);
@@ -21,18 +21,18 @@ public class GetTheWeakGuannteedCodeOfSchema {
 
 	}
 
-	public HashSet<Integer> getHSfint(int[] r) {
+	public HashSet<Integer> getHSfint(List<Integer> r) {
 		HashSet<Integer> a = new HashSet<Integer>();
 		for (int i : r)
 			a.add(i);
 		return a;
 	}
 
-	public int[] getInterSect(int[] index, int[][] CoveredLinesOfTestCase) {
+	public int[] getInterSect(int[] index, List<List<Integer>> CoveredLinesOfTestCase) {
 		int i = 0;
-		HashSet<Integer> cur = getHSfint(CoveredLinesOfTestCase[index[i]]);
+		HashSet<Integer> cur = getHSfint(CoveredLinesOfTestCase.get(index[i]));
 		for (int j = i + 1; j < index.length; j++) {
-			HashSet<Integer> curN = getHSfint(CoveredLinesOfTestCase[index[j]]);
+			HashSet<Integer> curN = getHSfint(CoveredLinesOfTestCase.get(index[j]));
 			cur.retainAll(curN);
 			if (cur.size() == 0)
 				break;
