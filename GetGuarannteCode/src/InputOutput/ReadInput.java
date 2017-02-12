@@ -23,6 +23,16 @@ public class ReadInput {
 
 	List<List<Integer>> coveredLines;
 
+	List<String> bugsString;
+
+	public List<String> getBugsString() {
+		return this.bugsString;
+	}
+
+	List<Integer> realFautyLines;
+	String socType;
+	String faultyType;
+
 	public ReadInput() {
 	}
 
@@ -40,6 +50,7 @@ public class ReadInput {
 
 	public void readBugs(String path) {
 		bugs = new ArrayList<Tuple>();
+		bugsString = new ArrayList<String>();
 		try {
 			// Open the file that is the first
 			// command line parameter
@@ -52,6 +63,7 @@ public class ReadInput {
 			while ((strLine = br.readLine()) != null) {
 				// Print the content on the console
 				if (strLine.length() > 0) {
+					bugsString.add(strLine);
 					String[] tokens = strLine.split(" ");
 					TestCase testCase = new TestCaseImplement(tokens.length);
 					int[] tu = new int[tokens.length];
@@ -79,6 +91,52 @@ public class ReadInput {
 		} catch (Exception e) {// Catch exception if any
 			System.err.println("Error: " + e.getMessage());
 		}
+	}
+
+	public void readFaulty(String path, int version) {
+		this.realFautyLines = new ArrayList<Integer>();
+		try {
+			FileInputStream fstream = new FileInputStream(path);
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String strLine;
+			int v = 0;
+			while ((strLine = br.readLine()) != null) {
+				if (strLine.length() > 0) {
+					v++;
+					if (v == version) {
+						String[] tokens = strLine.split("\t");
+						this.socType = tokens[2];
+						this.faultyType = tokens[3];
+						String[] lines = tokens[1].split(",");
+						for (int i = 0; i < lines.length; i++) {
+							String num = lines[i];
+							if (num != "") {
+								Integer va = Integer.parseInt(num);
+								realFautyLines.add(va);
+							}
+						}
+						break;
+					}
+				}
+			}
+			// Close the input stream
+			in.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
+
+	public List<Integer> getRealFautyLines() {
+		return realFautyLines;
+	}
+
+	public String getSocType() {
+		return socType;
+	}
+
+	public String getFaultyType() {
+		return faultyType;
 	}
 
 	public void readParam(String path) {
@@ -174,7 +232,7 @@ public class ReadInput {
 					coveredLines.add(oneline);
 				}
 			}
-			System.out.println(coveredLines.size());
+			// System.out.println(coveredLines.size());
 
 			// Close the input stream
 			in.close();
