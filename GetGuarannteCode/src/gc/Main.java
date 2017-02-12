@@ -81,8 +81,8 @@ public class Main {
 			for (int j : obtain) {
 				if (i.intValue() == j) {
 					isIn = true;
+					break;
 				}
-				break;
 			}
 			if (isIn)
 				common++;
@@ -112,8 +112,9 @@ public class Main {
 
 			outSta.write("tuple\tdegree\tsoftw\twg\tsg");
 			outSta.newLine();
-			for (Tuple tuple : in.getBugs()) {
-				outSta.write(tuple.toString() + "\t");
+			for (int j = 0; j < in.getBugs().size(); j++) {
+				Tuple tuple = in.getBugs().get(j);
+				outSta.write(in.getBugsString().get(j) + "\t");
 				outSta.write(tuple.getDegree() + "\t");
 				int[] wg = gwg.wgc(tuple, in.getParam(), in.getCoveredLines());
 				for (int i : wg)
@@ -139,9 +140,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		Main m = new Main();
-		// m.print("v1", "v1" + "/result_of_testCase.txt", "v1" +
-		// "/bug_ot1.txt",
-		// "v1" + "/spectra.txt", "v1/faulty.txt");
+//		 m.print("v1", "v1" + "/result_of_testCase.txt", "v1" +
+//		 "/bug_ot1.txt",
+//		 "v1" + "/spectra.txt", "v1/faulty.txt", 1);
 
 		if (args.length >= 2) {
 			Integer v = Integer.parseInt(args[2]);

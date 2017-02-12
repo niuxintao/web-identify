@@ -19,18 +19,20 @@ public class GetTheIndexOfTestCases {
 
 	public int getIndexofTestCase(TestCase testCase, int[] param) {
 		int[] multi = this.getMulti(param);
-		int result = 1;
+		int result = 0;
 		for (int i = 0; i < param.length; i++) {
 			int cur = testCase.getAt(i);
 			result += cur * multi[i];
+//			System.out.print(cur + "*" + multi[i] + "=" + cur * multi[i] +" , ");
 		}
+//		System.out.println();
 		return result;
 	}
 	
 	public static void main(String[] args){
 		int[] param = { 3, 2, 5};
 		TestCase testCase = new TestCaseImplement(
-				new int[] { 0, 1, 1});
+				new int[] { 1, 1, 1});
 		GetTheIndexOfTestCases a = new GetTheIndexOfTestCases();
 		System.out.println(a.getIndexofTestCase(testCase, param));
 	}
