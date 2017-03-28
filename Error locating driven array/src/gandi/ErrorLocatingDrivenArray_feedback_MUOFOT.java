@@ -74,7 +74,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 					ac.addConstriants(mfs);
 					this.MFS.addAll(mfs);
 					// for(Tuple tuple : mfs)
-					// System.out.println("mfs ：" + tuple.toString());
+					// System.out.println("mfs is: " + tuple.toString());
 				} else {
 					// System.out.println("multiple");
 					Tuple tuple = new Tuple(testCase.getLength(), testCase);

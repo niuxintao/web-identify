@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fc.testObject.TestCase;
+import com.fc.testObject.TestCaseImplement;
 
 /**
  * 
@@ -356,6 +357,50 @@ public class Tuple {
 			size++;
 		}
 		Tuple result = new Tuple(size, A.testCase);
+		System.arraycopy(temp, 0, result.paramIndex, 0, size);
+
+		return result;
+	}
+	
+	
+	public Tuple catComm2(Tuple A, Tuple B) {
+		int Aindex = 0;
+		int Bindex = 0;
+		int size = 0;
+		int[] temp = new int[A.degree + B.degree];
+		
+		int[] test = new int[A.testCase.getLength()];
+	
+
+		while (Aindex < A.degree || Bindex < B.degree) {
+			if (Aindex == A.degree) {
+				temp[size] = B.paramIndex[Bindex];
+				test[B.paramIndex[Bindex]] = B.getParamValue()[Bindex];
+				Bindex++;
+			} else if (Bindex == B.degree) {
+				temp[size] = A.paramIndex[Aindex];
+				test[A.paramIndex[Aindex]] = A.getParamValue()[Aindex];
+				Aindex++;
+			} else if (A.paramIndex[Aindex] > B.paramIndex[Bindex]) {
+				temp[size] = B.paramIndex[Bindex];
+				test[B.paramIndex[Bindex]] = B.getParamValue()[Bindex];
+				Bindex++;
+			} else if (A.paramIndex[Aindex] < B.paramIndex[Bindex]) {
+				temp[size] = A.paramIndex[Aindex];
+				test[A.paramIndex[Aindex]] = A.getParamValue()[Aindex];
+				Aindex++;
+			} else if (A.paramIndex[Aindex] == B.paramIndex[Bindex]) {
+				temp[size] = A.paramIndex[Aindex];
+				test[A.paramIndex[Aindex]] = A.getParamValue()[Aindex];
+				Aindex++;
+				Bindex++;
+			}
+			size++;
+		}
+		
+	
+		TestCase testCase = new TestCaseImplement(test);
+		Tuple result = new Tuple(size, testCase);
 		System.arraycopy(temp, 0, result.paramIndex, 0, size);
 
 		return result;
