@@ -220,7 +220,7 @@ public class AETG_Constraints extends AETG {
 					bvalue = this.getBestValue(testCase, rmI, cannot2);
 					tempValue = bvalue;
 
-					// judege if it is satisified
+					// judege if it is satisfied
 					List<Integer> indexes = new ArrayList<Integer>();
 					TestCase testCaseForTuple = new TestCaseImplement(
 							dataCenter.param_num);

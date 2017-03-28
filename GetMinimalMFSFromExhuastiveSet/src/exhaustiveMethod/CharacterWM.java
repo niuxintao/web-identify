@@ -80,7 +80,7 @@ public class CharacterWM {
 
 	public TestCase genNextTest() {
 		tupleUnderTest = this.seletctTupleUnderTest();
-	//	System.out.println("the tuple : "+ tupleUnderTest.toString());
+//		System.out.println("the tuple : "+ tupleUnderTest.toString());
 		if (tupleUnderTest == null)
 			lastTestCase = null;
 		else

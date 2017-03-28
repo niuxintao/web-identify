@@ -159,7 +159,7 @@ public class ExpriSetUp {
 		record.set(param, wrongs, bugs, faults, priority);
 		records.add(record);
 
-		// lang 3.3
+		// lang 3.2
 		record = new DataRecord();
 		param = new int[] { 2, 2, 3, 2, 2, 3, 2, 2 };
 		wrongs = new int[][] { { 0, 0, 0, 0, 0, 0, 1, 1 },

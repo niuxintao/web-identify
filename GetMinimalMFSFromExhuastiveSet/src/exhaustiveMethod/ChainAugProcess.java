@@ -55,7 +55,7 @@ public class ChainAugProcess {
 			if (testcase == null)
 				break;
 
-			//System.out.println(testcase.getStringOfTest());
+//			System.out.println(testcase.getStringOfTest());
 			int state = caseRunner.runTestCase(testcase);
 			if (state == TestCase.PASSED)
 				workMachine.setLastTestCase(true);

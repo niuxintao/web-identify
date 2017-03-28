@@ -66,7 +66,7 @@ public class UnitSimulate {
 	public final static int MASK_CTA_OLD = 11;
 
 	public final static String[] names = { "RegardOne_FIC", "RegardOne_OFOT", "RegardOne_CTA", "Distin_FIC",
-			"Distin_OFOT", "Distin__CTA", "ILP_FIC", "ILP_OFOT", "ILP_CTA", "NUM", "Random_FIC", "Random_OFOT", "Random_CTA" };
+			"Distin_OFOT", "Distin_CTA", "ILP_FIC", "ILP_OFOT", "ILP_CTA", "NUM", "Random_FIC", "Random_OFOT", "Random_CTA" };
 
 	protected HashMap<Integer, HashSet<Tuple>> tuples;
 	protected HashMap<Integer, List<TestCase>> additionalTestCases;

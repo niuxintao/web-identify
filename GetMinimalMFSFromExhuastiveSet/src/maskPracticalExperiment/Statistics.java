@@ -187,8 +187,8 @@ public class Statistics {
 
 	public void analysisBugs(int wrongCode, List<Integer> lowerpriority,
 			BufferedWriter outBug, BufferedWriter outSta) {
-		int mutilple = 0;
-		int ovlp = 0;
+//		int mutilple = 0;
+//		int ovlp = 0;
 
 		// identify all the wrong cases
 		CaseRunner caseRunner = new TableRunner(result, parameter,
@@ -200,13 +200,14 @@ public class Statistics {
 
 			System.out.println("one test case £º " + testCase.getStringOfTest());
 
+			@SuppressWarnings("unused")
 			List<Tuple> tuples = cp.analysis(testCase);
 
-			if (tuples.size() > 1)
-				mutilple += 1;
-
-			if (this.existOverlap(tuples))
-				ovlp += 1;
+//			if (tuples.size() > 1)
+//				mutilple += 1;
+//
+//			if (this.existOverlap(tuples))
+//				ovlp += 1;
 		}
 
 		this.bugsTable.get(wrongCode).addAll(cp.getExistedMFS());
@@ -223,7 +224,7 @@ public class Statistics {
 			}
 
 		}
-		try {
+	/*	try {
 			outSta.write("mutilple:");
 			outSta.newLine();
 			outSta.write(mutilple + " / " + this.wrongCases.size());
@@ -235,7 +236,7 @@ public class Statistics {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	public String toStringTuple(Tuple tuple) {
@@ -455,7 +456,7 @@ public class Statistics {
 			testAndRecord(statistic, wrongCode, lowerpriority, folder);
 		}
 
-		int masking = statistic.countMasking();
+/*		int masking = statistic.countMasking();
 		int allTestCase = statistic.allCases.size();
 		int wrongCases = allTestCase - statistic.rightCases.size();
 		String file = "./" + folder + "/masking_count" + ".txt";
@@ -481,12 +482,12 @@ public class Statistics {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 
 	public static void main(String[] args) {
-		String[] folders = args;
+		String[] folders = {"v2"};
 		for (String folder : folders) {
 			System.out.println(folder);
 			Statistics statistic = new Statistics();
@@ -500,30 +501,27 @@ public class Statistics {
 		BufferedWriter outBug = null;
 		BufferedWriter outSta = null;
 
-		// List<Integer> lowerpriority = new ArrayList<Integer>();
-		// lowerpriority.add(2);
+		
 		statistic.readResults(wrongCode);
 
 		String fileBug = "./" + folder + "/bug_ot" + wrongCode + ".txt";
-		String fileSta = "./" + folder + "/statis_ot" + wrongCode + ".txt";
+	//	String fileSta = "./" + folder + "/statis_ot" + wrongCode + ".txt";
 
 		try {
 			outBug = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(fileBug)));
-			outSta = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(fileSta)));
+		//	outSta = new BufferedWriter(new OutputStreamWriter(
+			//		new FileOutputStream(fileSta)));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		statistic.analysisBugs(wrongCode, lowerpriority, outBug, outSta);
-		// statistic.getNumOfLargeThan2Degree(outSta);
-		// statistic.getNumOfImported(outSta);
 
 		try {
 			outBug.close();
-			outSta.close();
+			//outSta.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

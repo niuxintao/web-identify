@@ -33,7 +33,11 @@ public class Process {
 
 	public void process() {
 		int start = DataCenter.coveringArrayNum;
+		
 		int end = 0;
+		
+		if(end <= seed.length)
+			end = seed.length + 1;
 		boolean flag = false;
 		long starttime = new Date().getTime();
 		while (start > end || !flag) {
@@ -43,7 +47,7 @@ public class Process {
 				start *= 2;
 			}
 			int middle = (start + end) / 2;
-//			System.out.println(middle);
+//			System.out.println(middle + " " + seed.length);
 			AnnelProcessSeedConstraint al = new AnnelProcessSeedConstraint(middle, T,decrement, seed, constraints);
 			al.startAnneling();
 			if (al.isOk()) {

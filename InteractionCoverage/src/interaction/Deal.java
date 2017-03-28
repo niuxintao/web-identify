@@ -200,7 +200,8 @@ public class Deal {
 		// d = 1 : 8
 		int[] param = new int[] { 2, 2, 2, 2 };
 		List<int[][]> path = new ArrayList<int[][]>();
-		int[][] path1 = new int[][] { { 2 } };
+		// paths
+		int[][] path1 = new int[][] { { 2 } }; 
 		int[][] path2 = new int[][] { { 1 }, { 4 }, { 6, 8 } };
 		int[][] path3 = new int[][] { { 1 }, { 4 }, { 5 }, { 7 } };
 		int[][] path4 = new int[][] { { 1 }, { 3 } };
@@ -209,7 +210,8 @@ public class Deal {
 		path.add(path3);
 		path.add(path4);
 		List<int[]> cov = new ArrayList<int[]>();
-		int[] cov1 = new int[] { 1 };
+		// the entities covered in the paths
+		int[] cov1 = new int[] { 1 };  
 		int[] cov2 = new int[] { 2, 4, 5 };
 		int[] cov3 = new int[] { 2, 4 };
 		int[] cov4 = new int[] {};
