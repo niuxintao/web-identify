@@ -488,6 +488,200 @@ public class AETG_Constraints extends AETG {
 		coveringArray.add(best);
 		return best;
 	}
+	
+	/**
+	 * 
+	 * part must be kept
+	 * 
+	 * 
+	 * the remaining should be different than the original.
+	 * 
+	 * 
+	 * the best one is computed for the most covered (AETG)
+	 * 
+	 * 
+	 * It should not contain the existed test cases (Use Constraints)
+	 * 
+	 * 
+	 * */
+	public int[] getBestTestCase(Tuple part, TestCase original, HashSet<TestCase> testcases) {
+		// System.out.println("part :" + part.toString() + " original :" +
+		// original.getStringOfTest());
+		List<Tuple> tuples = new ArrayList<Tuple> ();
+		for(TestCase testCase : testcases){
+			Tuple t = new Tuple(testCase.getLength(), testCase);
+			for(int i = 0; i < t.getDegree(); i++)
+				t.set(i, i);
+			tuples.add(t);
+		}
+		
+		this.addConstriants(tuples);
+		
+		
+		int[] best = new int[dataCenter.param_num];
+
+		int bestUncovered = -1;
+
+		// select the first parameter and value
+		HashSet<Tuple> cannot = new HashSet<Tuple>();
+		boolean isSat = false;
+
+		Tuple first = null;
+		Tuple tempFirst = null;
+
+		// get the first part
+		if (part.getDegree() >= dataCenter.degree - 1) {
+			first = part;
+		} else {
+			while (!isSat) {
+				if (tempFirst != null)
+					cannot.add(tempFirst);
+
+				// System.out.println("first paramter start selection " );
+				if (part.getDegree() == 0)
+					first = gpv.selectFirst(cannot, coveredMark,
+							dataCenterTminus1.coveringArrayNum, DOI, DOIminus1);
+				first = gpv.selectFirst(part, cannot, coveredMark,
+						dataCenterTminus1.coveringArrayNum, DOI, DOIminus1,
+						dataCenter.param);
+
+				tempFirst = first;
+				if (tempFirst == null)
+					continue;
+				// System.out.println("first paramter:" + first.toString());
+				//
+				// //should not contain it
+				boolean tempSat = true;
+				for (int i = 0; i < first.getDegree(); i++) {
+
+					TestCaseImplement testForTuple = new TestCaseImplement(
+							original.getLength());
+					for (int k = 0; k < testForTuple.getLength(); k++) {
+						testForTuple.set(k, 0);
+					}
+
+					for (int k = 0; k < first.getParamIndex().length; k++) {
+						testForTuple.set(first.getParamIndex()[k],
+								first.getParamValue()[k]);
+					}
+
+					Tuple tOne = new Tuple(1, testForTuple);
+					tOne.set(0, first.getParamIndex()[i]);
+					// System.out.println("tOne" + tOne.toString());
+					if (part.contains(tOne))
+						continue;
+					if (original.containsOf(tOne)) {
+						tempSat = false;
+						break;
+					}
+				}
+				if (!tempSat)
+					continue;
+
+				// judege if it is satisified
+				isSat = !this.isInvoude(first.getParamIndex(),
+						first.getParamValue())
+						|| this.isSatisifed(first);
+				// System.out.println(isSat);
+			}
+		}
+
+		// System.out.println("first final : " + first.toString());
+
+		for (int i = 0; i < M; i++) {
+			int[] testCase = new int[dataCenter.param_num];
+			for (int k = 0; k < testCase.length; k++)
+				testCase[k] = -1;
+
+			int[] index = first.getParamIndex();
+			int[] value = first.getParamValue();
+			for (int j = 0; j < index.length; j++)
+				testCase[index[j]] = value[j];
+
+			int[] firstSequnce = new int[dataCenter.param_num];
+			for (int j : index) {
+				firstSequnce[j] = 1;
+			}
+			// System.out.println("first" + first.parameter + " " +
+			// first.value);
+
+			// random the remaining parameters
+			int[] remainingSequence = this.randomSequnce(firstSequnce);
+
+			// for(int j = 0; j < remainingSequence.length; j++ )
+			// System.out.print(remainingSequence[j] +" ");
+			//
+			// System.out.println();
+
+			// ************************dit not add maxtries time
+			// *************************/
+
+			for (int rmI : remainingSequence) {
+				// for each remaining parameter, select the best value
+				isSat = false;
+				int bvalue = -1;
+				int tempValue = -1;
+				HashSet<Integer> cannot2 = new HashSet<Integer>();
+				while (!isSat) {
+					if (tempValue != -1)
+						cannot2.add(tempValue);
+					bvalue = this.getBestValue(testCase, rmI, cannot2);
+					tempValue = bvalue;
+
+					if (original.getAt(rmI) == tempValue)
+						continue;
+
+					// judege if it is satisified
+					List<Integer> indexes = new ArrayList<Integer>();
+					TestCase testCaseForTuple = new TestCaseImplement(
+							dataCenter.param_num);
+					for (int j = 0; j < testCase.length; j++) {
+						if (j == rmI) {
+							testCaseForTuple.set(j, bvalue);
+							indexes.add(j);
+						} else if (testCase[j] != -1) {
+							testCaseForTuple.set(j, testCase[j]);
+							indexes.add(j);
+						}
+					}
+					Tuple tuple = new Tuple(indexes.size(), testCaseForTuple);
+					tuple.setParamIndex(convertIntegers(indexes));
+					;
+
+					isSat = !this.isInvoude(rmI, bvalue)
+							|| this.isSatisifed(tuple);
+				}
+				testCase[rmI] = bvalue;
+			}
+
+			// test cases can be set be -1 (cannot set the different value as it
+			// is mfs), needs to reset to value the same as original
+			/**
+			 * this is the most important bug
+			 */
+			for (int k = 0; k < testCase.length; k++) {
+				if (testCase[k] == -1) {
+					testCase[k] = (original.getAt(k))
+							% this.dataCenter.param[k];
+				}
+			}
+			int thisUncovered = this.getUncovered(testCase);
+			// System.out.println(thisUncovered);
+
+			// repeat 50 times to get the best one.
+			if (thisUncovered > bestUncovered) {
+				best = testCase;
+				bestUncovered = thisUncovered;
+			}
+		}
+
+		coveringArray.add(best);
+		return best;
+	}
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 		int[] param = new int[] { 2, 2, 2, 2, 2, 2, 2, 2, 2 };

@@ -1,5 +1,7 @@
 package locatConstaint;
 
+import java.util.HashSet;
+
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
@@ -20,6 +22,12 @@ public class GetBestTestCaseAndConstraints {
 
 	public int[] getTestCase(Tuple partial) {
 		int[] testCase = ac.getBestTestCase(partial, original);
+
+		return testCase;
+	}
+	
+	public int[] getTestCase(Tuple partial, HashSet<TestCase> ExistedTestCases) {
+		int[] testCase = ac.getBestTestCase(partial, original, ExistedTestCases);
 
 		return testCase;
 	}

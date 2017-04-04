@@ -17,6 +17,8 @@ import com.fc.tuple.Tuple;
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
+//random get new tests
+//find the non-mfs re-do 
 public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrivenArray {
 
 	public static final int CHANGENUM = 10;
@@ -139,8 +141,27 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 				// System.out.println("multiple");
 				return null;
 			} 
-//			else if (isMFSWrong( ac, tuple, testCase, executed))
-//				return null;
+			else if (isMFSWrong( ac, tuple, testCase, executed)){ //only once, if multiple, need to do again
+				//re-do
+				sc.FicSingleMuOFOT();
+				mfs = sc.getBugs();
+				executed = sc.getExecuted();
+
+				for (TestCase nextTestCase : executed) {
+					identifyCases.add(nextTestCase);
+					overallTestCases.add(nextTestCase);
+					int[] next = new int[nextTestCase.getLength()];
+					for (int i = 0; i < next.length; i++) {
+						next[i] = nextTestCase.getAt(i);
+					}
+					if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
+						ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, next);
+						nextTestCase.setTestState(TestCase.PASSED);
+					} else
+						nextTestCase.setTestState(TestCase.FAILED);
+				}	
+				break;
+			}
 		}
 
 		return mfs;

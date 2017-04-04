@@ -1,4 +1,4 @@
-package experiment;
+package experiment_for_assumption;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -8,22 +8,19 @@ import output.OutPut;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
+import experiment.REP;
 import experimentData.ExperimentData;
-import experimentData.GccData;
-import experimentData.HsqlDBData;
-import experimentData.JFlexData;
-import experimentData.TcasData;
-import experimentData.TomcatData;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
+import gandi.ErrorLocatingDrivenArray_FIC;
 import gandi.ErrorLocatingDrivenArray_TL;
+import gandi.ErrorLocatingDrivenArray_feedback;
+import gandi.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
-public class Experiment_for_additional {
-
-	public final static int REP = 30;
+public class TestSensityOfSafeValueAssumption {
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -31,8 +28,12 @@ public class Experiment_for_additional {
 	public final static int ICT_TL = 3;
 	public final static int FD = 4;
 
-	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL",
-			"fd" };
+	public final static int ICT_FIC = 5;
+	public final static int ICT_FB = 6;
+	public final static int ICT_FB_MUOFOT = 7;
+
+	public final static String[] StringAl = { "ist", "sct", "ICT_CB", "ICT_TL", "fd", "ICT_FIC", "ict_fb",
+			"ICT_FB_MUOFOT" };
 
 	public final static int NUM = 0;
 	public final static int NUM_R = 1;
@@ -51,32 +52,32 @@ public class Experiment_for_additional {
 	public final static int T_COVER = 10;
 	public final static int ALL_COVER = 11;
 
-	public final static String[] SHOW = { "num", "num_r", "num_i", "recall",
-			"precise", "f-measure", "multi", "time", "time_r", "time_i",
-			"t_cover", "all_cover" };
+	public final static String[] SHOW = { "num", "num_r", "num_i", "recall", "precise", "f-measure", "multi", "time",
+			"time_r", "time_i", "t_cover", "all_cover" };
 
-	public Experiment_for_additional() {
+	public TestSensityOfSafeValueAssumption() {
 
 	}
 
-	public EDATA execute(int algorithm, ExperimentData data, int degree,
-			OutPut output) {
+	public EDATA execute(int algorithm, ExperimentData data, int degree, OutPut output) {
 		data.setDegree(degree);
 		CT_process ct_process = null;
 		if (algorithm == ICT) {
-			ct_process = new ErrorLocatingDrivenArray(data.getDataCenter(),
-					data.getCaseRunner());
+			ct_process = new ErrorLocatingDrivenArray(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == SCT) {
-			ct_process = new TraditionalFGLI(data.getDataCenter(),
-					data.getCaseRunner());
+			ct_process = new TraditionalFGLI(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == FD) {
 			ct_process = new FD_CIT(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_CB) {
-			ct_process = new ErrorLocatingDrivenArray_CB(data.getDataCenter(),
-					data.getCaseRunner());
+			ct_process = new ErrorLocatingDrivenArray_CB(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_TL) {
-			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(),
-					data.getCaseRunner());
+			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(), data.getCaseRunner());
+		} else if (algorithm == ICT_FIC) {
+			ct_process = new ErrorLocatingDrivenArray_FIC(data.getDataCenter(), data.getCaseRunner());
+		} else if (algorithm == ICT_FB) {
+			ct_process = new ErrorLocatingDrivenArray_feedback(data.getDataCenter(), data.getCaseRunner());
+		} else if (algorithm == ICT_FB_MUOFOT) {
+			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
 		}
 
 		ct_process.run();
@@ -135,8 +136,7 @@ public class Experiment_for_additional {
 		output.println("multi");
 		output.println("" + edata.multipleMFS);
 		output.println("time");
-		output.println("all " + edata.allTime + " iden "
-				+ edata.identificationTime + " gen " + edata.GeneratTime);
+		output.println("all " + edata.allTime + " iden " + edata.identificationTime + " gen " + edata.GeneratTime);
 
 		output.println("t-cover");
 		output.println("" + edata.t_testedCover);
@@ -152,8 +152,7 @@ public class Experiment_for_additional {
 
 		output.println("real Identify");
 		for (Entry<Tuple, Integer> da : edata.realIdentify.entrySet()) {
-			output.print("(" + da.getKey().toString() + " : " + da.getValue()
-					+ ")  ");
+			output.print("(" + da.getKey().toString() + " : " + da.getValue() + ")  ");
 		}
 		output.println();
 		// output.println("" + edata.);
@@ -178,44 +177,42 @@ public class Experiment_for_additional {
 
 		String s = StringAl[algorithm];
 
-		OutPut statistic = new OutPut("avg/" + s + "statistic for " + subject
-				+ ".txt");
-		OutPut statisticDev = new OutPut("dev/" + s + "statistic for "
-				+ subject + ".txt");
+		OutPut statistic = new OutPut("sens/safe/avg/" + s + "statistic for " + subject + ".txt");
+		OutPut statisticDev = new OutPut("sens/safe/dev/" + s + "statistic for " + subject + ".txt");
 
-		OutPut out2 = new OutPut("specific/" + s + "2-way for " + subject
-				+ ".txt");
-		EDATA[] data2 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
+		OutPut out2 = new OutPut("sens/safe/specific/" + s + "2-way for " + subject + ".txt");
+		EDATA[] data2 = new EDATA[REP.REP];
+		for (int i = 0; i < REP.REP; i++)
 			data2[i] = execute(algorithm, data, 2, out2);
 		statistic.println("2-way for " + subject);
 		this.statistic(algorithm, data2, statistic, statisticDev);
 		out2.close();
 
-		OutPut out3 = new OutPut("specific/" + s + "3-way for " + subject
-				+ ".txt");
-		EDATA[] data3 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
-			data3[i] = execute(algorithm, data, 3, out3);
-		statistic.println("3-way for " + subject);
-		this.statistic(algorithm, data3, statistic, statisticDev);
-		out3.close();
-
-		OutPut out4 = new OutPut("specific/" + s + "4-way for " + subject
-				+ ".txt");
-		EDATA[] data4 = new EDATA[REP];
-		for (int i = 0; i < REP; i++)
-			data4[i] = execute(algorithm, data, 4, out4);
-		statistic.println("4-way for " + subject);
-		this.statistic(algorithm, data4, statistic, statisticDev);
-		out4.close();
+		// OutPut out3 = new OutPut("sens/mfs/specific/" + s + "3-way for " +
+		// subject
+		// + ".txt");
+		// EDATA[] data3 = new EDATA[REP];
+		// for (int i = 0; i < REP; i++)
+		// data3[i] = execute(algorithm, data, 3, out3);
+		// statistic.println("3-way for " + subject);
+		// this.statistic(algorithm, data3, statistic, statisticDev);
+		// out3.close();
+		//
+		// OutPut out4 = new OutPut("sens/mfs/specific/" + s + "4-way for " +
+		// subject
+		// + ".txt");
+		// EDATA[] data4 = new EDATA[REP];
+		// for (int i = 0; i < REP; i++)
+		// data4[i] = execute(algorithm, data, 4, out4);
+		// statistic.println("4-way for " + subject);
+		// this.statistic(algorithm, data4, statistic, statisticDev);
+		// out4.close();
 
 		statistic.close();
 		statisticDev.close();
 	}
 
-	public void statistic_realIdenti(int algorithm, EDATA[] data, OutPut out,
-			OutPut outDev) {
+	public void statistic_realIdenti(int algorithm, EDATA[] data, OutPut out, OutPut outDev) {
 
 		HashMap<Tuple, Integer> coverAll = new HashMap<Tuple, Integer>();
 
@@ -229,38 +226,32 @@ public class Experiment_for_additional {
 				if (!coverAll.containsKey(daen.getKey())) {
 					coverAll.put(daen.getKey(), daen.getValue());
 				} else {
-					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey())
-							.intValue() + 1));
+					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey()).intValue() + 1));
 				}
 			}
 		}
 
 		for (Entry<Tuple, Integer> cen : coverAll.entrySet()) {
-			coverAvg.put(cen.getKey(), cen.getValue().doubleValue()
-					/ (double) data.length);
+			coverAvg.put(cen.getKey(), cen.getValue().doubleValue() / (double) data.length);
 		}
 
 		// compute dev
 		for (EDATA daa : data) {
 			HashMap<Tuple, Integer> cover = daa.realIdentify;
 			for (Entry<Tuple, Integer> daen : cover.entrySet()) {
-				double dev = (daen.getValue().doubleValue() - coverAvg.get(
-						daen.getKey()).doubleValue())
-						* (daen.getValue().doubleValue() - coverAvg.get(
-								daen.getKey()).doubleValue());
+				double dev = (daen.getValue().doubleValue() - coverAvg.get(daen.getKey()).doubleValue())
+						* (daen.getValue().doubleValue() - coverAvg.get(daen.getKey()).doubleValue());
 
 				if (!coverDev.containsKey(daen.getKey())) {
 					coverDev.put(daen.getKey(), dev);
 				} else {
-					coverDev.put(daen.getKey(), (coverDev.get(daen.getKey())
-							.doubleValue() + dev));
+					coverDev.put(daen.getKey(), (coverDev.get(daen.getKey()).doubleValue() + dev));
 				}
 			}
 		}
 
 		for (Entry<Tuple, Double> cen : coverDev.entrySet()) {
-			coverDev.put(cen.getKey(), cen.getValue().doubleValue()
-					/ (double) data.length);
+			coverDev.put(cen.getKey(), cen.getValue().doubleValue() / (double) data.length);
 		}
 
 		String s = StringAl[algorithm];
@@ -282,8 +273,7 @@ public class Experiment_for_additional {
 
 	}
 
-	public void statistic_cover(int algorithm, EDATA[] data, OutPut out,
-			OutPut outDev) {
+	public void statistic_cover(int algorithm, EDATA[] data, OutPut out, OutPut outDev) {
 
 		HashMap<Integer, Integer> coverAll = new HashMap<Integer, Integer>();
 
@@ -297,38 +287,32 @@ public class Experiment_for_additional {
 				if (!coverAll.containsKey(daen.getKey())) {
 					coverAll.put(daen.getKey(), daen.getValue());
 				} else {
-					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey())
-							.intValue() + 1));
+					coverAll.put(daen.getKey(), (coverAll.get(daen.getKey()).intValue() + 1));
 				}
 			}
 		}
 
 		for (Entry<Integer, Integer> cen : coverAll.entrySet()) {
-			coverAvg.put(cen.getKey(), cen.getValue().doubleValue()
-					/ (double) data.length);
+			coverAvg.put(cen.getKey(), cen.getValue().doubleValue() / (double) data.length);
 		}
 
 		// compute dev
 		for (EDATA daa : data) {
 			HashMap<Integer, Integer> cover = daa.coveredSchemasNum;
 			for (Entry<Integer, Integer> daen : cover.entrySet()) {
-				double dev = (daen.getValue().doubleValue() - coverAvg.get(
-						daen.getKey()).doubleValue())
-						* (daen.getValue().doubleValue() - coverAvg.get(
-								daen.getKey()).doubleValue());
+				double dev = (daen.getValue().doubleValue() - coverAvg.get(daen.getKey()).doubleValue())
+						* (daen.getValue().doubleValue() - coverAvg.get(daen.getKey()).doubleValue());
 
 				if (!coverDev.containsKey(daen.getKey())) {
 					coverDev.put(daen.getKey(), dev);
 				} else {
-					coverDev.put(daen.getKey(), (coverDev.get(daen.getKey())
-							.doubleValue() + dev));
+					coverDev.put(daen.getKey(), (coverDev.get(daen.getKey()).doubleValue() + dev));
 				}
 			}
 		}
 
 		for (Entry<Integer, Double> cen : coverDev.entrySet()) {
-			coverDev.put(cen.getKey(), cen.getValue().doubleValue()
-					/ (double) data.length);
+			coverDev.put(cen.getKey(), cen.getValue().doubleValue() / (double) data.length);
 		}
 
 		String s = StringAl[algorithm];
@@ -350,8 +334,7 @@ public class Experiment_for_additional {
 
 	}
 
-	public void statistic(int algorithm, EDATA[] data, OutPut out,
-			OutPut outDev, int state) {
+	public void statistic(int algorithm, EDATA[] data, OutPut out, OutPut outDev, int state) {
 		double da = 0;
 		double da_dev = 0;
 
@@ -423,8 +406,7 @@ public class Experiment_for_additional {
 				da_dev += (daa.allTime - da) * (daa.allTime - da);
 				break;
 			case TIME_I:
-				da_dev += (daa.identificationTime - da)
-						* (daa.identificationTime - da);
+				da_dev += (daa.identificationTime - da) * (daa.identificationTime - da);
 				break;
 			case TIME_R:
 				da_dev += (daa.GeneratTime - da) * (daa.GeneratTime - da);
@@ -454,8 +436,7 @@ public class Experiment_for_additional {
 		outDev.println();
 	}
 
-	public void statistic(int algorithm, EDATA[] edata, OutPut out,
-			OutPut outDev) {
+	public void statistic(int algorithm, EDATA[] edata, OutPut out, OutPut outDev) {
 		out.println("###############################################");
 		out.println("###############################################");
 
@@ -474,64 +455,54 @@ public class Experiment_for_additional {
 	// SingleStatisitc(SCT, edata_fglt, out);
 	// }
 
-	public void testHSQLDB() {
+	public void testSyn(int param_length, int degree) {
 		/********** only this two statement needs to revise */
-		String subject = "HSQLDB";
-		HsqlDBData data = new HsqlDBData();
+		String subject = "Syn" + param_length+ "-" + degree;
+
+		DataForSafeValueAssumption data = new DataForSafeValueAssumption(param_length, degree);
 		/******************************/
 
-		testAlgorithm(subject, data, new int[] {ICT,SCT, FD });
+		testAlgorithm(subject, data, REP.ALG);
 	}
 
-	public void testJFlex() {
-		/********** only this two statement needs to revise */
-		String subject = "JFlex";
-		JFlexData data = new JFlexData();
-		/******************************/
-
-		testAlgorithm(subject, data, new int[] { FD });
-	}
-
-	public void testTcas() {
-		/********** only this two statement needs to revise */
-		String subject = "Tcas";
-		TcasData data = new TcasData();
-		/******************************/
-
-		testAlgorithm(subject, data, new int[] { FD });
-	}
-
-	public void testGcc() {
-		/********** only this two statement needs to revise */
-		String subject = "Gcc";
-		GccData data = new GccData();
-		/******************************/
-
-		testAlgorithm(subject, data, new int[] { FD });
-	}
-
-	public void testTomcat() {
-		/********** only this two statement needs to revise */
-		String subject = "Tomcat";
-		TomcatData data = new TomcatData();
-		/******************************/
-
-		testAlgorithm(subject, data, new int[] { FD });
-	}
-
-	public void testAlgorithm(String subject, ExperimentData data,
-			int[] algorithms) {
+	public void testAlgorithm(String subject, ExperimentData data, int[] algorithms) {
 		for (int i : algorithms) {
 			this.test(i, subject, data);
 		}
 	}
 
 	public static void main(String[] args) {
-		Experiment_for_additional ex = new Experiment_for_additional();
-		ex.testJFlex();
-		ex.testGcc();
-		ex.testHSQLDB();
-		ex.testTomcat();
-		ex.testTcas();
+		TestSensityOfSafeValueAssumption ex = new TestSensityOfSafeValueAssumption();
+		int[] param_length = new int[] { 8, 12, 16, 20, 24, 28, 32, 36, 40, 64, 96, 108 };
+		// 
+//		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
+		for (int nu : param_length) {
+			System.out.println("start : the number of MFS is :" + nu);
+			ex.testSyn(nu, 4);
+		}
 	}
+}
+
+class EDATA {
+	public int numRegular;
+	public int numIdentify;
+	public int numTestCases;
+
+	public HashMap<Integer, Integer> coveredSchemasNum;
+
+	public HashMap<Tuple, Integer> realIdentify;
+
+	public double precise;
+	public double recall;
+	public double f_measure;
+
+	public int multipleMFS;
+
+	public int t_testedCover;
+	public int allCover;
+
+	public long allTime;
+	public long GeneratTime;
+	public long identificationTime;
+
 }

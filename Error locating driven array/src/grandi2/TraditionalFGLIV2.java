@@ -2,18 +2,29 @@ package grandi2;
 
 import interaction.DataCenter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
-import location.SOFOT;
+import location.FIC;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
+import com.fc.simulateAnneling.Process;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
-import ct.AETG;
 
+
+/**
+ * 1.  generation method change to be anneling.  OK
+ * 2.  reduce the number of test cases that have been to the MFS. OK
+ * 3.  location method to fic_withMFS   OK
+ * 
+ * @author xintao
+ *
+ */
 public class TraditionalFGLIV2 {
 
 	private CaseRunner caseRunner;
@@ -42,9 +53,16 @@ public class TraditionalFGLIV2 {
 
 	public void run() {
 		// generate covering array
-		AETG aetg = new AETG(dataCenter);
-		aetg.process();
-		for (int[] test : aetg.coveringArray) {
+//		AETG aetg = new AETG(dataCenter);
+//		aetg.process();
+		
+		com.fc.simulateAnneling.DataCenter.init(dataCenter.param, dataCenter.degree);
+//		System.out.println(DataCenter.index.length);
+//		System.out.println(DataCenter.coveringArrayNum);
+		Process t = new Process(2, 0.9998);
+		t.process();
+		
+		for (int[] test : t.rsTable) {
 			TestCase testCase = new TestCaseImplement(test);
 			overallTestCases.add(testCase);
 		}
@@ -53,14 +71,16 @@ public class TraditionalFGLIV2 {
 		HashSet<TestCase> additional = new HashSet<TestCase>();
 		for (TestCase testCase : overallTestCases) {
 			// directly discard
-			if (isContainMFS(testCase, MFS))
-				continue;
+//			if (isContainMFS(testCase, MFS))
+//				continue;
 
 			if (caseRunner.runTestCase(testCase) == TestCase.FAILED) {
-				SOFOT ofot = new SOFOT();
-				ofot.process(testCase, dataCenter.param, caseRunner);
-				additional.addAll(ofot.getExecuted());
-				MFS.addAll(ofot.getBugs());
+				List<Tuple> currentMFS = new ArrayList<Tuple> ();
+				currentMFS.addAll(MFS);
+				FIC fic_feedback = new FIC(testCase, dataCenter.param, caseRunner, currentMFS);
+				fic_feedback.FicNOP_withMFS();
+				additional.addAll(fic_feedback.getExecuted());
+				MFS.addAll(fic_feedback.getBugs());
 				// MFS.add(ofot.)
 
 			}

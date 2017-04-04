@@ -16,6 +16,8 @@ public class FIC {
 	protected int[] param;
 	protected List<Tuple> bugs;
 	protected List<TestCase> executed;
+	
+	protected List<Tuple> currentMFS;
 	private HashMap<TestCase, Boolean> tested;
 
 	class Pa {
@@ -37,6 +39,17 @@ public class FIC {
 		bugs = new ArrayList<Tuple>();
 		this.caseRunner = caseRunner;
 		executed = new ArrayList<TestCase>();
+//		executed.add(testCase);
+	}
+	
+	public FIC(TestCase testCase, int[] param, CaseRunner caseRunner, List<Tuple> currentMFS) {
+		tested = new HashMap<TestCase, Boolean>();
+		this.testCase = testCase;
+		this.param = param;
+		bugs = new ArrayList<Tuple>();
+		this.caseRunner = caseRunner;
+		executed = new ArrayList<TestCase>();
+		this.currentMFS = currentMFS;
 //		executed.add(testCase);
 	}
 
@@ -208,6 +221,22 @@ public class FIC {
 		}
 		return partBug;
 	}
+	
+	public Tuple Fic_ofot(List<Integer> CTabu) {
+		Tuple partBug = new Tuple(0, testCase);
+		List<Integer> CFree = new ArrayList<Integer>();
+		CFree.addAll(CTabu);
+		while (true) {
+			Pa pa = this.LocateFixedParam(CFree, partBug);
+			CFree = pa.CFree;
+			Tuple newRelatedPartBug = pa.fixdOne;
+			if (newRelatedPartBug.getDegree() == 0) {
+				break;
+			}
+			partBug = partBug.catComm(partBug, newRelatedPartBug);
+		}
+		return partBug;
+	}
 
 	public void FicNOP() {
 		List<Integer> CTabu = new ArrayList<Integer>();
@@ -230,6 +259,73 @@ public class FIC {
 			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
 		}
 	}
+	
+	public void FicNOP2() {
+		List<Integer> CTabu = new ArrayList<Integer>();
+		while (true) {
+			if (CTabu.size() > 0 && testTuple(CTabu)) {
+				break;
+			}
+
+			Tuple bug = Fic_ofot(CTabu);
+			if (bug.getDegree() == 0)
+				break;
+			this.bugs.add(bug);
+
+			Tuple tuple = new Tuple(CTabu.size(), testCase);
+			int[] tabu = CovertTntegerToInt(CTabu);
+			tuple.setParamIndex(tabu);
+
+			Tuple newCTabu = tuple.catComm(tuple, bug);
+			CTabu.clear();
+			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
+		}
+	}
+	
+	public boolean isContain(List<Integer> integers, int i){
+		for(Integer ii : integers){
+			if(ii.intValue() == i)
+				return true;
+		}
+		return false;
+		
+	}
+	public void FicNOP_withMFS() {
+	
+		List<Integer> CTabu = new ArrayList<Integer>();
+		for(Tuple mfs : this.currentMFS){
+			if(this.testCase.containsOf(mfs)){
+				for(int i : mfs.getParamIndex()){
+					if(!isContain(CTabu,i)){
+						CTabu.add(i);
+					}
+				}
+			}
+		}
+		
+		while (true) {
+			if (CTabu.size() > 0 && testTuple(CTabu)) {
+				break;
+			}
+
+			Tuple bug = Fic_ofot(CTabu);
+			if (bug.getDegree() == 0)
+				break;
+			this.bugs.add(bug);
+
+			Tuple tuple = new Tuple(CTabu.size(), testCase);
+			int[] tabu = CovertTntegerToInt(CTabu);
+			tuple.setParamIndex(tabu);
+
+			Tuple newCTabu = tuple.catComm(tuple, bug);
+			CTabu.clear();
+			CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
+		}
+	}
+
+
+
+
 
 	/**
 	 * @return the extraCases

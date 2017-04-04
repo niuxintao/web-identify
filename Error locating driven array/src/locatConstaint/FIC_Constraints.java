@@ -4,6 +4,7 @@ import interaction.DataCenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
@@ -14,6 +15,12 @@ import com.fc.tuple.Tuple;
 
 import ct.AETG_Constraints;
 
+
+// record test cases for each tuple
+
+// for the pass, do not generate
+
+// for the fail, generate 
 public class FIC_Constraints {
 	protected CaseRunner caseRunner;
 	protected TestCase testCase;
@@ -21,6 +28,9 @@ public class FIC_Constraints {
 	protected List<Tuple> bugs;
 	protected List<TestCase> executed;
 	private HashMap<TestCase, Boolean> tested;
+
+	private HashMap<Tuple, HashSet<TestCase>> testedTupleTestCases;
+	private HashMap<Tuple, Boolean> testedTupleBool;
 
 	GetBestTestCaseAndConstraints gtc;
 
@@ -39,6 +49,8 @@ public class FIC_Constraints {
 	public FIC_Constraints(TestCase testCase, int[] param,
 			CaseRunner caseRunner, AETG_Constraints ac) {
 		tested = new HashMap<TestCase, Boolean>();
+		testedTupleTestCases = new HashMap<Tuple, HashSet<TestCase>>();
+		testedTupleBool = new HashMap<Tuple, Boolean>();
 		this.testCase = testCase;
 		this.param = param;
 		bugs = new ArrayList<Tuple>();
@@ -114,7 +126,39 @@ public class FIC_Constraints {
 	}
 
 	private boolean testTuple(List<Integer> temp) {
-		return this.runTest(Motivate(temp));
+		int[] free = CovertTntegerToInt(temp);
+		Tuple testTuple = new Tuple(free.length, testCase);
+		testTuple.setParamIndex(free);
+
+		if (!this.testedTupleTestCases.containsKey(testTuple)) {
+
+			HashSet<TestCase> testcases = new HashSet<TestCase>();
+			this.testedTupleTestCases.put(testTuple, testcases);
+
+			TestCase testCase = Motivate(temp);
+			boolean result = this.runTest(testCase);
+
+			testedTupleTestCases.get(testTuple).add(testCase);
+			this.testedTupleBool.put(testTuple, result);
+
+			return result;
+
+		} else {
+			boolean result = testedTupleBool.get(testTuple);
+			if (result)
+				return result; //pass do not need to test
+			else {
+				TestCase testCase = Motivate_different(temp);
+				
+				boolean newResult = this.runTest(testCase);
+
+				testedTupleTestCases.get(testTuple).add(testCase);
+				
+				this.testedTupleBool.put(testTuple, newResult);
+				
+				return newResult;
+			}
+		}
 	}
 
 	public int[] CovertTntegerToInt(List<Integer> CFree) {
@@ -148,6 +192,30 @@ public class FIC_Constraints {
 			// TestCase.PASSED);
 			return testCase.testDescription() == TestCase.PASSED;
 		}
+	}
+	
+	
+	private TestCase Motivate_different(List<Integer> temp) {
+		// TODO Auto-generated method stub
+
+		Tuple tuple = new Tuple(temp.size(), testCase);
+		int location = 0;
+		for (int i : temp) {
+			tuple.set(location, i);
+			location++;
+		}
+		
+		HashSet<TestCase>  testCases = this.testedTupleTestCases.get(tuple);
+		
+		
+		tuple = tuple.getReverseTuple();
+
+		int[] test = this.gtc.getTestCase(tuple, testCases);
+
+		TestCaseImplement newCase = new TestCaseImplement(test);
+
+		// extraCases.addTest(newCase);
+		return newCase;
 	}
 
 	private TestCase Motivate(List<Integer> temp) {
@@ -267,28 +335,32 @@ public class FIC_Constraints {
 			}
 
 			Tuple bug = Fic(CTabu);
-//			if (bug.getDegree() == 0) {
-//				Tuple fixone = new Tuple(1, testCase);
-//				fixone.setParamIndex(new int[] { testCase.getLength() - 1 });
-//				bug = fixone;
-//			}
+			// if (bug.getDegree() == 0) {
+			// Tuple fixone = new Tuple(1, testCase);
+			// fixone.setParamIndex(new int[] { testCase.getLength() - 1 });
+			// bug = fixone;
+			// }
 			// System.out.println("bug : " + bug.toString() + " bug degree : " +
 			// bug.getDegree());
 
 			this.bugs.add(bug);
 
-			// if (bug.getDegree() == 0)
-			// break;
-			//
-			// Tuple tuple = new Tuple(CTabu.size(), testCase);
-			// int[] tabu = CovertTntegerToInt(CTabu);
-			// tuple.setParamIndex(tabu);
-			//
-			// Tuple newCTabu = tuple.catComm(tuple, bug);
-			// CTabu.clear();
-			// CTabu.addAll(CovertTntToTnteger(newCTabu.getParamIndex()));
 
-			// if(bug.getDegree() == testCase.getLength())
+			break;
+		}
+	}
+
+	public void FicSingleMuOFOTwithFeedBack() {
+		List<Integer> CTabu = new ArrayList<Integer>();
+		while (true) {
+
+			// System.out.println("start then idenity then");
+			if (CTabu.size() > 0 && testTuple(CTabu)) {
+				break;
+			}
+
+			Tuple bug = Fic(CTabu);
+			this.bugs.add(bug);
 			break;
 		}
 	}
