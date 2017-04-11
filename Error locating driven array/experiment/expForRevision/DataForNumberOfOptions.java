@@ -46,13 +46,29 @@ public class DataForNumberOfOptions implements ExperimentData {
 		Tuple bugModel = new Tuple(2, wrongCase);
 		bugModel.set(0, 0);
 		bugModel.set(1, 3);
+		
+		
+		Tuple bugModel1 = new Tuple(2, wrongCase);
+		bugModel1.set(0, 1);
+		bugModel1.set(1, 4);
+		
+		
+		Tuple bugModel2 = new Tuple(2, wrongCase);
+		bugModel2.set(0, 2);
+		bugModel2.set(1, 6);
+		
+		
 		// bugModel1.set(2, 4);
 		// bugModel1.set(1, 2);
 
 		realMFS.add(bugModel);
+		realMFS.add(bugModel1);
+		realMFS.add(bugModel2);
 
 		this.caseRunner = new CaseRunnerWithBugInject();
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel);
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 	}
 
 	public void setDegree(int degree) {

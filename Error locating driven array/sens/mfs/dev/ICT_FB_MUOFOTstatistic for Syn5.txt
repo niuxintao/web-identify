@@ -1,28 +1,28 @@
-num ICT_FB_MUOFOT deviration: 15.254179755070412
+num ICT_FB_MUOFOT deviration: 11.228980363327741
 
-num_r ICT_FB_MUOFOT deviration: 0.8306623862918073
+num_r ICT_FB_MUOFOT deviration: 1.7000000000000002
 
-num_i ICT_FB_MUOFOT deviration: 15.491933384829668
+num_i ICT_FB_MUOFOT deviration: 12.049896265113654
 
-recall ICT_FB_MUOFOT deviration: 0.36660605559646725
+recall ICT_FB_MUOFOT deviration: 0.29393876913398137
 
-precise ICT_FB_MUOFOT deviration: 0.20816659994661327
+precise ICT_FB_MUOFOT deviration: 0.18257418583505536
 
-f-measure ICT_FB_MUOFOT deviration: 0.3143179118421993
+f-measure ICT_FB_MUOFOT deviration: 0.2610809554642438
 
-multi ICT_FB_MUOFOT deviration: 1.2
+multi ICT_FB_MUOFOT deviration: 0.66332495807108
 
-time ICT_FB_MUOFOT deviration: 15.466415227841258
+time ICT_FB_MUOFOT deviration: 64.72093942457882
 
-time_r ICT_FB_MUOFOT deviration: 5.478138369920935
+time_r ICT_FB_MUOFOT deviration: 15.498709623707388
 
-time_i ICT_FB_MUOFOT deviration: 9.165696918401787
+time_i ICT_FB_MUOFOT deviration: 12.528367810692659
 
-t_cover ICT_FB_MUOFOT deviration: 7.64198926981712
+t_cover ICT_FB_MUOFOT deviration: 14.316424134538623
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 16392.249999999996)  (2 : 14949.819999999998)  (3 : 4557.82)  (4 : 753.05)  (5 : 173.9)  (6 : 40.05)  (7 : 12.248)  (8 : 1.9720000000000002)  (9 : 0.081)  (11 : 0.081)  
+(1 : 291247.12)  (2 : 176734.26)  (3 : 30917.730000000003)  (4 : 2823.9200000000005)  (5 : 257.97999999999996)  (6 : 71.7)  (7 : 58.85999999999999)  (8 : 68.60900000000001)  (9 : 23.6)  (10 : 11.014000000000001)  (11 : 2.6800000000000006)  (12 : 1.352)  (13 : 0.14699999999999996)  (14 : 0.081)  
 deviration ICT_FB_MUOFOT CoverNUM
-([ 0 , - , - , - , 0 , - , - , - , - , - ] : 0.14699999999999996)  ([ 0 , - , - , - , - , 0 , - , - , - , - ] : 0.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.14699999999999996)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.14699999999999996)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.14699999999999996)  
+([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.14699999999999996)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.125)  

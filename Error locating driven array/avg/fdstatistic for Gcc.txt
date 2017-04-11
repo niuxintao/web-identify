@@ -1,93 +1,93 @@
 2-way for Gcc
 ###############################################
 ###############################################
-average fd num :22.0
+average fd num :21.5
 
-average fd num_r :22.0
+average fd num_r :21.5
 
 average fd num_i :0.0
 
 average fd recall :0.1
 
-average fd precise :0.06666666666666667
+average fd precise :0.05357142857142857
 
-average fd f-measure :0.08
+average fd f-measure :0.0696969696969697
 
-average fd multi :1.2
+average fd multi :2.4
 
-average fd time :62.4
+average fd time :86.0
 
-average fd time_r :62.4
+average fd time_r :82.9
 
-average fd time_i :0.0
+average fd time_i :3.1
 
-average fd t_cover :251.0
+average fd t_cover :249.9
 
 average fd all_cover :252.0
 
 average fd CoverNUM
-(1 : 17.2)  (2 : 14.0)  (3 : 7.2)  (4 : 5.8)  (5 : 3.2)  (6 : 3.0)  (7 : 2.6)  (8 : 3.2)  (9 : 1.0)  (10 : 0.2)  
+(1 : 82.6)  (2 : 57.6)  (3 : 32.9)  (4 : 30.9)  (5 : 18.1)  (6 : 10.8)  (7 : 8.5)  (8 : 6.4)  (9 : 2.2)  (10 : 1.4)  (11 : 0.5)  (12 : 0.1)  
 average fd CoverNUM
-([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.2)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.2)  
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.1)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.1)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.1)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.1)  
 3-way for Gcc
 ###############################################
 ###############################################
-average fd num :64.4
+average fd num :62.6
 
-average fd num_r :64.4
+average fd num_r :62.6
 
 average fd num_i :0.0
 
-average fd recall :0.65
+average fd recall :0.6
 
-average fd precise :0.2723232323232323
+average fd precise :0.31662698412698415
 
-average fd f-measure :0.3746963562753036
+average fd f-measure :0.39292038370985743
 
-average fd multi :2.8
+average fd multi :2.3
 
-average fd time :289.6
+average fd time :341.4
 
-average fd time_r :283.2
+average fd time_r :333.8
 
-average fd time_i :0.2
+average fd time_i :1.5
 
-average fd t_cover :1531.2
+average fd t_cover :1529.9
 
 average fd all_cover :1536.0
 
 average fd CoverNUM
-(1 : 48.4)  (2 : 69.8)  (3 : 49.4)  (4 : 34.0)  (5 : 29.8)  (6 : 22.6)  (7 : 20.2)  (8 : 14.4)  (9 : 7.2)  (10 : 2.4)  (11 : 1.8)  (12 : 2.6)  (13 : 4.2)  (14 : 5.2)  (15 : 3.8)  (16 : 3.0)  (17 : 1.8)  (18 : 1.0)  (19 : 1.2)  (20 : 0.2)  
+(1 : 249.4)  (2 : 344.5)  (3 : 243.7)  (4 : 166.8)  (5 : 142.9)  (6 : 111.3)  (7 : 76.8)  (8 : 55.8)  (9 : 40.1)  (10 : 24.3)  (11 : 18.5)  (12 : 15.1)  (13 : 16.2)  (14 : 12.4)  (15 : 6.5)  (16 : 7.0)  (17 : 2.6)  (18 : 1.1)  (19 : 0.8)  (20 : 0.2)  
 average fd CoverNUM
-([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.4)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.8)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.4)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 1.0)  
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.5)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.5)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.7)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.7)  
 4-way for Gcc
 ###############################################
 ###############################################
-average fd num :127.2
+average fd num :122.1
 
-average fd num_r :127.2
+average fd num_r :122.1
 
 average fd num_i :0.0
 
-average fd recall :0.5
+average fd recall :0.6
 
-average fd precise :0.3111111111111111
+average fd precise :0.4541666666666666
 
-average fd f-measure :0.3748717948717949
+average fd f-measure :0.5061538461538462
 
-average fd multi :4.0
+average fd multi :3.9
 
-average fd time :1115.2
+average fd time :1405.6
 
-average fd time_r :1093.6
+average fd time_r :1382.5
 
-average fd time_i :3.4
+average fd time_i :1.6
 
-average fd t_cover :6001.2
+average fd t_cover :6017.8
 
 average fd all_cover :6048.0
 
 average fd CoverNUM
-(1 : 193.0)  (2 : 319.0)  (3 : 212.2)  (4 : 113.6)  (5 : 87.0)  (6 : 73.2)  (7 : 64.0)  (8 : 60.6)  (9 : 38.0)  (10 : 21.2)  (11 : 16.2)  (12 : 8.2)  (13 : 5.6)  (14 : 5.8)  (15 : 2.8)  (16 : 1.6)  (17 : 1.0)  (18 : 0.8)  (19 : 1.2)  (20 : 0.4)  
+(1 : 952.6)  (2 : 1727.5)  (3 : 1062.6)  (4 : 519.8)  (5 : 402.5)  (6 : 387.7)  (7 : 355.4)  (8 : 246.6)  (9 : 154.3)  (10 : 89.5)  (11 : 53.2)  (12 : 34.2)  (13 : 24.2)  (14 : 15.7)  (15 : 11.7)  (16 : 6.3)  (17 : 2.3)  (18 : 1.2)  (19 : 0.4)  (20 : 0.1)  (21 : 0.2)  
 average fd CoverNUM
-([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.6)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.6)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.4)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.4)  
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.6)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.3)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.8)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.7)  

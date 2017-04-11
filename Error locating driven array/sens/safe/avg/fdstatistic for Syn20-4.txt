@@ -1,0 +1,31 @@
+2-way for Syn20-4
+###############################################
+###############################################
+average fd num :115.8
+
+average fd num_r :115.8
+
+average fd num_i :0.0
+
+average fd recall :0.047619047619047616
+
+average fd precise :0.007443868255653555
+
+average fd f-measure :0.012704681237495135
+
+average fd multi :40.5
+
+average fd time :2293.3
+
+average fd time_r :2217.2
+
+average fd time_i :7.6
+
+average fd t_cover :3032.7
+
+average fd all_cover :3040.0
+
+average fd CoverNUM
+(1 : 69.7)  (2 : 87.2)  (3 : 66.2)  (4 : 37.4)  (5 : 19.0)  (6 : 8.9)  (7 : 6.2)  (8 : 5.3)  (9 : 4.7)  (10 : 3.3)  (11 : 3.8)  (12 : 1.4)  (13 : 1.3)  (14 : 0.2)  (15 : 0.3)  (17 : 0.1)  
+average fd CoverNUM
+([ - , 0 , - , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

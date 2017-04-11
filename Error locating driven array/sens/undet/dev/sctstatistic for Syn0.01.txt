@@ -1,0 +1,28 @@
+num sct deviration: 2.33238075793812
+
+num_r sct deviration: 1.1135528725660042
+
+num_i sct deviration: 1.4696938456699067
+
+recall sct deviration: 0.0
+
+precise sct deviration: 0.0
+
+f-measure sct deviration: 1.1102230246251565E-16
+
+multi sct deviration: 0.6708203932499369
+
+time sct deviration: 44.69183370594677
+
+time_r sct deviration: 44.11224319845909
+
+time_i sct deviration: 1.1999999999999997
+
+t_cover sct deviration: 3.3166247903554
+
+all_cover sct deviration: 0.0
+
+deviration sct CoverNUM
+(1 : 42949.42)  (2 : 31861.500000000007)  (3 : 10795.209999999997)  (4 : 1821.8800000000003)  (5 : 522.3299999999999)  (6 : 313.67999999999995)  (7 : 294.45)  (8 : 232.49)  (9 : 131.22)  (10 : 85.05)  (11 : 35.21)  (12 : 7.449)  (13 : 6.05)  (14 : 4.21)  (15 : 3.968000000000001)  (16 : 2.9)  (17 : 1.004)  (18 : 0.388)  (19 : 0.081)  (20 : 0.8479999999999999)  
+deviration sct CoverNUM
+([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.0)  

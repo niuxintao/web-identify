@@ -1,11 +1,15 @@
 package grandi2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import locatConstaint.FIC_Constraints;
-import gandi.CT_process;
+import experiment_for_assumption.DataForSafeValueAssumption;
+//import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
+import gandi.TraditionalFGLI;
 import interaction.DataCenter;
 
 import com.fc.caseRunner.CaseRunner;
@@ -14,16 +18,21 @@ import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
 
+
+
+
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
 //random get new tests
 //find the non-mfs re-do 
-public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrivenArray {
+public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
+		ErrorLocatingDrivenArray {
 
 	public static final int CHANGENUM = 10;
 
-	public ErrorLocatingDrivenArray_feedback_MUOFOT(DataCenter dataCenter, CaseRunner caseRunner) {
+	public ErrorLocatingDrivenArray_feedback_MUOFOT(DataCenter dataCenter,
+			CaseRunner caseRunner) {
 		super(dataCenter, caseRunner);
 		// TODO Auto-generated constructor stub
 	}
@@ -33,20 +42,20 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		AETG_Constraints ac = new AETG_Constraints(dataCenter);
 
 		// coverage is equal to 0 is ending
-		int numChange = 0;
-		int lastUnCovered = 0;
+//		int numChange = 0;
+//		int lastUnCovered = 0;
 
 		while (ac.unCovered > 0) {
 			long allTime = System.currentTimeMillis();
 			long geTime = System.currentTimeMillis();
 
 			// must jump out of the loop
-			if (ac.unCovered.intValue() == lastUnCovered)
-				numChange++;
-			else {
-				numChange = 0;
-				lastUnCovered = ac.unCovered.intValue();
-			}
+//			if (ac.unCovered.intValue() == lastUnCovered)
+//				numChange++;
+//			else {
+//				numChange = 0;
+//				lastUnCovered = ac.unCovered.intValue();
+//			}
 
 			// System.out.println("get next ");
 
@@ -68,10 +77,10 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 
 				long ideTime = System.currentTimeMillis();
 
-				// System.out.println("get MFS ");
 				List<Tuple> mfs = getMFS(ac, testCase);
+				// System.out.println("get MFS's size " + mfs.size());
 
-				if (mfs != null) {
+				if (mfs != null && mfs.size() != 0) {
 					ideTime = System.currentTimeMillis() - ideTime;
 					this.timeIden += ideTime;
 					// System.out.println("add constriants");
@@ -81,22 +90,22 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 					// System.out.println("mfs is: " + tuple.toString());
 				} else {
 					// System.out.println("multiple");
-					Tuple tuple = new Tuple(testCase.getLength(), testCase);
-					for (int i = 0; i < tuple.getDegree(); i++)
-						tuple.set(i, i);
-					List<Tuple> tuples = new ArrayList<Tuple>();
-					tuples.add(tuple);
-					ac.addConstriants(tuples);
-
-					if (numChange > CHANGENUM) {
-						numChange = 0;
-						Tuple tuplet = new Tuple(1, testCase);
-						tuplet.set(0, testCase.getLength() - 1);
-						List<Tuple> tuplesr = new ArrayList<Tuple>();
-						tuplesr.add(tuplet);
-						ac.addConstriants(tuplesr);
-						this.MFS.addAll(tuplesr);
-					}
+//					Tuple tuple = new Tuple(testCase.getLength(), testCase);
+//					for (int i = 0; i < tuple.getDegree(); i++)
+//						tuple.set(i, i);
+//					List<Tuple> tuples = new ArrayList<Tuple>();
+//					tuples.add(tuple);
+//					ac.addConstriants(tuples);
+//
+//					if (numChange > CHANGENUM) {
+//						numChange = 0;
+//						Tuple tuplet = new Tuple(1, testCase);
+//						tuplet.set(0, testCase.getLength() - 1);
+//						List<Tuple> tuplesr = new ArrayList<Tuple>();
+//						tuplesr.add(tuplet);
+//						ac.addConstriants(tuplesr);
+//						this.MFS.addAll(tuplesr);
+//					}
 				}
 				// setCoverage(mfs);
 			}
@@ -110,14 +119,63 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		this.coveredMark = ac.coveredMark;
 	}
 
+	public List<List<Tuple>> checkMFS(List<Tuple> mfs, AETG_Constraints ac,
+			TestCase testCase, HashMap<Tuple, HashSet<TestCase>>  executed) {
+		List<List<Tuple>> result = new ArrayList<List<Tuple>>();
+		List<Tuple> right = new ArrayList<Tuple>();
+		List<Tuple> wrong = new ArrayList<Tuple>();
+
+		result.add(right);
+		result.add(wrong);
+
+		for (Tuple tuple : mfs) {
+			Tuple revser = tuple.getReverseTuple();
+			if (isMFSWrong(ac, tuple, testCase, executed.get(revser))) {
+				wrong.add(tuple);
+			} else {
+				right.add(tuple);
+			}
+		}
+		return result;
+	}
+
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
 
-		FIC_Constraints sc = new FIC_Constraints(testCase, dataCenter.getParam(), caseRunner, ac);
+		List<Tuple> result = new ArrayList<Tuple>();
 
-		// sc.process(testCase, DataCenter.param, caseRunner);
+		FIC_Constraints sc = new FIC_Constraints(testCase,
+				dataCenter.getParam(), caseRunner, ac);
+
+		List<Tuple> temp_mfs = reLocate(ac, sc, new ArrayList<Tuple>());
+
+		List<List<Tuple>> checkedNonMFS = this.checkMFS(temp_mfs, ac, testCase,
+				sc.getTestedTupleTestCases());
+
+		List<Tuple> right = checkedNonMFS.get(0);
+		List<Tuple> wrong = checkedNonMFS.get(1);
+
+		result.addAll(right);
+
+		while (right.size() == 0) { // right is large than 0 , or wrong is 0,
+									// i.e., right.size() == 0 or wrong.size() != 0
+			temp_mfs = reLocate(ac, sc, right);
+			checkedNonMFS = this.checkMFS(temp_mfs, ac, testCase,
+					sc.getTestedTupleTestCases());
+			right = checkedNonMFS.get(0);
+			wrong = checkedNonMFS.get(1);
+			result.addAll(right);
+		}
+
+		return result;
+	}
+
+	public List<Tuple> reLocate(AETG_Constraints ac, FIC_Constraints sc,
+			List<Tuple> addedMFS) {
+		sc.addMFS(addedMFS);
 		sc.FicSingleMuOFOT();
 		List<Tuple> mfs = sc.getBugs();
 		List<TestCase> executed = sc.getExecuted();
+//		System.out.println("size" + );
 
 		for (TestCase nextTestCase : executed) {
 			identifyCases.add(nextTestCase);
@@ -132,38 +190,6 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 			} else
 				nextTestCase.setTestState(TestCase.FAILED);
 		}
-
-		// System.out.println("failing test Case : " +
-		// testCase.getStringOfTest());
-		for (Tuple tuple : mfs) {
-			// System.out.println("obtained MFS : " + tuple.toString());
-			if (tuple.getDegree() == 0) {
-				// System.out.println("multiple");
-				return null;
-			} 
-			else if (isMFSWrong( ac, tuple, testCase, executed)){ //only once, if multiple, need to do again
-				//re-do
-				sc.FicSingleMuOFOT();
-				mfs = sc.getBugs();
-				executed = sc.getExecuted();
-
-				for (TestCase nextTestCase : executed) {
-					identifyCases.add(nextTestCase);
-					overallTestCases.add(nextTestCase);
-					int[] next = new int[nextTestCase.getLength()];
-					for (int i = 0; i < next.length; i++) {
-						next[i] = nextTestCase.getAt(i);
-					}
-					if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
-						ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, next);
-						nextTestCase.setTestState(TestCase.PASSED);
-					} else
-						nextTestCase.setTestState(TestCase.FAILED);
-				}	
-				break;
-			}
-		}
-
 		return mfs;
 	}
 
@@ -178,47 +204,48 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 	 * @param wrongCase
 	 * @return
 	 */
-	boolean isMFSWrong(AETG_Constraints ac, Tuple MFS, TestCase wrongCase,List<TestCase> executed) {
+	boolean isMFSWrong(AETG_Constraints ac, Tuple MFS, TestCase wrongCase,
+			HashSet<TestCase> executed) {
 		
-		TestCase last = executed.get(executed.size() - 1);
-		
+		int[] test = ac.getBestTestCase(MFS, wrongCase, executed);
+
+
 		TestCaseImplement newCase = new TestCaseImplement();
-		int[] newC = new int[wrongCase.getLength()];
-		for (int i = 0; i < newC.length; i++)
-			newC[i] =last.getAt(i);
-//		for (int i = 0; i < MFS.getDegree(); i++)
-//			newC[MFS.getParamIndex()[i]] = MFS.getParamValue()[i];
-		newCase.setTestCase(newC);
-		
-		for(int i = 0; i < newC.length; i++){
-			if(!MFScontainIndex(MFS, i)){
-				int original = newCase.getAt(i);
-				if(this.dataCenter.param[i] > 2){
-					for(int j = 0; j < dataCenter.param[i]; j ++)
-						if(j != wrongCase.getAt(i) && j != last.getAt(i)){
-							newCase.set(i, j);
-							break;
-						}
-//					newCase.set(i, dataCenter.param[i]);
-				}
-				if(containExistedMFS(newCase)){
-					newCase.set(i, original);
-					continue;
-				}
-			}
-		}
-			
-		
+
+		newCase.setTestCase(test);
+
 		identifyCases.add(newCase);
 		overallTestCases.add(newCase);
-		
-		if(this.caseRunner.runTestCase(newCase) == TestCase.PASSED){
-			ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, newCase.getTestCase());
+
+		if (this.caseRunner.runTestCase(newCase) == TestCase.PASSED) {
+			ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark,
+					newCase.getTestCase());
 			return true;
-		}else
+		} else{
+			
+			HashSet<TestCase> executed2 = new HashSet<TestCase> ();
+			executed2.addAll(executed);
+			executed2.add(newCase);
+			int[] test2 = ac.getBestTestCase(MFS, wrongCase, executed2);
+
+
+			TestCaseImplement newCase2 = new TestCaseImplement();
+
+			newCase2.setTestCase(test2);
+
+			identifyCases.add(newCase2);
+			overallTestCases.add(newCase2);
+			
+			if (this.caseRunner.runTestCase(newCase2) == TestCase.PASSED) {
+				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark,
+						newCase2.getTestCase());
+				return true;
+			}
+				else
 			return false;
-//		return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
-		
+		}
+		// return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
+
 	}
 
 	public boolean containExistedMFS(TestCase testCase) {
@@ -236,23 +263,31 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		return false;
 
 	}
-	
+
 	public static void main(String[] args) {
-		int[] wrong = new int[] { 1, 1, 0, 1 };
+
+		DataForSafeValueAssumption data = new DataForSafeValueAssumption(20, 4);
+		data.setDegree(2);
+
+		showData(data.getDataCenter(), data.getCaseRunner());
+		
+		
+		System.out.println("second");
+		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
 
-		int[] wrong2 = new int[] { 0, 0, 0, 0 };
+		int[] wrong2 = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 		TestCase wrongCase2 = new TestCaseImplement();
 		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
 
-		int[] param = new int[] { 3, 3, 2, 2};
+		int[] param = new int[] { 3, 3, 3, 3, 3, 3, 3, 3 };
 
 		DataCenter dataCenter = new DataCenter(param, 2);
 
 		Tuple bugModel1 = new Tuple(2, wrongCase);
 		bugModel1.set(0, 2);
-		bugModel1.set(1, 3);
+		bugModel1.set(1, 5);
 
 		Tuple bugModel2 = new Tuple(1, wrongCase2);
 		bugModel2.set(0, 1);
@@ -260,12 +295,29 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		CaseRunner caseRunner = new CaseRunnerWithBugInject();
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
+		
+		showData(dataCenter, caseRunner);
 
-		CT_process elda = new ErrorLocatingDrivenArray_feedback_MUOFOT(dataCenter, caseRunner);
+	}
+
+	private static void showData(DataCenter dataCenter, CaseRunner caseRunner) {
+		// TODO Auto-generated method stub
+		System.out.println("ours");
+
+		ErrorLocatingDrivenArray_feedback_MUOFOT elda = new ErrorLocatingDrivenArray_feedback_MUOFOT(
+				dataCenter,caseRunner);
 		elda.run();
 
 		System.out
 				.println("testCase Num: " + elda.getOverallTestCases().size());
+		
+		System.out
+		.println("identiy Num: " + elda.getIdentifyCases().size());
+		
+		System.out
+		.println("reg Num: " + elda.getRegularCTCases().size());
+		
+		
 		for (TestCase testCase : elda.getOverallTestCases()) {
 			System.out.println(testCase.getStringOfTest());
 		}
@@ -273,7 +325,30 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends ErrorLocatingDrive
 		for (Tuple mfs : elda.getMFS())
 			System.out.println(mfs.toString());
 
-	}
+		System.out.println("fglt");
 
+		TraditionalFGLI fglt = new TraditionalFGLI(	dataCenter,caseRunner);
+		fglt.run();
+
+		System.out
+				.println("testCase Num: " + fglt.getOverallTestCases().size());
+		
+		System.out
+		.println("iden Num: " + fglt.getIdentifyCases().size());
+		
+		System.out
+		.println("regu Num: " + fglt.getRegularCTCases().size());
+		
+		
+		for (TestCase testCase : fglt.getOverallTestCases()) {
+			System.out.println(testCase.getStringOfTest());
+		}
+		
+
+		System.out.println("MFS");
+		for (Tuple mfs : fglt.getMFS())
+			System.out.println(mfs.toString());
+		
+	}
 
 }

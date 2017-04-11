@@ -1,31 +1,31 @@
 2-way for Syn20
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :70.0
+average ICT_FB_MUOFOT num :96.1
 
-average ICT_FB_MUOFOT num_r :15.2
+average ICT_FB_MUOFOT num_r :46.6
 
-average ICT_FB_MUOFOT num_i :54.8
+average ICT_FB_MUOFOT num_i :49.5
 
-average ICT_FB_MUOFOT recall :0.15499999999999997
+average ICT_FB_MUOFOT recall :0.11499999999999999
 
-average ICT_FB_MUOFOT precise :0.5604761904761905
+average ICT_FB_MUOFOT precise :0.47833333333333333
 
-average ICT_FB_MUOFOT f-measure :0.24224501424501427
+average ICT_FB_MUOFOT f-measure :0.18370234113712378
 
-average ICT_FB_MUOFOT multi :4.5
+average ICT_FB_MUOFOT multi :2.7
 
-average ICT_FB_MUOFOT time :108.2
+average ICT_FB_MUOFOT time :730.0
 
-average ICT_FB_MUOFOT time_r :21.1
+average ICT_FB_MUOFOT time_r :115.7
 
-average ICT_FB_MUOFOT time_i :41.7
+average ICT_FB_MUOFOT time_i :85.2
 
-average ICT_FB_MUOFOT t_cover :354.3
+average ICT_FB_MUOFOT t_cover :1291.8
 
-average ICT_FB_MUOFOT all_cover :405.0
+average ICT_FB_MUOFOT all_cover :1375.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 17.5)  (2 : 13.0)  (3 : 8.4)  (4 : 4.0)  (5 : 1.7)  (6 : 1.3)  (7 : 1.0)  (8 : 0.8)  (9 : 0.4)  (10 : 0.1)  (11 : 0.1)  
+(1 : 62.4)  (2 : 43.5)  (3 : 20.3)  (4 : 7.6)  (5 : 2.5)  (6 : 1.9)  (7 : 1.9)  (8 : 1.8)  (9 : 1.7)  (10 : 1.3)  (11 : 0.8)  (12 : 1.0)  (13 : 0.9)  (14 : 0.3)  (15 : 0.4)  (16 : 0.1)  (17 : 0.2)  
 average ICT_FB_MUOFOT CoverNUM
-([ 0 , - , - , - , - , 0 , - , - , - , - ] : 0.2)  ([ - , - , 0 , - , - , 0 , - , - , - , - ] : 1.0)  ([ - , - , 0 , - , 0 , - , - , - , - , - ] : 0.7)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.2)  ([ - , 0 , - , 0 , - , - , - , - , - , - ] : 0.2)  ([ - , - , 0 , 0 , - , - , - , - , - , - ] : 0.8)  
+([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.3)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.1)  ([ - , 0 , - , - , - , 0 , - , - , - , - , - ] : 0.1)  ([ - , 0 , - , - , 0 , - , - , - , - , - , - ] : 0.1)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.1)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.2)  ([ - , 0 , - , 0 , - , - , - , - , - , - , - ] : 0.1)  ([ - , - , 0 , 0 , - , - , - , - , - , - , - ] : 1.0)  ([ - , 0 , 0 , - , - , - , - , - , - , - , - ] : 0.3)  

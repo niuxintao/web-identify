@@ -15,26 +15,26 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :74.8
+average ICT_FB_MUOFOT time :85.9
 
-average ICT_FB_MUOFOT time_r :37.0
+average ICT_FB_MUOFOT time_r :46.9
 
-average ICT_FB_MUOFOT time_i :20.4
+average ICT_FB_MUOFOT time_i :28.2
 
 average ICT_FB_MUOFOT t_cover :473.0
 
 average ICT_FB_MUOFOT all_cover :473.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 20.0)  (2 : 27.4)  (3 : 22.2)  (4 : 13.4)  (5 : 2.8)  (6 : 2.4)  (7 : 1.2)  (8 : 3.6)  (9 : 4.6)  (10 : 3.2)  (11 : 2.0)  (12 : 3.0)  (13 : 0.6)  
+(1 : 97.7)  (2 : 124.8)  (3 : 119.0)  (4 : 52.7)  (5 : 17.4)  (6 : 7.2)  (7 : 12.5)  (8 : 12.2)  (9 : 11.2)  (10 : 7.7)  (11 : 6.6)  (12 : 3.0)  (13 : 1.0)  
 average ICT_FB_MUOFOT CoverNUM
 ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
 3-way for JFlex
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :63.6
+average ICT_FB_MUOFOT num :63.2
 
-average ICT_FB_MUOFOT num_r :49.6
+average ICT_FB_MUOFOT num_r :49.2
 
 average ICT_FB_MUOFOT num_i :14.0
 
@@ -46,26 +46,26 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :541.8
+average ICT_FB_MUOFOT time :906.6
 
-average ICT_FB_MUOFOT time_r :273.8
+average ICT_FB_MUOFOT time_r :425.2
 
-average ICT_FB_MUOFOT time_i :66.2
+average ICT_FB_MUOFOT time_i :106.0
 
 average ICT_FB_MUOFOT t_cover :4282.0
 
 average ICT_FB_MUOFOT all_cover :4282.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 89.8)  (2 : 154.8)  (3 : 175.0)  (4 : 145.8)  (5 : 103.6)  (6 : 71.8)  (7 : 46.6)  (8 : 23.6)  (9 : 12.0)  (10 : 6.2)  (11 : 5.8)  (12 : 6.4)  (13 : 9.6)  (14 : 7.6)  (15 : 5.0)  (16 : 3.6)  (17 : 1.6)  (18 : 1.4)  (19 : 1.2)  (20 : 0.6)  (21 : 1.0)  (22 : 0.4)  (23 : 0.8)  (24 : 0.2)  (25 : 0.2)  
+(1 : 428.8)  (2 : 785.7)  (3 : 918.0)  (4 : 700.1)  (5 : 481.4)  (6 : 339.1)  (7 : 211.9)  (8 : 123.9)  (9 : 73.7)  (10 : 34.8)  (11 : 21.9)  (12 : 18.5)  (13 : 20.7)  (14 : 18.5)  (15 : 19.3)  (16 : 21.3)  (17 : 18.3)  (18 : 16.1)  (19 : 14.1)  (20 : 8.7)  (21 : 4.3)  (22 : 2.4)  (23 : 0.4)  (24 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
 ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
 4-way for JFlex
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :145.8
+average ICT_FB_MUOFOT num :147.1
 
-average ICT_FB_MUOFOT num_r :131.8
+average ICT_FB_MUOFOT num_r :133.1
 
 average ICT_FB_MUOFOT num_i :14.0
 
@@ -77,17 +77,17 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :3290.6
+average ICT_FB_MUOFOT time :6743.9
 
-average ICT_FB_MUOFOT time_r :2126.2
+average ICT_FB_MUOFOT time_r :3732.2
 
-average ICT_FB_MUOFOT time_i :213.8
+average ICT_FB_MUOFOT time_i :354.8
 
 average ICT_FB_MUOFOT t_cover :26532.0
 
 average ICT_FB_MUOFOT all_cover :26532.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 311.4)  (2 : 659.2)  (3 : 904.2)  (4 : 879.2)  (5 : 723.0)  (6 : 530.0)  (7 : 387.4)  (8 : 279.6)  (9 : 202.8)  (10 : 133.8)  (11 : 86.4)  (12 : 64.6)  (13 : 44.6)  (14 : 26.6)  (15 : 17.2)  (16 : 12.6)  (17 : 13.4)  (18 : 12.0)  (19 : 10.0)  (20 : 7.8)  (21 : 6.4)  (22 : 5.4)  (23 : 3.2)  (24 : 2.8)  (25 : 2.2)  (26 : 1.0)  (27 : 1.2)  (28 : 2.0)  (29 : 1.2)  (30 : 0.6)  (32 : 0.2)  (33 : 0.2)  
+(1 : 1608.9)  (2 : 3424.0)  (3 : 4680.8)  (4 : 4347.5)  (5 : 3515.1)  (6 : 2609.2)  (7 : 1828.0)  (8 : 1293.5)  (9 : 924.9)  (10 : 668.5)  (11 : 479.9)  (12 : 323.3)  (13 : 207.4)  (14 : 134.5)  (15 : 86.4)  (16 : 54.7)  (17 : 47.0)  (18 : 41.9)  (19 : 34.8)  (20 : 32.1)  (21 : 33.2)  (22 : 31.1)  (23 : 30.5)  (24 : 25.0)  (25 : 23.0)  (26 : 15.7)  (27 : 10.8)  (28 : 7.5)  (29 : 6.0)  (30 : 2.7)  (31 : 2.3)  (32 : 1.0)  (33 : 0.6)  (34 : 0.1)  (35 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
 ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

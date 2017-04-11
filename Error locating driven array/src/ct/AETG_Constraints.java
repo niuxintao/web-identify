@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import interaction.CoveringManage;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -59,6 +60,31 @@ public class AETG_Constraints extends AETG {
 		}
 
 		setCoverage(MFS);
+	}
+	
+//	public void addCoverage(int[] testCase){
+//			CoveringManage cm = new CoveringManage(this.dataCenter);
+//		unCovered= cm.setCover(unCovered, coveredMark, testCase);
+//	}
+	
+	public void addCoverage(HashSet<TestCase> testcases){
+		CoveringManage cm = new CoveringManage(this.dataCenter);
+		for(TestCase testCase : testcases){
+		unCovered= cm.setCover(unCovered, coveredMark, ((TestCaseImplement)testCase).getTestCase());
+		}
+	}
+	
+//	public void removeCoverage(int[] testCase){
+//			CoveringManage cm = new CoveringManage(this.dataCenter);
+//		unCovered= cm.rmCover(unCovered, coveredMark, testCase);
+////		unCovered=cm.setCover(unCovered, coveringArray, oldRow);
+//	}
+	
+	public void removeCoverage(HashSet<TestCase> testcases ){
+		CoveringManage cm = new CoveringManage(this.dataCenter);
+		for(TestCase testCase : testcases){
+		unCovered= cm.rmCover(unCovered, coveredMark, ((TestCaseImplement)testCase).getTestCase());
+		}
 	}
 
 	public void setCoverage(HashSet<Tuple> newlyMFS) {
@@ -505,8 +531,8 @@ public class AETG_Constraints extends AETG {
 	 * 
 	 * */
 	public int[] getBestTestCase(Tuple part, TestCase original, HashSet<TestCase> testcases) {
-		// System.out.println("part :" + part.toString() + " original :" +
-		// original.getStringOfTest());
+		System.out.println("part :" + part.toString() + " original :" +
+		 original.getStringOfTest());
 		List<Tuple> tuples = new ArrayList<Tuple> ();
 		for(TestCase testCase : testcases){
 			Tuple t = new Tuple(testCase.getLength(), testCase);
@@ -515,6 +541,7 @@ public class AETG_Constraints extends AETG {
 			tuples.add(t);
 		}
 		
+		this.addCoverage(testcases);
 		this.addConstriants(tuples);
 		
 		
@@ -676,6 +703,10 @@ public class AETG_Constraints extends AETG {
 		}
 
 		coveringArray.add(best);
+		
+		this.removeCoverage(testcases);
+		
+		
 		return best;
 	}
 	

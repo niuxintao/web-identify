@@ -1,0 +1,28 @@
+num ICT_FB_MUOFOT deviration: 30.14647574758947
+
+num_r ICT_FB_MUOFOT deviration: 0.0
+
+num_i ICT_FB_MUOFOT deviration: 29.417001886664117
+
+recall ICT_FB_MUOFOT deviration: 0.0
+
+precise ICT_FB_MUOFOT deviration: 0.0
+
+f-measure ICT_FB_MUOFOT deviration: 0.0
+
+multi ICT_FB_MUOFOT deviration: 0.0
+
+time ICT_FB_MUOFOT deviration: 2629.589551622078
+
+time_r ICT_FB_MUOFOT deviration: 97.05276915163215
+
+time_i ICT_FB_MUOFOT deviration: 0.0
+
+t_cover ICT_FB_MUOFOT deviration: 0.0
+
+all_cover ICT_FB_MUOFOT deviration: 0.0
+
+deviration ICT_FB_MUOFOT CoverNUM
+(1 : 2.961862929E7)  
+deviration ICT_FB_MUOFOT CoverNUM
+

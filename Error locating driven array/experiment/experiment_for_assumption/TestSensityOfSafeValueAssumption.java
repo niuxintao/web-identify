@@ -473,7 +473,7 @@ public class TestSensityOfSafeValueAssumption {
 
 	public static void main(String[] args) {
 		TestSensityOfSafeValueAssumption ex = new TestSensityOfSafeValueAssumption();
-		int[] param_length = new int[] { 8, 12, 16, 20, 24, 28, 32, 36, 40, 64, 96, 108 };
+		int[] param_length = new int[] { 8, 12, 16, 20, 24, 28, 32, 36, 40, 64 };
 		// 
 //		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
 		for (int nu : param_length) {

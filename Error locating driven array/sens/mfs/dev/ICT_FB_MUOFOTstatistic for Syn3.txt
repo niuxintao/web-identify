@@ -1,28 +1,28 @@
-num ICT_FB_MUOFOT deviration: 4.64327470649756
+num ICT_FB_MUOFOT deviration: 4.267317658670374
 
-num_r ICT_FB_MUOFOT deviration: 1.2489995996796797
+num_r ICT_FB_MUOFOT deviration: 1.2649110640673518
 
-num_i ICT_FB_MUOFOT deviration: 4.47213595499958
+num_i ICT_FB_MUOFOT deviration: 5.040833264451424
 
-recall ICT_FB_MUOFOT deviration: 0.26666666666666666
+recall ICT_FB_MUOFOT deviration: 0.3055050463303894
 
-precise ICT_FB_MUOFOT deviration: 0.2358495283014151
+precise ICT_FB_MUOFOT deviration: 0.22912878474779202
 
-f-measure ICT_FB_MUOFOT deviration: 0.2502352634518763
+f-measure ICT_FB_MUOFOT deviration: 0.2749545416973504
 
-multi ICT_FB_MUOFOT deviration: 0.45825756949558405
+multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 9.957911427603683
+time ICT_FB_MUOFOT deviration: 60.717048676627876
 
-time_r ICT_FB_MUOFOT deviration: 5.173006862551025
+time_r ICT_FB_MUOFOT deviration: 19.71902634513175
 
-time_i ICT_FB_MUOFOT deviration: 7.161703707917551
+time_i ICT_FB_MUOFOT deviration: 9.284934033152847
 
-t_cover ICT_FB_MUOFOT deviration: 5.459853477887479
+t_cover ICT_FB_MUOFOT deviration: 17.872045210327776
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 12470.34)  (2 : 15726.130000000001)  (3 : 6127.98)  (4 : 848.3999999999999)  (5 : 147.85)  (6 : 42.1)  (7 : 1.9739999999999995)  (8 : 0.081)  
+(1 : 257270.22000000003)  (2 : 187621.21000000002)  (3 : 34231.25)  (4 : 2673.13)  (5 : 252.38000000000002)  (6 : 90.36)  (7 : 110.24000000000001)  (8 : 72.73)  (9 : 41.88)  (10 : 16.668)  (11 : 12.143)  (12 : 1.275)  (13 : 0.578)  (14 : 0.081)  
 deviration ICT_FB_MUOFOT CoverNUM
-([ 0 , - , 0 , - , - , - , - , - , - , - ] : 0.03199999999999999)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.0)  ([ 0 , 0 , - , - , - , - , - , - , - , - ] : 0.03199999999999999)  
+([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.06300000000000001)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.0)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.06300000000000001)  

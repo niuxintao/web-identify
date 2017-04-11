@@ -1,5 +1,6 @@
 package gandi;
 
+import gandi.CT_process;
 import interaction.CoveringManage;
 import interaction.DataCenter;
 
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import location.SOFOT;
+import location.FIC;
 
 import com.fc.caseRunner.CaseRunner;
 import com.fc.caseRunner.CaseRunnerWithBugInject;
@@ -116,12 +117,14 @@ public class TraditionalFGLI implements CT_process {
 			if (caseRunner.runTestCase(testCase) == TestCase.FAILED) {
 
 				failTestCase.add(testCase);
-
-				SOFOT ofot = new SOFOT();
-				ofot.process(testCase, dataCenter.param, caseRunner);
-				additional.addAll(ofot.getExecuted());
-				identifyCases.addAll(ofot.getExecuted());
-				MFS.addAll(ofot.getBugs());
+				
+				List<Tuple> currentMFS = new ArrayList<Tuple> ();
+				currentMFS.addAll(MFS);
+				FIC fic_feedback = new FIC(testCase, dataCenter.param, caseRunner, currentMFS);
+				fic_feedback.FicNOP_withMFS();
+				additional.addAll(fic_feedback.getExecuted());
+				MFS.addAll(fic_feedback.getBugs());
+				identifyCases.addAll(fic_feedback.getExecuted());
 				// MFS.add(ofot.)
 
 			}

@@ -20,6 +20,7 @@ public class CaseRunnerWithBugInjectLikely implements CaseRunner {
 	
 	public CaseRunnerWithBugInjectLikely(){
 		bugModel = new ArrayList<Tuple>();
+		likely = new ArrayList<Double>();
 	}
 	
 	public void inject(Tuple bug, double likely){

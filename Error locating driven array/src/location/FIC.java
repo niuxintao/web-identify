@@ -1,6 +1,7 @@
 package location;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -63,8 +64,17 @@ public class FIC {
 
 		freeTuple.setParamIndex(free);
 		Tuple noCand = freeTuple.catComm(freeTuple, partBug);
+//		int[] index = noCand.getParamIndex();
 
+//		System.out.println("noCand "  +noCand.toString() +" : " + noCand.getDegree() + " : " + noCand.getCaseLen());
+//		
+//		for(int i : index){
+//			System.out.print(i + ", ");
+//		}
+//		System.out.println();
+//		
 		Tuple cand = noCand.getReverseTuple();
+//		System.out.println("cand" + cand.toString() +" : " + cand.getDegree());
 		int[] Ccand = cand.getParamIndex();
 		List<Integer> U = new ArrayList<Integer>();
 		U.addAll(CFree);
@@ -111,6 +121,7 @@ public class FIC {
 	}
 
 	public int[] CovertTntegerToInt(List<Integer> CFree) {
+	    Collections.sort(CFree);
 		int[] free = new int[CFree.size()];
 		for (int i = 0; i < free.length; i++) {
 			free[i] = CFree.get(i);
@@ -309,8 +320,10 @@ public class FIC {
 			}
 
 			Tuple bug = Fic_ofot(CTabu);
-			if (bug.getDegree() == 0)
+			if (bug.getDegree() == 0){
+				this.bugs.add(bug);
 				break;
+			}
 			this.bugs.add(bug);
 
 			Tuple tuple = new Tuple(CTabu.size(), testCase);
