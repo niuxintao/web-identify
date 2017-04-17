@@ -14,7 +14,7 @@ import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
 import gandi.ErrorLocatingDrivenArray_TL;
-import gandi.ErrorLocatingDrivenArray_feedback_MUOFOT;
+import  grandi2.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
@@ -468,7 +468,8 @@ public class TestSensityOfNumberOfOpitions {
 
 	public static void main(String[] args) {
 		TestSensityOfNumberOfOpitions ex = new TestSensityOfNumberOfOpitions();
-		int[] num = new int[] { 8, 9, 10, 12, 16, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+		//8, 9, 10, 12, 16, 20, 30, 40, 50, 60, 70, 80, 90, 
+		int[] num = new int[] { 100 };
 		for (int nu : num) {
 			int[] param = getParam(nu);
 			System.out.println("start : the number of options is :" + nu);

@@ -9,23 +9,23 @@ average fd num_i :0.0
 
 average fd recall :1.0
 
-average fd precise :0.22272430184194897
+average fd precise :0.25117991056071554
 
-average fd f-measure :0.3504242927347165
+average fd f-measure :0.38979722032353614
 
-average fd multi :5.7
+average fd multi :5.9
 
-average fd time :339.4
+average fd time :1253.9
 
-average fd time_r :328.1
+average fd time_r :1210.0
 
-average fd time_i :4.7
+average fd time_i :11.6
 
-average fd t_cover :1373.4
+average fd t_cover :1374.5
 
 average fd all_cover :1375.0
 
 average fd CoverNUM
-(1 : 56.1)  (2 : 51.2)  (3 : 22.8)  (4 : 5.2)  (5 : 1.5)  (6 : 1.1)  (7 : 2.0)  (8 : 1.7)  (9 : 2.8)  (10 : 1.1)  (11 : 0.3)  (12 : 0.4)  (13 : 0.2)  
+(1 : 54.1)  (2 : 47.8)  (3 : 24.2)  (4 : 8.0)  (5 : 2.3)  (6 : 1.1)  (7 : 1.4)  (8 : 2.1)  (9 : 2.3)  (10 : 1.9)  (11 : 1.1)  (12 : 0.3)  (13 : 0.2)  
 average fd CoverNUM
 ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 1.0)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  

@@ -55,17 +55,52 @@ public class DataForSafeValueAssumption implements ExperimentData {
 		int[] wrong = new int[param.length];
 		for (int i = 0; i < param.length; i++)
 			wrong[i] = 0;
+		wrong[4] = 1;
+//		TestCase wrongCase = new TestCaseImplement();
+//		((TestCaseImplement) wrongCase).setTestCase(wrong);
+//		Tuple bugMode = new Tuple(2, wrongCase);
+//
+//			bugMode.set(0, 1);
+//			bugMode.set(1, 5);
+//
+//		realMFS.add(bugMode);
+//		((CaseRunnerWithBugInject) caseRunner).inject(bugMode);	
+//		
 		TestCase wrongCase = new TestCaseImplement();
 		((TestCaseImplement) wrongCase).setTestCase(wrong);
-		Tuple bugMode = new Tuple(2, wrongCase);
 
-			bugMode.set(0, 1);
-			bugMode.set(1, 5);
-
-		realMFS.add(bugMode);
-		((CaseRunnerWithBugInject) caseRunner).inject(bugMode);	
+		Tuple bugModel = new Tuple(2, wrongCase);
+		bugModel.set(0, 0);
+		bugModel.set(1, 4);
+		// bugModel1.set(2, 4);
+		// bugModel1.set(1, 2);
 		
 		
+		/** ***********************************************************
+		 *  note that we have not done all the schemas.
+		 *  ***********************************************************
+		 */
+
+		int[] wrong2 = new int[param.length]; // MFS
+		for (int i = 0; i < wrong2.length; i++)
+			wrong2[i] = 1;
+		
+		wrong2[3] = 0;
+		
+		TestCase wrongCase2 = new TestCaseImplement();
+		((TestCaseImplement) wrongCase2).setTestCase(wrong2);
+		
+		Tuple bugModel2 = new Tuple(2, wrongCase2);
+		bugModel2.set(0, 1);
+		bugModel2.set(1, 3);
+
+		realMFS.add(bugModel);  
+		
+		realMFS.add(bugModel2); // add or not add	
+		
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel);	
+		
+		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);	
 		
 		
 		for(int i = 0; i < param[0]; i++){
@@ -91,7 +126,10 @@ public class DataForSafeValueAssumption implements ExperimentData {
 		int[] wrong = new int[param.length];
 		for (int i = 0; i < param.length; i++)
 			wrong[i] = base;
-//		int degree = 4;
+		
+		
+		degree = param.length / 2;
+		
 		for(int i = 0; i < param.length / degree ; i++){
 			TestCase wrongCase = new TestCaseImplement();
 			((TestCaseImplement) wrongCase).setTestCase(wrong);
@@ -99,7 +137,7 @@ public class DataForSafeValueAssumption implements ExperimentData {
 			for(int j = 0; j < degree; j++){
 				bugMode.set(j, i*degree + j);
 			}
-			realMFS.add(bugMode);
+//			realMFS.add(bugMode);
 			((CaseRunnerWithBugInject) caseRunner).inject(bugMode);	
 		}
 	}

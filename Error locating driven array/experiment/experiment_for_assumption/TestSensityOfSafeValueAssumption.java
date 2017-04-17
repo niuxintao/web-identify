@@ -16,7 +16,7 @@ import gandi.ErrorLocatingDrivenArray_CB;
 import gandi.ErrorLocatingDrivenArray_FIC;
 import gandi.ErrorLocatingDrivenArray_TL;
 import gandi.ErrorLocatingDrivenArray_feedback;
-import gandi.ErrorLocatingDrivenArray_feedback_MUOFOT;
+import grandi2.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
@@ -51,9 +51,12 @@ public class TestSensityOfSafeValueAssumption {
 
 	public final static int T_COVER = 10;
 	public final static int ALL_COVER = 11;
+	
+	public final static int W_CHECK = 12;
+	public final static int W_IDEN = 13;
 
 	public final static String[] SHOW = { "num", "num_r", "num_i", "recall", "precise", "f-measure", "multi", "time",
-			"time_r", "time_i", "t_cover", "all_cover" };
+			"time_r", "time_i", "t_cover", "all_cover", "w check", "w iden" };
 
 	public TestSensityOfSafeValueAssumption() {
 
@@ -112,6 +115,7 @@ public class TestSensityOfSafeValueAssumption {
 		// mask
 		edata.t_testedCover = ct_process.getT_tested_covered();
 		edata.allCover = ct_process.getCoveredMark().length;
+		
 
 		// output
 
@@ -156,6 +160,15 @@ public class TestSensityOfSafeValueAssumption {
 		}
 		output.println();
 		// output.println("" + edata.);
+		
+		if(algorithm == ICT_FB_MUOFOT){
+		edata.wrongChecked = ((ErrorLocatingDrivenArray_feedback_MUOFOT)ct_process).wrongNumberChecked;
+		edata.wrongIdentifyed =(int) (ct_process.getMFS().size() - (((ErrorLocatingDrivenArray_feedback_MUOFOT)ct_process).getPrecise() * ct_process.getMFS().size()));
+		output.println("wrong Checked");
+		output.println("" + edata.wrongChecked);
+		output.println("wrong identified");
+		output.println("" + edata.wrongIdentifyed);
+		}
 
 		return edata;
 
@@ -376,7 +389,12 @@ public class TestSensityOfSafeValueAssumption {
 			case ALL_COVER:
 				da += daa.allCover;
 				break;
-
+			case W_CHECK:
+				da += daa.wrongChecked;
+				break;
+			case W_IDEN:
+				da += daa.wrongIdentifyed;
+				break;
 			}
 		}
 
@@ -420,6 +438,12 @@ public class TestSensityOfSafeValueAssumption {
 			case ALL_COVER:
 				da_dev += (daa.allCover - da) * (daa.allCover - da);
 				break;
+			case W_CHECK:
+				da_dev += (daa.wrongChecked - da) *(daa.wrongChecked - da);
+				break;
+			case W_IDEN:
+				da_dev +=(daa.wrongIdentifyed - da) *(daa.wrongIdentifyed - da);
+				break;
 			}
 
 		}
@@ -445,7 +469,12 @@ public class TestSensityOfSafeValueAssumption {
 		}
 		statistic_cover(algorithm, edata, out, outDev);
 		statistic_realIdenti(algorithm, edata, out, outDev);
-
+		
+		
+		if(algorithm == ICT_FB_MUOFOT){
+		this.statistic(algorithm, edata, out, outDev, W_CHECK);
+		this.statistic(algorithm, edata, out, outDev, W_IDEN);
+		}
 		// output.println("" + edata.);
 	}
 
@@ -473,7 +502,8 @@ public class TestSensityOfSafeValueAssumption {
 
 	public static void main(String[] args) {
 		TestSensityOfSafeValueAssumption ex = new TestSensityOfSafeValueAssumption();
-		int[] param_length = new int[] { 8, 12, 16, 20, 24, 28, 32, 36, 40, 64 };
+		// 
+		int[] param_length = new int[] {  8, 10, 16, 20, 30, 40,  50, 60, 70, 80, 90 };
 		// 
 //		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
 		for (int nu : param_length) {
@@ -504,5 +534,8 @@ class EDATA {
 	public long allTime;
 	public long GeneratTime;
 	public long identificationTime;
+	
+	public int wrongChecked;
+	public int wrongIdentifyed;
 
 }

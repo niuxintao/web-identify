@@ -1,31 +1,39 @@
 2-way for Syn0.6
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :69.3
+average ICT_FB_MUOFOT num :95.4
 
-average ICT_FB_MUOFOT num_r :27.3
+average ICT_FB_MUOFOT num_r :20.4
 
-average ICT_FB_MUOFOT num_i :42.0
+average ICT_FB_MUOFOT num_i :75.2
 
-average ICT_FB_MUOFOT recall :0.45
+average ICT_FB_MUOFOT recall :0.5
 
-average ICT_FB_MUOFOT precise :0.23833333333333334
+average ICT_FB_MUOFOT precise :0.2633333333333333
 
-average ICT_FB_MUOFOT f-measure :0.3042857142857143
+average ICT_FB_MUOFOT f-measure :0.3376190476190476
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :373.2
+average ICT_FB_MUOFOT time :1002.8
 
-average ICT_FB_MUOFOT time_r :122.9
+average ICT_FB_MUOFOT time_r :164.3
 
-average ICT_FB_MUOFOT time_i :83.3
+average ICT_FB_MUOFOT time_i :739.7
 
-average ICT_FB_MUOFOT t_cover :689.7
+average ICT_FB_MUOFOT t_cover :697.2
 
 average ICT_FB_MUOFOT all_cover :720.0
 
+average ICT_FB_MUOFOT w check :5.8
+
+average ICT_FB_MUOFOT w iden :3.1
+
 average ICT_FB_MUOFOT CoverNUM
-(1 : 23.7)  (2 : 25.2)  (3 : 13.7)  (4 : 7.8)  (5 : 3.4)  (6 : 3.1)  (7 : 1.4)  (8 : 2.2)  (9 : 0.8)  (10 : 0.8)  (11 : 0.3)  (12 : 0.3)  
+(1 : 15.0)  (2 : 14.4)  (3 : 9.6)  (4 : 7.3)  (5 : 5.5)  (6 : 4.5)  (7 : 4.3)  (8 : 2.8)  (9 : 2.5)  (10 : 2.6)  (11 : 2.6)  (12 : 2.1)  (13 : 1.8)  (14 : 2.2)  (15 : 1.6)  (16 : 2.1)  (17 : 1.7)  (18 : 0.7)  (19 : 0.9)  (20 : 1.0)  (21 : 1.1)  (22 : 0.7)  (23 : 0.6)  (24 : 0.4)  (25 : 0.6)  (26 : 0.3)  (27 : 0.4)  (28 : 0.2)  (29 : 0.2)  (30 : 0.3)  (31 : 0.3)  (32 : 0.4)  (33 : 0.2)  (34 : 0.2)  (35 : 0.1)  (36 : 0.2)  (37 : 0.2)  (38 : 0.1)  (39 : 0.1)  (41 : 0.1)  (42 : 0.2)  (45 : 0.1)  (46 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
-([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.9)  
+([ 0 , - , - , 0 , - , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT w check :5.8
+
+average ICT_FB_MUOFOT w iden :3.1
+

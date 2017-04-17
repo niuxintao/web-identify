@@ -1,28 +1,36 @@
-num ICT_FB_MUOFOT deviration: 17.030560765870277
+num ICT_FB_MUOFOT deviration: 12.650691680694775
 
-num_r ICT_FB_MUOFOT deviration: 0.9165151389911681
+num_r ICT_FB_MUOFOT deviration: 3.0919249667480613
 
-num_i ICT_FB_MUOFOT deviration: 17.435595774162696
+num_i ICT_FB_MUOFOT deviration: 13.364505228402585
 
-recall ICT_FB_MUOFOT deviration: 0.31622776601683794
+recall ICT_FB_MUOFOT deviration: 0.15
 
-precise ICT_FB_MUOFOT deviration: 0.22691979330281567
+precise ICT_FB_MUOFOT deviration: 0.10828203913853857
 
-f-measure ICT_FB_MUOFOT deviration: 0.2647279955366389
+f-measure ICT_FB_MUOFOT deviration: 0.11360137371019566
 
-multi ICT_FB_MUOFOT deviration: 0.30000000000000004
+multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 111.59121829248035
+time ICT_FB_MUOFOT deviration: 139.11466493508152
 
-time_r ICT_FB_MUOFOT deviration: 25.132648089686054
+time_r ICT_FB_MUOFOT deviration: 25.727222936026347
 
-time_i ICT_FB_MUOFOT deviration: 59.98999916652775
+time_i ICT_FB_MUOFOT deviration: 158.8483868347425
 
-t_cover ICT_FB_MUOFOT deviration: 14.661514246489002
+t_cover ICT_FB_MUOFOT deviration: 20.081085628023203
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
+w check ICT_FB_MUOFOT deviration: 2.5317977802344327
+
+w iden ICT_FB_MUOFOT deviration: 1.1
+
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 44361.25)  (2 : 40692.41000000001)  (3 : 14130.16)  (4 : 3336.6)  (5 : 819.8599999999999)  (6 : 298.00999999999993)  (7 : 66.08)  (8 : 18.416)  (9 : 6.648000000000001)  (10 : 0.8270000000000002)  (11 : 0.12800000000000003)  
+(1 : 33515.56)  (2 : 31855.439999999995)  (3 : 9976.080000000002)  (4 : 2593.25)  (5 : 1249.78)  (6 : 598.65)  (7 : 373.1)  (8 : 304.08000000000004)  (9 : 174.29)  (10 : 93.08)  (11 : 66.425)  (12 : 24.287999999999997)  (13 : 24.7)  (14 : 8.516000000000002)  (15 : 2.1960000000000006)  (16 : 0.624)  (17 : 0.14699999999999996)  (18 : 1.018)  (19 : 2.368)  (20 : 0.081)  (21 : 0.081)  (22 : 0.081)  (24 : 0.081)  (25 : 0.081)  (26 : 0.081)  (27 : 0.7290000000000001)  (28 : 0.081)  (29 : 0.324)  (30 : 0.081)  (31 : 0.081)  (32 : 0.7290000000000001)  (33 : 0.324)  (34 : 0.7290000000000001)  (35 : 0.081)  
 deviration ICT_FB_MUOFOT CoverNUM
-([ - , 1 , - , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.03199999999999999)  
+([ - , 1 , - , - , - , - , - , - , - , - ] : 0.081)  ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.0)  
+w check ICT_FB_MUOFOT deviration: 2.5317977802344327
+
+w iden ICT_FB_MUOFOT deviration: 1.1
+

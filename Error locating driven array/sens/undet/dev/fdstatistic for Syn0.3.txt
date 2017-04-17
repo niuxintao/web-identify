@@ -1,28 +1,32 @@
-num fd deviration: 3.1048349392520045
+num fd deviration: 4.498888751680798
 
-num_r fd deviration: 3.1048349392520045
+num_r fd deviration: 4.498888751680798
 
 num_i fd deviration: 0.0
 
 recall fd deviration: 0.0
 
-precise fd deviration: 0.050904903583728886
+precise fd deviration: 0.08048940167955866
 
-f-measure fd deviration: 0.058519945025757955
+f-measure fd deviration: 0.08757833661837536
 
-multi fd deviration: 0.45825756949558394
+multi fd deviration: 0.48989794855663565
 
-time fd deviration: 40.89119709668573
+time fd deviration: 35.128478475447814
 
-time_r fd deviration: 40.15831171750127
+time_r fd deviration: 28.14764643802391
 
-time_i fd deviration: 6.356886030125127
+time_i fd deviration: 6.1163714733492105
 
-t_cover fd deviration: 10.538026380684384
+t_cover fd deviration: 10.237675517420934
 
 all_cover fd deviration: 0.0
 
+w check fd deviration: 0.0
+
+w iden fd deviration: 0.0
+
 deviration fd CoverNUM
-(1 : 65014.52)  (2 : 47682.3)  (3 : 11812.45)  (4 : 1116.8600000000001)  (5 : 169.52999999999994)  (6 : 82.85)  (7 : 29.889999999999997)  (8 : 12.775)  (9 : 2.1399999999999997)  (10 : 0.081)  
+(1 : 64784.77)  (2 : 49994.44999999999)  (3 : 11807.720000000001)  (4 : 1308.45)  (5 : 157.93)  (6 : 52.72999999999998)  (7 : 21.772000000000006)  (8 : 13.55)  (9 : 0.8479999999999999)  (10 : 0.578)  (11 : 0.081)  (12 : 0.324)  
 deviration fd CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 0.0)  

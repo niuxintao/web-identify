@@ -531,8 +531,9 @@ public class AETG_Constraints extends AETG {
 	 * 
 	 * */
 	public int[] getBestTestCase(Tuple part, TestCase original, HashSet<TestCase> testcases) {
-		System.out.println("part :" + part.toString() + " original :" +
-		 original.getStringOfTest());
+//		System.out.println("part :" + part.toString() + " original :" +
+//		 original.getStringOfTest());
+		if(testcases != null){
 		List<Tuple> tuples = new ArrayList<Tuple> ();
 		for(TestCase testCase : testcases){
 			Tuple t = new Tuple(testCase.getLength(), testCase);
@@ -543,7 +544,7 @@ public class AETG_Constraints extends AETG {
 		
 		this.addCoverage(testcases);
 		this.addConstriants(tuples);
-		
+		}
 		
 		int[] best = new int[dataCenter.param_num];
 
@@ -704,6 +705,7 @@ public class AETG_Constraints extends AETG {
 
 		coveringArray.add(best);
 		
+		if(testcases != null)
 		this.removeCoverage(testcases);
 		
 		

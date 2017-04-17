@@ -383,12 +383,17 @@ public class FIC_Constraints {
 			}
 
 			Tuple bug = Fic_ofot(CTabu);
+			int i = 0;
 			while (bug.getDegree() == 0) {
 //				System.out.print("degree is zero and the cost is " );
 //				int executeBefore = this.executed.size();
 				bug = Fic_ofot(CTabu);
 //				int executeAfter = this.executed.size();
 //				System.out.println(executeAfter -  executeBefore);
+				i ++;
+				if(i > 5){
+					break;
+				}
 			}
 			/**
 			 * handle *********************

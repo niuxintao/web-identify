@@ -1,8 +1,8 @@
-num ICT_FB_MUOFOT deviration: 0.66332495807108
+num ICT_FB_MUOFOT deviration: 0.4472135954999579
 
-num_r ICT_FB_MUOFOT deviration: 0.5
+num_r ICT_FB_MUOFOT deviration: 0.29999999999999993
 
-num_i ICT_FB_MUOFOT deviration: 0.4
+num_i ICT_FB_MUOFOT deviration: 0.30000000000000004
 
 recall ICT_FB_MUOFOT deviration: 0.0
 
@@ -10,19 +10,19 @@ precise ICT_FB_MUOFOT deviration: 0.0
 
 f-measure ICT_FB_MUOFOT deviration: 0.0
 
-multi ICT_FB_MUOFOT deviration: 0.45825756949558405
+multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 1837.0872624891826
+time ICT_FB_MUOFOT deviration: 1669.9430199860114
 
-time_r ICT_FB_MUOFOT deviration: 170.06892720306084
+time_r ICT_FB_MUOFOT deviration: 354.16308390344693
 
-time_i ICT_FB_MUOFOT deviration: 1626.3883177150528
+time_i ICT_FB_MUOFOT deviration: 1462.5484607355752
 
 t_cover ICT_FB_MUOFOT deviration: 0.0
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 67668.6)  (2 : 406059.45)  (3 : 920748.9)  (4 : 827039.1700000002)  (5 : 452318.20000000007)  (6 : 187806.65999999997)  (7 : 86443.0)  (8 : 33002.17)  (9 : 8278.13)  (10 : 378.8)  (11 : 0.12800000000000003)  
+(1 : 101420.80999999998)  (2 : 990976.5000000002)  (3 : 1356876.26)  (4 : 351482.93000000005)  (5 : 26409.439999999995)  (6 : 3795.37)  (7 : 2970.7200000000003)  (8 : 5435.54)  (9 : 15062.36)  (10 : 56362.969999999994)  (11 : 114566.99999999997)  (12 : 58442.89)  (13 : 8065.6)  (14 : 103.204)  (15 : 0.7290000000000001)  
 deviration ICT_FB_MUOFOT CoverNUM
 ([ - , - , 0 , - , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.0)  ([ - , 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.0)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.0)  

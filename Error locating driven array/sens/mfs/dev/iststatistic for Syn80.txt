@@ -12,17 +12,17 @@ f-measure ist deviration: 0.0
 
 multi ist deviration: 0.0
 
-time ist deviration: 0.7483314773547882
+time ist deviration: 10.171037311896953
 
-time_r ist deviration: 0.48989794855663565
+time_r ist deviration: 5.912698199637793
 
-time_i ist deviration: 0.4000000000000001
+time_i ist deviration: 2.794637722496424
 
 t_cover ist deviration: 0.0
 
 all_cover ist deviration: 0.0
 
 deviration ist CoverNUM
-(1 : 104458.23999999999)  
+(1 : 1529179.56)  
 deviration ist CoverNUM
 

@@ -1,31 +1,35 @@
 2-way for Syn0.01
 ###############################################
 ###############################################
-average sct num :48.4
+average sct num :48.9
 
-average sct num_r :32.6
+average sct num_r :32.3
 
-average sct num_i :15.8
+average sct num_i :16.7
 
 average sct recall :0.5
 
-average sct precise :1.0
+average sct precise :0.95
 
-average sct f-measure :0.6666666666666667
+average sct f-measure :0.65
 
-average sct multi :0.5
+average sct multi :0.8
 
-average sct time :82.2
+average sct time :63.5
 
-average sct time_r :81.1
+average sct time_r :61.7
 
-average sct time_i :0.6
+average sct time_i :0.1
 
-average sct t_cover :716.0
+average sct t_cover :716.2
 
 average sct all_cover :720.0
 
+average sct w check :0.0
+
+average sct w iden :0.0
+
 average sct CoverNUM
-(1 : 23.6)  (2 : 22.2)  (3 : 12.7)  (4 : 5.8)  (5 : 3.3)  (6 : 3.4)  (7 : 2.5)  (8 : 2.1)  (9 : 2.4)  (10 : 1.5)  (11 : 1.1)  (12 : 1.1)  (13 : 1.5)  (14 : 1.1)  (15 : 0.8)  (16 : 1.0)  (17 : 0.4)  (18 : 0.2)  (19 : 0.1)  (20 : 0.2)  
+(1 : 14.6)  (2 : 20.5)  (3 : 15.4)  (4 : 7.9)  (5 : 4.1)  (6 : 3.0)  (7 : 2.9)  (8 : 2.4)  (9 : 2.2)  (10 : 3.5)  (11 : 2.3)  (12 : 1.9)  (13 : 1.5)  (14 : 1.5)  (15 : 1.0)  (16 : 0.7)  (17 : 0.5)  (18 : 0.6)  (19 : 0.1)  (20 : 0.1)  
 average sct CoverNUM
 ([ 0 , - , - , 0 , - , - , - , - , - , - ] : 1.0)  

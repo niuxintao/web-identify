@@ -1,31 +1,35 @@
 2-way for Syn20-4
 ###############################################
 ###############################################
-average fd num :115.8
+average fd num :77.7
 
-average fd num_r :115.8
+average fd num_r :77.7
 
 average fd num_i :0.0
 
-average fd recall :0.047619047619047616
+average fd recall :1.0
 
-average fd precise :0.007443868255653555
+average fd precise :0.041827535456658405
 
-average fd f-measure :0.012704681237495135
+average fd f-measure :0.07976861773623103
 
-average fd multi :40.5
+average fd multi :1.3
 
-average fd time :2293.3
+average fd time :1290.1
 
-average fd time_r :2217.2
+average fd time_r :1251.7
 
-average fd time_i :7.6
+average fd time_i :2.1
 
-average fd t_cover :3032.7
+average fd t_cover :3035.7
 
 average fd all_cover :3040.0
 
+average fd w check :0.0
+
+average fd w iden :0.0
+
 average fd CoverNUM
-(1 : 69.7)  (2 : 87.2)  (3 : 66.2)  (4 : 37.4)  (5 : 19.0)  (6 : 8.9)  (7 : 6.2)  (8 : 5.3)  (9 : 4.7)  (10 : 3.3)  (11 : 3.8)  (12 : 1.4)  (13 : 1.3)  (14 : 0.2)  (15 : 0.3)  (17 : 0.1)  
+(1 : 73.1)  (2 : 89.7)  (3 : 67.9)  (4 : 39.9)  (5 : 13.4)  (6 : 5.1)  (7 : 1.9)  (8 : 1.2)  (9 : 0.9)  (10 : 1.1)  (11 : 0.9)  (12 : 1.7)  (13 : 3.5)  (14 : 4.5)  (15 : 4.1)  (16 : 4.8)  (17 : 3.3)  (18 : 1.6)  (19 : 1.0)  (20 : 0.8)  (21 : 0.9)  (22 : 1.9)  (23 : 0.5)  (24 : 0.3)  (25 : 0.2)  (26 : 0.3)  (29 : 0.1)  
 average fd CoverNUM
-([ - , 0 , - , - , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+([ 0 , - , - , - , 1 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  ([ - , 1 , - , 0 , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  

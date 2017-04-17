@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import locatConstaint.FIC_Constraints;
+import experimentData.TomcatData;
 import experiment_for_assumption.DataForSafeValueAssumption;
 //import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
@@ -21,6 +22,7 @@ import com.fc.tuple.Tuple;
 
 
 
+
 import ct.AETG_Constraints;
 
 //import com.fc.coveringArray.CoveringManage;
@@ -28,6 +30,8 @@ import ct.AETG_Constraints;
 //find the non-mfs re-do 
 public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		ErrorLocatingDrivenArray {
+	
+	public int wrongNumberChecked = 0;
 
 	public static final int CHANGENUM = 10;
 
@@ -131,6 +135,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		for (Tuple tuple : mfs) {
 			Tuple revser = tuple.getReverseTuple();
 			if (isMFSWrong(ac, tuple, testCase, executed.get(revser))) {
+				this.wrongNumberChecked ++;
 				wrong.add(tuple);
 			} else {
 				right.add(tuple);
@@ -224,6 +229,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		} else{
 			
 			HashSet<TestCase> executed2 = new HashSet<TestCase> ();
+			if(executed != null)
 			executed2.addAll(executed);
 			executed2.add(newCase);
 			int[] test2 = ac.getBestTestCase(MFS, wrongCase, executed2);
@@ -266,11 +272,14 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 
 	public static void main(String[] args) {
 
-		DataForSafeValueAssumption data = new DataForSafeValueAssumption(20, 4);
+		DataForSafeValueAssumption data = new DataForSafeValueAssumption(8, 2);
 		data.setDegree(2);
 
 		showData(data.getDataCenter(), data.getCaseRunner());
 		
+		TomcatData data2 = new TomcatData();
+		data2.setDegree(2);
+//		showData(data2.getDataCenter(), data2.getCaseRunner());
 		
 		System.out.println("second");
 		int[] wrong = new int[] { 1, 1, 1, 1, 1, 1, 1, 1 };

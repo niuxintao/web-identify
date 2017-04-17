@@ -1,6 +1,6 @@
-num ist deviration: 0.0
+num ist deviration: 1.2
 
-num_r ist deviration: 0.0
+num_r ist deviration: 1.2
 
 num_i ist deviration: 0.0
 
@@ -12,17 +12,17 @@ f-measure ist deviration: 0.0
 
 multi ist deviration: 0.0
 
-time ist deviration: 0.4898979485566356
+time ist deviration: 28.0515596714336
 
-time_r ist deviration: 0.48989794855663565
+time_r ist deviration: 17.555910685578233
 
-time_i ist deviration: 0.0
+time_i ist deviration: 0.48989794855663565
 
 t_cover ist deviration: 0.0
 
 all_cover ist deviration: 0.0
 
 deviration ist CoverNUM
-(1 : 104458.23999999999)  
+(1 : 299455.04999999993)  (2 : 171271.28999999998)  (3 : 31135.290000000008)  (4 : 1890.05)  (5 : 114.47999999999999)  (6 : 85.93)  (7 : 110.46)  (8 : 72.3)  (9 : 43.33)  (10 : 15.584)  (11 : 7.8100000000000005)  (12 : 2.7)  (13 : 0.3)  (14 : 0.081)  (15 : 0.081)  
 deviration ist CoverNUM
 

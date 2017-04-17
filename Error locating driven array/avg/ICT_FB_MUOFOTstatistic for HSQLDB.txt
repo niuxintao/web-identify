@@ -1,93 +1,93 @@
 2-way for HSQLDB
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :38.5
+average ICT_FB_MUOFOT num :49.4
 
-average ICT_FB_MUOFOT num_r :13.4
+average ICT_FB_MUOFOT num_r :11.7
 
-average ICT_FB_MUOFOT num_i :25.1
+average ICT_FB_MUOFOT num_i :37.8
 
-average ICT_FB_MUOFOT recall :0.5333333333333333
+average ICT_FB_MUOFOT recall :0.7666666666666666
 
-average ICT_FB_MUOFOT precise :0.7666666666666666
+average ICT_FB_MUOFOT precise :1.0
 
-average ICT_FB_MUOFOT f-measure :0.6266666666666667
+average ICT_FB_MUOFOT f-measure :0.8300000000000001
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :121.9
+average ICT_FB_MUOFOT time :345.5
 
-average ICT_FB_MUOFOT time_r :38.7
+average ICT_FB_MUOFOT time_r :85.7
 
-average ICT_FB_MUOFOT time_i :45.5
+average ICT_FB_MUOFOT time_i :230.6
 
 average ICT_FB_MUOFOT t_cover :357.0
 
 average ICT_FB_MUOFOT all_cover :357.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 102.4)  (2 : 80.0)  (3 : 69.4)  (4 : 41.0)  (5 : 20.5)  (6 : 12.6)  (7 : 8.8)  (8 : 8.9)  (9 : 5.4)  (10 : 3.7)  (11 : 1.9)  (12 : 1.6)  (13 : 0.5)  (14 : 0.2)  (15 : 0.1)  
+(1 : 90.3)  (2 : 71.1)  (3 : 60.1)  (4 : 39.9)  (5 : 23.1)  (6 : 16.5)  (7 : 12.2)  (8 : 12.0)  (9 : 9.3)  (10 : 6.5)  (11 : 4.9)  (12 : 3.0)  (13 : 2.5)  (14 : 1.3)  (15 : 1.4)  (16 : 0.6)  (17 : 0.5)  (18 : 0.7)  (19 : 0.3)  (20 : 0.1)  (21 : 0.2)  (22 : 0.2)  (24 : 0.3)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.1)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.5)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.7)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.6)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
 3-way for HSQLDB
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :77.1
+average ICT_FB_MUOFOT num :88.3
 
-average ICT_FB_MUOFOT num_r :44.7
+average ICT_FB_MUOFOT num_r :40.7
 
-average ICT_FB_MUOFOT num_i :32.4
+average ICT_FB_MUOFOT num_i :47.7
 
-average ICT_FB_MUOFOT recall :0.7333333333333333
+average ICT_FB_MUOFOT recall :1.0
 
-average ICT_FB_MUOFOT precise :0.7333333333333333
+average ICT_FB_MUOFOT precise :1.0
 
-average ICT_FB_MUOFOT f-measure :0.7247619047619047
+average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :801.8
+average ICT_FB_MUOFOT time :2093.6
 
-average ICT_FB_MUOFOT time_r :231.3
+average ICT_FB_MUOFOT time_r :437.4
 
-average ICT_FB_MUOFOT time_i :143.7
+average ICT_FB_MUOFOT time_i :1293.2
 
-average ICT_FB_MUOFOT t_cover :2735.9
+average ICT_FB_MUOFOT t_cover :2742.0
 
 average ICT_FB_MUOFOT all_cover :2742.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 595.4)  (2 : 477.4)  (3 : 488.8)  (4 : 347.9)  (5 : 231.7)  (6 : 173.4)  (7 : 122.0)  (8 : 85.6)  (9 : 54.7)  (10 : 40.5)  (11 : 29.0)  (12 : 15.4)  (13 : 13.4)  (14 : 10.0)  (15 : 11.9)  (16 : 9.1)  (17 : 6.6)  (18 : 6.2)  (19 : 3.9)  (20 : 5.9)  (21 : 4.5)  (22 : 4.4)  (23 : 2.2)  (24 : 1.3)  (25 : 0.8)  
+(1 : 582.7)  (2 : 451.3)  (3 : 468.2)  (4 : 342.7)  (5 : 243.3)  (6 : 169.6)  (7 : 125.6)  (8 : 93.3)  (9 : 62.3)  (10 : 45.4)  (11 : 32.5)  (12 : 24.9)  (13 : 17.8)  (14 : 13.0)  (15 : 12.7)  (16 : 11.7)  (17 : 9.4)  (18 : 7.2)  (19 : 5.9)  (20 : 5.2)  (21 : 5.0)  (22 : 4.2)  (23 : 3.6)  (24 : 1.9)  (25 : 1.2)  (26 : 0.6)  (27 : 0.2)  (29 : 0.2)  (30 : 0.2)  (31 : 0.1)  (33 : 0.1)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.6)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.6)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 1.0)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 1.0)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
 4-way for HSQLDB
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :148.2
+average ICT_FB_MUOFOT num :166.3
 
-average ICT_FB_MUOFOT num_r :116.5
+average ICT_FB_MUOFOT num_r :113.0
 
-average ICT_FB_MUOFOT num_i :31.7
+average ICT_FB_MUOFOT num_i :53.5
 
-average ICT_FB_MUOFOT recall :0.7999999999999999
+average ICT_FB_MUOFOT recall :1.0
 
-average ICT_FB_MUOFOT precise :0.8333333333333333
+average ICT_FB_MUOFOT precise :0.975
 
-average ICT_FB_MUOFOT f-measure :0.8133333333333332
+average ICT_FB_MUOFOT f-measure :0.9857142857142858
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :4657.5
+average ICT_FB_MUOFOT time :21918.4
 
-average ICT_FB_MUOFOT time_r :1519.7
+average ICT_FB_MUOFOT time_r :2056.3
 
-average ICT_FB_MUOFOT time_i :423.9
+average ICT_FB_MUOFOT time_i :17315.3
 
-average ICT_FB_MUOFOT t_cover :14081.4
+average ICT_FB_MUOFOT t_cover :14135.5
 
 average ICT_FB_MUOFOT all_cover :14136.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 3096.0)  (2 : 1970.3)  (3 : 2184.8)  (4 : 1809.0)  (5 : 1347.2)  (6 : 972.3)  (7 : 693.2)  (8 : 500.6)  (9 : 385.0)  (10 : 279.1)  (11 : 211.2)  (12 : 147.4)  (13 : 119.7)  (14 : 94.4)  (15 : 77.2)  (16 : 66.9)  (17 : 45.8)  (18 : 31.4)  (19 : 20.5)  (20 : 13.5)  (21 : 8.4)  (22 : 7.6)  (23 : 7.0)  (24 : 6.3)  (25 : 6.8)  (26 : 8.3)  (27 : 6.5)  (28 : 6.5)  (29 : 3.8)  (30 : 3.6)  (31 : 2.0)  (32 : 1.7)  (33 : 0.8)  (34 : 0.8)  (35 : 0.3)  (36 : 0.1)  
+(1 : 2970.9)  (2 : 1812.8)  (3 : 2085.8)  (4 : 1797.0)  (5 : 1362.4)  (6 : 1019.1)  (7 : 750.3)  (8 : 546.6)  (9 : 411.2)  (10 : 316.7)  (11 : 246.9)  (12 : 169.6)  (13 : 130.4)  (14 : 114.6)  (15 : 88.8)  (16 : 74.7)  (17 : 57.7)  (18 : 43.7)  (19 : 29.4)  (20 : 20.5)  (21 : 14.1)  (22 : 9.9)  (23 : 7.1)  (24 : 8.2)  (25 : 8.0)  (26 : 7.7)  (27 : 6.9)  (28 : 7.8)  (29 : 5.8)  (30 : 4.0)  (31 : 2.6)  (32 : 1.5)  (33 : 1.6)  (34 : 0.8)  (35 : 0.3)  (36 : 0.2)  (38 : 0.2)  (39 : 0.2)  
 average ICT_FB_MUOFOT CoverNUM
-([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.7)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.7)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 1.0)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 1.0)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
