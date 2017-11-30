@@ -2,6 +2,7 @@ package com.fc.simulateAnneling;
 
 import java.util.Date;
 
+
 public class Process {
 	public double T;
 	public double decrement;

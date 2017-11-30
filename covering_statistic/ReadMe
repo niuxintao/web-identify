@@ -1,0 +1,8 @@
+ReadInput 已经给出例子了
+
+
+很重要的两个类：
+
+getBestFromExisting(每次只找new covered中的有没有在测试用例当中):  
+
+和GetCovered (两两找相似)  这个算法不是很好，测试用例很多的情况下几乎没用

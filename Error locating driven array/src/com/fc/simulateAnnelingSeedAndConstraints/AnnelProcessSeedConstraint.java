@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.fc.simulateAnneling.DataCenter;
 import com.fc.forbiddnen.GetAlltheForbidden;
 import com.fc.forbiddnen.IsContainForbidden;
 import com.fc.simulateAnneling.AnnelInf;
 import com.fc.simulateAnneling.CoveringManage;
 import com.fc.simulateAnneling.CoveringManagementInf;
-import com.fc.simulateAnneling.DataCenter;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;

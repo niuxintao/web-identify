@@ -1,5 +1,6 @@
 package com.fc.simulateAnneling;
 
+
 public class CoveringManage implements CoveringManagementInf {
 
 	@Override
