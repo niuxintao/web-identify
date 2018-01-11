@@ -1,0 +1,422 @@
+testCase Num: 28
+regaular Num: 13
+identify Num: 15
+2 1 0 1 0 0 0 0 1 0 0 0 
+0 0 0 0 1 1 1 1 2 2 1 0 
+2 0 0 0 0 0 0 0 2 1 0 0 
+1 0 1 1 0 0 0 0 0 1 1 0 
+0 1 1 1 1 1 1 1 2 2 1 0 
+0 1 1 1 0 1 1 1 2 2 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 0 1 0 1 3 2 1 0 
+1 0 0 0 0 0 0 0 2 0 0 0 
+0 0 0 0 0 0 1 0 0 0 0 0 
+0 1 1 1 0 1 0 1 2 2 0 0 
+2 0 0 0 1 1 1 1 2 2 1 0 
+0 1 1 1 0 1 0 1 2 2 0 1 
+1 1 1 1 1 1 1 1 1 1 0 1 
+0 1 0 0 1 1 1 1 2 2 1 0 
+0 1 1 1 0 0 1 1 2 2 1 0 
+1 1 1 1 0 1 0 1 2 2 0 1 
+0 1 1 1 0 1 0 0 2 2 1 0 
+0 0 0 1 1 1 1 0 2 0 0 1 
+1 0 0 0 0 0 0 1 1 2 1 1 
+0 0 0 0 0 0 0 0 1 1 0 0 
+0 1 1 0 1 1 1 1 2 2 1 0 
+2 0 0 0 1 0 1 0 3 1 1 0 
+0 1 1 1 0 1 0 1 2 0 1 0 
+1 0 0 0 0 0 0 0 3 0 0 1 
+2 1 1 0 1 1 0 1 0 2 0 1 
+0 1 1 1 0 1 0 1 2 2 1 0 
+2 1 1 1 0 1 0 1 2 2 0 1 
+MFS
+[ - , - , - , - , - , 1 , - , 1 , 2 , 2 , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+0
+time
+all 532 iden 297 gen 204
+t-cover
+66
+all-cover
+357
+coveredNum
+(1 : 86)  (2 : 86)  (3 : 74)  (4 : 38)  (5 : 24)  (6 : 13)  (7 : 14)  (8 : 9)  (9 : 10)  (10 : 1)  (11 : 2)  
+real Identify
+
+multiple f measure
+NaN
+multiple f recall
+NaN
+multiple f precise
+0.0
+multiple f found
+0.0
+multiple f found percent
+NaN
+multipe helpedInTheNextRun
+0.0
+multipe helpedInTheNextRun percent
+NaN
+negative checked
+0.0
+negtive impoved
+0.0
+postive checked
+0.0
+postive impoved
+0.0
+feedback start times
+1.0
+testCase Num: 39
+regaular Num: 12
+identify Num: 27
+1 0 1 1 0 1 1 1 3 2 0 0 
+0 0 1 1 0 0 1 0 3 1 0 0 
+0 1 0 0 1 1 0 1 3 2 0 0 
+0 1 0 0 1 1 0 1 3 1 0 0 
+0 1 0 0 1 1 0 1 3 0 0 1 
+0 0 0 0 0 0 0 0 1 0 0 0 
+0 1 1 1 0 1 1 1 3 2 0 0 
+2 1 0 0 0 1 0 1 0 1 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 1 1 0 1 3 0 1 0 
+0 1 0 1 1 1 0 1 3 2 0 0 
+0 0 0 0 1 1 0 1 3 0 0 0 
+0 1 1 0 1 1 0 1 3 2 1 1 
+1 1 0 0 1 1 0 1 3 0 0 0 
+1 1 1 1 0 1 1 1 3 2 0 0 
+0 1 0 0 0 1 1 1 3 2 0 0 
+0 1 0 0 1 1 1 1 3 2 0 0 
+2 0 1 1 0 0 1 0 1 1 0 0 
+1 0 1 1 0 1 1 1 2 0 0 0 
+2 0 0 1 0 0 0 0 3 0 0 0 
+0 1 0 1 0 1 1 1 3 2 0 0 
+0 1 0 1 1 1 1 1 3 2 0 0 
+2 0 1 1 0 0 1 0 0 2 1 1 
+1 1 1 1 1 1 0 1 1 1 1 1 
+0 0 1 1 0 1 1 1 3 2 0 0 
+0 1 0 0 1 1 0 1 3 2 1 1 
+2 1 0 0 1 0 1 0 2 2 1 1 
+0 1 0 0 1 1 0 1 3 2 1 0 
+0 0 0 0 0 0 0 0 2 1 0 0 
+0 1 0 0 1 1 0 1 2 2 0 0 
+0 1 0 0 0 1 0 1 3 2 1 1 
+1 1 0 0 1 1 0 0 3 2 0 0 
+1 0 1 0 1 0 0 0 0 0 0 0 
+1 1 0 0 0 1 1 1 3 2 0 0 
+0 1 0 0 1 1 0 1 3 0 0 0 
+2 0 1 1 0 1 1 1 3 2 0 0 
+1 1 0 0 1 0 1 1 3 2 0 0 
+0 0 0 0 0 0 0 0 1 2 0 0 
+1 1 0 1 0 1 1 1 3 2 0 0 
+MFS
+[ - , - , - , - , - , 1 , - , 1 , 3 , 2 , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+0
+time
+all 578 iden 360 gen 218
+t-cover
+66
+all-cover
+357
+coveredNum
+(1 : 51)  (2 : 63)  (3 : 72)  (4 : 34)  (5 : 26)  (6 : 16)  (7 : 11)  (8 : 15)  (9 : 6)  (10 : 15)  (11 : 15)  (12 : 16)  (13 : 2)  (14 : 4)  (15 : 1)  (16 : 2)  (17 : 6)  (19 : 2)  
+real Identify
+
+multiple f measure
+NaN
+multiple f recall
+NaN
+multiple f precise
+0.0
+multiple f found
+0.0
+multiple f found percent
+NaN
+multipe helpedInTheNextRun
+0.0
+multipe helpedInTheNextRun percent
+NaN
+negative checked
+0.0
+negtive impoved
+0.0
+postive checked
+2.0
+postive impoved
+0.0
+feedback start times
+2.0
+testCase Num: 54
+regaular Num: 12
+identify Num: 42
+0 1 0 0 1 1 1 1 2 2 0 1 
+0 1 0 0 0 1 1 1 2 2 0 1 
+1 0 1 1 0 1 0 1 2 2 0 1 
+1 1 0 1 0 1 0 1 2 2 0 1 
+0 1 0 0 1 1 1 0 2 0 0 1 
+0 1 0 0 1 1 1 0 2 0 0 0 
+0 0 0 0 0 0 0 0 3 1 0 0 
+0 1 0 0 1 1 1 0 3 2 0 1 
+1 0 1 1 0 1 1 0 0 1 1 0 
+1 1 0 0 1 0 0 1 2 2 0 1 
+0 1 0 0 1 1 0 0 0 0 0 0 
+0 1 0 0 1 1 0 0 1 2 1 1 
+1 0 0 0 0 0 0 0 3 0 1 0 
+0 1 0 1 0 1 0 0 2 0 0 0 
+0 1 0 0 1 1 0 0 3 1 1 1 
+1 1 1 1 0 1 0 1 2 2 0 1 
+2 1 0 0 1 0 1 0 2 1 1 0 
+0 1 0 0 1 1 1 0 2 1 1 1 
+0 1 0 0 1 1 0 1 2 0 0 0 
+0 1 0 0 1 1 1 0 2 1 1 0 
+2 0 1 1 0 0 0 1 3 2 0 1 
+0 1 0 0 1 1 0 1 2 2 0 1 
+0 1 0 0 0 1 1 0 2 2 0 1 
+0 1 0 0 1 1 1 0 2 1 0 1 
+0 0 0 0 0 0 0 0 1 2 0 0 
+0 1 0 1 0 1 0 1 2 2 0 1 
+2 0 1 1 0 0 1 1 2 0 0 0 
+0 1 0 0 1 1 0 0 0 1 1 0 
+0 1 0 0 1 1 0 0 0 1 1 1 
+0 1 0 0 1 0 0 0 2 0 0 0 
+0 1 0 1 0 1 0 1 0 2 1 0 
+0 1 1 1 0 1 0 0 2 0 0 0 
+0 0 0 0 1 1 1 0 2 2 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+2 0 1 1 0 0 0 1 1 1 0 1 
+0 1 0 0 0 1 1 0 2 2 1 0 
+0 1 0 0 1 1 1 0 2 2 1 1 
+2 0 1 1 0 1 0 1 2 2 0 1 
+1 1 0 0 1 1 1 0 2 0 1 0 
+0 0 1 1 0 1 0 0 2 0 0 0 
+0 1 1 1 0 1 0 1 2 2 0 1 
+0 1 0 0 0 1 0 0 2 0 0 0 
+0 1 0 0 1 1 0 0 2 0 0 0 
+0 0 1 0 1 0 0 0 1 1 0 0 
+2 0 0 0 1 1 0 1 0 0 0 1 
+0 1 0 0 1 1 1 0 2 2 1 0 
+0 1 0 0 1 1 1 0 2 0 1 0 
+0 1 0 0 0 1 0 1 2 2 0 1 
+0 1 0 0 1 1 1 0 2 2 0 1 
+2 0 1 1 0 1 0 0 2 0 0 0 
+0 0 1 1 0 1 0 1 2 2 0 1 
+1 1 0 0 0 1 0 1 2 2 0 1 
+1 1 1 1 1 1 1 1 1 0 1 1 
+0 1 0 0 1 1 0 0 1 1 0 0 
+MFS
+[ - , - , - , - , - , 1 , 0 , 0 , - , - , - , - ]
+[ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ]
+precise
+1.0
+recall
+0.4
+F-measure
+0.5714285714285715
+multi
+0
+time
+all 648 iden 445 gen 172
+t-cover
+200
+all-cover
+357
+coveredNum
+(1 : 47)  (2 : 72)  (3 : 47)  (4 : 48)  (5 : 38)  (6 : 24)  (7 : 21)  (8 : 19)  (9 : 18)  (10 : 5)  (11 : 8)  (12 : 6)  (13 : 3)  (16 : 1)  
+real Identify
+([ - , - , - , - , - , 1 , 0 , 0 , - , - , - , - ] : 1)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 1)  
+multiple f measure
+NaN
+multiple f recall
+NaN
+multiple f precise
+0.0
+multiple f found
+0.0
+multiple f found percent
+NaN
+multipe helpedInTheNextRun
+0.0
+multipe helpedInTheNextRun percent
+NaN
+negative checked
+0.0
+negtive impoved
+0.0
+postive checked
+2.0
+postive impoved
+1.0
+feedback start times
+3.0
+testCase Num: 39
+regaular Num: 13
+identify Num: 26
+2 1 0 0 1 0 0 0 1 2 0 0 
+0 0 1 1 0 1 1 1 2 2 0 0 
+2 1 0 0 1 1 1 0 3 2 0 0 
+0 0 1 1 0 1 1 1 3 2 1 1 
+0 0 0 1 1 1 1 0 3 2 0 0 
+1 0 0 0 1 1 1 1 0 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 1 1 0 3 2 0 0 
+0 0 0 0 0 0 0 0 0 2 0 1 
+1 0 1 1 0 1 1 0 3 2 0 0 
+0 0 1 1 0 1 1 1 3 0 0 0 
+0 0 1 1 0 1 1 1 3 1 0 0 
+1 0 1 0 1 1 1 0 3 2 0 0 
+0 0 0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 2 0 0 0 
+0 0 1 0 0 1 1 1 3 2 0 0 
+1 1 0 0 1 1 1 0 3 2 0 0 
+0 0 1 1 1 1 1 0 3 2 0 0 
+0 0 1 1 0 1 1 0 3 2 0 0 
+0 0 1 0 1 1 1 0 3 2 0 0 
+2 1 0 0 1 0 0 0 2 1 0 0 
+1 0 1 1 0 1 0 0 3 2 0 0 
+0 1 0 0 1 0 0 0 3 1 0 1 
+0 0 1 1 0 1 1 1 3 2 0 0 
+2 0 0 1 0 1 1 0 1 0 0 0 
+0 1 0 0 1 1 1 0 3 2 0 0 
+2 0 0 0 0 0 0 0 3 0 0 0 
+2 1 1 0 0 0 0 1 0 2 1 0 
+0 0 0 0 0 0 0 0 1 1 0 0 
+0 0 1 1 0 1 1 1 3 1 1 0 
+0 0 1 1 0 1 1 1 3 0 1 1 
+0 0 1 1 1 1 1 1 3 2 1 1 
+0 0 1 1 0 1 1 1 3 1 1 1 
+0 0 1 1 0 1 1 1 3 2 1 0 
+1 0 1 1 0 0 1 0 3 2 0 0 
+0 0 1 0 0 1 1 1 3 2 1 1 
+1 0 0 0 1 1 1 0 3 2 0 0 
+2 0 1 1 0 0 0 0 2 1 1 1 
+1 1 1 1 1 1 1 1 1 0 1 1 
+MFS
+[ - , - , - , - , - , 1 , 1 , - , 3 , 2 , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+0
+time
+all 406 iden 266 gen 140
+t-cover
+66
+all-cover
+357
+coveredNum
+(1 : 59)  (2 : 61)  (3 : 43)  (4 : 63)  (5 : 35)  (6 : 24)  (7 : 12)  (8 : 14)  (9 : 15)  (10 : 8)  (11 : 6)  (12 : 7)  (13 : 4)  (14 : 3)  (15 : 1)  (16 : 1)  (17 : 1)  
+real Identify
+
+multiple f measure
+NaN
+multiple f recall
+NaN
+multiple f precise
+0.0
+multiple f found
+0.0
+multiple f found percent
+NaN
+multipe helpedInTheNextRun
+0.0
+multipe helpedInTheNextRun percent
+NaN
+negative checked
+0.0
+negtive impoved
+0.0
+postive checked
+2.0
+postive impoved
+0.0
+feedback start times
+2.0
+testCase Num: 26
+regaular Num: 11
+identify Num: 15
+2 0 1 0 0 0 0 0 1 0 0 0 
+0 0 1 0 0 1 1 1 2 2 0 1 
+2 0 0 1 0 0 0 0 2 1 0 0 
+0 0 1 1 0 1 0 0 2 2 1 0 
+2 1 0 0 1 1 1 0 2 2 1 0 
+0 0 1 1 0 1 1 1 2 2 0 1 
+0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 0 0 0 0 0 1 1 0 
+0 1 0 0 1 0 0 0 1 2 0 0 
+0 0 1 1 0 1 1 1 2 0 1 0 
+1 0 1 1 0 1 1 1 2 2 0 0 
+0 0 1 1 1 1 1 0 2 2 1 0 
+0 0 0 1 0 1 1 1 2 2 0 1 
+0 0 1 1 0 1 1 0 2 2 1 0 
+0 0 1 0 1 1 1 0 2 2 1 0 
+2 1 0 0 1 0 0 0 3 1 1 0 
+1 1 0 0 1 0 0 1 2 0 0 1 
+0 0 1 1 0 1 1 1 2 2 1 0 
+1 1 1 1 1 1 0 1 1 1 1 1 
+0 1 0 0 1 1 1 0 2 2 1 0 
+0 1 0 1 0 0 1 0 1 1 0 1 
+0 0 1 1 0 1 1 1 3 2 1 0 
+1 0 0 0 0 0 0 0 3 0 0 1 
+1 0 1 1 0 0 1 0 2 2 1 0 
+1 0 0 0 1 1 1 0 2 2 1 0 
+2 0 0 0 1 1 1 1 0 2 0 1 
+MFS
+[ - , - , - , - , - , 1 , 1 , - , 2 , 2 , - , - ]
+precise
+0.0
+recall
+0.0
+F-measure
+0.0
+multi
+0
+time
+all 203 iden 62 gen 125
+t-cover
+66
+all-cover
+357
+coveredNum
+(1 : 92)  (2 : 93)  (3 : 76)  (4 : 51)  (5 : 13)  (6 : 17)  (7 : 8)  (8 : 6)  (9 : 1)  
+real Identify
+
+multiple f measure
+NaN
+multiple f recall
+NaN
+multiple f precise
+0.0
+multiple f found
+0.0
+multiple f found percent
+NaN
+multipe helpedInTheNextRun
+0.0
+multipe helpedInTheNextRun percent
+NaN
+negative checked
+0.0
+negtive impoved
+0.0
+postive checked
+0.0
+postive impoved
+0.0
+feedback start times
+1.0

@@ -1,0 +1,165 @@
+2-way for jflex 1.4.1
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :45.4
+
+average ICT_FB_MUOFOT num_r :14.4
+
+average ICT_FB_MUOFOT num_i :31.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :1.0
+
+average ICT_FB_MUOFOT time :550.4
+
+average ICT_FB_MUOFOT time_r :210.2
+
+average ICT_FB_MUOFOT time_i :265.4
+
+average ICT_FB_MUOFOT t_cover :273.0
+
+average ICT_FB_MUOFOT all_cover :413.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 125.2)  (2 : 92.4)  (3 : 83.0)  (4 : 40.6)  (5 : 13.2)  (6 : 11.8)  (7 : 13.0)  (8 : 16.0)  (9 : 12.4)  (10 : 5.0)  (11 : 0.4)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  ([ - , 0 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :0.5
+
+average ICT_FB_MUOFOT multi_precise :1.0
+
+average ICT_FB_MUOFOT multi_f_measure :0.6666666666666666
+
+average ICT_FB_MUOFOT multi_found :1.0
+
+average ICT_FB_MUOFOT multi_found_percent :0.5
+
+average ICT_FB_MUOFOT multi_helped_later :1.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :0.5
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.0
+
+3-way for jflex 1.4.1
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :71.4
+
+average ICT_FB_MUOFOT num_r :40.4
+
+average ICT_FB_MUOFOT num_i :31.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :1.0
+
+average ICT_FB_MUOFOT time :3432.6
+
+average ICT_FB_MUOFOT time_r :628.8
+
+average ICT_FB_MUOFOT time_i :1975.6
+
+average ICT_FB_MUOFOT t_cover :1644.0
+
+average ICT_FB_MUOFOT all_cover :3456.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 948.6)  (2 : 524.4)  (3 : 576.0)  (4 : 455.0)  (5 : 316.0)  (6 : 206.8)  (7 : 116.6)  (8 : 78.0)  (9 : 58.0)  (10 : 59.4)  (11 : 37.0)  (12 : 23.6)  (13 : 16.8)  (14 : 13.4)  (15 : 12.4)  (16 : 7.6)  (17 : 3.8)  (18 : 1.8)  (19 : 0.8)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  ([ - , 0 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :0.5
+
+average ICT_FB_MUOFOT multi_precise :1.0
+
+average ICT_FB_MUOFOT multi_f_measure :0.6666666666666666
+
+average ICT_FB_MUOFOT multi_found :1.0
+
+average ICT_FB_MUOFOT multi_found_percent :0.5
+
+average ICT_FB_MUOFOT multi_helped_later :1.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :0.5
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.0
+
+4-way for jflex 1.4.1
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :131.8
+
+average ICT_FB_MUOFOT num_r :100.8
+
+average ICT_FB_MUOFOT num_i :31.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :1.0
+
+average ICT_FB_MUOFOT time :29008.0
+
+average ICT_FB_MUOFOT time_r :2675.2
+
+average ICT_FB_MUOFOT time_i :21260.4
+
+average ICT_FB_MUOFOT t_cover :7680.0
+
+average ICT_FB_MUOFOT all_cover :19620.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 5792.0)  (2 : 2267.4)  (3 : 2767.0)  (4 : 2305.0)  (5 : 1774.4)  (6 : 1356.2)  (7 : 941.6)  (8 : 627.8)  (9 : 463.2)  (10 : 340.2)  (11 : 243.4)  (12 : 191.0)  (13 : 156.2)  (14 : 123.0)  (15 : 87.0)  (16 : 49.6)  (17 : 31.8)  (18 : 25.8)  (19 : 18.4)  (20 : 18.8)  (21 : 16.0)  (22 : 10.0)  (23 : 7.4)  (24 : 4.2)  (25 : 1.0)  (26 : 0.8)  (27 : 0.8)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  ([ - , 0 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :0.5
+
+average ICT_FB_MUOFOT multi_precise :1.0
+
+average ICT_FB_MUOFOT multi_f_measure :0.6666666666666666
+
+average ICT_FB_MUOFOT multi_found :1.0
+
+average ICT_FB_MUOFOT multi_found_percent :0.5
+
+average ICT_FB_MUOFOT multi_helped_later :1.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :0.5
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.0
+

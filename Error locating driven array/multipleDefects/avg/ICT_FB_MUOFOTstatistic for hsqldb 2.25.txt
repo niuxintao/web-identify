@@ -1,0 +1,165 @@
+2-way for hsqldb 2.25
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :40.4
+
+average ICT_FB_MUOFOT num_r :9.4
+
+average ICT_FB_MUOFOT num_i :31.2
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :0.9
+
+average ICT_FB_MUOFOT f-measure :0.9333333333333332
+
+average ICT_FB_MUOFOT multi :0.8
+
+average ICT_FB_MUOFOT time :319.0
+
+average ICT_FB_MUOFOT time_r :90.4
+
+average ICT_FB_MUOFOT time_i :206.8
+
+average ICT_FB_MUOFOT t_cover :194.8
+
+average ICT_FB_MUOFOT all_cover :283.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 81.6)  (2 : 79.8)  (3 : 56.8)  (4 : 29.0)  (5 : 15.4)  (6 : 10.6)  (7 : 7.4)  (8 : 2.2)  (11 : 0.2)  
+average ICT_FB_MUOFOT CoverNUM
+([ - , - , - , - , - , - , 1 , 0 , - , - , - ] : 1.0)  ([ - , - , - , - , - , 2 , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :NaN
+
+average ICT_FB_MUOFOT multi_precise :0.8
+
+average ICT_FB_MUOFOT multi_f_measure :NaN
+
+average ICT_FB_MUOFOT multi_found :1.0
+
+average ICT_FB_MUOFOT multi_found_percent :NaN
+
+average ICT_FB_MUOFOT multi_helped_later :0.6
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :NaN
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.2
+
+3-way for hsqldb 2.25
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :56.0
+
+average ICT_FB_MUOFOT num_r :28.6
+
+average ICT_FB_MUOFOT num_i :27.4
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :0.8
+
+average ICT_FB_MUOFOT time :1435.0
+
+average ICT_FB_MUOFOT time_r :340.8
+
+average ICT_FB_MUOFOT time_i :778.8
+
+average ICT_FB_MUOFOT t_cover :862.4
+
+average ICT_FB_MUOFOT all_cover :1915.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 472.8)  (2 : 462.6)  (3 : 449.0)  (4 : 274.6)  (5 : 123.8)  (6 : 60.0)  (7 : 32.6)  (8 : 17.8)  (9 : 13.2)  (10 : 5.0)  (11 : 2.4)  (12 : 1.2)  
+average ICT_FB_MUOFOT CoverNUM
+([ - , - , - , - , - , - , 1 , 0 , - , - , - ] : 1.0)  ([ - , - , - , - , - , 2 , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :NaN
+
+average ICT_FB_MUOFOT multi_precise :0.8
+
+average ICT_FB_MUOFOT multi_f_measure :NaN
+
+average ICT_FB_MUOFOT multi_found :0.8
+
+average ICT_FB_MUOFOT multi_found_percent :NaN
+
+average ICT_FB_MUOFOT multi_helped_later :0.8
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :NaN
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.0
+
+4-way for hsqldb 2.25
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :101.2
+
+average ICT_FB_MUOFOT num_r :73.2
+
+average ICT_FB_MUOFOT num_i :28.0
+
+average ICT_FB_MUOFOT recall :1.0
+
+average ICT_FB_MUOFOT precise :1.0
+
+average ICT_FB_MUOFOT f-measure :1.0
+
+average ICT_FB_MUOFOT multi :0.4
+
+average ICT_FB_MUOFOT time :8677.2
+
+average ICT_FB_MUOFOT time_r :1069.4
+
+average ICT_FB_MUOFOT time_i :5648.2
+
+average ICT_FB_MUOFOT t_cover :3004.0
+
+average ICT_FB_MUOFOT all_cover :8608.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 2055.8)  (2 : 1671.0)  (3 : 1891.8)  (4 : 1322.8)  (5 : 800.8)  (6 : 415.0)  (7 : 216.6)  (8 : 108.2)  (9 : 54.0)  (10 : 33.2)  (11 : 19.2)  (12 : 13.0)  (13 : 3.6)  (14 : 2.4)  (15 : 0.4)  (16 : 0.2)  
+average ICT_FB_MUOFOT CoverNUM
+([ - , - , - , - , - , - , 1 , 0 , - , - , - ] : 1.0)  ([ - , - , - , - , - , 2 , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :NaN
+
+average ICT_FB_MUOFOT multi_precise :0.4
+
+average ICT_FB_MUOFOT multi_f_measure :NaN
+
+average ICT_FB_MUOFOT multi_found :0.4
+
+average ICT_FB_MUOFOT multi_found_percent :NaN
+
+average ICT_FB_MUOFOT multi_helped_later :0.4
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :NaN
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.0
+

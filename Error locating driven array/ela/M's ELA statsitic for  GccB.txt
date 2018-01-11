@@ -1,0 +1,29 @@
+num: 756
+generatiion time: 148
+identifiication one  time: 0
+identifiication all  time: 0
+num: 771
+generatiion time: 138
+identifiication one  time: 0
+identifiication all  time: 0
+num: 780
+generatiion time: 123
+identifiication one  time: 0
+identifiication all  time: 0
+num: 772
+generatiion time: 146
+identifiication one  time: 0
+identifiication all  time: 0
+num: 738
+generatiion time: 187
+identifiication one  time: 0
+identifiication all  time: 0
+average
+average  num: 763.4
+num  deviration: 14.880860190190619
+average  time: 148.4
+time deviration: 21.209431864149494
+average  one time: 0.0
+one time deviration: NaN
+average all idenit  time: 0.0
+time all idenit deviration: NaN

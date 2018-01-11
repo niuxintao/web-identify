@@ -1,0 +1,165 @@
+2-way for jflex 1.4.2
+###############################################
+###############################################
+average sct num :53.6
+
+average sct num_r :16.4
+
+average sct num_i :37.2
+
+average sct recall :1.0
+
+average sct precise :0.9333333333333332
+
+average sct f-measure :0.96
+
+average sct multi :0.6
+
+average sct time :28.4
+
+average sct time_r :28.4
+
+average sct time_i :0.0
+
+average sct t_cover :319.8
+
+average sct all_cover :473.0
+
+average sct CoverNUM
+(1 : 13.2)  (2 : 26.6)  (3 : 32.6)  (4 : 43.0)  (5 : 28.6)  (6 : 26.6)  (7 : 27.2)  (8 : 20.8)  (9 : 21.6)  (10 : 21.0)  (11 : 18.4)  (12 : 24.8)  (13 : 23.4)  (14 : 25.2)  (15 : 22.4)  (16 : 17.2)  (17 : 16.2)  (18 : 9.8)  (19 : 6.8)  (20 : 7.2)  (21 : 6.6)  (22 : 5.4)  (23 : 7.6)  (24 : 5.6)  (25 : 4.2)  (26 : 3.0)  (27 : 2.6)  (28 : 0.6)  (29 : 1.6)  (30 : 0.4)  (31 : 1.2)  (32 : 0.8)  (33 : 0.6)  (34 : 0.2)  
+average sct CoverNUM
+([ 1 , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average sct multi_recall :NaN
+
+average sct multi_precise :0.2
+
+average sct multi_f_measure :NaN
+
+average sct multi_found :0.2
+
+average sct multi_found_percent :NaN
+
+average sct multi_helped_later :1.0
+
+average sct multi_helped_later_pecent :NaN
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+
+3-way for jflex 1.4.2
+###############################################
+###############################################
+average sct num :108.4
+
+average sct num_r :50.0
+
+average sct num_i :58.4
+
+average sct recall :0.8
+
+average sct precise :0.6666666666666666
+
+average sct f-measure :0.72
+
+average sct multi :3.6
+
+average sct time :290.4
+
+average sct time_r :290.4
+
+average sct time_i :0.0
+
+average sct t_cover :2955.6
+
+average sct all_cover :4282.0
+
+average sct CoverNUM
+(1 : 102.6)  (2 : 216.8)  (3 : 320.4)  (4 : 363.2)  (5 : 357.0)  (6 : 312.2)  (7 : 292.8)  (8 : 281.6)  (9 : 269.6)  (10 : 257.0)  (11 : 240.2)  (12 : 209.4)  (13 : 192.8)  (14 : 176.4)  (15 : 139.8)  (16 : 103.4)  (17 : 80.4)  (18 : 71.0)  (19 : 46.6)  (20 : 38.4)  (21 : 29.0)  (22 : 28.6)  (23 : 22.0)  (24 : 21.4)  (25 : 19.8)  (26 : 18.4)  (27 : 15.6)  (28 : 11.2)  (29 : 9.8)  (30 : 8.8)  (31 : 8.6)  (32 : 5.8)  (33 : 2.6)  (34 : 2.2)  (35 : 2.2)  (36 : 2.0)  (37 : 0.6)  (38 : 0.6)  (39 : 0.2)  (40 : 0.6)  (42 : 0.2)  (43 : 0.2)  
+average sct CoverNUM
+([ 1 , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.6)  ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average sct multi_recall :0.05333333333333333
+
+average sct multi_precise :0.4
+
+average sct multi_f_measure :0.09350649350649351
+
+average sct multi_found :0.4
+
+average sct multi_found_percent :0.05333333333333333
+
+average sct multi_helped_later :3.8
+
+average sct multi_helped_later_pecent :0.6
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+
+4-way for jflex 1.4.2
+###############################################
+###############################################
+average sct num :232.0
+
+average sct num_r :132.6
+
+average sct num_i :99.4
+
+average sct recall :0.8
+
+average sct precise :0.6666666666666667
+
+average sct f-measure :0.72
+
+average sct multi :9.8
+
+average sct time :2453.6
+
+average sct time_r :2453.6
+
+average sct time_i :0.0
+
+average sct t_cover :17741.4
+
+average sct all_cover :26532.0
+
+average sct CoverNUM
+(1 : 451.6)  (2 : 1183.2)  (3 : 1965.0)  (4 : 2385.8)  (5 : 2515.4)  (6 : 2443.4)  (7 : 2193.2)  (8 : 1955.8)  (9 : 1762.8)  (10 : 1521.4)  (11 : 1376.0)  (12 : 1223.0)  (13 : 1058.2)  (14 : 897.0)  (15 : 741.8)  (16 : 610.6)  (17 : 478.2)  (18 : 367.8)  (19 : 289.8)  (20 : 217.4)  (21 : 175.2)  (22 : 132.6)  (23 : 103.2)  (24 : 77.6)  (25 : 60.4)  (26 : 55.0)  (27 : 37.0)  (28 : 33.8)  (29 : 32.0)  (30 : 27.4)  (31 : 23.4)  (32 : 21.8)  (33 : 20.4)  (34 : 20.6)  (35 : 17.6)  (36 : 15.4)  (37 : 13.2)  (38 : 8.8)  (39 : 7.0)  (40 : 5.8)  (41 : 2.6)  (42 : 1.6)  (43 : 1.2)  (44 : 0.4)  (45 : 0.4)  (48 : 0.2)  
+average sct CoverNUM
+([ 1 , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.6)  ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average sct multi_recall :0.020833333333333332
+
+average sct multi_precise :0.4
+
+average sct multi_f_measure :0.03952941176470588
+
+average sct multi_found :0.4
+
+average sct multi_found_percent :0.020833333333333332
+
+average sct multi_helped_later :12.0
+
+average sct multi_helped_later_pecent :0.6
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+

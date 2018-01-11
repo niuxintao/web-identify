@@ -1,0 +1,29 @@
+num: 171
+generatiion time: 25
+identifiication one  time: 0
+identifiication all  time: 0
+num: 167
+generatiion time: 29
+identifiication one  time: 0
+identifiication all  time: 0
+num: 163
+generatiion time: 27
+identifiication one  time: 0
+identifiication all  time: 0
+num: 169
+generatiion time: 25
+identifiication one  time: 0
+identifiication all  time: 0
+num: 165
+generatiion time: 34
+identifiication one  time: 0
+identifiication all  time: 0
+average
+average  num: 167.0
+num  deviration: 2.8284271247461903
+average  time: 28.0
+time deviration: 3.346640106136302
+average  one time: 0.0
+one time deviration: NaN
+average all idenit  time: 0.0
+time all idenit deviration: NaN

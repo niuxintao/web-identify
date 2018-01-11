@@ -1,0 +1,165 @@
+2-way for hsqldb 2.29
+###############################################
+###############################################
+average sct num :40.0
+
+average sct num_r :13.0
+
+average sct num_i :27.0
+
+average sct recall :0.3
+
+average sct precise :0.6
+
+average sct f-measure :0.4
+
+average sct multi :1.4
+
+average sct time :12.8
+
+average sct time_r :12.8
+
+average sct time_i :0.0
+
+average sct t_cover :207.4
+
+average sct all_cover :283.0
+
+average sct CoverNUM
+(1 : 14.2)  (2 : 21.2)  (3 : 27.0)  (4 : 32.4)  (5 : 25.4)  (6 : 20.8)  (7 : 16.6)  (8 : 12.6)  (9 : 17.2)  (10 : 15.8)  (11 : 15.4)  (12 : 13.0)  (13 : 12.4)  (14 : 11.6)  (15 : 6.0)  (16 : 2.4)  (17 : 4.8)  (18 : 3.0)  (19 : 3.2)  (20 : 1.8)  (21 : 2.0)  (22 : 1.8)  (23 : 0.8)  (24 : 0.4)  (25 : 0.4)  (26 : 0.2)  (27 : 0.4)  (29 : 0.2)  
+average sct CoverNUM
+([ - , - , - , - , - , 1 , - , 0 , - , - , - ] : 0.2)  ([ - , - , - , - , - , - , 1 , - , - , - , - ] : 1.0)  
+average sct multi_recall :0.05
+
+average sct multi_precise :0.2
+
+average sct multi_f_measure :0.08
+
+average sct multi_found :0.2
+
+average sct multi_found_percent :0.05
+
+average sct multi_helped_later :0.8
+
+average sct multi_helped_later_pecent :0.22333333333333333
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+
+3-way for hsqldb 2.29
+###############################################
+###############################################
+average sct num :88.4
+
+average sct num_r :37.2
+
+average sct num_i :51.4
+
+average sct recall :0.5
+
+average sct precise :0.7133333333333333
+
+average sct f-measure :0.5698412698412698
+
+average sct multi :5.8
+
+average sct time :144.0
+
+average sct time_r :144.0
+
+average sct time_i :0.0
+
+average sct t_cover :1301.6
+
+average sct all_cover :1915.0
+
+average sct CoverNUM
+(1 : 61.4)  (2 : 126.4)  (3 : 173.2)  (4 : 205.2)  (5 : 195.4)  (6 : 183.6)  (7 : 163.4)  (8 : 143.8)  (9 : 125.8)  (10 : 102.4)  (11 : 88.8)  (12 : 72.4)  (13 : 54.8)  (14 : 41.2)  (15 : 37.0)  (16 : 27.8)  (17 : 23.8)  (18 : 20.0)  (19 : 15.6)  (20 : 10.6)  (21 : 9.0)  (22 : 7.4)  (23 : 5.8)  (24 : 5.4)  (25 : 3.0)  (26 : 5.0)  (27 : 1.4)  (28 : 1.0)  (29 : 0.8)  (30 : 0.6)  (31 : 0.6)  (32 : 0.6)  (33 : 0.4)  (34 : 0.6)  (35 : 0.2)  (36 : 0.4)  (41 : 0.2)  
+average sct CoverNUM
+([ 1 , - , - , - , - , 1 , - , 0 , - , - , - ] : 0.6)  ([ - , - , - , - , - , 1 , - , 0 , - , - , - ] : 0.4)  ([ - , - , - , - , - , - , 1 , - , - , - , - ] : 1.0)  
+average sct multi_recall :0.08273809523809524
+
+average sct multi_precise :0.6666666666666666
+
+average sct multi_f_measure :0.14013114336643748
+
+average sct multi_found :1.0
+
+average sct multi_found_percent :0.08273809523809524
+
+average sct multi_helped_later :2.4
+
+average sct multi_helped_later_pecent :0.18392857142857144
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+
+4-way for hsqldb 2.29
+###############################################
+###############################################
+average sct num :186.2
+
+average sct num_r :94.0
+
+average sct num_i :93.2
+
+average sct recall :0.55
+
+average sct precise :0.5599999999999999
+
+average sct f-measure :0.5311111111111111
+
+average sct multi :17.6
+
+average sct time :733.4
+
+average sct time_r :730.4
+
+average sct time_i :3.0
+
+average sct t_cover :5624.4
+
+average sct all_cover :8608.0
+
+average sct CoverNUM
+(1 : 177.4)  (2 : 514.6)  (3 : 791.0)  (4 : 968.8)  (5 : 989.4)  (6 : 935.4)  (7 : 830.8)  (8 : 700.6)  (9 : 601.0)  (10 : 511.6)  (11 : 401.0)  (12 : 312.2)  (13 : 233.2)  (14 : 181.2)  (15 : 123.8)  (16 : 94.0)  (17 : 66.8)  (18 : 49.0)  (19 : 33.0)  (20 : 22.8)  (21 : 19.6)  (22 : 15.6)  (23 : 10.2)  (24 : 9.2)  (25 : 5.6)  (26 : 3.4)  (27 : 2.8)  (28 : 2.4)  (29 : 0.6)  (30 : 0.8)  (31 : 0.2)  
+average sct CoverNUM
+([ 1 , - , - , - , - , 1 , - , 0 , - , - , - ] : 0.2)  ([ - , - , - , - , - , 1 , - , 0 , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , 1 , - , - , - , - ] : 1.0)  
+average sct multi_recall :0.02918545550670752
+
+average sct multi_precise :0.5666666666666667
+
+average sct multi_f_measure :0.054978689411974924
+
+average sct multi_found :1.2
+
+average sct multi_found_percent :0.02918545550670752
+
+average sct multi_helped_later :7.6
+
+average sct multi_helped_later_pecent :0.1882920454411455
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+

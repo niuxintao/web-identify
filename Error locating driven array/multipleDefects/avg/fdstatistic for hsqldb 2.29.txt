@@ -1,0 +1,165 @@
+2-way for hsqldb 2.29
+###############################################
+###############################################
+average fd num :39.4
+
+average fd num_r :39.4
+
+average fd num_i :0.0
+
+average fd recall :0.3
+
+average fd precise :0.12777777777777777
+
+average fd f-measure :0.17379953379953378
+
+average fd multi :5.0
+
+average fd time :191.2
+
+average fd time_r :169.4
+
+average fd time_i :6.0
+
+average fd t_cover :162.4
+
+average fd all_cover :283.0
+
+average fd CoverNUM
+(1 : 29.0)  (2 : 6.6)  (3 : 8.6)  (4 : 11.6)  (5 : 15.4)  (6 : 12.6)  (7 : 16.4)  (8 : 15.0)  (9 : 16.6)  (10 : 12.2)  (11 : 8.4)  (12 : 10.2)  (13 : 10.6)  (14 : 8.0)  (15 : 7.2)  (16 : 6.6)  (144 : 0.2)  (17 : 5.8)  (18 : 6.0)  (19 : 5.4)  (20 : 4.4)  (21 : 4.8)  (22 : 2.8)  (23 : 3.4)  (24 : 1.8)  (25 : 2.2)  (26 : 2.8)  (27 : 2.0)  (28 : 2.2)  (29 : 1.8)  (30 : 2.6)  (31 : 3.0)  (32 : 2.0)  (33 : 1.0)  (34 : 0.4)  (35 : 0.4)  (36 : 1.0)  (37 : 1.6)  (38 : 1.4)  (39 : 1.4)  (40 : 0.8)  (41 : 0.4)  (42 : 1.0)  (43 : 0.4)  (44 : 0.8)  (45 : 1.4)  (46 : 1.2)  (47 : 1.0)  (48 : 0.8)  (49 : 0.6)  (50 : 1.2)  (51 : 1.6)  (52 : 0.6)  (53 : 1.0)  (54 : 0.2)  (55 : 0.2)  (56 : 1.2)  (57 : 0.6)  (58 : 0.8)  (59 : 0.6)  (60 : 0.4)  (61 : 0.4)  (62 : 0.2)  (63 : 0.6)  (64 : 1.0)  (65 : 1.0)  (66 : 0.6)  (67 : 0.2)  (70 : 0.6)  (71 : 0.4)  (72 : 0.6)  (74 : 0.4)  (77 : 0.2)  (78 : 0.2)  (80 : 0.4)  (81 : 0.4)  (82 : 0.2)  (84 : 0.4)  (86 : 0.8)  (88 : 0.2)  (89 : 0.4)  (94 : 0.2)  (95 : 0.2)  (97 : 0.4)  (101 : 0.2)  (102 : 0.2)  (103 : 0.2)  (110 : 0.2)  
+average fd CoverNUM
+([ 0 , - , - , - , - , 1 , - , 0 , - , - , - ] : 0.2)  ([ - , - , - , - , - , - , 1 , - , - , - , - ] : 1.0)  
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+
+3-way for hsqldb 2.29
+###############################################
+###############################################
+average fd num :51.2
+
+average fd num_r :51.2
+
+average fd num_i :0.0
+
+average fd recall :0.25
+
+average fd precise :0.1329365079365079
+
+average fd f-measure :0.17319347319347317
+
+average fd multi :9.0
+
+average fd time :1775.4
+
+average fd time_r :1719.0
+
+average fd time_i :15.8
+
+average fd t_cover :1129.4
+
+average fd all_cover :1915.0
+
+average fd CoverNUM
+(1 : 271.8)  (2 : 64.6)  (3 : 127.8)  (4 : 144.8)  (5 : 170.4)  (6 : 203.6)  (7 : 170.2)  (8 : 177.0)  (9 : 143.8)  (10 : 116.6)  (11 : 88.6)  (12 : 71.0)  (13 : 44.4)  (14 : 42.6)  (15 : 27.6)  (16 : 22.0)  (17 : 11.6)  (18 : 9.0)  (19 : 5.0)  (20 : 1.6)  (21 : 0.4)  (22 : 0.4)  (24 : 0.2)  
+average fd CoverNUM
+([ - , - , - , - , - , - , 1 , - , - , - , - ] : 1.0)  
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+
+4-way for hsqldb 2.29
+###############################################
+###############################################
+average fd num :115.4
+
+average fd num_r :115.4
+
+average fd num_i :0.0
+
+average fd recall :0.25
+
+average fd precise :0.14761904761904762
+
+average fd f-measure :0.18545454545454548
+
+average fd multi :16.4
+
+average fd time :8664.0
+
+average fd time_r :8514.6
+
+average fd time_i :9.2
+
+average fd t_cover :5141.8
+
+average fd all_cover :8608.0
+
+average fd CoverNUM
+(1 : 1729.6)  (2 : 635.8)  (3 : 1041.8)  (4 : 1183.4)  (5 : 1123.2)  (6 : 913.6)  (7 : 710.2)  (8 : 483.2)  (9 : 281.4)  (10 : 226.0)  (11 : 129.8)  (12 : 76.0)  (13 : 44.8)  (14 : 20.8)  (15 : 7.2)  (16 : 0.8)  (17 : 0.2)  (20 : 0.2)  
+average fd CoverNUM
+([ - , - , - , - , - , - , 1 , - , - , - , - ] : 1.0)  
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+

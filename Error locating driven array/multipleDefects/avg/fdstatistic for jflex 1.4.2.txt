@@ -1,0 +1,165 @@
+2-way for jflex 1.4.2
+###############################################
+###############################################
+average fd num :30.2
+
+average fd num_r :30.2
+
+average fd num_i :0.0
+
+average fd recall :0.3
+
+average fd precise :0.10714285714285714
+
+average fd f-measure :0.15555555555555556
+
+average fd multi :1.0
+
+average fd time :397.0
+
+average fd time_r :375.2
+
+average fd time_i :3.0
+
+average fd t_cover :269.2
+
+average fd all_cover :473.0
+
+average fd CoverNUM
+(1 : 46.0)  (2 : 24.4)  (3 : 41.4)  (4 : 38.6)  (5 : 43.4)  (6 : 40.8)  (7 : 35.0)  (8 : 25.4)  (9 : 26.0)  (10 : 20.4)  (11 : 19.8)  (12 : 12.0)  (13 : 12.2)  (14 : 12.4)  (15 : 9.8)  (16 : 9.8)  (17 : 9.0)  (18 : 8.0)  (19 : 5.2)  (20 : 7.0)  (21 : 6.4)  (22 : 5.2)  (23 : 3.4)  (24 : 1.8)  (25 : 2.4)  (26 : 2.0)  (27 : 2.0)  (28 : 0.8)  (29 : 0.4)  (30 : 0.6)  (31 : 0.4)  (32 : 0.2)  (33 : 0.2)  (34 : 0.4)  (38 : 0.2)  
+average fd CoverNUM
+([ 1 , - , - , - , - , - , - , - , - , - , - , - , - , - ] : 0.2)  ([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 0.4)  
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+
+3-way for jflex 1.4.2
+###############################################
+###############################################
+average fd num :61.8
+
+average fd num_r :61.8
+
+average fd num_i :0.0
+
+average fd recall :0.0
+
+average fd precise :0.0
+
+average fd f-measure :0.0
+
+average fd multi :3.0
+
+average fd time :3747.6
+
+average fd time_r :3663.4
+
+average fd time_i :15.4
+
+average fd t_cover :2241.8
+
+average fd all_cover :4282.0
+
+average fd CoverNUM
+(1 : 583.0)  (2 : 320.6)  (3 : 500.2)  (4 : 540.2)  (5 : 534.6)  (6 : 454.2)  (7 : 351.4)  (8 : 303.8)  (9 : 222.8)  (10 : 167.0)  (11 : 132.0)  (12 : 77.8)  (13 : 47.4)  (14 : 25.0)  (15 : 13.2)  (16 : 5.4)  (17 : 2.6)  (18 : 0.6)  (19 : 0.2)  
+average fd CoverNUM
+
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+
+4-way for jflex 1.4.2
+###############################################
+###############################################
+average fd num :156.4
+
+average fd num_r :156.4
+
+average fd num_i :0.0
+
+average fd recall :0.0
+
+average fd precise :0.0
+
+average fd f-measure :0.0
+
+average fd multi :9.0
+
+average fd time :54862.8
+
+average fd time_r :54572.6
+
+average fd time_i :3.0
+
+average fd t_cover :14309.2
+
+average fd all_cover :26532.0
+
+average fd CoverNUM
+(1 : 3995.4)  (2 : 1305.2)  (3 : 2241.0)  (4 : 2781.0)  (5 : 2875.6)  (6 : 2644.2)  (7 : 2289.2)  (8 : 1920.2)  (9 : 1523.6)  (10 : 1250.2)  (11 : 993.4)  (12 : 770.8)  (13 : 616.8)  (14 : 433.6)  (15 : 323.4)  (16 : 234.0)  (17 : 149.0)  (18 : 85.4)  (19 : 52.4)  (20 : 25.4)  (21 : 12.4)  (22 : 5.4)  (23 : 2.4)  (24 : 1.8)  (25 : 0.2)  
+average fd CoverNUM
+
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+
