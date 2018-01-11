@@ -1,31 +1,55 @@
 2-way for Syn9
 ###############################################
 ###############################################
-average fd num :75.4
+average fd num :87.3
 
-average fd num_r :75.4
+average fd num_r :87.3
 
 average fd num_i :0.0
 
-average fd recall :0.13333333333333333
+average fd recall :0.36666666666666664
 
-average fd precise :0.010142045454545454
+average fd precise :0.0323438220482206
 
-average fd f-measure :0.01884315770103662
+average fd f-measure :0.05941615395390434
 
-average fd multi :16.5
+average fd multi :22.1
 
-average fd time :742.6
+average fd time :636.0
 
-average fd time_r :710.7
+average fd time_r :592.5
 
-average fd time_i :2.6
+average fd time_i :6.3
 
-average fd t_cover :1332.1
+average fd t_cover :1343.0
 
 average fd all_cover :1375.0
 
 average fd CoverNUM
-(1 : 60.4)  (2 : 43.8)  (3 : 20.4)  (4 : 8.5)  (5 : 3.0)  (6 : 2.1)  (7 : 1.2)  (8 : 1.6)  (9 : 2.1)  (10 : 2.1)  (11 : 1.5)  (12 : 1.0)  (13 : 0.5)  (14 : 0.3)  (15 : 0.3)  (16 : 0.2)  (17 : 0.3)  (18 : 0.1)  
+(1 : 56.6)  (2 : 45.9)  (3 : 22.4)  (4 : 8.1)  (5 : 2.9)  (6 : 1.7)  (7 : 1.1)  (8 : 1.8)  (9 : 1.9)  (10 : 1.7)  (11 : 1.5)  (12 : 1.4)  (13 : 1.2)  (14 : 0.7)  (15 : 0.7)  (16 : 0.4)  (17 : 0.4)  (18 : 0.2)  (19 : 0.1)  (20 : 0.1)  (21 : 0.1)  
 average fd CoverNUM
-([ 0 , - , - , - , - , - , 0 , - , - , - , - ] : 0.1)  ([ 0 , - , - , - , - , - , - , 0 , - , - , - ] : 0.1)  ([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.1)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.2)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.1)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.2)  ([ 0 , - , - , - , - , - , - , - , 0 , - , - ] : 0.2)  ([ 0 , - , - , - , - , - , - , - , - , 0 , - ] : 0.2)  
+([ 0 , - , - , - , - , - , 0 , - , - , - , - ] : 0.4)  ([ 0 , - , - , - , - , - , - , 0 , - , - , - ] : 0.2)  ([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.4)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.3)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , - , - , - , - , - , - , - , 0 , - , - ] : 0.3)  ([ 0 , - , - , - , - , - , - , - , - , 0 , - ] : 0.5)  
+average fd multi_recall :0.0
+
+average fd multi_precise :0.0
+
+average fd multi_f_measure :0.0
+
+average fd multi_found :0.0
+
+average fd multi_found_percent :0.0
+
+average fd multi_helped_later :0.0
+
+average fd multi_helped_later_pecent :0.0
+
+average fd negative_checked :0.0
+
+average fd negative_imporved :0.0
+
+average fd postive_checked :0.0
+
+average fd postive_imporved :0.0
+
+average fd feedback_times :0.0
+

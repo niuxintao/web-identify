@@ -60,6 +60,69 @@ public class TraditionalFGLI implements CT_process {
 	private HashMap<Integer, Integer> coveredNums;
 	
 	private HashMap<Tuple, Integer> realIdentify;
+	
+	private List<Tuple> actualMFS;
+	
+	public List<TestCase> FormultipleCases;
+	public List<Tuple> identifiedMFSForMultiple;
+	public List<Tuple> actualRealMFSInMultiple;
+
+	
+	public double getMultip_precise() {
+		return multip_precise;
+	}
+
+	public double getMultip_recall() {
+		return multip_recall;
+	}
+
+	public double getMultip_f_measure() {
+		return multip_f_measure;
+	}
+
+	public List<TestCase> getFormultipleCases() {
+		return FormultipleCases;
+	}
+
+	public List<Tuple> getIdentifiedMFSForMultiple() {
+		return identifiedMFSForMultiple;
+	}
+
+	public List<Tuple> getActualRealMFSInMultiple() {
+		return actualRealMFSInMultiple;
+	}
+
+	private double multip_precise = 0;
+
+	private double multip_recall = 0;
+
+	private double multip_f_measure = 0;
+	
+	private double multipe_found = 0;
+	
+	private double multipe_found_percent = 0;
+	
+	private double helpedInTheNextRun = 0;
+	
+	private double helpedInTheNextRun_percen = 0;
+	
+	public double getMultipe_found(){
+		return multipe_found;
+	}
+	
+	public double getMultipe_found_percent() {
+		return multipe_found_percent;
+	}
+
+	public double getHelpedInTheNextRun() {
+		return helpedInTheNextRun;
+	}
+
+	public double getHelpedInTheNextRun_percen() {
+		return helpedInTheNextRun_percen;
+	}
+
+	
 
 	@Override
 	public HashMap<Tuple, Integer> getRealIdentify() {
@@ -91,6 +154,30 @@ public class TraditionalFGLI implements CT_process {
 		MFS = new HashSet<Tuple>();
 		coveredNums = new HashMap<Integer, Integer>();
 		realIdentify = new HashMap<Tuple, Integer>();
+		actualRealMFSInMultiple = new ArrayList<Tuple> ();
+		identifiedMFSForMultiple = new ArrayList<Tuple> ();
+		FormultipleCases = new ArrayList<TestCase> ();
+	}
+	
+	
+	public TraditionalFGLI(List<Tuple> actualMFS, DataCenter dataCenter, CaseRunner caseRunner) {
+		this.caseRunner = caseRunner;
+		this.dataCenter = dataCenter;
+		overallTestCases = new HashSet<TestCase>();
+		regularCTCases = new HashSet<TestCase>();
+		identifyCases = new HashSet<TestCase>();
+		failTestCase = new HashSet<TestCase>();
+		MFS = new HashSet<Tuple>();
+		coveredNums = new HashMap<Integer, Integer>();
+		realIdentify = new HashMap<Tuple, Integer>();
+		this.actualMFS = actualMFS;
+		actualRealMFSInMultiple = new ArrayList<Tuple> ();
+		identifiedMFSForMultiple = new ArrayList<Tuple> ();
+		FormultipleCases = new ArrayList<TestCase> ();
+	}
+	
+	public void setActualMFS(List<Tuple> actualMFS){
+		this.actualMFS = actualMFS;
 	}
 
 	public void run() {
@@ -115,6 +202,26 @@ public class TraditionalFGLI implements CT_process {
 		HashSet<TestCase> additional = new HashSet<TestCase>();
 		for (TestCase testCase : overallTestCases) {
 			if (caseRunner.runTestCase(testCase) == TestCase.FAILED) {
+				int contain = 0;
+				List<Tuple> templ = new ArrayList<Tuple> ();
+				for (Tuple acMFS : actualMFS) {
+					if (testCase.containsOf(acMFS))
+						contain++;
+					if (contain > 1) {
+						break;
+					}
+				}
+				if (contain > 1) {
+					for (Tuple acMFS : actualMFS) {
+						if (testCase.containsOf(acMFS))
+							templ.add(acMFS);
+					}
+				}
+				
+				this.actualRealMFSInMultiple.addAll(templ);
+
+				
+				
 
 				failTestCase.add(testCase);
 				
@@ -123,6 +230,12 @@ public class TraditionalFGLI implements CT_process {
 				FIC fic_feedback = new FIC(testCase, dataCenter.param, caseRunner, currentMFS);
 				fic_feedback.FicNOP_withMFS();
 				additional.addAll(fic_feedback.getExecuted());
+				
+				
+				if(contain > 1){
+					this.identifiedMFSForMultiple.addAll(fic_feedback.getBugs());
+				}
+				
 				MFS.addAll(fic_feedback.getBugs());
 				identifyCases.addAll(fic_feedback.getExecuted());
 				// MFS.add(ofot.)
@@ -150,6 +263,9 @@ public class TraditionalFGLI implements CT_process {
 
 		// merge them
 		overallTestCases.addAll(additional);
+		
+		
+		this.evaluate_multiple();
 
 	}
 
@@ -247,6 +363,93 @@ public class TraditionalFGLI implements CT_process {
 		computeCoveredNum();
 
 	}
+	
+	
+	public void evaluate_multiple() {
+		List<Tuple> identified = new ArrayList<Tuple>();
+		identified.addAll(identifiedMFSForMultiple);
+		List<Tuple> actualMFS = new ArrayList<Tuple>();
+		actualMFS.addAll(actualRealMFSInMultiple);
+
+		// computingF-meausre
+
+		double[] pAndR = SimilarityMFS.getPreciseAndRecall(identified,
+				actualMFS);
+
+		// second precise
+		// second recall
+		// second f-measure
+		this.multip_precise = pAndR[0];
+		this.multip_recall = pAndR[1];
+		this.multip_f_measure = SimilarityMFS.f_measue(pAndR[0], pAndR[1]);
+		
+		
+		for(Tuple t :	identifiedMFSForMultiple ){
+			boolean existed = false;
+			for(Tuple t2 : actualRealMFSInMultiple ){
+				if(t.equals(t2)){
+					existed = true;
+					break;
+				}
+			}
+			if(existed){
+				this.multipe_found  += 1;
+			}
+		}
+		
+		this.multipe_found_percent = multipe_found/(double)actualRealMFSInMultiple.size();
+		
+		List<Tuple> notContained = new ArrayList<Tuple> ();
+		
+		for(Tuple t2 : actualRealMFSInMultiple){
+			boolean existed = false;
+			for(Tuple t : identifiedMFSForMultiple ){
+				if(t.equals(t2)){
+					existed = true;
+					break;
+				}
+			}
+			if(!existed){
+				notContained.add(t2);
+			}
+		}
+		
+		for(Tuple t : notContained){
+			boolean existed = false;
+			for(Tuple t2 : this.MFS ){
+				if(t.equals(t2)){
+					existed = true;
+					break;
+				}
+			}
+			if(existed){
+				this.helpedInTheNextRun  += 1;
+			}
+		}
+		
+		this.helpedInTheNextRun_percen = helpedInTheNextRun/(double)actualRealMFSInMultiple.size();
+		
+		//besides, we should compute how many schemas are obtained in the following schemas.
+
+		// computing multiple
+
+		// for (TestCase testCase : this.failTestCase) {
+		// int contain = 0;
+		// for (Tuple acMFS : actualMFS) {
+		// if (testCase.containsOf(acMFS))
+		// contain++;
+		// if (contain > 1) {
+		// this.multipleMFS++;
+		// break;
+		// }
+		// }
+		// }
+		// computingTcove
+		// computeT_cover(actualMFS);
+		// computeRealIdentify(actualMFS);
+		// computeCoveredNum();		
+	}
+	
 
 	public void computeRealIdentify(List<Tuple> actualMFS) {
 		for (Tuple t : actualMFS) {

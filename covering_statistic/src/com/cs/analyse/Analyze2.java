@@ -46,7 +46,10 @@ public class Analyze2 {
 	public List<double[]> times;
 	public List<double[]> rfd;
 
+	public int[][] minmial;
+
 	public Analyze2() {
+		minmial = new int[55][7];
 		sizes = new ArrayList<double[]>();
 		times = new ArrayList<double[]>();
 		rfd = new ArrayList<double[]>();
@@ -136,23 +139,62 @@ public class Analyze2 {
 		return result;
 	}
 
+	public void initMinimalSize() {
+		ReadInput read = new ReadInput();
+
+		int[] models = new int[55];
+		for (int i = 0; i < models.length; i++) {
+			models[i] = i;
+		}
+
+		int[] methods = new int[] { 0, 1, 2, 3 };
+
+		int[] degrees = new int[] { 2, 3, 4, 5, 6 };
+
+		for (int model : models) {
+			// System.out.println("model: " + model);
+			String pathParam = this.getPathOfParmater(model);
+			read.readParam(pathParam);
+			// output.print("");
+			for (int degree : degrees) {
+
+				int minimal = -1;
+				for (int method : methods) {
+					// System.out.println("degree: " + degree);
+					String[] sutiePaths = this.getPathsOfSuite(method, model,
+							degree);
+					List<Integer> result = new ArrayList<Integer>();
+					for (String suitePath : sutiePaths) {
+						// System.out.println("path :" + suitePath);
+						if (read.isFileExists(suitePath)) {
+							read.readSize(suitePath);
+							result.add(read.getSize());
+							if (read.getSize() < minimal || minimal == -1)
+								minimal = read.getSize();
+						}
+					}
+				}
+				this.minmial[model][degree] = minimal;
+			}
+		}
+	}
+
 	// 表格，然后平均增幅
 
 	public void batchForAllSize(int[] givenModel, int[] givenMethod) {
 
 		ReadInput read = new ReadInput();
 
-		
 		int[] models = new int[55];
 		for (int i = 0; i < models.length; i++) {
 			models[i] = i;
 		}
-		
-		if(givenModel != null)
+
+		if (givenModel != null)
 			models = givenModel;
-		
+
 		int[] methods = new int[] { 0, 1, 2, 3 };
-		if(givenMethod != null)
+		if (givenMethod != null)
 			methods = givenMethod;
 
 		OutPut output = new OutPut("./size.txt");
@@ -163,7 +205,7 @@ public class Analyze2 {
 
 		for (int method : methods) {
 			output.println("method: " + methodsName[method]);
-//			System.out.println("method: " + methodsName[method]);
+			// System.out.println("method: " + methodsName[method]);
 			for (int model : models) {
 				// System.out.println("model: " + model);
 				String pathParam = this.getPathOfParmater(model);
@@ -209,26 +251,26 @@ public class Analyze2 {
 		for (int i = 0; i < models.length; i++) {
 			models[i] = i;
 		}
-		
-		if(givenModel != null)
+
+		if (givenModel != null)
 			models = givenModel;
-		
+
 		int[] methods = new int[] { 0, 1, 2, 3 };
-		if(givenMethod != null)
+		if (givenMethod != null)
 			methods = givenMethod;
 		int[] degrees = new int[] { 2, 3, 4, 5, 6 };
-		
+
 		OutPut output = new OutPut("./time.txt");
 
 		DecimalFormat df = new DecimalFormat("#.##");
 
 		for (int method : methods) {
-			output.println("method: " +   methodsName[method]);
+			output.println("method: " + methodsName[method]);
 			for (int model : models) {
 				// System.out.println("model: " + model);
 				String pathParam = this.getPathOfParmater(model);
 				read.readParam(pathParam);
-//				System.out.print("[");
+				// System.out.print("[");
 				for (int degree : degrees) {
 					// System.out.println("degree: " + degree);
 					String[] sutiePaths = this.getPathsOfSuite(method, model,
@@ -256,7 +298,7 @@ public class Analyze2 {
 						output.print(finalResult + " ");
 				}
 				output.println();
-//				System.out.println("],");
+				// System.out.println("],");
 			}
 		}
 		output.close();
@@ -269,41 +311,33 @@ public class Analyze2 {
 		int[] models = new int[55];
 		for (int i = 0; i < models.length; i++) {
 			models[i] = i;
-//			if(i >= 21)
-//			models[i] = i+1;
-//			else
-//			models[i] = i;
 		}
-		
-		if(givenModel != null)
+
+		if (givenModel != null)
 			models = givenModel;
-		
+
 		int[] methods = new int[] { 0, 1, 2, 3 };
-		if(givenMethod != null)
+		if (givenMethod != null)
 			methods = givenMethod;
 
 		int[] degrees = new int[] { 2, 3, 4, 5, 6 };
-		
+
 		OutPut output = new OutPut("./rfd.txt");
 
 		DecimalFormat df = new DecimalFormat("#.##");
 
 		for (int method : methods) {
 			output.println("method: " + methodsName[method]);
-			
+
 			System.out.println("method: " + methodsName[method]);
-		
-			
+
 			for (int model : models) {
-				if(model == 22){
-					output.println();
-				}
 				System.out.println("model: " + model);
 				String pathParam = this.getPathOfParmater(model);
 				read.readParam(pathParam);
-//				System.out.print("[");
+				// System.out.print("[");
 				for (int degree : degrees) {
-					 System.out.println("degree: " + degree);
+					System.out.println("degree: " + degree);
 					String[] sutiePaths = this.getPathsOfSuite(method, model,
 							degree);
 					List<Double> result = new ArrayList<Double>();
@@ -313,10 +347,11 @@ public class Analyze2 {
 						if (read.isFileExists(suitePath)) {
 							read.readTestCases(suitePath, 3);
 							DriverForAnalyse driver = new DriverForAnalyse();
-//							System.out.println("test cases number:" + read.getSuite().getTestCaseNum());
+							// System.out.println("test cases number:" +
+							// read.getSuite().getTestCaseNum());
 							driver.set(read.getParam(), degree,
 									read.getSuite(), null);
-							result.add(driver.analyseDetectionRate());
+							result.add(driver.analyseDetectionRate(this.minmial[model][degree]));
 						}
 					}
 					for (int j = 0; j < result.size(); j++) {
@@ -326,33 +361,33 @@ public class Analyze2 {
 						finalResult /= result.size();
 					else
 						finalResult = -1;
-					
+
 					if (method == 2)
 						output.print(df.format(finalResult) + " ");
 					else
 						output.print(finalResult + " ");
-					
-					//System.out.print(finalResult + ", ");
+
+					// System.out.print(finalResult + ", ");
 				}
 				output.println();
-//				System.out.println("],");
+				// System.out.println("],");
 			}
 		}
 		output.close();
 	}
 
-
 	public static void main(String[] args) {
 		Analyze2 anlayse = new Analyze2();
-		
+
 		int[] models = new int[55];
 		for (int i = 0; i < models.length; i++) {
 			models[i] = i;
 		}
-		
-		int[] methods = new int[] { 1 };
-		
-	    anlayse.batchForAllSize(models, methods);
+
+		int[] methods = new int[] {3 };
+
+		anlayse.initMinimalSize();
+		anlayse.batchForAllSize(models, methods);
 		anlayse.batchForAllTime(models, methods);
 		anlayse.batchForAllRfd(models, methods);
 

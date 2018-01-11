@@ -15,7 +15,7 @@ public class Driver_bottomUp {
 	public static void main(String[] args) {
 		new File("results/model20/result_bo_up/").mkdirs();
 		new File("results/model35/result_bo_up/").mkdirs();
-		for (int i = 0; i < 55; i++) {
+		for (int i = 20; i < 55; i++) {
 			System.out.println("model : " + i);
 			Increase increase = new Increase(i);
 			increase.process();

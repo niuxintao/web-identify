@@ -1,11 +1,11 @@
 2-way for Tomcat
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :60.7
+average ICT_FB_MUOFOT num :61.0
 
-average ICT_FB_MUOFOT num_r :8.3
+average ICT_FB_MUOFOT num_r :9.0
 
-average ICT_FB_MUOFOT num_i :54.2
+average ICT_FB_MUOFOT num_i :54.0
 
 average ICT_FB_MUOFOT recall :1.0
 
@@ -15,28 +15,52 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :556.4
+average ICT_FB_MUOFOT time :953.0
 
-average ICT_FB_MUOFOT time_r :66.4
+average ICT_FB_MUOFOT time_r :125.0
 
-average ICT_FB_MUOFOT time_i :472.5
+average ICT_FB_MUOFOT time_i :812.0
 
 average ICT_FB_MUOFOT t_cover :236.0
 
 average ICT_FB_MUOFOT all_cover :236.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 61.5)  (2 : 38.9)  (3 : 41.2)  (4 : 28.8)  (5 : 15.7)  (6 : 11.5)  (7 : 11.8)  (8 : 6.5)  (9 : 7.3)  (10 : 5.0)  (11 : 3.3)  (12 : 1.9)  (13 : 1.1)  (14 : 0.3)  (15 : 0.2)  (16 : 0.4)  (17 : 0.2)  (18 : 0.4)  
+(1 : 61.0)  (2 : 49.0)  (3 : 36.0)  (4 : 31.0)  (5 : 24.0)  (6 : 8.0)  (7 : 10.0)  (8 : 5.0)  (9 : 5.0)  (10 : 4.0)  (11 : 2.0)  (12 : 1.0)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :NaN
+
+average ICT_FB_MUOFOT multi_precise :0.0
+
+average ICT_FB_MUOFOT multi_f_measure :NaN
+
+average ICT_FB_MUOFOT multi_found :0.0
+
+average ICT_FB_MUOFOT multi_found_percent :NaN
+
+average ICT_FB_MUOFOT multi_helped_later :0.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :NaN
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :2.0
+
+average ICT_FB_MUOFOT postive_imporved :1.0
+
+average ICT_FB_MUOFOT feedback_times :4.0
+
 3-way for Tomcat
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :79.9
+average ICT_FB_MUOFOT num :76.0
 
-average ICT_FB_MUOFOT num_r :31.1
+average ICT_FB_MUOFOT num_r :32.0
 
-average ICT_FB_MUOFOT num_i :50.3
+average ICT_FB_MUOFOT num_i :45.0
 
 average ICT_FB_MUOFOT recall :1.0
 
@@ -46,28 +70,52 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :2703.7
+average ICT_FB_MUOFOT time :3774.0
 
-average ICT_FB_MUOFOT time_r :283.5
+average ICT_FB_MUOFOT time_r :394.0
 
-average ICT_FB_MUOFOT time_i :2203.2
+average ICT_FB_MUOFOT time_i :3021.0
 
 average ICT_FB_MUOFOT t_cover :1424.0
 
 average ICT_FB_MUOFOT all_cover :1424.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 396.0)  (2 : 276.5)  (3 : 239.4)  (4 : 166.0)  (5 : 112.3)  (6 : 74.7)  (7 : 47.2)  (8 : 34.1)  (9 : 25.3)  (10 : 15.3)  (11 : 12.9)  (12 : 6.7)  (13 : 4.6)  (14 : 3.7)  (15 : 3.2)  (16 : 3.2)  (17 : 1.2)  (18 : 1.0)  (19 : 0.4)  (20 : 0.2)  (21 : 0.1)  
+(1 : 406.0)  (2 : 277.0)  (3 : 254.0)  (4 : 159.0)  (5 : 121.0)  (6 : 71.0)  (7 : 39.0)  (8 : 24.0)  (9 : 21.0)  (10 : 17.0)  (11 : 12.0)  (12 : 8.0)  (13 : 2.0)  (14 : 6.0)  (15 : 1.0)  (16 : 3.0)  (17 : 2.0)  (18 : 1.0)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :NaN
+
+average ICT_FB_MUOFOT multi_precise :0.0
+
+average ICT_FB_MUOFOT multi_f_measure :NaN
+
+average ICT_FB_MUOFOT multi_found :0.0
+
+average ICT_FB_MUOFOT multi_found_percent :NaN
+
+average ICT_FB_MUOFOT multi_helped_later :0.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :NaN
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :3.0
+
 4-way for Tomcat
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :130.2
+average ICT_FB_MUOFOT num :125.0
 
-average ICT_FB_MUOFOT num_r :78.9
+average ICT_FB_MUOFOT num_r :80.0
 
-average ICT_FB_MUOFOT num_i :53.0
+average ICT_FB_MUOFOT num_i :46.0
 
 average ICT_FB_MUOFOT recall :1.0
 
@@ -77,17 +125,41 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :0.0
 
-average ICT_FB_MUOFOT time :12367.7
+average ICT_FB_MUOFOT time :16237.0
 
-average ICT_FB_MUOFOT time_r :839.4
+average ICT_FB_MUOFOT time_r :986.0
 
-average ICT_FB_MUOFOT time_i :10487.2
+average ICT_FB_MUOFOT time_i :13548.0
 
 average ICT_FB_MUOFOT t_cover :5600.0
 
 average ICT_FB_MUOFOT all_cover :5600.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 1720.7)  (2 : 915.0)  (3 : 839.9)  (4 : 609.2)  (5 : 438.3)  (6 : 325.2)  (7 : 211.2)  (8 : 143.3)  (9 : 109.1)  (10 : 75.1)  (11 : 55.7)  (12 : 43.1)  (13 : 31.8)  (14 : 22.4)  (15 : 15.8)  (16 : 12.2)  (17 : 9.1)  (18 : 7.0)  (19 : 4.7)  (20 : 3.9)  (21 : 3.1)  (22 : 1.9)  (23 : 1.3)  (24 : 0.6)  (25 : 0.3)  (26 : 0.1)  
+(1 : 1766.0)  (2 : 956.0)  (3 : 888.0)  (4 : 568.0)  (5 : 440.0)  (6 : 321.0)  (7 : 181.0)  (8 : 121.0)  (9 : 102.0)  (10 : 68.0)  (11 : 61.0)  (12 : 28.0)  (13 : 28.0)  (14 : 22.0)  (15 : 15.0)  (16 : 7.0)  (17 : 13.0)  (18 : 3.0)  (19 : 5.0)  (20 : 2.0)  (21 : 2.0)  (22 : 2.0)  (23 : 1.0)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :NaN
+
+average ICT_FB_MUOFOT multi_precise :0.0
+
+average ICT_FB_MUOFOT multi_f_measure :NaN
+
+average ICT_FB_MUOFOT multi_found :0.0
+
+average ICT_FB_MUOFOT multi_found_percent :NaN
+
+average ICT_FB_MUOFOT multi_helped_later :0.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :NaN
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :3.0
+

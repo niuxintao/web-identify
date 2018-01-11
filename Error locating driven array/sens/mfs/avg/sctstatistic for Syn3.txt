@@ -1,31 +1,55 @@
 2-way for Syn3
 ###############################################
 ###############################################
-average sct num :83.5
+average sct num :88.9
 
-average sct num_r :50.5
+average sct num_r :50.6
 
-average sct num_i :33.1
+average sct num_i :38.3
 
-average sct recall :0.5
+average sct recall :0.7333333333333333
 
-average sct precise :0.6
+average sct precise :0.85
 
-average sct f-measure :0.54
+average sct f-measure :0.78
 
-average sct multi :7.3
+average sct multi :8.4
 
-average sct time :323.3
+average sct time :78.1
 
-average sct time_r :322.8
+average sct time_r :78.1
 
-average sct time_i :0.5
+average sct time_i :0.0
 
-average sct t_cover :1363.1
+average sct t_cover :1364.2
 
 average sct all_cover :1375.0
 
 average sct CoverNUM
-(1 : 44.7)  (2 : 33.8)  (3 : 23.0)  (4 : 10.1)  (5 : 6.0)  (6 : 4.8)  (7 : 3.7)  (8 : 3.1)  (9 : 3.6)  (10 : 2.1)  (11 : 3.2)  (12 : 2.4)  (13 : 1.9)  (14 : 1.4)  (15 : 2.1)  (16 : 1.5)  (17 : 1.5)  (18 : 1.0)  (19 : 1.0)  (20 : 1.1)  (21 : 0.8)  (22 : 0.7)  (23 : 0.7)  (24 : 0.6)  (25 : 0.6)  (26 : 0.5)  (27 : 0.5)  (28 : 0.2)  (29 : 0.2)  (30 : 0.1)  (33 : 0.1)  (34 : 0.2)  (35 : 0.2)  
+(1 : 37.9)  (2 : 32.8)  (3 : 23.7)  (4 : 11.0)  (5 : 8.5)  (6 : 5.7)  (7 : 4.6)  (8 : 5.4)  (9 : 4.0)  (10 : 3.3)  (11 : 2.9)  (12 : 2.2)  (13 : 1.6)  (14 : 2.3)  (15 : 1.3)  (16 : 1.6)  (17 : 1.4)  (18 : 1.2)  (19 : 1.0)  (20 : 1.3)  (21 : 0.9)  (22 : 0.7)  (23 : 0.8)  (24 : 0.3)  (25 : 0.6)  (26 : 0.5)  (27 : 0.3)  (28 : 0.3)  (29 : 0.1)  (30 : 0.3)  (31 : 0.1)  (33 : 0.2)  (34 : 0.1)  
 average sct CoverNUM
-([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.5)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.6)  
+([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.7)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.9)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.6)  
+average sct multi_recall :0.04520600464674799
+
+average sct multi_precise :0.7
+
+average sct multi_f_measure :0.08429951889542683
+
+average sct multi_found :1.0
+
+average sct multi_found_percent :0.04520600464674799
+
+average sct multi_helped_later :7.0
+
+average sct multi_helped_later_pecent :0.38354663394109395
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+

@@ -22,6 +22,8 @@ import experiment.SimilarityMFS;
 
 public class ErrorLocatingDrivenArray implements CT_process {
 
+	protected List<Tuple> actualMFS;
+
 	protected CaseRunner caseRunner;
 
 	protected HashSet<TestCase> overallTestCases;
@@ -54,8 +56,64 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 	private double f_measure = 0;
 
+	public double getMultip_precise() {
+		return multip_precise;
+	}
+
+	public double getMultip_recall() {
+		return multip_recall;
+	}
+
+	public double getMultip_f_measure() {
+		return multip_f_measure;
+	}
+
+	public List<TestCase> getFormultipleCases() {
+		return FormultipleCases;
+	}
+
+	public List<Tuple> getIdentifiedMFSForMultiple() {
+		return identifiedMFSForMultiple;
+	}
+
+	public List<Tuple> getActualRealMFSInMultiple() {
+		return actualRealMFSInMultiple;
+	}
+
+	private double multip_precise = 0;
+
+	private double multip_recall = 0;
+
+	private double multip_f_measure = 0;
+	
+	private double multipe_found = 0;
+	
+	private double multipe_found_percent = 0;
+	
+	private double helpedInTheNextRun = 0;
+	
+	private double helpedInTheNextRun_percen = 0;
+	
+	
+
 	// if identified right, the covered is the same as those, otherwise, will
 	// not do so.
+
+	public double getMultipe_found() {
+		return multipe_found;
+	}
+
+	public double getMultipe_found_percent() {
+		return multipe_found_percent;
+	}
+
+	public double getHelpedInTheNextRun() {
+		return helpedInTheNextRun;
+	}
+
+	public double getHelpedInTheNextRun_percen() {
+		return helpedInTheNextRun_percen;
+	}
 
 	private int t_tested_covered = 0;
 
@@ -67,7 +125,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 	public HashMap<Tuple, Integer> getRealIdentify() {
 		return realIdentify;
 	}
-	
+
 	@Override
 	public HashMap<Integer, Integer> getCoveredNums() {
 		return coveredNums;
@@ -105,6 +163,35 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		return MFS;
 	}
 
+	public List<TestCase> FormultipleCases;
+	public List<Tuple> identifiedMFSForMultiple;
+	public List<Tuple> actualRealMFSInMultiple;
+
+	public ErrorLocatingDrivenArray(List<Tuple> actualMFS,
+			DataCenter dataCenter, CaseRunner caseRunner) {
+		this.caseRunner = caseRunner;
+		overallTestCases = new HashSet<TestCase>();
+		regularCTCases = new HashSet<TestCase>();
+		identifyCases = new HashSet<TestCase>();
+		failTestCase = new HashSet<TestCase>();
+		cm = new CoveringManage(dataCenter);
+		MFS = new HashSet<Tuple>();
+		coveredNums = new HashMap<Integer, Integer>();
+		realIdentify = new HashMap<Tuple, Integer>();
+		this.dataCenter = dataCenter;
+
+		identifiedMFSForMultiple = new ArrayList<Tuple>();
+		actualRealMFSInMultiple = new ArrayList<Tuple>();
+		FormultipleCases = new ArrayList<TestCase>();
+
+		this.actualMFS = actualMFS;
+
+	}
+	
+	public void setActualMFS(List<Tuple> actualMFS){
+		this.actualMFS = actualMFS;
+	}
+
 	public ErrorLocatingDrivenArray(DataCenter dataCenter, CaseRunner caseRunner) {
 		this.caseRunner = caseRunner;
 		overallTestCases = new HashSet<TestCase>();
@@ -116,9 +203,12 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		coveredNums = new HashMap<Integer, Integer>();
 		realIdentify = new HashMap<Tuple, Integer>();
 		this.dataCenter = dataCenter;
+
+		identifiedMFSForMultiple = new ArrayList<Tuple>();
+		actualRealMFSInMultiple = new ArrayList<Tuple>();
+		FormultipleCases = new ArrayList<TestCase>();
+
 	}
-
-
 
 	/*
 	 * (non-Javadoc)
@@ -153,7 +243,29 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 				long ideTime = System.currentTimeMillis();
 
+				int contain = 0;
+				List<Tuple> templ = new ArrayList<Tuple> ();
+				for (Tuple acMFS : actualMFS) {
+					if (testCase.containsOf(acMFS))
+						contain++;
+					if (contain > 1) {
+						break;
+					}
+				}
+				if (contain > 1) {
+					for (Tuple acMFS : actualMFS) {
+						if (testCase.containsOf(acMFS))
+							templ.add(acMFS);
+					}
+				}
+				
+				this.actualRealMFSInMultiple.addAll(templ);
+
 				List<Tuple> mfs = getMFS(ac, testCase);
+				
+				if(contain > 1){
+					this.identifiedMFSForMultiple.addAll(mfs);
+				}
 
 				ideTime = System.currentTimeMillis() - ideTime;
 				this.timeIden += ideTime;
@@ -168,6 +280,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		}
 
 		this.coveredMark = ac.coveredMark;
+		
+		
+		this.evaluate_multiple();
 	}
 
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
@@ -243,11 +358,97 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 		// computingTcove
 		computeT_cover(actualMFS);
-		
+
 		computeRealIdentify(actualMFS);
 
 		computeCoveredNum();
 
+	}
+
+	// ÖØÐÂÐÞ¸Ä
+	public void evaluate_multiple() {
+		List<Tuple> identified = new ArrayList<Tuple>();
+		identified.addAll(identifiedMFSForMultiple);
+		List<Tuple> actualMFS = new ArrayList<Tuple>();
+		actualMFS.addAll(actualRealMFSInMultiple);
+
+		// computingF-meausre
+
+		double[] pAndR = SimilarityMFS.getPreciseAndRecall(identified,
+				actualMFS);
+
+		// second precise
+		// second recall
+		// second f-measure
+		this.multip_precise = pAndR[0];
+		this.multip_recall = pAndR[1];
+		this.multip_f_measure = SimilarityMFS.f_measue(pAndR[0], pAndR[1]);
+		
+		
+		for(Tuple t :	identifiedMFSForMultiple ){
+			boolean existed = false;
+			for(Tuple t2 : actualRealMFSInMultiple ){
+				if(t.equals(t2)){
+					existed = true;
+					break;
+				}
+			}
+			if(existed){
+				this.multipe_found  += 1;
+			}
+		}
+		
+		this.multipe_found_percent = multipe_found/(double)actualRealMFSInMultiple.size();
+		
+		List<Tuple> notContained = new ArrayList<Tuple> ();
+		
+		for(Tuple t2 : actualRealMFSInMultiple){
+			boolean existed = false;
+			for(Tuple t : identifiedMFSForMultiple ){
+				if(t.equals(t2)){
+					existed = true;
+					break;
+				}
+			}
+			if(!existed){
+				notContained.add(t2);
+			}
+		}
+		
+		for(Tuple t : notContained){
+			boolean existed = false;
+			for(Tuple t2 : this.MFS ){
+				if(t.equals(t2)){
+					existed = true;
+					break;
+				}
+			}
+			if(existed){
+				this.helpedInTheNextRun  += 1;
+			}
+		}
+		
+		this.helpedInTheNextRun_percen = helpedInTheNextRun/(double)actualRealMFSInMultiple.size();
+		
+		//besides, we should compute how many schemas are obtained in the following schemas.
+
+		// computing multiple
+
+		// for (TestCase testCase : this.failTestCase) {
+		// int contain = 0;
+		// for (Tuple acMFS : actualMFS) {
+		// if (testCase.containsOf(acMFS))
+		// contain++;
+		// if (contain > 1) {
+		// this.multipleMFS++;
+		// break;
+		// }
+		// }
+		// }
+		// computingTcove
+		// computeT_cover(actualMFS);
+		// computeRealIdentify(actualMFS);
+		// computeCoveredNum();		
 	}
 
 	public void computeRealIdentify(List<Tuple> actualMFS) {
@@ -411,9 +612,9 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 		DataCenter dataCenter = new DataCenter(param, 2);
 
-		Tuple bugModel1 = new Tuple(2, wrongCase);
-		bugModel1.set(0, 2);
-		bugModel1.set(1, 5);
+		Tuple bugModel1 = new Tuple(1, wrongCase2);
+		bugModel1.set(0, 0);
+//		bugModel1.set(1, 5);
 
 		Tuple bugModel2 = new Tuple(1, wrongCase2);
 		bugModel2.set(0, 1);
@@ -422,7 +623,12 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel1);
 		((CaseRunnerWithBugInject) caseRunner).inject(bugModel2);
 
-		CT_process elda = new ErrorLocatingDrivenArray(dataCenter, caseRunner);
+		List<Tuple> actualMFS = new ArrayList<Tuple>();
+		actualMFS.add(bugModel1);
+		actualMFS.add(bugModel2);
+
+		CT_process elda = new ErrorLocatingDrivenArray(actualMFS, dataCenter,
+				caseRunner);
 		elda.run();
 
 		System.out
@@ -433,6 +639,19 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		System.out.println("MFS");
 		for (Tuple mfs : elda.getMFS())
 			System.out.println(mfs.toString());
+		
+//		((ErrorLocatingDrivenArray)elda).evaluate_multiple();
+		
+		
+		System.out
+		.println("multi " + ((ErrorLocatingDrivenArray)elda).FormultipleCases.size());
+
+		
+		System.out
+		.println("multip Num: " + elda.getMultipleMFS());
+		
+		System.out
+		.println("multip found Num: " + ((ErrorLocatingDrivenArray)elda).getMultipe_found());
 
 	}
 

@@ -1,6 +1,6 @@
-num ICT_FB_MUOFOT deviration: 1.4000000000000001
+num ICT_FB_MUOFOT deviration: 2.0880613017821097
 
-num_r ICT_FB_MUOFOT deviration: 1.4000000000000001
+num_r ICT_FB_MUOFOT deviration: 2.0880613017821097
 
 num_i ICT_FB_MUOFOT deviration: 0.0
 
@@ -12,17 +12,41 @@ f-measure ICT_FB_MUOFOT deviration: 0.0
 
 multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 171.41715200060932
+time ICT_FB_MUOFOT deviration: 33.87093148999596
 
-time_r ICT_FB_MUOFOT deviration: 78.27541120939577
+time_r ICT_FB_MUOFOT deviration: 17.995555006723187
 
-time_i ICT_FB_MUOFOT deviration: 8.19817052762383
+time_i ICT_FB_MUOFOT deviration: 30.4448682046745
 
 t_cover ICT_FB_MUOFOT deviration: 0.0
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 272158.36)  (2 : 187118.45)  (3 : 31659.539999999997)  (4 : 1741.5)  (5 : 158.16000000000003)  (6 : 123.64000000000001)  (7 : 74.44999999999999)  (8 : 59.60000000000001)  (9 : 50.9)  (10 : 45.480000000000004)  (11 : 11.0)  (12 : 4.0)  (13 : 0.9279999999999999)  (14 : 0.3869999999999999)  
+(1 : 257802.53999999998)  (2 : 187259.49000000002)  (3 : 33655.86)  (4 : 2203.21)  (5 : 161.20999999999998)  (6 : 86.0)  (7 : 59.239999999999995)  (8 : 67.72)  (9 : 45.67999999999999)  (10 : 41.1)  (11 : 25.825)  (12 : 16.312)  (13 : 5.365)  (14 : 2.576)  (16 : 0.081)  
 deviration ICT_FB_MUOFOT CoverNUM
 ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.0)  
+multi_recall ICT_FB_MUOFOT deviration: NaN
+
+multi_precise ICT_FB_MUOFOT deviration: 0.0
+
+multi_f_measure ICT_FB_MUOFOT deviration: NaN
+
+multi_found ICT_FB_MUOFOT deviration: 0.0
+
+multi_found_percent ICT_FB_MUOFOT deviration: NaN
+
+multi_helped_later ICT_FB_MUOFOT deviration: 0.0
+
+multi_helped_later_pecent ICT_FB_MUOFOT deviration: NaN
+
+negative_checked ICT_FB_MUOFOT deviration: 0.0
+
+negative_imporved ICT_FB_MUOFOT deviration: 0.0
+
+postive_checked ICT_FB_MUOFOT deviration: 0.0
+
+postive_imporved ICT_FB_MUOFOT deviration: 0.0
+
+feedback_times ICT_FB_MUOFOT deviration: 0.0
+

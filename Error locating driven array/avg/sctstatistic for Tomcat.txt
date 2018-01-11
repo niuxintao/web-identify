@@ -1,93 +1,165 @@
 2-way for Tomcat
 ###############################################
 ###############################################
-average sct num :68.3
+average sct num :56.0
 
-average sct num_r :13.8
+average sct num_r :14.0
 
-average sct num_i :55.0
+average sct num_i :42.0
 
 average sct recall :1.0
 
-average sct precise :0.75
+average sct precise :1.0
 
-average sct f-measure :0.857142857142857
+average sct f-measure :1.0
 
-average sct multi :1.2
+average sct multi :1.0
 
-average sct time :10.0
+average sct time :0.0
 
-average sct time_r :9.6
+average sct time_r :0.0
 
-average sct time_i :0.4
+average sct time_i :0.0
 
-average sct t_cover :233.8
+average sct t_cover :233.0
 
 average sct all_cover :236.0
 
 average sct CoverNUM
-(1 : 1.3)  (2 : 4.4)  (3 : 7.8)  (4 : 10.6)  (5 : 13.1)  (6 : 13.8)  (7 : 12.3)  (8 : 11.2)  (9 : 12.0)  (10 : 13.8)  (11 : 13.7)  (12 : 12.7)  (13 : 10.2)  (14 : 11.8)  (15 : 7.8)  (16 : 8.8)  (17 : 11.1)  (18 : 6.8)  (19 : 6.9)  (20 : 6.3)  (21 : 5.7)  (22 : 5.3)  (23 : 3.9)  (24 : 4.4)  (25 : 3.1)  (26 : 3.8)  (27 : 2.4)  (28 : 2.2)  (29 : 1.3)  (30 : 1.6)  (31 : 1.2)  (32 : 1.1)  (33 : 0.9)  (34 : 0.6)  (35 : 0.3)  (36 : 0.3)  (37 : 0.3)  (38 : 0.5)  (39 : 0.3)  (40 : 0.1)  (45 : 0.2)  (46 : 0.1)  
+(1 : 2.0)  (2 : 6.0)  (3 : 12.0)  (4 : 12.0)  (5 : 14.0)  (6 : 15.0)  (7 : 12.0)  (8 : 13.0)  (9 : 23.0)  (10 : 13.0)  (11 : 10.0)  (12 : 14.0)  (13 : 17.0)  (14 : 14.0)  (15 : 18.0)  (16 : 9.0)  (17 : 6.0)  (18 : 7.0)  (19 : 5.0)  (20 : 5.0)  (21 : 2.0)  (22 : 4.0)  (24 : 1.0)  (25 : 1.0)  (26 : 1.0)  
 average sct CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+average sct multi_recall :0.0
+
+average sct multi_precise :0.0
+
+average sct multi_f_measure :0.0
+
+average sct multi_found :0.0
+
+average sct multi_found_percent :0.0
+
+average sct multi_helped_later :2.0
+
+average sct multi_helped_later_pecent :1.0
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+
 3-way for Tomcat
 ###############################################
 ###############################################
-average sct num :99.7
+average sct num :94.0
 
-average sct num_r :38.9
+average sct num_r :38.0
 
-average sct num_i :61.0
+average sct num_i :57.0
 
 average sct recall :1.0
 
-average sct precise :0.875
+average sct precise :1.0
 
-average sct f-measure :0.9285714285714286
+average sct f-measure :1.0
 
-average sct multi :4.6
+average sct multi :4.0
 
-average sct time :56.7
+average sct time :47.0
 
-average sct time_r :56.4
+average sct time_r :47.0
 
-average sct time_i :0.2
+average sct time_i :0.0
 
-average sct t_cover :1397.2
+average sct t_cover :1405.0
 
 average sct all_cover :1424.0
 
 average sct CoverNUM
-(1 : 27.8)  (2 : 69.6)  (3 : 107.9)  (4 : 126.4)  (5 : 131.6)  (6 : 121.9)  (7 : 122.5)  (8 : 116.4)  (9 : 100.0)  (10 : 94.3)  (11 : 81.7)  (12 : 60.7)  (13 : 53.7)  (14 : 46.8)  (15 : 35.8)  (16 : 25.0)  (17 : 21.5)  (18 : 18.1)  (19 : 12.9)  (20 : 10.7)  (21 : 9.5)  (22 : 8.6)  (23 : 5.6)  (24 : 4.7)  (25 : 3.8)  (26 : 2.2)  (27 : 1.7)  (28 : 1.3)  (29 : 1.0)  (30 : 0.3)  
+(1 : 32.0)  (2 : 76.0)  (3 : 115.0)  (4 : 124.0)  (5 : 131.0)  (6 : 133.0)  (7 : 131.0)  (8 : 125.0)  (9 : 110.0)  (10 : 97.0)  (11 : 72.0)  (12 : 74.0)  (13 : 56.0)  (14 : 30.0)  (15 : 24.0)  (16 : 16.0)  (17 : 16.0)  (18 : 12.0)  (19 : 5.0)  (20 : 14.0)  (21 : 8.0)  (22 : 5.0)  (23 : 7.0)  (24 : 1.0)  (25 : 2.0)  (26 : 1.0)  (27 : 3.0)  (28 : 1.0)  (29 : 1.0)  (30 : 1.0)  (31 : 1.0)  
 average sct CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+average sct multi_recall :0.0
+
+average sct multi_precise :0.0
+
+average sct multi_f_measure :0.0
+
+average sct multi_found :0.0
+
+average sct multi_found_percent :0.0
+
+average sct multi_helped_later :8.0
+
+average sct multi_helped_later_pecent :1.0
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+
 4-way for Tomcat
 ###############################################
 ###############################################
-average sct num :187.3
+average sct num :170.0
 
-average sct num_r :92.8
+average sct num_r :86.0
 
-average sct num_i :95.5
+average sct num_i :85.0
 
 average sct recall :1.0
 
-average sct precise :0.875
+average sct precise :1.0
 
-average sct f-measure :0.9285714285714285
+average sct f-measure :1.0
 
-average sct multi :10.8
+average sct multi :9.0
 
-average sct time :305.6
+average sct time :266.0
 
-average sct time_r :304.9
+average sct time_r :266.0
 
-average sct time_i :0.6
+average sct time_i :0.0
 
-average sct t_cover :5501.7
+average sct t_cover :5488.0
 
 average sct all_cover :5600.0
 
 average sct CoverNUM
-(1 : 170.1)  (2 : 387.0)  (3 : 579.9)  (4 : 628.0)  (5 : 643.4)  (6 : 590.0)  (7 : 507.7)  (8 : 432.2)  (9 : 360.5)  (10 : 282.0)  (11 : 229.0)  (12 : 176.9)  (13 : 143.0)  (14 : 112.7)  (15 : 88.9)  (16 : 72.2)  (17 : 50.1)  (18 : 32.9)  (19 : 28.7)  (20 : 20.0)  (21 : 16.1)  (22 : 11.3)  (23 : 8.3)  (24 : 7.5)  (25 : 5.4)  (26 : 4.3)  (27 : 2.9)  (28 : 1.8)  (29 : 2.0)  (30 : 1.8)  (31 : 0.8)  (32 : 0.7)  (33 : 0.9)  (34 : 0.4)  (35 : 0.3)  (37 : 0.1)  (38 : 0.1)  (41 : 0.1)  
+(1 : 204.0)  (2 : 508.0)  (3 : 656.0)  (4 : 717.0)  (5 : 661.0)  (6 : 607.0)  (7 : 526.0)  (8 : 378.0)  (9 : 301.0)  (10 : 230.0)  (11 : 191.0)  (12 : 162.0)  (13 : 122.0)  (14 : 99.0)  (15 : 66.0)  (16 : 41.0)  (17 : 39.0)  (18 : 27.0)  (19 : 14.0)  (20 : 15.0)  (21 : 8.0)  (22 : 10.0)  (23 : 11.0)  (24 : 3.0)  (25 : 3.0)  (26 : 1.0)  
 average sct CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 1.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 1.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 1.0)  
+average sct multi_recall :0.16666666666666666
+
+average sct multi_precise :1.0
+
+average sct multi_f_measure :0.2857142857142857
+
+average sct multi_found :3.0
+
+average sct multi_found_percent :0.16666666666666666
+
+average sct multi_helped_later :0.0
+
+average sct multi_helped_later_pecent :0.0
+
+average sct negative_checked :0.0
+
+average sct negative_imporved :0.0
+
+average sct postive_checked :0.0
+
+average sct postive_imporved :0.0
+
+average sct feedback_times :0.0
+

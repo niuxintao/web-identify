@@ -43,6 +43,7 @@ public interface CT_process {
 
 	HashMap<Integer, Integer> getCoveredNums();
 
+	// real identify. the real identified schema which is true MFS. note that integer means the repeted experiment, how many times one schema is identified.
 	HashMap<Tuple, Integer> getRealIdentify();
 
 }

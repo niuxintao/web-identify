@@ -32,6 +32,29 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		ErrorLocatingDrivenArray {
 	
 	public int wrongNumberChecked = 0;
+	
+	public int rightChecked = 0;
+	
+	public int revised = 0;
+	
+	
+	//错误的， 改正确了
+	public int negtiveImporved = 0;
+	
+	//正确的， 确改错了
+	public int postiveImporved = 0;
+	
+	
+	//错误的的 检查到 错误
+	public int postiveChecked = 0;
+	
+	//正确的的 检查到 错误
+	public int negativeChecked = 0;
+	
+	
+	//启动的次数
+	public int feedBackStartTimes = 0;
+	
 
 	public static final int CHANGENUM = 10;
 
@@ -40,6 +63,22 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		super(dataCenter, caseRunner);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public ErrorLocatingDrivenArray_feedback_MUOFOT(List<Tuple> actualMFS, DataCenter dataCenter,
+			CaseRunner caseRunner) {
+		super(actualMFS, dataCenter, caseRunner);
+		// TODO Auto-generated constructor stub
+	}
+	
+//	public List<Tuple>
+	
+	// 1. 单独统计多个测试用例的
+	// 2. 统计得到的mfs
+	// 3. 计算f-measure
+	// 4. 计算测试用例个数
+	// 5. 测试改正次数
+	
 
 	public void run() {
 
@@ -78,11 +117,37 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, test);
 			} else {
 				this.failTestCase.add(testCase);
+				
+
+				int contain = 0;
+				List<Tuple> templ = new ArrayList<Tuple> ();
+				for (Tuple acMFS : actualMFS) {
+					if (testCase.containsOf(acMFS))
+						contain++;
+					if (contain > 1) {
+						break;
+					}
+				}
+				if (contain > 1) {
+					for (Tuple acMFS : actualMFS) {
+						if (testCase.containsOf(acMFS))
+							templ.add(acMFS);
+					}
+				}
+				
+				this.actualRealMFSInMultiple.addAll(templ);
+
+				
 
 				long ideTime = System.currentTimeMillis();
 
 				List<Tuple> mfs = getMFS(ac, testCase);
 				// System.out.println("get MFS's size " + mfs.size());
+				
+				if(contain > 1){
+					this.identifiedMFSForMultiple.addAll(mfs);
+				}
+
 
 				if (mfs != null && mfs.size() != 0) {
 					ideTime = System.currentTimeMillis() - ideTime;
@@ -121,6 +186,8 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		}
 
 		this.coveredMark = ac.coveredMark;
+		
+		this.evaluate_multiple();
 	}
 
 	public List<List<Tuple>> checkMFS(List<Tuple> mfs, AETG_Constraints ac,
@@ -138,12 +205,20 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 				this.wrongNumberChecked ++;
 				wrong.add(tuple);
 			} else {
+				this.rightChecked ++;
 				right.add(tuple);
 			}
 		}
 		return result;
 	}
 
+	public boolean isIn(Tuple t, List<Tuple> tuples){
+		 for(Tuple t1 : tuples){
+			 if(t.equals(t1))
+				 return true;
+		 }
+		 return false;
+	}
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
 
 		List<Tuple> result = new ArrayList<Tuple>();
@@ -152,22 +227,100 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 				dataCenter.getParam(), caseRunner, ac);
 
 		List<Tuple> temp_mfs = reLocate(ac, sc, new ArrayList<Tuple>());
+		
+		boolean correctIdentified = false;
+		
+		// this is may be a problem. because we only test one
+		for(Tuple t : temp_mfs){
+			if(isIn(t, this.actualMFS)){
+				// correct Identified
+				correctIdentified = true;
+			}else{
+				correctIdentified = false;
+			}
+			break;
+		}
 
 		List<List<Tuple>> checkedNonMFS = this.checkMFS(temp_mfs, ac, testCase,
 				sc.getTestedTupleTestCases());
+		
+		this.feedBackStartTimes ++;
 
 		List<Tuple> right = checkedNonMFS.get(0);
 		List<Tuple> wrong = checkedNonMFS.get(1);
+		
+		boolean correctChecked = false; 
+		for(Tuple t : right){
+			if(isIn(t, this.actualMFS)){
+				// correct Identified
+				correctChecked = true;
+			}else{
+				correctChecked = false;
+			}
+			break;
+		}
+		
+		if(correctIdentified == true && correctChecked == false)
+			this.negtiveImporved ++;
+		
+		if(correctIdentified == false && correctChecked == true)
+			this.postiveImporved ++;
+		
+		if(correctIdentified == false && wrong.size() > 0)
+			this.postiveChecked ++;
+		
+		if(correctIdentified == true && wrong.size() > 0)
+			this.negativeChecked ++;
+		
 
 		result.addAll(right);
 
 		while (right.size() == 0) { // right is large than 0 , or wrong is 0,
 									// i.e., right.size() == 0 or wrong.size() != 0
 			temp_mfs = reLocate(ac, sc, right);
+			
+			for(Tuple t : temp_mfs){
+				if(isIn(t, this.actualMFS)){
+					// correct Identified
+					correctIdentified = true;
+				}else{
+					correctIdentified = false;
+				}
+				break;
+			}
+			
 			checkedNonMFS = this.checkMFS(temp_mfs, ac, testCase,
 					sc.getTestedTupleTestCases());
+			this.feedBackStartTimes ++;
+			
+		
 			right = checkedNonMFS.get(0);
 			wrong = checkedNonMFS.get(1);
+			
+			for(Tuple t : right){
+				if(isIn(t, this.actualMFS)){
+					// correct Identified
+					correctChecked = true;
+				}else{
+					correctChecked = false;
+				}
+				break;
+			}
+			
+			
+			if(correctIdentified == true && correctChecked == false)
+				this.negtiveImporved ++;
+			
+			if(correctIdentified == false && correctChecked == true)
+				this.postiveImporved ++;
+	
+			
+			if(correctIdentified == false && wrong.size() > 0)
+				this.postiveChecked ++;
+			
+			if(correctIdentified == true && wrong.size() > 0)
+				this.negativeChecked ++;
+			
 			result.addAll(right);
 		}
 

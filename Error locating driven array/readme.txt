@@ -2,6 +2,8 @@ just run experiment/simpleExperiment
 
 and the expForRivesion
 
+expForassumption
+
 
 
 need to imporve:

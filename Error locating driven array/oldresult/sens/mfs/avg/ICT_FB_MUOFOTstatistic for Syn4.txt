@@ -1,0 +1,31 @@
+2-way for Syn4
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :82.6
+
+average ICT_FB_MUOFOT num_r :47.2
+
+average ICT_FB_MUOFOT num_i :35.4
+
+average ICT_FB_MUOFOT recall :0.55
+
+average ICT_FB_MUOFOT precise :0.6633333333333333
+
+average ICT_FB_MUOFOT f-measure :0.584126984126984
+
+average ICT_FB_MUOFOT multi :1.5
+
+average ICT_FB_MUOFOT time :1384.3
+
+average ICT_FB_MUOFOT time_r :424.2
+
+average ICT_FB_MUOFOT time_i :172.4
+
+average ICT_FB_MUOFOT t_cover :1353.0
+
+average ICT_FB_MUOFOT all_cover :1375.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 55.4)  (2 : 44.0)  (3 : 24.5)  (4 : 9.3)  (5 : 5.1)  (6 : 2.3)  (7 : 2.2)  (8 : 1.6)  (9 : 1.2)  (10 : 1.8)  (11 : 0.8)  (12 : 0.7)  (13 : 0.2)  (14 : 0.1)  
+average ICT_FB_MUOFOT CoverNUM
+([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 1.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.4)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.4)  

@@ -1,28 +1,52 @@
-num ICT_FB_MUOFOT deviration: 3.8535697735995385
+num ICT_FB_MUOFOT deviration: 21.850629281556174
 
-num_r ICT_FB_MUOFOT deviration: 2.0712315177207983
+num_r ICT_FB_MUOFOT deviration: 2.569046515733026
 
-num_i ICT_FB_MUOFOT deviration: 4.8
+num_i ICT_FB_MUOFOT deviration: 23.741314201197877
 
-recall ICT_FB_MUOFOT deviration: 0.06666666666666667
+recall ICT_FB_MUOFOT deviration: 0.28087165910587863
 
-precise ICT_FB_MUOFOT deviration: 0.06666666666666667
+precise ICT_FB_MUOFOT deviration: 0.15671388056841615
 
-f-measure ICT_FB_MUOFOT deviration: 0.07777777777777778
+f-measure ICT_FB_MUOFOT deviration: 0.2422746024226111
 
-multi ICT_FB_MUOFOT deviration: 0.6403124237432849
+multi ICT_FB_MUOFOT deviration: 0.8717797887081347
 
-time ICT_FB_MUOFOT deviration: 202.71171648427233
+time ICT_FB_MUOFOT deviration: 745.0885584948946
 
-time_r ICT_FB_MUOFOT deviration: 44.48696438283916
+time_r ICT_FB_MUOFOT deviration: 66.45517286110992
 
-time_i ICT_FB_MUOFOT deviration: 28.709754439911183
+time_i ICT_FB_MUOFOT deviration: 644.5721138864137
 
-t_cover ICT_FB_MUOFOT deviration: 4.0
+t_cover ICT_FB_MUOFOT deviration: 15.12778899905733
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 284383.49999999994)  (2 : 179177.05000000002)  (3 : 31390.05)  (4 : 2365.08)  (5 : 106.05999999999999)  (6 : 60.85)  (7 : 72.45)  (8 : 70.78000000000002)  (9 : 100.5)  (10 : 24.449000000000005)  (11 : 26.729000000000003)  (12 : 3.3680000000000008)  (13 : 0.14699999999999996)  (14 : 0.324)  (15 : 0.081)  
+(1 : 261279.20999999996)  (2 : 162015.86000000004)  (3 : 35033.9)  (4 : 5137.2)  (5 : 648.4599999999999)  (6 : 153.025)  (7 : 131.01)  (8 : 76.03999999999999)  (9 : 89.21)  (10 : 45.290000000000006)  (11 : 28.336000000000002)  (12 : 7.831999999999998)  (13 : 1.9739999999999995)  (14 : 1.075)  (15 : 0.081)  (17 : 0.081)  
 deviration ICT_FB_MUOFOT CoverNUM
-([ 0 , - , - , - , - , - , 0 , - , - , - , - ] : 0.0)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.081)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.081)  
+([ 0 , - , - , - , - , - , 0 , - , - , - , - ] : 0.0)  ([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.144)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.14699999999999996)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.081)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.144)  
+multi_recall ICT_FB_MUOFOT deviration: 0.07190367785370153
+
+multi_precise ICT_FB_MUOFOT deviration: 0.21229565338094994
+
+multi_f_measure ICT_FB_MUOFOT deviration: 0.09905159389064465
+
+multi_found ICT_FB_MUOFOT deviration: 0.9797958971132713
+
+multi_found_percent ICT_FB_MUOFOT deviration: 0.07190367785370153
+
+multi_helped_later ICT_FB_MUOFOT deviration: 1.7578395831246947
+
+multi_helped_later_pecent ICT_FB_MUOFOT deviration: 0.15942823185092128
+
+negative_checked ICT_FB_MUOFOT deviration: 0.0
+
+negative_imporved ICT_FB_MUOFOT deviration: 0.0
+
+postive_checked ICT_FB_MUOFOT deviration: 0.806225774829855
+
+postive_imporved ICT_FB_MUOFOT deviration: 0.30000000000000004
+
+feedback_times ICT_FB_MUOFOT deviration: 1.6852299546352716
+

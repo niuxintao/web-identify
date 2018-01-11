@@ -1,0 +1,31 @@
+2-way for Syn1
+###############################################
+###############################################
+average sct num :66.9
+
+average sct num_r :49.7
+
+average sct num_i :17.2
+
+average sct recall :1.0
+
+average sct precise :1.0
+
+average sct f-measure :1.0
+
+average sct multi :0.0
+
+average sct time :214.2
+
+average sct time_r :211.2
+
+average sct time_i :2.4
+
+average sct t_cover :1371.6
+
+average sct all_cover :1375.0
+
+average sct CoverNUM
+(1 : 53.5)  (2 : 46.8)  (3 : 18.7)  (4 : 8.5)  (5 : 4.3)  (6 : 3.0)  (7 : 2.4)  (8 : 2.4)  (9 : 2.4)  (10 : 2.0)  (11 : 1.7)  (12 : 1.9)  (13 : 1.0)  (14 : 1.4)  (15 : 0.9)  (16 : 0.9)  (17 : 0.9)  (18 : 1.0)  (19 : 0.5)  (20 : 0.6)  (21 : 0.2)  (22 : 0.1)  (23 : 0.3)  (24 : 0.1)  
+average sct CoverNUM
+([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  

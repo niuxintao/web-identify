@@ -16,7 +16,7 @@ public class Driver_IsstaIncrease {
 	public static void main(String[] args) {
 		new File("results/model20/result_issta_bo_up/").mkdirs();
 		new File("results/model35/result_issta_bo_up/").mkdirs();
-		for (int i = 0; i < 55; i++) {
+		for (int i = 20; i < 55; i++) {
 			System.out.println("model : " + i);
 			IsstaIncrease increase = new IsstaIncrease(i);
 			increase.process();

@@ -1,8 +1,8 @@
-num sct deviration: 3.5902646142032486
+num sct deviration: 2.4269322199023193
 
-num_r sct deviration: 1.9
+num_r sct deviration: 1.5
 
-num_i sct deviration: 1.9899748742132397
+num_i sct deviration: 1.2806248474865698
 
 recall sct deviration: 0.0
 
@@ -12,17 +12,41 @@ f-measure sct deviration: 0.0
 
 multi sct deviration: 0.0
 
-time sct deviration: 66.42710290235455
+time sct deviration: 100.50651720162232
 
-time_r sct deviration: 63.17404530343137
+time_r sct deviration: 100.50651720162232
 
-time_i sct deviration: 3.2924155266308652
+time_i sct deviration: 0.0
 
-t_cover sct deviration: 3.0397368307141326
+t_cover sct deviration: 1.8138357147217055
 
 all_cover sct deviration: 0.0
 
 deviration sct CoverNUM
-(1 : 208968.05)  (2 : 141793.34000000003)  (3 : 36116.29)  (4 : 4816.65)  (5 : 796.77)  (6 : 415.3)  (7 : 290.16)  (8 : 276.86)  (9 : 161.68)  (10 : 92.8)  (11 : 58.17)  (12 : 38.36999999999999)  (13 : 14.3)  (14 : 20.66)  (15 : 8.009)  (16 : 23.209)  (17 : 10.526)  (18 : 5.8)  (19 : 1.9)  (20 : 0.9999999999999998)  (21 : 0.388)  (22 : 0.081)  (23 : 1.018)  (24 : 0.081)  
+(1 : 208055.78000000003)  (2 : 136607.80999999997)  (3 : 32077.399999999994)  (4 : 5251.37)  (5 : 1006.5300000000001)  (6 : 549.7199999999999)  (7 : 373.24999999999994)  (8 : 254.12000000000003)  (9 : 212.21999999999997)  (10 : 133.56)  (11 : 100.68999999999998)  (12 : 32.28999999999999)  (13 : 30.53000000000001)  (14 : 10.929)  (15 : 14.249)  (16 : 7.681000000000002)  (17 : 5.812)  (18 : 4.651999999999999)  (19 : 2.4939999999999998)  (20 : 0.7249999999999999)  (21 : 0.5840000000000001)  (22 : 1.875)  (23 : 0.8479999999999999)  (24 : 0.12800000000000003)  (25 : 0.081)  
 deviration sct CoverNUM
 ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.0)  
+multi_recall sct deviration: NaN
+
+multi_precise sct deviration: 0.0
+
+multi_f_measure sct deviration: NaN
+
+multi_found sct deviration: 0.0
+
+multi_found_percent sct deviration: NaN
+
+multi_helped_later sct deviration: 0.0
+
+multi_helped_later_pecent sct deviration: NaN
+
+negative_checked sct deviration: 0.0
+
+negative_imporved sct deviration: 0.0
+
+postive_checked sct deviration: 0.0
+
+postive_imporved sct deviration: 0.0
+
+feedback_times sct deviration: 0.0
+

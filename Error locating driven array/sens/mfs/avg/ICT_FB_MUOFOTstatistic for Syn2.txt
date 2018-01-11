@@ -1,11 +1,11 @@
 2-way for Syn2
 ###############################################
 ###############################################
-average ICT_FB_MUOFOT num :73.7
+average ICT_FB_MUOFOT num :76.8
 
-average ICT_FB_MUOFOT num_r :49.7
+average ICT_FB_MUOFOT num_r :48.8
 
-average ICT_FB_MUOFOT num_i :24.0
+average ICT_FB_MUOFOT num_i :28.0
 
 average ICT_FB_MUOFOT recall :1.0
 
@@ -15,17 +15,41 @@ average ICT_FB_MUOFOT f-measure :1.0
 
 average ICT_FB_MUOFOT multi :1.0
 
-average ICT_FB_MUOFOT time :1399.8
+average ICT_FB_MUOFOT time :1589.4
 
-average ICT_FB_MUOFOT time_r :514.3
+average ICT_FB_MUOFOT time_r :426.7
 
-average ICT_FB_MUOFOT time_i :118.6
+average ICT_FB_MUOFOT time_i :784.6
 
 average ICT_FB_MUOFOT t_cover :1375.0
 
 average ICT_FB_MUOFOT all_cover :1375.0
 
 average ICT_FB_MUOFOT CoverNUM
-(1 : 54.4)  (2 : 49.5)  (3 : 21.0)  (4 : 8.2)  (5 : 3.0)  (6 : 2.9)  (7 : 1.5)  (8 : 2.5)  (9 : 1.5)  (10 : 1.1)  (11 : 1.2)  (12 : 0.8)  (13 : 0.6)  (15 : 0.2)  
+(1 : 56.5)  (2 : 48.0)  (3 : 22.2)  (4 : 6.8)  (5 : 3.2)  (6 : 3.0)  (7 : 2.3)  (8 : 2.3)  (9 : 1.1)  (10 : 1.0)  (11 : 0.6)  (12 : 0.5)  (13 : 0.2)  
 average ICT_FB_MUOFOT CoverNUM
 ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 1.0)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ICT_FB_MUOFOT multi_recall :0.5
+
+average ICT_FB_MUOFOT multi_precise :1.0
+
+average ICT_FB_MUOFOT multi_f_measure :0.6666666666666667
+
+average ICT_FB_MUOFOT multi_found :1.0
+
+average ICT_FB_MUOFOT multi_found_percent :0.5
+
+average ICT_FB_MUOFOT multi_helped_later :1.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :0.5
+
+average ICT_FB_MUOFOT negative_checked :0.0
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :0.0
+
+average ICT_FB_MUOFOT postive_imporved :0.0
+
+average ICT_FB_MUOFOT feedback_times :2.0
+

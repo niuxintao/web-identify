@@ -1,36 +1,8 @@
-num ICT_FB_MUOFOT deviration: 3.407345007480164
+num ICT_FB_MUOFOT deviration: 0.0
 
-num_r ICT_FB_MUOFOT deviration: 1.1
+num_r ICT_FB_MUOFOT deviration: 0.0
 
-num_i ICT_FB_MUOFOT deviration: 4.4
-
-recall ICT_FB_MUOFOT deviration: 0.0
-
-precise ICT_FB_MUOFOT deviration: 0.0
-
-f-measure ICT_FB_MUOFOT deviration: 0.0
-
-multi ICT_FB_MUOFOT deviration: 0.0
-
-time ICT_FB_MUOFOT deviration: 39.593433799053095
-
-time_r ICT_FB_MUOFOT deviration: 6.42183774320093
-
-time_i ICT_FB_MUOFOT deviration: 38.73306081372863
-
-t_cover ICT_FB_MUOFOT deviration: 0.0
-
-all_cover ICT_FB_MUOFOT deviration: 0.0
-
-deviration ICT_FB_MUOFOT CoverNUM
-(1 : 100.45)  (2 : 43.89)  (3 : 36.16)  (4 : 18.360000000000003)  (5 : 14.410000000000002)  (6 : 16.05)  (7 : 17.559999999999995)  (8 : 5.25)  (9 : 20.410000000000004)  (10 : 8.2)  (11 : 3.721)  (12 : 2.6069999999999998)  (13 : 1.1640000000000001)  (14 : 0.33799999999999997)  (15 : 0.12800000000000003)  (16 : 0.328)  (17 : 0.324)  (18 : 0.5120000000000001)  
-deviration ICT_FB_MUOFOT CoverNUM
-([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 0.0)  
-num ICT_FB_MUOFOT deviration: 4.5265881191025095
-
-num_r ICT_FB_MUOFOT deviration: 1.3
-
-num_i ICT_FB_MUOFOT deviration: 4.980963762164909
+num_i ICT_FB_MUOFOT deviration: 0.0
 
 recall ICT_FB_MUOFOT deviration: 0.0
 
@@ -40,25 +12,49 @@ f-measure ICT_FB_MUOFOT deviration: 0.0
 
 multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 225.11821339020972
+time ICT_FB_MUOFOT deviration: 0.0
 
-time_r ICT_FB_MUOFOT deviration: 14.065916251705753
+time_r ICT_FB_MUOFOT deviration: 0.0
 
-time_i ICT_FB_MUOFOT deviration: 235.69633005203963
+time_i ICT_FB_MUOFOT deviration: 0.0
 
 t_cover ICT_FB_MUOFOT deviration: 0.0
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 172.6)  (2 : 682.25)  (3 : 125.04)  (4 : 64.2)  (5 : 131.41000000000003)  (6 : 111.01000000000002)  (7 : 38.559999999999995)  (8 : 46.69)  (9 : 22.809999999999995)  (10 : 18.01)  (11 : 18.890000000000004)  (12 : 8.61)  (13 : 4.44)  (14 : 1.841)  (15 : 1.9600000000000002)  (16 : 2.3600000000000003)  (17 : 0.4720000000000001)  (18 : 0.7)  (19 : 0.328)  (20 : 0.324)  (21 : 0.081)  
+(1 : 0.0)  (2 : 0.0)  (3 : 0.0)  (4 : 0.0)  (5 : 0.0)  (6 : 0.0)  (7 : 0.0)  (8 : 0.0)  (9 : 0.0)  (10 : 0.0)  (11 : 0.0)  (12 : 0.0)  
 deviration ICT_FB_MUOFOT CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 0.0)  
-num ICT_FB_MUOFOT deviration: 4.331281565541543
+multi_recall ICT_FB_MUOFOT deviration: NaN
 
-num_r ICT_FB_MUOFOT deviration: 2.6627053911388696
+multi_precise ICT_FB_MUOFOT deviration: 0.0
 
-num_i ICT_FB_MUOFOT deviration: 5.253570214625479
+multi_f_measure ICT_FB_MUOFOT deviration: NaN
+
+multi_found ICT_FB_MUOFOT deviration: 0.0
+
+multi_found_percent ICT_FB_MUOFOT deviration: NaN
+
+multi_helped_later ICT_FB_MUOFOT deviration: 0.0
+
+multi_helped_later_pecent ICT_FB_MUOFOT deviration: NaN
+
+negative_checked ICT_FB_MUOFOT deviration: 0.0
+
+negative_imporved ICT_FB_MUOFOT deviration: 0.0
+
+postive_checked ICT_FB_MUOFOT deviration: 0.0
+
+postive_imporved ICT_FB_MUOFOT deviration: 0.0
+
+feedback_times ICT_FB_MUOFOT deviration: 0.0
+
+num ICT_FB_MUOFOT deviration: 0.0
+
+num_r ICT_FB_MUOFOT deviration: 0.0
+
+num_i ICT_FB_MUOFOT deviration: 0.0
 
 recall ICT_FB_MUOFOT deviration: 0.0
 
@@ -68,17 +64,93 @@ f-measure ICT_FB_MUOFOT deviration: 0.0
 
 multi ICT_FB_MUOFOT deviration: 0.0
 
-time ICT_FB_MUOFOT deviration: 817.3747059947475
+time ICT_FB_MUOFOT deviration: 0.0
 
-time_r ICT_FB_MUOFOT deviration: 40.06544645951172
+time_r ICT_FB_MUOFOT deviration: 0.0
 
-time_i ICT_FB_MUOFOT deviration: 843.5286361469895
+time_i ICT_FB_MUOFOT deviration: 0.0
 
 t_cover ICT_FB_MUOFOT deviration: 0.0
 
 all_cover ICT_FB_MUOFOT deviration: 0.0
 
 deviration ICT_FB_MUOFOT CoverNUM
-(1 : 1493.21)  (2 : 3137.0)  (3 : 248.29000000000002)  (4 : 497.7600000000001)  (5 : 149.80999999999997)  (6 : 265.56)  (7 : 588.9599999999999)  (8 : 396.2099999999999)  (9 : 148.49)  (10 : 75.09)  (11 : 17.410000000000004)  (12 : 113.69000000000001)  (13 : 43.559999999999995)  (14 : 33.84)  (15 : 13.160000000000002)  (16 : 12.960000000000003)  (17 : 6.290000000000001)  (18 : 3.4)  (19 : 1.21)  (20 : 2.49)  (21 : 2.929)  (22 : 1.4069999999999998)  (23 : 1.134)  (24 : 0.25999999999999995)  (25 : 0.33799999999999997)  (26 : 0.081)  
+(1 : 0.0)  (2 : 0.0)  (3 : 0.0)  (4 : 0.0)  (5 : 0.0)  (6 : 0.0)  (7 : 0.0)  (8 : 0.0)  (9 : 0.0)  (10 : 0.0)  (11 : 0.0)  (12 : 0.0)  (13 : 0.0)  (14 : 0.0)  (15 : 0.0)  (16 : 0.0)  (17 : 0.0)  (18 : 0.0)  
 deviration ICT_FB_MUOFOT CoverNUM
 ([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 0.0)  
+multi_recall ICT_FB_MUOFOT deviration: NaN
+
+multi_precise ICT_FB_MUOFOT deviration: 0.0
+
+multi_f_measure ICT_FB_MUOFOT deviration: NaN
+
+multi_found ICT_FB_MUOFOT deviration: 0.0
+
+multi_found_percent ICT_FB_MUOFOT deviration: NaN
+
+multi_helped_later ICT_FB_MUOFOT deviration: 0.0
+
+multi_helped_later_pecent ICT_FB_MUOFOT deviration: NaN
+
+negative_checked ICT_FB_MUOFOT deviration: 0.0
+
+negative_imporved ICT_FB_MUOFOT deviration: 0.0
+
+postive_checked ICT_FB_MUOFOT deviration: 0.0
+
+postive_imporved ICT_FB_MUOFOT deviration: 0.0
+
+feedback_times ICT_FB_MUOFOT deviration: 0.0
+
+num ICT_FB_MUOFOT deviration: 0.0
+
+num_r ICT_FB_MUOFOT deviration: 0.0
+
+num_i ICT_FB_MUOFOT deviration: 0.0
+
+recall ICT_FB_MUOFOT deviration: 0.0
+
+precise ICT_FB_MUOFOT deviration: 0.0
+
+f-measure ICT_FB_MUOFOT deviration: 0.0
+
+multi ICT_FB_MUOFOT deviration: 0.0
+
+time ICT_FB_MUOFOT deviration: 0.0
+
+time_r ICT_FB_MUOFOT deviration: 0.0
+
+time_i ICT_FB_MUOFOT deviration: 0.0
+
+t_cover ICT_FB_MUOFOT deviration: 0.0
+
+all_cover ICT_FB_MUOFOT deviration: 0.0
+
+deviration ICT_FB_MUOFOT CoverNUM
+(1 : 0.0)  (2 : 0.0)  (3 : 0.0)  (4 : 0.0)  (5 : 0.0)  (6 : 0.0)  (7 : 0.0)  (8 : 0.0)  (9 : 0.0)  (10 : 0.0)  (11 : 0.0)  (12 : 0.0)  (13 : 0.0)  (14 : 0.0)  (15 : 0.0)  (16 : 0.0)  (17 : 0.0)  (18 : 0.0)  (19 : 0.0)  (20 : 0.0)  (21 : 0.0)  (22 : 0.0)  (23 : 0.0)  
+deviration ICT_FB_MUOFOT CoverNUM
+([ 1 , - , - , 3 , - , - , - , - , - , - ] : 0.0)  ([ 1 , - , - , 1 , - , - , - , - , - , - ] : 0.0)  ([ - , - , - , - , - , - , - , - , 0 , - ] : 0.0)  
+multi_recall ICT_FB_MUOFOT deviration: NaN
+
+multi_precise ICT_FB_MUOFOT deviration: 0.0
+
+multi_f_measure ICT_FB_MUOFOT deviration: NaN
+
+multi_found ICT_FB_MUOFOT deviration: 0.0
+
+multi_found_percent ICT_FB_MUOFOT deviration: NaN
+
+multi_helped_later ICT_FB_MUOFOT deviration: 0.0
+
+multi_helped_later_pecent ICT_FB_MUOFOT deviration: NaN
+
+negative_checked ICT_FB_MUOFOT deviration: 0.0
+
+negative_imporved ICT_FB_MUOFOT deviration: 0.0
+
+postive_checked ICT_FB_MUOFOT deviration: 0.0
+
+postive_imporved ICT_FB_MUOFOT deviration: 0.0
+
+feedback_times ICT_FB_MUOFOT deviration: 0.0
+

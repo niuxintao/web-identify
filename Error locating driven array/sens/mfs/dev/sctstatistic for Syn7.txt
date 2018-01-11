@@ -1,28 +1,52 @@
-num sct deviration: 11.267652816802618
+num sct deviration: 11.852847759083048
 
-num_r sct deviration: 1.4
+num_r sct deviration: 2.135415650406262
 
-num_i sct deviration: 10.697663296253065
+num_i sct deviration: 11.198660634200861
 
-recall sct deviration: 0.12777531299998798
+recall sct deviration: 0.13170777796132696
 
-precise sct deviration: 0.2688710967483613
+precise sct deviration: 0.275
 
-f-measure sct deviration: 0.16777604460333584
+f-measure sct deviration: 0.17271250453730505
 
-multi sct deviration: 2.4979991993593593
+multi sct deviration: 2.2891046284519194
 
-time sct deviration: 19.37627415165258
+time sct deviration: 4.749736834815166
 
-time_r sct deviration: 19.610201426808448
+time_r sct deviration: 4.749736834815166
 
-time_i sct deviration: 0.5
+time_i sct deviration: 0.0
 
-t_cover sct deviration: 8.452218643646177
+t_cover sct deviration: 9.526804291051644
 
 all_cover sct deviration: 0.0
 
 deviration sct CoverNUM
-(1 : 120885.5)  (2 : 91737.25)  (3 : 41800.73)  (4 : 13065.730000000001)  (5 : 4276.37)  (6 : 1649.9300000000003)  (7 : 1145.96)  (8 : 925.8)  (9 : 570.72)  (10 : 463.45)  (11 : 202.45)  (12 : 144.57)  (13 : 96.85)  (14 : 53.67999999999999)  (15 : 24.4)  (16 : 8.3)  (17 : 9.572000000000001)  (18 : 13.728000000000003)  (19 : 3.7040000000000006)  (20 : 2.7159999999999997)  (21 : 0.578)  (22 : 1.4040000000000001)  (23 : 0.14699999999999996)  (24 : 0.388)  (25 : 0.324)  (26 : 0.081)  (27 : 0.081)  (28 : 0.12800000000000003)  
+(1 : 148013.88999999998)  (2 : 100583.48999999999)  (3 : 43290.33)  (4 : 11737.88)  (5 : 3053.36)  (6 : 1108.2100000000003)  (7 : 538.5199999999999)  (8 : 603.2)  (9 : 352.52)  (10 : 318.68)  (11 : 175.57)  (12 : 175.29000000000002)  (13 : 86.28)  (14 : 34.9)  (15 : 13.25)  (16 : 3.5120000000000005)  (17 : 14.7)  (18 : 12.8)  (19 : 6.5120000000000005)  (20 : 2.165)  (21 : 1.2759999999999998)  (22 : 7.525)  (23 : 1.004)  (24 : 0.578)  (25 : 0.12800000000000003)  (26 : 0.14699999999999996)  (27 : 0.081)  
 deviration sct CoverNUM
-([ 0 , - , - , - , - , - , - , 0 , - , - , - ] : 0.144)  ([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.081)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.081)  
+([ 0 , - , - , - , - , - , 0 , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.081)  
+multi_recall sct deviration: 0.011499833974347532
+
+multi_precise sct deviration: 0.25819888974716115
+
+multi_f_measure sct deviration: 0.021965671834958355
+
+multi_found sct deviration: 0.66332495807108
+
+multi_found_percent sct deviration: 0.011499833974347532
+
+multi_helped_later sct deviration: 2.4000000000000004
+
+multi_helped_later_pecent sct deviration: 0.041379310344827586
+
+negative_checked sct deviration: 0.0
+
+negative_imporved sct deviration: 0.0
+
+postive_checked sct deviration: 0.0
+
+postive_imporved sct deviration: 0.0
+
+feedback_times sct deviration: 0.0
+

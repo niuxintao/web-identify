@@ -47,6 +47,16 @@ public class DriverForAnalyse {
 		return result;
 	}
 	
+	
+	public double analyseDetectionRate(int minimal) {
+		double result = 0.0D;
+		DetectionRate detectionRate = new DetectionRate();
+		result = (double) detectionRate.getDetectionRate(0,
+				minimal, this.suite, this.dataCenter);
+		return result;
+	}
+	
+	
 //	public double analyseDetectionRate_Test() {
 //		double result = 0.0D;
 //		DetectionRate detectionRate = new DetectionRate();

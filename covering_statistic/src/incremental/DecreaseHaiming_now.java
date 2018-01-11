@@ -57,6 +57,7 @@ public class DecreaseHaiming_now {
 		String currentPath = "";
 		String currentTimePath = "";
 		
+		//old 21 38 47,  new 24 35 39 41 52 54
 		if(model == 21){
 			currentDegree = 4;
 			currentPath = "./results/35model/result_top_down/benchmark_2.result";
@@ -70,9 +71,37 @@ public class DecreaseHaiming_now {
 			currentDegree = 3;
 			currentPath = 	"./results/35model/result_top_down/benchmark_28.result";
 			currentTimePath = 	"./results/35model/result_top_down/benchmark_28.result";
+		}else if(model == 24){
+			currentDegree = 3;
+			currentPath = 	"./results/35model/result_top_down/benchmark_5.result";
+			currentTimePath = 	"./results/35model/result_top_down/benchmark_5.result";
+		}else if(model == 35){
+			currentDegree = 4;
+			currentPath = 	"./results/35model/result_top_down/benchmark_16.result";
+			currentTimePath = 	"./results/35model/result_top_down/benchmark_16.result";
 		}
+		else if(model == 39){
+			currentDegree = 3;
+			currentPath = 	"./results/35model/result_top_down/benchmark_20.result";
+			currentTimePath = 	"./results/35model/result_top_down/benchmark_20.result";
+		}
+		else if(model == 41){
+			currentDegree = 4;
+			currentPath = 	"./results/35model/result_top_down/benchmark_22.result";
+			currentTimePath = 	"./results/35model/result_top_down/benchmark_22.result";
+		}
+		else if(model == 52){
+			currentDegree = 3;
+			currentPath = 	"./results/35model/result_top_down/benchmark_33.result";
+			currentTimePath = 	"./results/35model/result_top_down/benchmark_33.result";
+		}
+		else if(model == 54){
+			currentDegree = 5;
+			currentPath = 	"./results/35model/result_top_down/benchmark_35.result";
+			currentTimePath = 	"./results/35model/result_top_down/benchmark_35.result";
+		}
+		
 
-	
 		read.readTestCases(currentPath, 3);
 		read.readTimeSpecial(currentTimePath);
 

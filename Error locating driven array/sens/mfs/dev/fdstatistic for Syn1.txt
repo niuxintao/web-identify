@@ -1,6 +1,6 @@
-num fd deviration: 3.3241540277189325
+num fd deviration: 1.972308292331602
 
-num_r fd deviration: 3.3241540277189325
+num_r fd deviration: 1.972308292331602
 
 num_i fd deviration: 0.0
 
@@ -12,17 +12,41 @@ f-measure fd deviration: 0.0
 
 multi fd deviration: 0.0
 
-time fd deviration: 229.92522697607586
+time fd deviration: 163.73747280326518
 
-time_r fd deviration: 190.43781137158658
+time_r fd deviration: 126.46991737168172
 
-time_i fd deviration: 45.215484073489684
+time_i fd deviration: 32.221731797034124
 
 t_cover fd deviration: 0.0
 
 all_cover fd deviration: 0.0
 
 deviration fd CoverNUM
-(1 : 258342.01999999996)  (2 : 183512.44)  (3 : 37910.780000000006)  (4 : 3010.5299999999997)  (5 : 351.58000000000004)  (6 : 127.25)  (7 : 54.45)  (8 : 31.560000000000002)  (9 : 14.604)  (10 : 10.204)  (11 : 1.525)  (12 : 0.324)  (13 : 0.324)  
+(1 : 265026.73999999993)  (2 : 183619.8)  (3 : 35168.8)  (4 : 2928.76)  (5 : 333.45)  (6 : 181.38)  (7 : 57.1)  (8 : 34.025)  (9 : 7.782999999999999)  (10 : 5.925)  (11 : 1.4040000000000001)  (12 : 0.7290000000000001)  (13 : 0.081)  
 deviration fd CoverNUM
 ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.0)  
+multi_recall fd deviration: 0.0
+
+multi_precise fd deviration: 0.0
+
+multi_f_measure fd deviration: 0.0
+
+multi_found fd deviration: 0.0
+
+multi_found_percent fd deviration: 0.0
+
+multi_helped_later fd deviration: 0.0
+
+multi_helped_later_pecent fd deviration: 0.0
+
+negative_checked fd deviration: 0.0
+
+negative_imporved fd deviration: 0.0
+
+postive_checked fd deviration: 0.0
+
+postive_imporved fd deviration: 0.0
+
+feedback_times fd deviration: 0.0
+

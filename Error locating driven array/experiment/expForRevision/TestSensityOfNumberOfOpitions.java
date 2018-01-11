@@ -8,8 +8,8 @@ import output.OutPut;
 import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
-import experiment.REP;
 import experimentData.ExperimentData;
+import experiment.REP;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;

@@ -252,7 +252,7 @@ public class ReadInput {
 				// firt number
 				strLine = br.readLine();
 				strLine = br.readLine();
-				String tokens = (strLine.split(":"))[1];
+				String tokens = (strLine.split(": "))[1];
 				time = Long.parseLong(tokens);
 				in.close();
 			

@@ -1,28 +1,52 @@
-num sct deviration: 9.877246579892597
+num sct deviration: 11.072939989000211
 
-num_r sct deviration: 1.019803902718557
+num_r sct deviration: 1.3
 
-num_i sct deviration: 9.425497334358543
+num_i sct deviration: 11.08873302050329
 
-recall sct deviration: 0.0888888888888889
+recall sct deviration: 0.1314684396244359
 
-precise sct deviration: 0.26666666666666666
+precise sct deviration: 0.3660031875999625
 
-f-measure sct deviration: 0.13333333333333333
+f-measure sct deviration: 0.19109673829919954
 
-multi sct deviration: 1.8
+multi sct deviration: 2.244994432064365
 
-time sct deviration: 23.97269279826528
+time sct deviration: 20.15068237057991
 
-time_r sct deviration: 24.0574312843246
+time_r sct deviration: 20.15068237057991
 
-time_i sct deviration: 2.9597297173897488
+time_i sct deviration: 0.0
 
-t_cover sct deviration: 6.132699242584786
+t_cover sct deviration: 8.474078120952154
 
 all_cover sct deviration: 0.0
 
 deviration sct CoverNUM
-(1 : 140078.25)  (2 : 102165.7)  (3 : 40726.34000000001)  (4 : 13292.609999999997)  (5 : 3572.22)  (6 : 1084.4500000000003)  (7 : 707.37)  (8 : 625.5999999999999)  (9 : 442.85)  (10 : 442.36)  (11 : 166.64999999999998)  (12 : 113.13)  (13 : 69.21)  (14 : 22.940000000000005)  (15 : 27.169999999999998)  (16 : 10.988)  (17 : 8.604000000000001)  (18 : 2.208)  (19 : 0.9999999999999998)  (20 : 0.325)  (21 : 0.12800000000000003)  (22 : 0.12800000000000003)  (23 : 0.081)  (24 : 0.12800000000000003)  (25 : 0.081)  
+(1 : 130490.96000000004)  (2 : 87995.29000000001)  (3 : 42360.009999999995)  (4 : 14366.180000000002)  (5 : 4446.569999999999)  (6 : 1833.64)  (7 : 1264.17)  (8 : 597.05)  (9 : 586.65)  (10 : 362.61000000000007)  (11 : 199.05)  (12 : 122.50000000000003)  (13 : 54.05999999999999)  (14 : 40.761)  (15 : 11.570000000000002)  (16 : 3.6799999999999997)  (17 : 7.816)  (18 : 12.084)  (19 : 4.5)  (20 : 5.647)  (21 : 1.125)  (22 : 0.9)  (23 : 0.525)  (24 : 0.12800000000000003)  (25 : 0.081)  (27 : 0.081)  (28 : 0.081)  (33 : 0.081)  
 deviration sct CoverNUM
-([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.081)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.081)  ([ 0 , - , - , - , - , - , - , - , 0 , - , - ] : 0.081)  ([ 0 , - , - , - , - , - , - , - , - , 0 , - ] : 0.081)  
+([ 0 , - , - , - , 0 , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , - , 0 , - , - , - , - , - ] : 0.081)  ([ 0 , - , 0 , - , - , - , - , - , - , - , - ] : 0.12800000000000003)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.081)  ([ 0 , - , - , - , - , - , - , - , 0 , - , - ] : 0.12800000000000003)  ([ 0 , - , - , - , - , - , - , - , - , 0 , - ] : 0.12800000000000003)  
+multi_recall sct deviration: 0.008643591689037671
+
+multi_precise sct deviration: 0.33166247903554
+
+multi_f_measure sct deviration: 0.016784986633880533
+
+multi_found sct deviration: 0.45825756949558405
+
+multi_found_percent sct deviration: 0.008643591689037671
+
+multi_helped_later sct deviration: 8.049844718999243
+
+multi_helped_later_pecent sct deviration: 0.13397373026606388
+
+negative_checked sct deviration: 0.0
+
+negative_imporved sct deviration: 0.0
+
+postive_checked sct deviration: 0.0
+
+postive_imporved sct deviration: 0.0
+
+feedback_times sct deviration: 0.0
+
