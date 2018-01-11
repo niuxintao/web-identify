@@ -9,7 +9,7 @@ import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
 import experimentData.ExperimentData;
-import experiment.REP;
+import experiment_second.REP;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
@@ -20,7 +20,7 @@ import grandi2.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
-public class TestSensityOfNumbeOfMFS {
+public class TestSensityOfNumbeOfMFS2 {
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -77,7 +77,7 @@ public class TestSensityOfNumbeOfMFS {
 			"negative_imporved", "postive_checked", "postive_imporved",
 			"feedback_times" };
 
-	public TestSensityOfNumbeOfMFS() {
+	public TestSensityOfNumbeOfMFS2() {
 
 	}
 
@@ -728,10 +728,11 @@ public class TestSensityOfNumbeOfMFS {
 	}
 
 	public static void main(String[] args) {
-		TestSensityOfNumbeOfMFS ex = new TestSensityOfNumbeOfMFS();
+		TestSensityOfNumbeOfMFS2 ex = new TestSensityOfNumbeOfMFS2();
 		int[] param = new int[] { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }; // 12 / 5
 		//  
-		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
+//		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
+		int[] num = new int[] {70, 80, 90};
 		for (int nu : num) {
 			System.out.println("start : the number of MFS is :" + nu);
 			ex.testSyn(nu, param);

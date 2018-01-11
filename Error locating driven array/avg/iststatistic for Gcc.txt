@@ -1,0 +1,165 @@
+2-way for Gcc
+###############################################
+###############################################
+average ist num :37.0
+
+average ist num_r :15.0
+
+average ist num_i :22.0
+
+average ist recall :0.35
+
+average ist precise :0.6333333333333333
+
+average ist f-measure :0.44761904761904764
+
+average ist multi :0.4
+
+average ist time :37.4
+
+average ist time_r :22.0
+
+average ist time_i :0.0
+
+average ist t_cover :251.2
+
+average ist all_cover :252.0
+
+average ist CoverNUM
+(1 : 62.4)  (2 : 68.0)  (3 : 26.0)  (4 : 26.2)  (5 : 23.6)  (6 : 18.0)  (7 : 10.0)  (8 : 6.2)  (9 : 6.8)  (10 : 3.2)  (11 : 1.4)  (12 : 0.2)  
+average ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.4)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.8)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.2)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+
+3-way for Gcc
+###############################################
+###############################################
+average ist num :75.0
+
+average ist num_r :49.0
+
+average ist num_i :26.0
+
+average ist recall :0.4
+
+average ist precise :0.5333333333333333
+
+average ist f-measure :0.4571428571428572
+
+average ist multi :0.2
+
+average ist time :396.8
+
+average ist time_r :119.0
+
+average ist time_i :3.0
+
+average ist t_cover :1485.6
+
+average ist all_cover :1536.0
+
+average ist CoverNUM
+(1 : 274.8)  (2 : 328.4)  (3 : 260.6)  (4 : 146.4)  (5 : 115.8)  (6 : 101.4)  (7 : 80.8)  (8 : 58.6)  (9 : 48.4)  (10 : 35.8)  (11 : 28.2)  (12 : 18.8)  (13 : 12.4)  (14 : 8.4)  (15 : 6.0)  (16 : 5.6)  (17 : 2.0)  (18 : 1.6)  (19 : 0.8)  (20 : 0.6)  (21 : 0.2)  (22 : 0.2)  (24 : 0.2)  
+average ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.4)  ([ 2 , - , - , - , - , 1 , - , - , - , 0 ] : 0.4)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.4)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.4)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+
+4-way for Gcc
+###############################################
+###############################################
+average ist num :121.4
+
+average ist num_r :99.4
+
+average ist num_i :22.0
+
+average ist recall :0.2
+
+average ist precise :0.26666666666666666
+
+average ist f-measure :0.2285714285714286
+
+average ist multi :1.2
+
+average ist time :1688.4
+
+average ist time_r :463.4
+
+average ist time_i :0.0
+
+average ist t_cover :5701.2
+
+average ist all_cover :6048.0
+
+average ist CoverNUM
+(1 : 1218.8)  (2 : 1603.0)  (3 : 1036.8)  (4 : 521.8)  (5 : 397.6)  (6 : 370.6)  (7 : 293.0)  (8 : 215.2)  (9 : 138.6)  (10 : 88.6)  (11 : 52.6)  (12 : 40.8)  (13 : 26.0)  (14 : 19.6)  (15 : 12.6)  (16 : 5.8)  (17 : 2.8)  (18 : 2.8)  (19 : 0.6)  (20 : 0.4)  
+average ist CoverNUM
+([ 3 , - , - , - , - , 1 , - , - , - , 0 ] : 0.2)  ([ 2 , - , - , 1 , - , - , - , - , - , 0 ] : 0.2)  ([ 3 , - , - , 1 , - , - , - , - , - , 0 ] : 0.4)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+

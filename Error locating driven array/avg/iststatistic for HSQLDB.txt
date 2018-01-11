@@ -1,0 +1,165 @@
+2-way for HSQLDB
+###############################################
+###############################################
+average ist num :41.0
+
+average ist num_r :14.6
+
+average ist num_i :26.4
+
+average ist recall :0.6666666666666667
+
+average ist precise :0.9
+
+average ist f-measure :0.74
+
+average ist multi :0.0
+
+average ist time :87.6
+
+average ist time_r :22.2
+
+average ist time_i :0.0
+
+average ist t_cover :356.8
+
+average ist all_cover :357.0
+
+average ist CoverNUM
+(1 : 102.8)  (2 : 77.6)  (3 : 68.8)  (4 : 40.2)  (5 : 21.2)  (6 : 10.6)  (7 : 4.6)  (8 : 5.8)  (9 : 9.0)  (10 : 6.6)  (11 : 4.4)  (12 : 4.0)  (13 : 1.4)  
+average ist CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.4)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.6)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+
+3-way for HSQLDB
+###############################################
+###############################################
+average ist num :74.2
+
+average ist num_r :45.4
+
+average ist num_i :28.8
+
+average ist recall :0.6
+
+average ist precise :0.7
+
+average ist f-measure :0.6399999999999999
+
+average ist multi :0.0
+
+average ist time :818.8
+
+average ist time_r :172.0
+
+average ist time_i :3.2
+
+average ist t_cover :2729.4
+
+average ist all_cover :2742.0
+
+average ist CoverNUM
+(1 : 608.4)  (2 : 483.2)  (3 : 486.8)  (4 : 349.8)  (5 : 225.2)  (6 : 165.0)  (7 : 118.8)  (8 : 85.0)  (9 : 55.8)  (10 : 40.2)  (11 : 26.0)  (12 : 20.4)  (13 : 12.8)  (14 : 13.6)  (15 : 8.6)  (16 : 7.6)  (17 : 7.0)  (18 : 4.6)  (19 : 5.6)  (20 : 6.0)  (21 : 3.2)  (22 : 4.8)  (23 : 1.8)  (24 : 1.4)  (25 : 0.4)  
+average ist CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.4)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.4)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+
+4-way for HSQLDB
+###############################################
+###############################################
+average ist num :147.4
+
+average ist num_r :118.6
+
+average ist num_i :28.8
+
+average ist recall :0.6000000000000001
+
+average ist precise :0.7
+
+average ist f-measure :0.6399999999999999
+
+average ist multi :0.0
+
+average ist time :4707.8
+
+average ist time_r :1225.6
+
+average ist time_i :3.2
+
+average ist t_cover :14026.8
+
+average ist all_cover :14136.0
+
+average ist CoverNUM
+(1 : 3143.8)  (2 : 1918.0)  (3 : 2175.0)  (4 : 1816.4)  (5 : 1315.6)  (6 : 972.0)  (7 : 694.0)  (8 : 503.6)  (9 : 371.6)  (10 : 305.0)  (11 : 209.2)  (12 : 159.2)  (13 : 111.6)  (14 : 84.0)  (15 : 77.4)  (16 : 65.8)  (17 : 53.2)  (18 : 33.4)  (19 : 29.8)  (20 : 16.8)  (21 : 12.4)  (22 : 5.4)  (23 : 5.2)  (24 : 5.2)  (25 : 5.6)  (26 : 5.0)  (27 : 5.6)  (28 : 10.6)  (29 : 7.0)  (30 : 6.4)  (31 : 4.4)  (32 : 3.6)  (33 : 2.2)  (34 : 1.4)  (36 : 0.6)  
+average ist CoverNUM
+([ - , - , - , - , - , 1 , - , - , 2 , 1 , - , - ] : 0.4)  ([ - , - , - , - , - , 1 , - , - , 2 , 2 , - , - ] : 0.4)  ([ - , - , 0 , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+

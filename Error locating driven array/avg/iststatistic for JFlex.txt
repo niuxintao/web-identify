@@ -1,0 +1,165 @@
+2-way for JFlex
+###############################################
+###############################################
+average ist num :29.2
+
+average ist num_r :15.2
+
+average ist num_i :14.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :146.8
+
+average ist time_r :84.4
+
+average ist time_i :3.2
+
+average ist t_cover :473.0
+
+average ist all_cover :473.0
+
+average ist CoverNUM
+(1 : 97.4)  (2 : 128.8)  (3 : 118.4)  (4 : 56.6)  (5 : 15.0)  (6 : 5.4)  (7 : 14.4)  (8 : 16.2)  (9 : 11.0)  (10 : 6.8)  (11 : 2.2)  (12 : 0.8)  
+average ist CoverNUM
+([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+
+3-way for JFlex
+###############################################
+###############################################
+average ist num :63.2
+
+average ist num_r :49.2
+
+average ist num_i :14.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :1245.0
+
+average ist time_r :513.6
+
+average ist time_i :0.0
+
+average ist t_cover :4282.0
+
+average ist all_cover :4282.0
+
+average ist CoverNUM
+(1 : 429.4)  (2 : 784.2)  (3 : 919.4)  (4 : 700.4)  (5 : 485.6)  (6 : 334.0)  (7 : 217.2)  (8 : 129.0)  (9 : 69.4)  (10 : 32.2)  (11 : 22.6)  (12 : 13.8)  (13 : 19.0)  (14 : 17.4)  (15 : 19.4)  (16 : 20.8)  (17 : 20.6)  (18 : 15.6)  (19 : 11.4)  (20 : 9.0)  (21 : 5.2)  (22 : 2.8)  (23 : 2.4)  (24 : 0.2)  (25 : 0.8)  (26 : 0.2)  
+average ist CoverNUM
+([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+
+4-way for JFlex
+###############################################
+###############################################
+average ist num :148.8
+
+average ist num_r :134.8
+
+average ist num_i :14.0
+
+average ist recall :1.0
+
+average ist precise :1.0
+
+average ist f-measure :1.0
+
+average ist multi :0.0
+
+average ist time :6886.2
+
+average ist time_r :3000.4
+
+average ist time_i :9.6
+
+average ist t_cover :26532.0
+
+average ist all_cover :26532.0
+
+average ist CoverNUM
+(1 : 1591.2)  (2 : 3359.4)  (3 : 4585.0)  (4 : 4351.6)  (5 : 3543.4)  (6 : 2592.6)  (7 : 1849.8)  (8 : 1270.0)  (9 : 944.0)  (10 : 676.6)  (11 : 510.4)  (12 : 337.6)  (13 : 245.8)  (14 : 162.6)  (15 : 99.6)  (16 : 62.8)  (17 : 53.8)  (18 : 44.4)  (19 : 35.6)  (20 : 29.8)  (21 : 27.6)  (22 : 28.8)  (23 : 25.6)  (24 : 26.6)  (25 : 18.2)  (26 : 18.0)  (27 : 11.2)  (28 : 10.8)  (29 : 6.6)  (30 : 5.2)  (31 : 3.0)  (32 : 1.4)  (33 : 0.8)  (34 : 1.4)  (35 : 0.4)  (36 : 0.4)  
+average ist CoverNUM
+([ - , 0 , 1 , - , - , - , - , - , - , - , - , - , - , - ] : 1.0)  
+average ist multi_recall :NaN
+
+average ist multi_precise :0.0
+
+average ist multi_f_measure :NaN
+
+average ist multi_found :0.0
+
+average ist multi_found_percent :NaN
+
+average ist multi_helped_later :0.0
+
+average ist multi_helped_later_pecent :NaN
+
+average ist negative_checked :0.0
+
+average ist negative_imporved :0.0
+
+average ist postive_checked :0.0
+
+average ist postive_imporved :0.0
+
+average ist feedback_times :0.0
+

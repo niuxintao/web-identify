@@ -1,0 +1,55 @@
+2-way for Syn70
+###############################################
+###############################################
+average ICT_FB_MUOFOT num :351.1
+
+average ICT_FB_MUOFOT num_r :8.5
+
+average ICT_FB_MUOFOT num_i :343.2
+
+average ICT_FB_MUOFOT recall :0.05857142857142857
+
+average ICT_FB_MUOFOT precise :0.23520076080498073
+
+average ICT_FB_MUOFOT f-measure :0.09327374990734796
+
+average ICT_FB_MUOFOT multi :3.7
+
+average ICT_FB_MUOFOT time :25324.9
+
+average ICT_FB_MUOFOT time_r :306.0
+
+average ICT_FB_MUOFOT time_i :24784.9
+
+average ICT_FB_MUOFOT t_cover :976.4
+
+average ICT_FB_MUOFOT all_cover :1375.0
+
+average ICT_FB_MUOFOT CoverNUM
+(1 : 132.8)  (2 : 6.2)  (3 : 1.2)  (4 : 10.9)  (5 : 6.3)  (6 : 3.6)  (7 : 2.6)  (8 : 1.1)  (9 : 1.6)  (10 : 0.6)  (11 : 0.6)  (12 : 0.8)  (13 : 0.5)  (14 : 0.7)  (15 : 0.3)  (16 : 0.3)  (17 : 0.5)  (18 : 0.4)  (19 : 0.2)  (20 : 0.3)  (22 : 0.2)  (24 : 0.1)  
+average ICT_FB_MUOFOT CoverNUM
+([ - , - , - , - , - , - , - , - , - , 0 , 0 ] : 0.2)  ([ - , 1 , - , - , - , - , 1 , - , - , - , - ] : 0.1)  ([ - , 1 , - , - , - , 1 , - , - , - , - , - ] : 0.1)  ([ 0 , - , - , - , - , - , - , - , - , - , 0 ] : 0.2)  ([ - , - , - , 0 , - , - , 0 , - , - , - , - ] : 0.1)  ([ 0 , - , - , 0 , - , - , - , - , - , - , - ] : 0.1)  ([ - , - , 0 , - , 0 , - , - , - , - , - , - ] : 0.1)  ([ - , - , - , - , - , 0 , - , - , - , - , 0 ] : 0.2)  ([ - , 0 , 0 , - , - , - , - , - , - , - , - ] : 0.5)  ([ - , - , - , 0 , 0 , - , - , - , - , - , - ] : 0.3)  ([ - , - , 0 , 0 , - , - , - , - , - , - , - ] : 0.1)  ([ - , 1 , 1 , - , - , - , - , - , - , - , - ] : 0.1)  ([ - , - , - , 0 , - , - , - , - , - , - , 0 ] : 0.2)  ([ 0 , 0 , - , - , - , - , - , - , - , - , - ] : 0.3)  ([ - , - , - , - , - , - , - , 0 , 0 , - , - ] : 0.2)  ([ - , - , - , - , 0 , 0 , - , - , - , - , - ] : 0.1)  ([ - , - , - , - , - , 0 , 0 , - , - , - , - ] : 0.1)  ([ - , 0 , - , - , - , - , - , - , - , - , 0 ] : 0.3)  ([ - , - , - , - , - , 0 , - , 0 , - , - , - ] : 0.1)  ([ - , - , - , - , - , - , 0 , - , - , - , 0 ] : 0.1)  ([ - , - , - , - , - , - , - , - , 0 , - , 0 ] : 0.3)  ([ - , - , - , 0 , - , - , - , 0 , - , - , - ] : 0.1)  ([ - , - , - , 0 , - , - , - , - , 0 , - , - ] : 0.1)  ([ 1 , - , - , - , - , - , - , - , - , 1 , - ] : 0.1)  
+average ICT_FB_MUOFOT multi_recall :0.044464814358765654
+
+average ICT_FB_MUOFOT multi_precise :0.19479925303454715
+
+average ICT_FB_MUOFOT multi_f_measure :0.0719475449697152
+
+average ICT_FB_MUOFOT multi_found :3.3
+
+average ICT_FB_MUOFOT multi_found_percent :0.044464814358765654
+
+average ICT_FB_MUOFOT multi_helped_later :2.0
+
+average ICT_FB_MUOFOT multi_helped_later_pecent :0.022327931469722513
+
+average ICT_FB_MUOFOT negative_checked :0.2
+
+average ICT_FB_MUOFOT negative_imporved :0.0
+
+average ICT_FB_MUOFOT postive_checked :4.0
+
+average ICT_FB_MUOFOT postive_imporved :0.2
+
+average ICT_FB_MUOFOT feedback_times :6.1
+
