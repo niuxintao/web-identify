@@ -55,6 +55,18 @@ public class ErrorLocatingDrivenArray implements CT_process {
 	private double recall = 0;
 
 	private double f_measure = 0;
+	
+	protected int identificationTimes = 0;
+	
+	public int getIdentificationTimes(){
+		return identificationTimes;
+	}
+
+	// protected List<Tuple> UnsafeVaules;
+	//
+	// public void setUnSafeValues(List<Tuple> UnsafeValues){
+	// this.UnsafeVaules = UnsafeValues;
+	// }
 
 	public double getMultip_precise() {
 		return multip_precise;
@@ -85,19 +97,31 @@ public class ErrorLocatingDrivenArray implements CT_process {
 	private double multip_recall = 0;
 
 	private double multip_f_measure = 0;
-	
+
 	private double multipe_found = 0;
-	
+
 	private double multipe_found_percent = 0;
-	
+
 	private double helpedInTheNextRun = 0;
-	
+
 	private double helpedInTheNextRun_percen = 0;
-	
-	
 
 	// if identified right, the covered is the same as those, otherwise, will
 	// not do so.
+
+	protected double encounterUnsafe = 0;
+
+	protected double triggerDifferentUnsafe = 0;
+	
+	protected List<Tuple> containNow = null;
+
+	public double getEncounterUnsafe() {
+		return encounterUnsafe;
+	}
+
+	public double getTriggerDifferentUnsafe() {
+		return triggerDifferentUnsafe;
+	}
 
 	public double getMultipe_found() {
 		return multipe_found;
@@ -187,8 +211,8 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		this.actualMFS = actualMFS;
 
 	}
-	
-	public void setActualMFS(List<Tuple> actualMFS){
+
+	public void setActualMFS(List<Tuple> actualMFS) {
 		this.actualMFS = actualMFS;
 	}
 
@@ -208,6 +232,42 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		actualRealMFSInMultiple = new ArrayList<Tuple>();
 		FormultipleCases = new ArrayList<TestCase>();
 
+	}
+
+	protected boolean isIn(Tuple t, List<Tuple> tuples) {
+		for (Tuple t1 : tuples) {
+			if (t.equals(t1))
+				return true;
+		}
+		return false;
+	}
+
+	/**
+	 * -1, not contain other shcemas
+	 * 
+	 * 
+	 * 0, contain other schemas, but also contain my schemas;
+	 * 
+	 * 
+	 * 1, contain other schemas, but not contain this schema.
+	 * 
+	 * @return
+	 */
+	public int containDifferentNot(List<Tuple> t_nows, TestCase testCase) {
+
+		for (Tuple t_now : t_nows) {
+			if (testCase.containsOf(t_now)) {
+				for (Tuple t : this.actualMFS) {
+					if (!isIn(t, t_nows)) {
+						if (testCase.containsOf(t)) {
+							return 0;
+						}
+					}
+				}
+				return -1;
+			}
+		}
+		return 1;
 	}
 
 	/*
@@ -244,7 +304,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 				long ideTime = System.currentTimeMillis();
 
 				int contain = 0;
-				List<Tuple> templ = new ArrayList<Tuple> ();
+				List<Tuple> templ = new ArrayList<Tuple>();
 				for (Tuple acMFS : actualMFS) {
 					if (testCase.containsOf(acMFS))
 						contain++;
@@ -252,18 +312,25 @@ public class ErrorLocatingDrivenArray implements CT_process {
 						break;
 					}
 				}
+
+				containNow = new ArrayList<Tuple>();
+				for (Tuple acMFS : actualMFS) {
+					if (testCase.containsOf(acMFS))
+						containNow.add(acMFS);
+				}
+
 				if (contain > 1) {
 					for (Tuple acMFS : actualMFS) {
 						if (testCase.containsOf(acMFS))
 							templ.add(acMFS);
 					}
 				}
-				
+
 				this.actualRealMFSInMultiple.addAll(templ);
 
 				List<Tuple> mfs = getMFS(ac, testCase);
-				
-				if(contain > 1){
+
+				if (contain > 1) {
 					this.identifiedMFSForMultiple.addAll(mfs);
 				}
 
@@ -280,12 +347,13 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		}
 
 		this.coveredMark = ac.coveredMark;
-		
-		
+
 		this.evaluate_multiple();
 	}
 
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
+		
+		identificationTimes ++;
 
 		SOFOT_Constriants sc = new SOFOT_Constriants(dataCenter, testCase, ac);
 		// sc.process(testCase, DataCenter.param, caseRunner);
@@ -293,6 +361,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		while (!sc.isEnd()) {
 			TestCase nextTestCase = sc.generateNext();
 			identifyCases.add(nextTestCase);
+
 			overallTestCases.add(nextTestCase);
 			// System.out.println("ofot" +
 			// nextTestCase.getStringOfTest());
@@ -304,8 +373,20 @@ public class ErrorLocatingDrivenArray implements CT_process {
 			if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, next);
 				nextTestCase.setTestState(TestCase.PASSED);
-			} else
+			} else {
 				nextTestCase.setTestState(TestCase.FAILED);
+				if (containNow != null) {
+					int safeState = this.containDifferentNot(containNow,
+							nextTestCase);
+					if (safeState == 0 || safeState == 1) {
+						this.encounterUnsafe++;
+					}
+					if (safeState == 1) {
+						this.triggerDifferentUnsafe++;
+					}
+				}
+
+			}
 		}
 
 		sc.analysis();
@@ -383,54 +464,56 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		this.multip_precise = pAndR[0];
 		this.multip_recall = pAndR[1];
 		this.multip_f_measure = SimilarityMFS.f_measue(pAndR[0], pAndR[1]);
-		
-		
-		for(Tuple t :	identifiedMFSForMultiple ){
+
+		for (Tuple t : identifiedMFSForMultiple) {
 			boolean existed = false;
-			for(Tuple t2 : actualRealMFSInMultiple ){
-				if(t.equals(t2)){
+			for (Tuple t2 : actualRealMFSInMultiple) {
+				if (t.equals(t2)) {
 					existed = true;
 					break;
 				}
 			}
-			if(existed){
-				this.multipe_found  += 1;
+			if (existed) {
+				this.multipe_found += 1;
 			}
 		}
-		
-		this.multipe_found_percent = multipe_found/(double)actualRealMFSInMultiple.size();
-		
-		List<Tuple> notContained = new ArrayList<Tuple> ();
-		
-		for(Tuple t2 : actualRealMFSInMultiple){
+
+		this.multipe_found_percent = multipe_found
+				/ (double) actualRealMFSInMultiple.size();
+
+		List<Tuple> notContained = new ArrayList<Tuple>();
+
+		for (Tuple t2 : actualRealMFSInMultiple) {
 			boolean existed = false;
-			for(Tuple t : identifiedMFSForMultiple ){
-				if(t.equals(t2)){
+			for (Tuple t : identifiedMFSForMultiple) {
+				if (t.equals(t2)) {
 					existed = true;
 					break;
 				}
 			}
-			if(!existed){
+			if (!existed) {
 				notContained.add(t2);
 			}
 		}
-		
-		for(Tuple t : notContained){
+
+		for (Tuple t : notContained) {
 			boolean existed = false;
-			for(Tuple t2 : this.MFS ){
-				if(t.equals(t2)){
+			for (Tuple t2 : this.MFS) {
+				if (t.equals(t2)) {
 					existed = true;
 					break;
 				}
 			}
-			if(existed){
-				this.helpedInTheNextRun  += 1;
+			if (existed) {
+				this.helpedInTheNextRun += 1;
 			}
 		}
-		
-		this.helpedInTheNextRun_percen = helpedInTheNextRun/(double)actualRealMFSInMultiple.size();
-		
-		//besides, we should compute how many schemas are obtained in the following schemas.
+
+		this.helpedInTheNextRun_percen = helpedInTheNextRun
+				/ (double) actualRealMFSInMultiple.size();
+
+		// besides, we should compute how many schemas are obtained in the
+		// following schemas.
 
 		// computing multiple
 
@@ -448,7 +531,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		// computingTcove
 		// computeT_cover(actualMFS);
 		// computeRealIdentify(actualMFS);
-		// computeCoveredNum();		
+		// computeCoveredNum();
 	}
 
 	public void computeRealIdentify(List<Tuple> actualMFS) {
@@ -614,7 +697,7 @@ public class ErrorLocatingDrivenArray implements CT_process {
 
 		Tuple bugModel1 = new Tuple(1, wrongCase2);
 		bugModel1.set(0, 0);
-//		bugModel1.set(1, 5);
+		// bugModel1.set(1, 5);
 
 		Tuple bugModel2 = new Tuple(1, wrongCase2);
 		bugModel2.set(0, 1);
@@ -639,19 +722,16 @@ public class ErrorLocatingDrivenArray implements CT_process {
 		System.out.println("MFS");
 		for (Tuple mfs : elda.getMFS())
 			System.out.println(mfs.toString());
-		
-//		((ErrorLocatingDrivenArray)elda).evaluate_multiple();
-		
-		
-		System.out
-		.println("multi " + ((ErrorLocatingDrivenArray)elda).FormultipleCases.size());
 
-		
-		System.out
-		.println("multip Num: " + elda.getMultipleMFS());
-		
-		System.out
-		.println("multip found Num: " + ((ErrorLocatingDrivenArray)elda).getMultipe_found());
+		// ((ErrorLocatingDrivenArray)elda).evaluate_multiple();
+
+		System.out.println("multi "
+				+ ((ErrorLocatingDrivenArray) elda).FormultipleCases.size());
+
+		System.out.println("multip Num: " + elda.getMultipleMFS());
+
+		System.out.println("multip found Num: "
+				+ ((ErrorLocatingDrivenArray) elda).getMultipe_found());
 
 	}
 

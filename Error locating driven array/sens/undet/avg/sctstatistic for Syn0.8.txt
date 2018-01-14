@@ -1,0 +1,35 @@
+2-way for Syn0.8
+###############################################
+###############################################
+average sct num :70.3
+
+average sct num_r :31.9
+
+average sct num_i :38.5
+
+average sct recall :0.25
+
+average sct precise :0.29761904761904756
+
+average sct f-measure :0.24555555555555558
+
+average sct multi :0.4
+
+average sct time :31.3
+
+average sct time_r :29.7
+
+average sct time_i :1.6
+
+average sct t_cover :711.2
+
+average sct all_cover :720.0
+
+average sct w check :0.0
+
+average sct w iden :0.0
+
+average sct CoverNUM
+(1 : 14.3)  (2 : 17.1)  (3 : 11.8)  (4 : 6.9)  (5 : 7.5)  (6 : 5.1)  (7 : 4.1)  (8 : 3.5)  (9 : 3.6)  (10 : 2.4)  (11 : 2.7)  (12 : 2.4)  (13 : 1.4)  (14 : 0.8)  (15 : 1.0)  (16 : 0.8)  (17 : 0.7)  (18 : 0.8)  (19 : 0.6)  (20 : 0.4)  (21 : 0.4)  (22 : 0.1)  (23 : 0.2)  (24 : 0.1)  (25 : 0.1)  (26 : 0.1)  (27 : 0.1)  (28 : 0.2)  (37 : 0.2)  
+average sct CoverNUM
+([ - , 1 , - , - , - , - , - , - , - , - ] : 0.5)  

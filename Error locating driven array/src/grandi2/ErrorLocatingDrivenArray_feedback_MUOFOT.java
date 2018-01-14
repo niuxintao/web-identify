@@ -118,7 +118,12 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 			} else {
 				this.failTestCase.add(testCase);
 				
-
+				containNow = new ArrayList<Tuple>();
+				for (Tuple acMFS : actualMFS) {
+					if (testCase.containsOf(acMFS))
+						containNow.add(acMFS);
+				}
+				
 				int contain = 0;
 				List<Tuple> templ = new ArrayList<Tuple> ();
 				for (Tuple acMFS : actualMFS) {
@@ -212,13 +217,13 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 		return result;
 	}
 
-	public boolean isIn(Tuple t, List<Tuple> tuples){
-		 for(Tuple t1 : tuples){
-			 if(t.equals(t1))
-				 return true;
-		 }
-		 return false;
-	}
+//	public boolean isIn(Tuple t, List<Tuple> tuples){
+//		 for(Tuple t1 : tuples){
+//			 if(t.equals(t1))
+//				 return true;
+//		 }
+//		 return false;
+//	}
 	public List<Tuple> getMFS(AETG_Constraints ac, TestCase testCase) {
 
 		List<Tuple> result = new ArrayList<Tuple>();
@@ -329,6 +334,7 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 
 	public List<Tuple> reLocate(AETG_Constraints ac, FIC_Constraints sc,
 			List<Tuple> addedMFS) {
+		identificationTimes++;
 		sc.addMFS(addedMFS);
 		sc.FicSingleMuOFOT();
 		List<Tuple> mfs = sc.getBugs();
@@ -345,8 +351,19 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 			if (caseRunner.runTestCase(nextTestCase) == TestCase.PASSED) {
 				ac.unCovered = cm.setCover(ac.unCovered, ac.coveredMark, next);
 				nextTestCase.setTestState(TestCase.PASSED);
-			} else
+			} else{
 				nextTestCase.setTestState(TestCase.FAILED);
+				if (containNow != null) {
+					int safeState = this.containDifferentNot(containNow,
+							nextTestCase);
+					if (safeState == 0 || safeState == 1) {
+						this.encounterUnsafe++;
+					}
+					if (safeState == 1) {
+						this.triggerDifferentUnsafe++;
+					}
+				}
+			}
 		}
 		return mfs;
 	}
@@ -385,6 +402,19 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 			if(executed != null)
 			executed2.addAll(executed);
 			executed2.add(newCase);
+			
+			
+			if (containNow != null) {
+				int safeState = this.containDifferentNot(containNow,
+						newCase);
+				if (safeState == 0 || safeState == 1) {
+					this.encounterUnsafe++;
+				}
+				if (safeState == 1) {
+					this.triggerDifferentUnsafe++;
+				}
+			}
+			
 			int[] test2 = ac.getBestTestCase(MFS, wrongCase, executed2);
 
 
@@ -400,8 +430,20 @@ public class ErrorLocatingDrivenArray_feedback_MUOFOT extends
 						newCase2.getTestCase());
 				return true;
 			}
-				else
+				else{
+					if (containNow != null) {
+						int safeState = this.containDifferentNot(containNow,
+								newCase2);
+						if (safeState == 0 || safeState == 1) {
+							this.encounterUnsafe++;
+						}
+						if (safeState == 1) {
+							this.triggerDifferentUnsafe++;
+						}
+					}
+					
 			return false;
+				}
 		}
 		// return this.caseRunner.runTestCase(newCase) == TestCase.PASSED;
 

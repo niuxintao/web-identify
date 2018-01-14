@@ -9,7 +9,7 @@ import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
 import experimentData.ExperimentData;
-import experiment.REP;
+import experiment_second.REP;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
@@ -65,8 +65,10 @@ public class TestSensityOfUndeterministic {
 		CT_process ct_process = null;
 		if (algorithm == ICT) {
 			ct_process = new ErrorLocatingDrivenArray(data.getDataCenter(), data.getCaseRunner());
+			((ErrorLocatingDrivenArray)ct_process).setActualMFS(data.getRealMFS());
 		} else if (algorithm == SCT) {
 			ct_process = new TraditionalFGLI(data.getDataCenter(), data.getCaseRunner());
+			((TraditionalFGLI)ct_process).setActualMFS(data.getRealMFS());
 		} else if (algorithm == FD) {
 			ct_process = new FD_CIT(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_CB) {
@@ -75,6 +77,7 @@ public class TestSensityOfUndeterministic {
 			ct_process = new ErrorLocatingDrivenArray_TL(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_FB_MUOFOT) {
 			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
+			((ErrorLocatingDrivenArray)ct_process).setActualMFS(data.getRealMFS());
 		}
 
 

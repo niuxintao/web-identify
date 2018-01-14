@@ -79,7 +79,7 @@ public class DataForUndeterministic implements ExperimentData {
 		realMFS.add(bugModel2); // add or not add
 
 		this.caseRunner = new CaseRunnerWithBugInjectLikely();
-		((CaseRunnerWithBugInjectLikely) caseRunner).inject(bugModel, 1);
+//		((CaseRunnerWithBugInjectLikely) caseRunner).inject(bugModel, 1);
 		
 		((CaseRunnerWithBugInjectLikely) caseRunner).inject(bugModel2, likely);
 	}

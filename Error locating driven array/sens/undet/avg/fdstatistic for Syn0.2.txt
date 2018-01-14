@@ -1,0 +1,35 @@
+2-way for Syn0.2
+###############################################
+###############################################
+average fd num :35.1
+
+average fd num_r :35.1
+
+average fd num_i :0.0
+
+average fd recall :0.0
+
+average fd precise :0.0
+
+average fd f-measure :0.0
+
+average fd multi :1.2
+
+average fd time :192.2
+
+average fd time_r :186.0
+
+average fd time_i :1.6
+
+average fd t_cover :709.5
+
+average fd all_cover :720.0
+
+average fd w check :0.0
+
+average fd w iden :0.0
+
+average fd CoverNUM
+(1 : 31.8)  (2 : 23.3)  (3 : 12.8)  (4 : 4.6)  (5 : 2.5)  (6 : 1.7)  (7 : 1.5)  (8 : 1.0)  (9 : 0.8)  (10 : 0.7)  
+average fd CoverNUM
+

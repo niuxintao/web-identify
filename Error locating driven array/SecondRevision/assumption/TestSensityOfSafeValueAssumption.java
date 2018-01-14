@@ -9,7 +9,7 @@ import com.fc.testObject.TestCase;
 import com.fc.tuple.Tuple;
 
 import experimentData.ExperimentData;
-import experiment.REP;
+import experiment_second.REP;
 import gandi.CT_process;
 import gandi.ErrorLocatingDrivenArray;
 import gandi.ErrorLocatingDrivenArray_CB;
@@ -54,6 +54,12 @@ public class TestSensityOfSafeValueAssumption {
 	
 	public final static int W_CHECK = 12;
 	public final static int W_IDEN = 13;
+	
+	public final static int ENCOUNTER_UNSAFE = 0;
+	public final static int TRIGGER_UNSAFE = 1;
+	public final static int IDENTIFICATIONTIMES = 2;
+	
+	public final static String[] unsafeStrings = {"encounter unsafe", "trigger unsafe", "identification times"};
 
 	public final static String[] SHOW = { "num", "num_r", "num_i", "recall", "precise", "f-measure", "multi", "time",
 			"time_r", "time_i", "t_cover", "all_cover", "w check", "w iden" };
@@ -67,8 +73,11 @@ public class TestSensityOfSafeValueAssumption {
 		CT_process ct_process = null;
 		if (algorithm == ICT) {
 			ct_process = new ErrorLocatingDrivenArray(data.getDataCenter(), data.getCaseRunner());
+			((ErrorLocatingDrivenArray)ct_process).setActualMFS(data.getRealMFS());
+//			((DataForSafeValueAssumption)data).getUnSafeMFS();
 		} else if (algorithm == SCT) {
 			ct_process = new TraditionalFGLI(data.getDataCenter(), data.getCaseRunner());
+			((TraditionalFGLI)ct_process).setActualMFS(data.getRealMFS());
 		} else if (algorithm == FD) {
 			ct_process = new FD_CIT(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_CB) {
@@ -81,6 +90,7 @@ public class TestSensityOfSafeValueAssumption {
 			ct_process = new ErrorLocatingDrivenArray_feedback(data.getDataCenter(), data.getCaseRunner());
 		} else if (algorithm == ICT_FB_MUOFOT) {
 			ct_process = new ErrorLocatingDrivenArray_feedback_MUOFOT(data.getDataCenter(), data.getCaseRunner());
+			((ErrorLocatingDrivenArray)ct_process).setActualMFS(data.getRealMFS());
 		}
 
 		ct_process.run();
@@ -115,6 +125,25 @@ public class TestSensityOfSafeValueAssumption {
 		// mask
 		edata.t_testedCover = ct_process.getT_tested_covered();
 		edata.allCover = ct_process.getCoveredMark().length;
+		
+		
+		if (algorithm == ICT) {
+			edata.encounterUnsafe = ((ErrorLocatingDrivenArray) ct_process).getEncounterUnsafe();
+			edata.triggerFailureUnsafe =  ((ErrorLocatingDrivenArray) ct_process).getEncounterUnsafe();
+			edata.identificationTimes =  ((ErrorLocatingDrivenArray) ct_process).getIdentificationTimes();
+		} else if (algorithm == ICT_FB_MUOFOT){
+			edata.encounterUnsafe = ((ErrorLocatingDrivenArray_feedback_MUOFOT) ct_process).getEncounterUnsafe();
+			edata.triggerFailureUnsafe =  ((ErrorLocatingDrivenArray_feedback_MUOFOT) ct_process).getEncounterUnsafe();
+			edata.identificationTimes =  ((ErrorLocatingDrivenArray_feedback_MUOFOT) ct_process).getIdentificationTimes();
+	
+		} else if(algorithm  ==  SCT){
+			edata.encounterUnsafe = ((TraditionalFGLI) ct_process).getEncounterUnsafe();
+			edata.triggerFailureUnsafe =  ((TraditionalFGLI) ct_process).getEncounterUnsafe();
+			edata.identificationTimes =  ((TraditionalFGLI) ct_process).getIdentificationTimes();
+
+		}
+		
+		
 		
 
 		// output
@@ -169,6 +198,17 @@ public class TestSensityOfSafeValueAssumption {
 		output.println("wrong identified");
 		output.println("" + edata.wrongIdentifyed);
 		}
+		
+		
+		if (algorithm == ICT || algorithm == SCT || algorithm == ICT_FB_MUOFOT) {
+			output.println("encounter unsafe");
+			output.println("" + edata.encounterUnsafe);
+			output.println("trigger unsafe");
+			output.println("" + edata.triggerFailureUnsafe);
+			output.println("identification times");
+			output.println("" + edata.identificationTimes);
+		}
+
 
 		return edata;
 
@@ -223,6 +263,53 @@ public class TestSensityOfSafeValueAssumption {
 
 		statistic.close();
 		statisticDev.close();
+	}
+	
+	public void statistic_unsafe(int algorithm, EDATA[] data, OutPut out, OutPut outDev){
+		double avgEncounter = 0;
+		double avgTrigger = 0;
+		double avgIdenTimes = 0;
+		
+		
+		double  devEncounter = 0;
+		double devTrigger = 0;
+		double devIdenTimes = 0;
+		
+		for (EDATA daa : data) {
+			avgEncounter += daa.encounterUnsafe;
+			avgTrigger += daa.triggerFailureUnsafe;
+			avgIdenTimes  += daa.identificationTimes;
+		}
+		avgEncounter/= data.length;
+		avgTrigger/=  data.length;
+		avgIdenTimes/= data.length;
+		
+		
+		for (EDATA daa : data) {
+			devEncounter += (daa.encounterUnsafe - avgEncounter) * (daa.encounterUnsafe - avgEncounter);
+			devTrigger += (daa.triggerFailureUnsafe - avgTrigger) * (daa.triggerFailureUnsafe - avgTrigger);
+			devIdenTimes  += (daa.identificationTimes - avgIdenTimes) * (daa.identificationTimes - avgIdenTimes);
+		}
+		devEncounter/=data.length;
+		devTrigger/=data.length;
+		devIdenTimes/=data.length;
+		
+		
+		String s = StringAl[algorithm];
+		
+		out.println("average " + s + " encounter unsafe values " + " :" + avgEncounter);
+		out.println();
+		out.println("average " + s + " trigger unsafe values " + " :" + avgTrigger);
+		out.println();
+		out.println("average " + s + " identification times " + " :" + avgIdenTimes);
+		out.println();
+		
+		outDev.println("deviration " + s + " encounter unsafe values " + " :" + devEncounter);
+		outDev.println();
+		outDev.println("deviration " + s + " trigger unsafe values " + " :" + devTrigger);
+		outDev.println();
+		outDev.println("deviration " + s + " identification times " + " :" + devIdenTimes);
+		outDev.println();
 	}
 
 	public void statistic_realIdenti(int algorithm, EDATA[] data, OutPut out, OutPut outDev) {
@@ -474,6 +561,10 @@ public class TestSensityOfSafeValueAssumption {
 		if(algorithm == ICT_FB_MUOFOT){
 		this.statistic(algorithm, edata, out, outDev, W_CHECK);
 		this.statistic(algorithm, edata, out, outDev, W_IDEN);
+		this.statistic_unsafe(algorithm, edata, out, outDev);
+		}
+		if(algorithm == ICT || algorithm == SCT ){
+			this.statistic_unsafe(algorithm, edata, out, outDev);
 		}
 		// output.println("" + edata.);
 	}
@@ -484,13 +575,14 @@ public class TestSensityOfSafeValueAssumption {
 	// SingleStatisitc(SCT, edata_fglt, out);
 	// }
 
-	public void testSyn(int param_length, int degree) {
+	public void testSyn(int param_length, int id) {
 		/********** only this two statement needs to revise */
-		String subject = "Syn" + param_length+ "-" + degree;
+		String subject = "Syn" + param_length+ "-" + id;
 
-		DataForSafeValueAssumption data = new DataForSafeValueAssumption(param_length, degree);
+		DataForSafeValueAssumption data = new DataForSafeValueAssumption(param_length, id);
 		/******************************/
-
+		
+		System.out.println("MFS number is  : " + (4*(data.getRealMFS().size())));
 		testAlgorithm(subject, data, REP.ALG);
 	}
 
@@ -503,12 +595,14 @@ public class TestSensityOfSafeValueAssumption {
 	public static void main(String[] args) {
 		TestSensityOfSafeValueAssumption ex = new TestSensityOfSafeValueAssumption();
 		// 
-		int[] param_length = new int[] {  8, 10, 16, 20, 30, 40,  50, 60, 70, 80, 90 };
+		int param_length =  16 ;
+		
+//		List<List<Tuple>> = DataForSafeValueAssumption data = new DataForSafeValueAssumption(param_length, degree);
 		// 
 //		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
-		for (int nu : param_length) {
-			System.out.println("start : the number of MFS is :" + nu);
-			ex.testSyn(nu, 4);
+		for (int id = 0; id < 11; id++) {
+//			System.out.println("start : the number of MFS is :" + id);
+			ex.testSyn(param_length, id);
 		}
 	}
 }
@@ -537,5 +631,9 @@ class EDATA {
 	
 	public int wrongChecked;
 	public int wrongIdentifyed;
+	
+	public double encounterUnsafe;
+	public double triggerFailureUnsafe; 
+	public double identificationTimes;
 
 }

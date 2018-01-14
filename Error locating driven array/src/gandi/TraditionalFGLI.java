@@ -143,6 +143,73 @@ public class TraditionalFGLI implements CT_process {
 	public HashSet<Tuple> getMFS() {
 		return MFS;
 	}
+	
+	
+	protected double encounterUnsafe = 0;
+
+	protected double triggerDifferentUnsafe = 0;
+	
+	protected int identificationTimes = 0;
+	
+	public int getIdentificationTimes(){
+		return identificationTimes;
+	}
+	
+	protected List<Tuple> containNow = null;
+
+	public double getEncounterUnsafe() {
+		return encounterUnsafe;
+	}
+
+	public double getTriggerDifferentUnsafe() {
+		return triggerDifferentUnsafe;
+	}
+
+	
+	protected boolean isIn(Tuple t, List<Tuple> tuples) {
+		for (Tuple t1 : tuples) {
+			if (t.equals(t1))
+				return true;
+		}
+		return false;
+	}
+
+	/**
+	 * -1, not contain other shcemas
+	 * 
+	 * 
+	 * 0, contain other schemas, but also contain my schemas;
+	 * 
+	 * 
+	 * 1, contain other schemas, but not contain this schema.
+	 * 
+	 * @return
+	 */
+	public int containDifferentNot(List<Tuple> t_nows, TestCase testCase) {
+
+		for (Tuple t_now : t_nows) {
+			if (testCase.containsOf(t_now)) {
+				for (Tuple t : this.actualMFS) {
+					if (!isIn(t, t_nows)) {
+						if (testCase.containsOf(t)) {
+							return 0;
+						}
+					}
+				}
+				return -1;
+			}
+		}
+		
+		for (Tuple t : this.actualMFS) {
+				if (testCase.containsOf(t)) {
+					return 1;
+				}
+		}
+		
+		return -2;
+	}
+
+	
 
 	public TraditionalFGLI(DataCenter dataCenter, CaseRunner caseRunner) {
 		this.caseRunner = caseRunner;
@@ -221,6 +288,11 @@ public class TraditionalFGLI implements CT_process {
 				this.actualRealMFSInMultiple.addAll(templ);
 
 				
+				containNow = new ArrayList<Tuple>();
+				for (Tuple acMFS : actualMFS) {
+					if (testCase.containsOf(acMFS))
+						containNow.add(acMFS);
+				}
 				
 
 				failTestCase.add(testCase);
@@ -229,6 +301,9 @@ public class TraditionalFGLI implements CT_process {
 				currentMFS.addAll(MFS);
 				FIC fic_feedback = new FIC(testCase, dataCenter.param, caseRunner, currentMFS);
 				fic_feedback.FicNOP_withMFS();
+				
+				identificationTimes++;
+				
 				additional.addAll(fic_feedback.getExecuted());
 				
 				
@@ -238,6 +313,19 @@ public class TraditionalFGLI implements CT_process {
 				
 				MFS.addAll(fic_feedback.getBugs());
 				identifyCases.addAll(fic_feedback.getExecuted());
+				
+				for(TestCase t : fic_feedback.getExecuted()){
+					if (containNow != null) {
+						int safeState = this.containDifferentNot(containNow,
+								t);
+						if (safeState == 0 || safeState == 1) {
+							this.encounterUnsafe++;
+						}
+						if (safeState == 1) {
+							this.triggerDifferentUnsafe++;
+						}
+					}
+				}
 				// MFS.add(ofot.)
 
 			}
