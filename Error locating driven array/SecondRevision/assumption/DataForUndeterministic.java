@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fc.caseRunner.CaseRunner;
-import com.fc.caseRunner.CaseRunnerWithBugInjectLikely;
+//import com.fc.caseRunner.CaseRunnerWithBugInjectLikely;
 import com.fc.testObject.TestCase;
 import com.fc.testObject.TestCaseImplement;
 import com.fc.tuple.Tuple;
@@ -74,7 +74,7 @@ public class DataForUndeterministic implements ExperimentData {
 		bugModel2.set(0, 1);
 //		bugModel2.set(1, 3);
 
-		realMFS.add(bugModel);  
+//		realMFS.add(bugModel);  
 		
 		realMFS.add(bugModel2); // add or not add
 

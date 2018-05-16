@@ -77,7 +77,7 @@ public class ComparisonTree {
    		        String genreJsonBase = IOUtils.toString(inputSourceCom);     //transfer the tow files into input stream then into string
    		        String genreJsonCom = IOUtils.toString(inputLookBase);
 
-//   		        String jsonNull = "";
+   		        String jsonNull = "";
    		        
    		        JsonElement jsonElementBase = parser.parse(new StringReader(genreJsonBase));//parser???, transfer these tow input streams into json elements
    		        JsonElement jsonElementCom = parser.parse(new StringReader(genreJsonCom));
@@ -172,7 +172,7 @@ public static void compareTree(TreeNode baseRoot, TreeNode comRoot){
     	else
     	{
     		for(String keyBase:baseRoot.childs.keySet()){
-//    			TreeNode child=baseRoot.childs.get(keyBase);
+    			TreeNode child=baseRoot.childs.get(keyBase);
     			
     			if(comRoot.childs.get(keyBase)!=null){
     				//System.out.println("Children  :"+keyBase);

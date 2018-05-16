@@ -1,47 +1,93 @@
 package edu.utsa.cs.guidereg;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import com.google.gson.Gson;
+import java.util.Set;
 
 import soot.Body;
 import soot.BodyTransformer;
 import soot.Local;
+import soot.LongType;
 import soot.PackManager;
 import soot.PatchingChain;
 import soot.RefType;
 import soot.Scene;
 import soot.SootClass;
+import soot.SootField;
 import soot.SootMethod;
 import soot.Transform;
+import soot.Trap;
+import soot.Type;
 import soot.Unit;
 import soot.Value;
+import soot.jimple.AssignStmt;
 import soot.jimple.DefinitionStmt;
+import soot.jimple.GotoStmt;
+import soot.jimple.IdentityStmt;
+import soot.jimple.IfStmt;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
 import soot.jimple.Jimple;
+import soot.jimple.NopStmt;
+import soot.jimple.ReturnStmt;
+import soot.jimple.ReturnVoidStmt;
+import soot.jimple.SpecialInvokeExpr;
+import soot.jimple.StaticInvokeExpr;
 import soot.jimple.Stmt;
 import soot.jimple.StringConstant;
+import soot.jimple.ThrowStmt;
+import soot.jimple.toolkits.annotation.logic.Loop;
 import soot.options.Options;
-import soot.toolkits.graph.BriefUnitGraph;
-import soot.toolkits.graph.UnitGraph;
-import soot.toolkits.scalar.FlowSet;
-import soot.toolkits.scalar.InitAnalysis;
+import soot.toolkits.graph.LoopNestTree;
 import soot.util.Chain;
 
 public class GoToChecker {
 
-	public static void test(String objectPath, String methodName,
-			String outputPath) {
+	public static void main(String[] args) {
 
-		Options.v().set_soot_classpath(
-				Scene.v().defaultClassPath() + File.pathSeparator + objectPath);
+		// here we try to set the library class path
+		/*
+		 * Options.v().set_soot_classpath( Scene.v().defaultClassPath() +
+		 * File.pathSeparator+
+		 * "C:/Users/Tareg/Desktop/sem2/Independent-Study/subjects-new/jodatime/joda-time-2.6/target/joda-time-2.6.jar"
+		 * +File.pathSeparator +
+		 * "C:/Users/Tareg/Desktop/sem2/Independent-Study/subjects-new/jodatime/joda-time-2.6/target/test-classes"
+		 * +File.pathSeparator+
+		 * "C:/Users/Tareg/Desktop/sem2/Independent-Study/log4j-1.2.13.jar"+
+		 * File.pathSeparator
+		 * +"C:/Users/Tareg/Desktop/sem2/Independent-Study/hamcrest-all-1.3.jar"
+		 * );
+		 */
 
-		// keep line number
+		String exFolder = "C:/Users/Xintao/Desktop/doExForWang/";
+		String libFolder = "exlibs/";
+		
+		String subject = "joda";
+		String version = "joda-time-2.3-use2.2";
+		String target = "";
+
+		Options.v()
+				.set_soot_classpath(
+						Scene.v().defaultClassPath()
+								+ File.pathSeparator
+								+ exFolder
+								+ "subjects-new/"
+								+ File.pathSeparator
+								+ exFolder
+								+ "subjects-new/" + subject + "/" +version + "/target/test-classes"
+								+ File.pathSeparator
+								+ exFolder
+								+ "subjects-new/" + subject + "/" +version + "/target/classes"
+								+ File.pathSeparator + exFolder + libFolder
+								+ "log4j-1.2.13.jar"
+								+ File.pathSeparator + exFolder + libFolder
+								+ "joda-convert-1.2.jar"
+								+ File.pathSeparator + exFolder + libFolder
+								+ "junit-3.8.2.jar"
+								+ File.pathSeparator + exFolder + libFolder
+								+ "hamcrest-all-1.3.jar");
 		Options.v().set_keep_line_number(true);
 
 		// here we are defining an array sootArgs and set its elements to:
@@ -50,10 +96,20 @@ public class GoToChecker {
 		// 2-the output directory to which we are going to place the
 		// instrumented jar file
 
-		String[] sootArgs = { "-pp", "-process-dir", objectPath, "-d",
-				outputPath };
+		String[] sootArgs = {
+				"-pp",
+				"-process-dir",
 
-		// "-output-jar",
+				exFolder + "subjects-new/"+ subject + "/" + version + "/"
+						+ "target/test-classes",
+				"-output-jar",
+				"-d",
+				"C:/Users/xintao/Desktop/doExForWang/instrumented-file/joda/" +"1.1.1.jar" };
+
+		// String[] sootArgs = {"-pp",
+		// "-process-dir","C:/Users/Tareg/Desktop/sem2/Independent-Study/subjects-new/jodatime/joda-time-2.6/target/test-classes",
+		// "-output-jar","-d","C:/Users/Tareg/Desktop/sem2/Independent-Study/instrumented-file/joda/1.1.1.jar"
+		// };
 
 		// here we are trying to make soot perform our analysis that defined in
 		// the instrumenter class
@@ -68,15 +124,6 @@ public class GoToChecker {
 		Scene.v().addBasicClass("java.lang.System", SootClass.SIGNATURES);
 
 		soot.Main.main(sootArgs);
-	}
-
-	public static void main(String[] args) {
-
-		// here we try to set the library class path
-		String objectPath = "C:/Users/xintao/Desktop/njutest/test_original.jar";
-		String methodName = "";
-		String outputPath = "C:/Users/xintao/Desktop/njutest/output/test/";
-		GoToChecker.test(objectPath, methodName, outputPath);
 
 	}
 } // end of the main
@@ -91,8 +138,6 @@ class GotoInstrumenter extends BodyTransformer {
 	// define soot method which is the method that contain the logic of analysis
 	static SootClass dumperClass;
 	static SootMethod reportDump;
-
-	private SootClass javaIoPrintStream;
 
 	// load the dumper class into the soot class
 	// then load the dump method into the soot method
@@ -118,7 +163,6 @@ class GotoInstrumenter extends BodyTransformer {
 	// this method is the method that will be executed during analysis
 	// during execution soot will load the body of the input classes methods and
 	// pass it to this method
-	@SuppressWarnings("rawtypes")
 	protected void internalTransform(Body body, String phaseName, Map options) {
 
 		// since we want to perform our analysis on certain methods of the input
@@ -130,155 +174,72 @@ class GotoInstrumenter extends BodyTransformer {
 			return;
 		if (!isComplexMethod(body))
 			return;
+
+		SootClass sClass = body.getMethod().getDeclaringClass();
+		SootField gotoCounter = null;
+		boolean addedLocals = false;
+		Local tmpRef = null, tmpLong = null;
+		Chain units = body.getUnits();
+
 		// filter the method if it is:
 		// 1- constructor
 		// 2-
+		// 3- does not start with void test
 		if (body.getMethod().getName().equalsIgnoreCase("<init>")
-				|| body.getMethod().getName().equalsIgnoreCase("<clinit>")) {
-			// System.out.println(body.getMethod().getSubSignature());
+				|| body.getMethod().getName().equalsIgnoreCase("<clinit>")
+				|| (!body.getMethod().getSubSignature().startsWith("void test"))) {
+			System.out.println(body.getMethod().getSubSignature());
 			return;
 		}
 
-		javaIoPrintStream = Scene.v().getSootClass("java.io.PrintStream");
-		Local tempRef = addTmpRef(body);
+		{
+			boolean isMainMethod = body.getMethod().getSubSignature()
+					.startsWith("test");
 
-		SootMethod method = body.getMethod();
-		System.out.println("instrumenting method : " + method.getSignature());
-		Chain<Unit> units = body.getUnits();
-		Iterator stmtIt = units.snapshotIterator();
+			String packageName = body.getMethod().getDeclaringClass()
+					.getJavaPackageName();
+			String testClassName = body.getMethod().getDeclaringClass()
+					.getName();
+			String methodName = body.getMethod().getName();
 
-//		String testClassName = body.getMethod().getDeclaringClass().getName();
-		// Local referenceOfObject = getReferenceOfObject(body, testClassName);
-		// if (referenceOfObject == null)
-		// return;
+			// here trying to get any instance of the class that we are
+			// analyzing
+			Local referenceOfObject = getReferenceOfObject(body, testClassName);
 
-		UnitGraph g = new BriefUnitGraph(body);
-		InitAnalysis analysis = new InitAnalysis(g);
-
-		while (stmtIt.hasNext()) {
-			Stmt s = (Stmt) stmtIt.next();
-
-//			String methodName = body.getMethod().getName();
-
-			if (s instanceof InvokeStmt) {
-				System.out.println("instrumtaion : " + s);
-				addStmtsIndicator(units, s, tempRef);
-				Chain<Local> locals = body.getLocals();
-
-				// get those variables that are initialized
-				FlowSet init = (FlowSet) analysis.getFlowBefore(s);
-
-				for (Local local : locals) {
-					if (init.contains(local)) {
-						addStmtsToBefore(units, s, local, tempRef);
-					}
-					//
-					// else {
-					// System.out.println("Warning: Local variable " + local
-					// + " not definitely defined at " + s + " in "
-					// + method);
-					// }
-					// temp = repStmt;
-					// **************************************** here to try
-					// break;
-				}
-			}
-		}
-	}
-
-	private Local addTmpRef(Body body) {
-		Local tmpRef = Jimple.v().newLocal("tmpRef",
-				RefType.v("java.io.PrintStream"));
-		body.getLocals().add(tmpRef);
-		return tmpRef;
-	}
-	
-	public void addStmtsIndicator(Chain<Unit> units, Stmt s, Local tmpRef){
-		units.insertBefore(
-				Jimple.v()
-						.newAssignStmt(
-								tmpRef,
-								Jimple.v()
-										.newStaticFieldRef(
-												Scene.v()
-														.getField(
-																"<java.lang.System: java.io.PrintStream out>")
-														.makeRef())), s);
-		
-		SootMethod toCallCha = javaIoPrintStream
-				.getMethod("void print(java.lang.String)");
-		units.insertBefore(
-				Jimple.v().newInvokeStmt(
-						Jimple.v().newVirtualInvokeExpr(tmpRef,
-								toCallCha.makeRef(),
-								StringConstant.v("memories before :" + s.toString() ))),
-				s);
-
-	}
-
-	public void addStmtsToBefore(Chain<Unit> units, Stmt s, Local variable,
-			Local tmpRef) {
-
-		// insert "tmpRef = java.lang.System.out;"
-		units.insertBefore(
-				Jimple.v()
-						.newAssignStmt(
-								tmpRef,
-								Jimple.v()
-										.newStaticFieldRef(
-												Scene.v()
-														.getField(
-																"<java.lang.System: java.io.PrintStream out>")
-														.makeRef())), s);
-
-
-		
-		String[] forbidden = { "StringBuilder", "PrintStream", "lib", "String",
-				"byte" };
-		for (String forb : forbidden)
-			if (variable.getType().toString().contains(forb))
+			if (referenceOfObject == null)
 				return;
+			// try to invoke the dumper method on the reference object
 
+			InvokeExpr recordDumpExp = Jimple.v().newStaticInvokeExpr(
+					reportDump.makeRef(), referenceOfObject,
+					StringConstant.v(methodName));
+			Iterator stmtIt = units.snapshotIterator();
 
-		SootMethod toCallCha = javaIoPrintStream
-				.getMethod("void print(java.lang.String)");
-		units.insertBefore(
-				Jimple.v().newInvokeStmt(
-						Jimple.v().newVirtualInvokeExpr(tmpRef,
-								toCallCha.makeRef(),
-								StringConstant.v(variable.getName() + " : "))),
-				s);
+			// try to invoke the dumper method
+			// first check weather the statement is not static
+			int i = 0;
+			Stmt prev = null;
+			while (stmtIt.hasNext()) {
 
-		String type = variable.getType().toString();
-		SootMethod toCall = javaIoPrintStream.getMethod("void println(" + type
-				+ ")");
-		units.insertBefore(
-				Jimple.v().newInvokeStmt(
-						Jimple.v().newVirtualInvokeExpr(tmpRef,
-								toCall.makeRef(), variable)), s);
-	}
-	
+				Stmt s = (Stmt) stmtIt.next();
+				System.out.println("instert : " + s.toString());
+				if (s instanceof InvokeStmt) {
+					InvokeExpr iexpr = (InvokeExpr) ((InvokeStmt) s)
+							.getInvokeExpr();
+					if (iexpr instanceof StaticInvokeExpr) {
+						SootMethod target = ((StaticInvokeExpr) iexpr)
+								.getMethod();
+					}
+				}
 
-	static void dump(Object obj, String methodName) {
-		try {
-			File file = new File("output" + obj.getClass().getName()
-					+ methodName + ".json");
+				else if (s instanceof ReturnStmt || s instanceof ReturnVoidStmt) {
+					Stmt dumpStmt = Jimple.v().newInvokeStmt(recordDumpExp);
+					units.insertBefore(dumpStmt, s);
+				}
+				i++;
+				prev = s;
 
-			System.out
-					.println(obj.getClass().getName() + "  " + obj.toString());
-
-			FileWriter output = new FileWriter(file, true);
-			if (!file.exists()) {
-				file.createNewFile();
 			}
-
-			Gson gson = new Gson(); // ?????????????????
-			String objOutput = gson.toJson(obj);
-			output.write(objOutput);
-			output.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -288,10 +249,22 @@ class GotoInstrumenter extends BodyTransformer {
 		return packageName + "." + split[0];
 	}
 
+	Local getReferenceOfObject(Body body, String objectType) {
+		Chain<Local> locals = body.getLocals();
+		for (Local local : locals) {
+
+			if (local.getType().toString().equalsIgnoreCase(objectType)) {
+
+				return local;
+			}
+		}
+		return null;
+	}
+
 	boolean isComplexMethod(Body body) {
 
 		PatchingChain<Unit> units = body.getUnits();
-		Iterator<Unit> stmtIt = units.snapshotIterator();
+		Iterator stmtIt = units.snapshotIterator();
 
 		while (stmtIt.hasNext()) {
 			Stmt s = (Stmt) stmtIt.next();
@@ -300,14 +273,24 @@ class GotoInstrumenter extends BodyTransformer {
 			}
 
 			if (s instanceof DefinitionStmt) {
-				// Value lhsOp = ((DefinitionStmt) s).getLeftOp();
+
+				Value lhsOp = ((DefinitionStmt) s).getLeftOp();
 				Value rhsOp = ((DefinitionStmt) s).getRightOp();
 				if (rhsOp instanceof InvokeExpr) {
 					return true;
 
 				}
 			}
+
 		}
+
+		// what the purpose of this????
+		Chain<Trap> traps = body.getTraps();
+		for (Trap trap : traps) {
+			return true;
+
+		}
+
 		return false;
 
 	}

@@ -20,7 +20,7 @@ import grandi2.ErrorLocatingDrivenArray_feedback_MUOFOT;
 import gandi.FD_CIT;
 import gandi.TraditionalFGLI;
 
-public class TestSensityOfSafeValueAssumption {
+public class TestSensityOfSafeValueAssumption2 {
 
 	public final static int ICT = 0;
 	public final static int SCT = 1;
@@ -64,7 +64,7 @@ public class TestSensityOfSafeValueAssumption {
 	public final static String[] SHOW = { "num", "num_r", "num_i", "recall", "precise", "f-measure", "multi", "time",
 			"time_r", "time_i", "t_cover", "all_cover", "w check", "w iden" };
 
-	public TestSensityOfSafeValueAssumption() {
+	public TestSensityOfSafeValueAssumption2() {
 
 	}
 
@@ -582,7 +582,7 @@ public class TestSensityOfSafeValueAssumption {
 		DataForSafeValueAssumption data = new DataForSafeValueAssumption(param_length, id);
 		/******************************/
 		
-		System.out.println("MFS number is  : " + (4*(data.getRealMFS().size())));
+		System.out.println("MFS number is  : " + (data.getRealMFS().size()));
 		testAlgorithm(subject, data, REP.ALG);
 	}
 
@@ -593,15 +593,16 @@ public class TestSensityOfSafeValueAssumption {
 	}
 
 	public static void main(String[] args) {
-		TestSensityOfSafeValueAssumption ex = new TestSensityOfSafeValueAssumption();
+		TestSensityOfSafeValueAssumption2 ex = new TestSensityOfSafeValueAssumption2();
 		// 
-		int param_length =  16 ;
 		
 //		List<List<Tuple>> = DataForSafeValueAssumption data = new DataForSafeValueAssumption(param_length, degree);
 		// 
-//		int[] num = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40,  50,60, 70, 80, 90 };
-		for (int id = 0; id < 11; id++) {
+	//	int[] num = new int[] { 8,10,16,  20, 30, 40,  50,60, 70, 80, 90 };
+		int[] num = new int[] {8,10,12, 16,  20, 25, 30, 35, 40,  50,60, 70, 80, 90 };
+		for (int id  : new int[]{2, 7}) {
 //			System.out.println("start : the number of MFS is :" + id);
+			int param_length = num[id];
 			ex.testSyn(param_length, id);
 		}
 	}
