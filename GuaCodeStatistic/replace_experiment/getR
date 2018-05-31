@@ -1,0 +1,9 @@
+#!/bin/sh
+export experiment_root=/mnt/c/Users/xintao/Desktop/replace_experiment
+for i in `seq 1 32`
+	do 
+		mkdir  $experiment_root/v$i/
+		scp xintao@gist.nju.edu.cn:/home/xintao/replace_experiment/replace/outputs.alt/v$i/bug_ot1.txt $experiment_root/v$i/
+		scp xintao@gist.nju.edu.cn:/home/xintao/replace_experiment/replace/outputs.alt/v$i/guaranteed.txt $experiment_root/v$i/
+	done
+exit 0

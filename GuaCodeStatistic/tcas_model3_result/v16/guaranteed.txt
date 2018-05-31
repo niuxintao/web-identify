@@ -1,0 +1,1 @@
+tuple	degree	softw	wg	sg	rewg	resg	soc	fautype
